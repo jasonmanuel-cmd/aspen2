@@ -2898,28 +2898,8 @@
             </div>
 
             <div class="reveal reveal-delay-1" style="margin-top:40px;display:flex;gap:40px;align-items:center;justify-content:center;flex-wrap:wrap;">
-                <!-- QR Code Section -->
-                <div style="flex:1;min-width:200px;max-width:300px;">
-                    <div style="background:#fff;padding:20px;border-radius:12px;display:inline-block;">
-                        <div id="qrcode" style="width:250px;height:250px;display:flex;align-items:center;justify-content:center;background:#fff;">
-                            <!-- QR Code will be generated here -->
-                            <div style="text-align:center;color:#999;">
-                                <div style="font-size:14px;font-weight:600;">QR Code</div>
-                                <div style="font-size:12px;margin-top:8px;">Generated below</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="margin-top:16px;font-size:13px;opacity:0.8;">Scan with your phone to register</p>
-                    <button onclick="downloadQRCode()" style="margin-top:12px;padding:10px 16px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;border-radius:8px;font-weight:600;font-size:12px;cursor:pointer;transition:all 0.2s;display:block;margin-left:auto;margin-right:auto;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
-                        📥 Download QR Code
-                    </button>
-                    <a href="qr-poster.html" style="display:block;margin-top:12px;padding:10px 16px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;border-radius:8px;font-weight:600;font-size:12px;text-decoration:none;text-align:center;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
-                        🖨️ Print Poster
-                    </a>
-                </div>
-
                 <!-- Registration Form Section -->
-                <div style="flex:1;min-width:280px;max-width:400px;text-align:left;">
+                <div style="flex:1;min-width:280px;max-width:400px;text-align:left;margin:0 auto;">
                     <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:28px;">
                         <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">Quick Register</h3>
                         <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px;">Already here? Fill this out and we'll send you everything.</p>
@@ -3019,7 +2999,6 @@
     <!-- ═══════════════════════════════════════
          SCRIPTS
     ═══════════════════════════════════════ -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         // ── Mortgage Calculator ──
         function calc() {
@@ -3235,28 +3214,6 @@
             });
         });
 
-        // ── QR Code Generation ──
-        let qrCodeInstance;
-        const qrText = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/openhouse.html';
-        qrCodeInstance = new QRCode(document.getElementById('qrcode'), {
-            text: qrText,
-            width: 250,
-            height: 250,
-            colorDark: '#161B21',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-        });
-
-        // ── Download QR Code ──
-        function downloadQRCode() {
-            const canvas = document.querySelector('#qrcode canvas');
-            if (canvas) {
-                const link = document.createElement('a');
-                link.href = canvas.toDataURL('image/png');
-                link.download = '585-wendy-dr-open-house-qr-code.png';
-                link.click();
-            }
-        }
 
         // ── Open House Form Submission ──
         document.getElementById('openHouseForm').addEventListener('submit', async function(e) {
