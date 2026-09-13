@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open House Registration — 585 N Wendy Dr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #161B21;
+            --gold: #C19A3F;
+            --gold-light: #E6CF8F;
+            --green-deep: #1F3A32;
+            --gray-muted: #6B7280;
+            --border: #E7E0D2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ink);
+            background: linear-gradient(135deg, #f5f3f0 0%, #faf9f7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 40px;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: var(--gray-muted);
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 15px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(193, 154, 63, 0.1);
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        .form-hint {
+            font-size: 11px;
+            color: var(--gray-muted);
+            margin-top: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--gold), #d4a843);
+            color: var(--ink);
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(193, 154, 63, 0.3);
+            margin-top: 24px;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(193, 154, 63, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 16px;
+        }
+
+        .success-message h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .success-message p {
+            font-size: 15px;
+            color: var(--gray-muted);
+            margin-bottom: 24px;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--green-deep);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .home-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(31, 58, 50, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        .property-name {
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 32px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Form -->
+        <div id="formContainer">
+            <div class="header">
+                <div class="header-icon">🏡</div>
+                <h1>Open House Registration</h1>
+                <p>585 N Wendy Dr, Newbury Park, CA</p>
+            </div>
+
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="First & last name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="email@example.com"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="(555) 123-4567"
+                    >
+                    <div class="form-hint">* At least one is required</div>
+                </div>
+
+                <button type="submit" class="submit-btn">Register & Return to Home</button>
+
+                <div class="contact-info">
+                    <div class="property-name">585 N Wendy Dr</div>
+                    <div>Newbury Park, CA 91320</div>
+                    <div style="margin-top:12px;">Questions? Call <a href="tel:6614727499" style="color:var(--gold);text-decoration:none;font-weight:600;">661-472-7499</a></div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successContainer" class="success-message">
+            <div class="success-icon">✓</div>
+            <h2>You're All Set!</h2>
+            <p>Thanks for registering. We have your information and look forward to seeing you at the open house.</p>
+            <a href="index.html" class="home-link">← Back to the Listing</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const submitBtn = this.querySelector('button[type="submit"]');
+
+            // Validate name
+            if (!name) {
+                alert('Please enter your name');
+                return;
+            }
+
+            // Validate: at least email OR phone required
+            const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const isValidPhone = /^[\d\s\-\+\(\)]{10,}$/.test(phone);
+
+            if (!email && !phone) {
+                alert('Please provide at least an email or phone number');
+                return;
+            }
+
+            if (email && !isValidEmail) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            if (phone && !isValidPhone) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+
+            submitBtn.textContent = 'Registering...';
+            submitBtn.disabled = true;
+
+            // Get current date and time
+            const now = new Date();
+            const dateTime = now.toLocaleString('en-US', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            });
+
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                property: '585 N Wendy Dr, Newbury Park, CA 91320',
+                location: '585 N Wendy Dr, Newbury Park, CA 91320',
+                source: 'Open House QR Code',
+                date_time: dateTime,
+                submission_date: new Date().toISOString()
+            };
+
+            try {
+                // Try to submit to CRM first
+                const crmResponse = await fetch('http://harbisonstandard.com/hq/api/openhouse', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                }).catch(err => {
+                    // Fallback to Formspree
+                    return fetch('https://formspree.io/f/xqpkdwrp', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            ...formData,
+                            _subject: `Open House Registration: ${name}`,
+                            _replyto: email
+                        })
+                    });
+                });
+
+                // Show success
+                document.getElementById('formContainer').style.display = 'none';
+                document.getElementById('successContainer').classList.add('show');
+
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+
+            } catch (error) {
+                console.error('Error:', error);
+                submitBtn.textContent = 'Error — Please Try Again';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
