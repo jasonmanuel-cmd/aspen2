@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - 585 N Wendy Dr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Vercel Web Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1F3A32 0%, #161B21 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            animation: slideUp 0.6s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 12px;
+            animation: slideUp 0.6s ease-out 0.3s both;
+        }
+
+        .message {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: slideUp 0.6s ease-out 0.4s both;
+        }
+
+        .details {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+            animation: slideUp 0.6s ease-out 0.5s both;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #E6CF8F;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 16px;
+            flex-direction: column;
+            animation: slideUp 0.6s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #C19A3F, #d4a843);
+            color: #161B21;
+            box-shadow: 0 4px 20px rgba(193, 154, 63, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(193, 154, 63, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .message {
+                font-size: 15px;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✓</div>
+        <h1>Thank You!</h1>
+        <p class="subtitle">Your request has been received</p>
+
+        <p class="message">
+            We've got your information and will be in touch within 30 minutes during business hours to confirm your registration or tour details.
+        </p>
+
+        <div class="details" id="detailsBox" style="display: none;">
+            <div class="detail-item">
+                <span class="detail-label">Name</span>
+                <span class="detail-value" id="detailName">—</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Contact</span>
+                <span class="detail-value" id="detailContact">—</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Submitted</span>
+                <span class="detail-value" id="detailTime">—</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="index.html" class="btn btn-primary">← Back to Listing</a>
+            <a href="tel:6614727499" class="btn btn-secondary">📞 Call (661) 472-7499</a>
+        </div>
+
+        <p style="margin-top: 40px; font-size: 13px; color: rgba(255,255,255,0.5);">
+            585 N Wendy Dr, Newbury Park, CA 91320
+        </p>
+    </div>
+
+    <script>
+        // Get submission details from URL params or sessionStorage
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name') || sessionStorage.getItem('lastSubmissionName') || '';
+        const email = params.get('email') || sessionStorage.getItem('lastSubmissionEmail') || '';
+        const phone = params.get('phone') || sessionStorage.getItem('lastSubmissionPhone') || '';
+        const time = params.get('time') || sessionStorage.getItem('lastSubmissionTime') || new Date().toLocaleString();
+
+        if (name) {
+            document.getElementById('detailsBox').style.display = 'block';
+            document.getElementById('detailName').textContent = name;
+
+            const contactInfo = [
+                email && email,
+                phone && phone
+            ].filter(Boolean).join(' / ') || 'Phone or Email';
+
+            document.getElementById('detailContact').textContent = contactInfo;
+            document.getElementById('detailTime').textContent = time;
+        }
+    </script>
+</body>
+</html>

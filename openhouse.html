@@ -339,39 +339,67 @@
             };
 
             try {
-// Also embedded in the supplied standalone forms so fallback survives a site outage.
-async function submitOpenHouse(formData) {
-  try {
-    const response = await fetch('https://www.harbisonstandard.com/hq/api/openhouse', {
-      method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify(formData),signal:AbortSignal.timeout(20000),
-    });
-    const result = await response.json();
-    if (response.ok && result.success === true) return result;
-  } catch { /* A timeout, network error or HTML response must use the backup. */ }
-  const backup = await fetch('https://formspree.io/f/xqpkdwrp', {
-    method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-    body:JSON.stringify({...formData,_subject:'Open House Registration',_replyto:formData.email}),
-    signal:AbortSignal.timeout(15000),
-  });
-  if (!backup.ok) throw new Error('Registration was not received. Please retry.');
-  return {success:true,delivery:'formspree'};
-}
+                // Submit to CRM first
+                let crmSuccess = false;
+                try {
+                    console.log('Sending to CRM:', formData);
+                    const response = await fetch('https://www.harbisonstandard.com/hq/api/openhouse', {
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify(formData),
+                        signal:AbortSignal.timeout(20000),
+                    });
+                    const result = await response.json();
+                    console.log('CRM Response:', result);
+                    if (response.ok && result.success === true) {
+                        crmSuccess = true;
+                        console.log('CRM submission successful');
+                    }
+                } catch (crmError) {
+                    console.warn('CRM submission failed:', crmError.message);
+                }
 
-                await submitOpenHouse(formData);
+                // Fallback to Formspree
+                let formspreeSuccess = false;
+                try {
+                    console.log('Sending to Formspree as backup');
+                    const backup = await fetch('https://formspree.io/f/xqpkdwrp', {
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify({...formData,_subject:'Open House Registration',_replyto:formData.email}),
+                        signal:AbortSignal.timeout(15000),
+                    });
+                    if (backup.ok) {
+                        formspreeSuccess = true;
+                        console.log('Formspree submission successful');
+                    }
+                } catch (fsError) {
+                    console.error('Formspree failed:', fsError.message);
+                }
+
+                if (!crmSuccess && !formspreeSuccess) {
+                    throw new Error('Unable to submit registration. Please try again.');
+                }
+
+                console.log('Submission complete. CRM:', crmSuccess, 'Formspree:', formspreeSuccess);
 
                 // Increment registration count
                 const currentCount = parseInt(localStorage.getItem('openHouseCount') || '0');
                 localStorage.setItem('openHouseCount', currentCount + 1);
 
-                // Show success
-                document.getElementById('formContainer').style.display = 'none';
-                document.getElementById('successContainer').classList.add('show');
+                // Store submission details
+                sessionStorage.setItem('lastSubmissionName', name);
+                sessionStorage.setItem('lastSubmissionEmail', email);
+                sessionStorage.setItem('lastSubmissionPhone', phone);
+                sessionStorage.setItem('lastSubmissionTime', dateTime);
 
-                // Redirect after 2 seconds
+                // Redirect to thank you page
                 setTimeout(() => {
-                    window.location.href = 'index.html';
-                }, 2000);
+                    window.location.href = 'thank-you.html?name=' + encodeURIComponent(name) +
+                        '&email=' + encodeURIComponent(email) +
+                        '&phone=' + encodeURIComponent(phone) +
+                        '&time=' + encodeURIComponent(dateTime);
+                }, 800);
 
             } catch (error) {
                 console.error('Error:', error);

@@ -221,17 +221,22 @@
         }
 
         /* Password Protection Modal */
+        body.locked {
+            overflow: hidden;
+        }
+
         .password-modal {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.9);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
         }
 
         .password-modal.hidden {
@@ -492,31 +497,43 @@
 
         // ── Password Protection ──
         const CORRECT_PASSWORD = 'Nbj661$';
+        const passwordModal = document.getElementById('passwordModal');
+        const passwordInput = document.getElementById('passwordInput');
+        const passwordError = document.getElementById('passwordError');
 
         function checkPassword() {
-            const input = document.getElementById('passwordInput').value;
-            const modal = document.getElementById('passwordModal');
-            const errorEl = document.getElementById('passwordError');
+            const input = passwordInput.value;
 
             if (input === CORRECT_PASSWORD) {
-                modal.classList.add('hidden');
+                passwordModal.classList.add('hidden');
+                document.body.classList.remove('locked');
                 sessionStorage.setItem('signInLogUnlocked', 'true');
+                passwordInput.value = '';
             } else {
-                errorEl.classList.add('show');
-                document.getElementById('passwordInput').value = '';
-                setTimeout(() => errorEl.classList.remove('show'), 3000);
+                passwordError.classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+                setTimeout(() => passwordError.classList.remove('show'), 3000);
             }
         }
 
-        // Check on load
-        window.addEventListener('load', () => {
-            if (sessionStorage.getItem('signInLogUnlocked') !== 'true') {
-                document.getElementById('passwordModal').classList.remove('hidden');
+        // Check if already unlocked
+        function initPasswordProtection() {
+            if (sessionStorage.getItem('signInLogUnlocked') === 'true') {
+                passwordModal.classList.add('hidden');
+                document.body.classList.remove('locked');
+            } else {
+                passwordModal.classList.remove('hidden');
+                document.body.classList.add('locked');
+                passwordInput.focus();
             }
-        });
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', initPasswordProtection);
 
         // Allow Enter key
-        document.getElementById('passwordInput')?.addEventListener('keypress', (e) => {
+        passwordInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') checkPassword();
         });
     </script>

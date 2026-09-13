@@ -3268,35 +3268,66 @@
                     submission_date: new Date().toISOString()
                 };
 
-                // Try CRM first, fallback to Formspree
-                async function submitTourRequest(data) {
-                  try {
+                // Submit to CRM first
+                let crmSuccess = false;
+                try {
+                    console.log('Sending tour request to CRM:', formData);
                     const res = await fetch('https://www.harbisonstandard.com/hq/api/openhouse', {
-                      method:'POST', headers:{'Content-Type':'application/json'},
-                      body:JSON.stringify(data), signal:AbortSignal.timeout(20000)
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify(formData),
+                        signal:AbortSignal.timeout(20000)
                     });
                     const result = await res.json();
-                    if (res.ok && result.success === true) return result;
-                  } catch { }
-                  const backup = await fetch('https://formspree.io/f/xqpkdwrp', {
-                    method:'POST', headers:{'Content-Type':'application/json'},
-                    body:JSON.stringify({...data, _subject:'Tour Request', _replyto:data.email}),
-                    signal:AbortSignal.timeout(15000)
-                  });
-                  if (!backup.ok) throw new Error('Request not received. Please try again.');
-                  return {success:true, delivery:'formspree'};
+                    console.log('CRM Response:', result);
+                    if (res.ok && result.success === true) {
+                        crmSuccess = true;
+                        console.log('CRM submission successful');
+                    }
+                } catch (crmError) {
+                    console.warn('CRM submission failed:', crmError.message);
                 }
 
-                await submitTourRequest(formData);
+                // Fallback to Formspree
+                let formspreeSuccess = false;
+                try {
+                    console.log('Sending to Formspree as backup');
+                    const backup = await fetch('https://formspree.io/f/xqpkdwrp', {
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:JSON.stringify({...formData, _subject:'Tour Request', _replyto:formData.email}),
+                        signal:AbortSignal.timeout(15000)
+                    });
+                    if (backup.ok) {
+                        formspreeSuccess = true;
+                        console.log('Formspree submission successful');
+                    }
+                } catch (fsError) {
+                    console.error('Formspree failed:', fsError.message);
+                }
+
+                if (!crmSuccess && !formspreeSuccess) {
+                    throw new Error('Request not received. Please try again.');
+                }
+
+                console.log('Submission complete. CRM:', crmSuccess, 'Formspree:', formspreeSuccess);
 
                 // Increment counter
                 const currentCount = parseInt(localStorage.getItem('openHouseCount') || '0');
                 localStorage.setItem('openHouseCount', currentCount + 1);
 
+                // Store submission details
+                sessionStorage.setItem('lastSubmissionName', name);
+                sessionStorage.setItem('lastSubmissionEmail', email);
+                sessionStorage.setItem('lastSubmissionPhone', phone);
+                sessionStorage.setItem('lastSubmissionTime', dateTime);
+
+                // Redirect to thank you page
                 setTimeout(() => {
-                    btn.textContent = '✓ Request Sent!';
-                    btn.style.background = 'linear-gradient(135deg, #2E554A, #1F3A32)';
-                    btn.style.color = '#fff';
+                    window.location.href = 'thank-you.html?name=' + encodeURIComponent(name) +
+                        '&email=' + encodeURIComponent(email) +
+                        '&phone=' + encodeURIComponent(phone) +
+                        '&time=' + encodeURIComponent(dateTime);
                 }, 800);
             } catch (error) {
                 btn.textContent = 'Error:Try Again';
