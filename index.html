@@ -2808,20 +2808,37 @@
                 <!-- Form -->
                 <div class="tour-form reveal reveal-delay-2">
                     <h3>Request your tour</h3>
-                    <p class="form-sub">Three fields. No spam. Just a door code and a time.</p>
+                    <p class="form-sub">Quick form. We'll reach out within 30 minutes.</p>
 
                     <form action="https://formspree.io/f/xqpkdwrp" method="POST" id="contactForm">
                         <div class="form-field">
-                            <label for="name">Your name</label>
-                            <input type="text" id="name" name="name" placeholder="First & last name" required>
+                            <label for="tour-name">Your name *</label>
+                            <input type="text" id="tour-name" name="name" placeholder="First & last name" required>
                         </div>
+
                         <div class="form-field">
-                            <label for="contact">Email or phone</label>
-                            <input type="text" id="contact" name="contact" placeholder="How should we reach you?" required>
+                            <label for="tour-email">Email</label>
+                            <input type="email" id="tour-email" name="email" placeholder="email@example.com">
                         </div>
+
                         <div class="form-field">
-                            <label for="time">When works for you?</label>
-                            <input type="text" id="time" name="preferred_time" placeholder="e.g. Saturday afternoon, any weekday evening...">
+                            <label for="tour-phone">Phone number</label>
+                            <input type="tel" id="tour-phone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="tour-contact-pref">How should we contact you? *</label>
+                            <select id="tour-contact-pref" name="contact_preference" required style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#fff;font-family:inherit;font-size:15px;outline:none;transition:border-color 0.2s;">
+                                <option value="" style="background:#161B21;color:#fff;">Select preference</option>
+                                <option value="email" style="background:#161B21;color:#fff;">Email</option>
+                                <option value="phone" style="background:#161B21;color:#fff;">Phone</option>
+                                <option value="either" style="background:#161B21;color:#fff;">Either (no preference)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="tour-time">When works for you?</label>
+                            <input type="text" id="tour-time" name="preferred_time" placeholder="e.g. Saturday afternoon, any weekday evening...">
                         </div>
 
                         <input type="hidden" name="_subject" value="🏡 New Tour Request — 585 N Wendy Dr">
@@ -2830,13 +2847,7 @@
                         <button type="submit" class="form-submit">Request My Tour →</button>
                     </form>
 
-                    <p class="form-micro">No spam. No pressure. We typically respond within 30 minutes during business hours.</p>
-
-                    <!-- Calendly placeholder -->
-                    <div class="calendar-embed">
-                        <p>Or <a href="https://calendly.com/YOUR-LINK" target="_blank">book directly on my calendar →</a></p>
-                        <p style="font-size:11px;margin-top:4px;">Replace with your Calendly/Cal.com embed</p>
-                    </div>
+                    <p class="form-micro">No spam. No pressure. Respond within 30 minutes during business hours.</p>
                 </div>
             </div>
         </div>
@@ -3205,6 +3216,39 @@
 
         // ── Form submission feedback ──
         document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const name = document.getElementById('tour-name').value.trim();
+            const email = document.getElementById('tour-email').value.trim();
+            const phone = document.getElementById('tour-phone').value.trim();
+            const contactPref = document.getElementById('tour-contact-pref').value;
+
+            // Validate: at least email or phone required
+            const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const isValidPhone = /^[\d\s\-\+\(\)]{10,}$/.test(phone);
+
+            if (!name) {
+                alert('Please enter your name');
+                e.preventDefault();
+                return;
+            }
+
+            if (!email && !phone) {
+                alert('Please provide at least an email or phone number');
+                e.preventDefault();
+                return;
+            }
+
+            if (email && !isValidEmail) {
+                alert('Please enter a valid email address');
+                e.preventDefault();
+                return;
+            }
+
+            if (phone && !isValidPhone) {
+                alert('Please enter a valid phone number');
+                e.preventDefault();
+                return;
+            }
+
             const btn = this.querySelector('.form-submit');
             btn.textContent = 'Sending…';
             btn.style.opacity = '0.7';
