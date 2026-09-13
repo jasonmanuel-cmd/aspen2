@@ -2893,8 +2893,15 @@
         <div class="section-inner" style="max-width:900px;text-align:center;">
             <div class="reveal">
                 <span class="section-eyebrow" style="color:var(--gold-light);justify-content:center;">Open House Tomorrow</span>
-                <h2 class="section-title" style="color:#fff;">Register Now — Scan the Code</h2>
-                <p class="section-subtitle" style="color:rgba(255,255,255,0.7);margin-left:auto;margin-right:auto;">Stop by the open house tomorrow. Scan this QR code on arrival to register, and we'll have the door code and all the details ready for you.</p>
+                <h2 class="section-title" style="color:#fff;">Register Now</h2>
+
+                <!-- Live Registration Counter -->
+                <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:20px;margin:24px 0;display:inline-block;">
+                    <div style="font-size:48px;font-weight:900;color:var(--gold-light);letter-spacing:-1px;" id="registrationCount">0</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px;">people registered so far</div>
+                </div>
+
+                <p class="section-subtitle" style="color:rgba(255,255,255,0.7);margin-left:auto;margin-right:auto;">Stop by the open house tomorrow and register to get instant access to all the details.</p>
             </div>
 
             <div class="reveal reveal-delay-1" style="margin-top:40px;display:flex;gap:40px;align-items:center;justify-content:center;flex-wrap:wrap;">
@@ -3215,6 +3222,15 @@
         });
 
 
+        // ── Update Registration Count ──
+        function updateRegistrationCount() {
+            const count = localStorage.getItem('openHouseCount') || '0';
+            document.getElementById('registrationCount').textContent = count;
+        }
+
+        // Initialize count on page load
+        updateRegistrationCount();
+
         // ── Open House Form Submission ──
         document.getElementById('openHouseForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -3302,6 +3318,11 @@
                 submitBtn.textContent = '✓ Registered!';
                 submitBtn.style.background = 'linear-gradient(135deg, #2E554A, #1F3A32)';
                 submitBtn.style.color = '#fff';
+
+                // Increment registration count
+                const currentCount = parseInt(localStorage.getItem('openHouseCount') || '0');
+                localStorage.setItem('openHouseCount', currentCount + 1);
+                updateRegistrationCount();
 
                 setTimeout(() => {
                     window.location.href = '/';

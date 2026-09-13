@@ -355,6 +355,10 @@
                     });
                 });
 
+                // Increment registration count
+                const currentCount = parseInt(localStorage.getItem('openHouseCount') || '0');
+                localStorage.setItem('openHouseCount', currentCount + 1);
+
                 // Show success
                 document.getElementById('formContainer').style.display = 'none';
                 document.getElementById('successContainer').classList.add('show');
