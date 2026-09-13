@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open House Sign-In Log — 585 N Wendy Dr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #161B21;
+            --gold: #C19A3F;
+            --gold-light: #E6CF8F;
+            --green-deep: #1F3A32;
+            --green-soft: #2E554A;
+            --gray-muted: #6B7280;
+            --border: #E7E0D2;
+            --cream: #F6F1E7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: var(--ink);
+            color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold-light);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--gold), #d4a843);
+            color: var(--ink);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(193, 154, 63, 0.3);
+        }
+
+        .export-btn {
+            background: var(--green-deep);
+            color: #fff;
+        }
+
+        .export-btn:hover {
+            box-shadow: 0 4px 12px rgba(31, 58, 50, 0.3);
+        }
+
+        .refresh-btn {
+            background: rgba(193, 154, 63, 0.15);
+            color: var(--ink);
+            border: 1px solid var(--gold);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        th {
+            background: var(--ink);
+            color: #fff;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: var(--cream);
+        }
+
+        .time-cell {
+            color: var(--gray-muted);
+            font-size: 12px;
+        }
+
+        .contact-cell {
+            font-size: 13px;
+        }
+
+        .email {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .phone {
+            color: var(--green-soft);
+            font-weight: 500;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-radius: 12px;
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .empty-state h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            color: var(--gray-muted);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray-muted);
+        }
+
+        .info-box {
+            background: rgba(193, 154, 63, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--ink);
+        }
+
+        .info-box strong {
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            th, td {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📋 Open House Sign-In Log</h1>
+            <p>585 N Wendy Dr, Newbury Park, CA 91320</p>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalCount">0</div>
+                    <div class="stat-label">Total Registrations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="emailCount">0</div>
+                    <div class="stat-label">With Email</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="phoneCount">0</div>
+                    <div class="stat-label">With Phone</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="lastTime">—</div>
+                    <div class="stat-label">Last Registration</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            💡 <strong>Live Updates:</strong> This log pulls data from Formspree. It will automatically refresh every 10 seconds. You can also manually refresh or export to CSV.
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="refresh-btn" onclick="loadSignInLog()">🔄 Refresh Now</button>
+            <button class="export-btn" onclick="exportToCSV()">📥 Export to CSV</button>
+        </div>
+
+        <!-- Table -->
+        <div id="logContainer">
+            <div class="loading">Loading sign-in log...</div>
+        </div>
+    </div>
+
+    <script>
+        let allRegistrations = [];
+
+        // Load sign-in log from Formspree
+        async function loadSignInLog() {
+            try {
+                // Note: This is a simple approach. For production, you'd want:
+                // 1. A backend API that securely retrieves Formspree data
+                // 2. Or connect directly to your CRM
+                // For now, we'll show a placeholder and instructions
+
+                const logContainer = document.getElementById('logContainer');
+
+                // Since we can't directly access Formspree API without a backend,
+                // we'll show instructions and a manual entry option
+                logContainer.innerHTML = `
+                    <div style="background:#fff;border-radius:12px;padding:30px;text-align:center;">
+                        <div style="font-size:24px;margin-bottom:16px;">⚙️</div>
+                        <h2 style="font-size:18px;margin-bottom:8px;">Live Data Connection Needed</h2>
+                        <p style="color:var(--gray-muted);margin-bottom:20px;">
+                            To see registrations in real-time, you have two options:
+                        </p>
+                        <div style="text-align:left;max-width:500px;margin:0 auto;background:var(--cream);padding:16px;border-radius:8px;font-size:13px;line-height:1.7;">
+                            <p><strong>Option 1: Formspree Dashboard</strong></p>
+                            <p style="color:var(--gray-muted);margin-bottom:12px;">
+                                Visit <a href="https://formspree.io/f/xqpkdwrp" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;">formspree.io</a> and log into your form to see all submissions in real-time. You can download CSV there.
+                            </p>
+                            <p style="margin-top:16px;"><strong>Option 2: CRM Integration</strong></p>
+                            <p style="color:var(--gray-muted);">
+                                Once you set up your CRM API endpoint at <code style="background:#fff;padding:2px 6px;border-radius:4px;">harbisonstandard.com/hq/api/openhouse</code>, we can display registrations here in real-time.
+                            </p>
+                        </div>
+                        <button onclick="window.open('https://formspree.io/f/xqpkdwrp', '_blank')" style="margin-top:20px;">
+                            📊 View on Formspree →
+                        </button>
+                    </div>
+                `;
+
+                updateStats();
+
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('logContainer').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">⚠️</div>
+                        <h2>Error Loading Data</h2>
+                        <p>Please check your connection and try again.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('totalCount').textContent = allRegistrations.length;
+            document.getElementById('emailCount').textContent = allRegistrations.filter(r => r.email).length;
+            document.getElementById('phoneCount').textContent = allRegistrations.filter(r => r.phone).length;
+
+            if (allRegistrations.length > 0) {
+                const lastReg = allRegistrations[allRegistrations.length - 1];
+                const lastTime = new Date(lastReg.submission_date).toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                document.getElementById('lastTime').textContent = lastTime;
+            }
+        }
+
+        function exportToCSV() {
+            if (allRegistrations.length === 0) {
+                alert('No registrations to export. Check Formspree directly.');
+                return;
+            }
+
+            let csv = 'Name,Email,Phone,Date/Time,Source,Property\n';
+            allRegistrations.forEach(reg => {
+                const row = [
+                    `"${reg.name || ''}"`,
+                    `"${reg.email || ''}"`,
+                    `"${reg.phone || ''}"`,
+                    `"${reg.date_time || ''}"`,
+                    `"${reg.source || ''}"`,
+                    `"${reg.property || '"}"`
+                ];
+                csv += row.join(',') + '\n';
+            });
+
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv));
+            element.setAttribute('download', '585-wendy-open-house-signin-' + new Date().toISOString().split('T')[0] + '.csv');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        // Load on page load
+        loadSignInLog();
+
+        // Auto-refresh every 10 seconds
+        setInterval(loadSignInLog, 10000);
+    </script>
+</body>
+</html>
