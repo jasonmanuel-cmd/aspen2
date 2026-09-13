@@ -2188,7 +2188,7 @@
                 <div class="gallery-item" onclick="openLightbox(0)">
                     <img src="img_585-n-wendy-dr-newbury-park-ca.jpg" alt="Exterior of 585 N Wendy Dr with Boney Mountain views" loading="eager">
                     <div class="gallery-overlay"></div>
-                    <span class="gallery-caption">Exterior — Boney Mountain Views</span>
+                    <span class="gallery-caption">Chef's Kitchen</span>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(1)">
                     <img src="img_kitchenfacinglivingroom.jpg" alt="Chef's kitchen with quartz countertops" loading="lazy">
@@ -2810,7 +2810,7 @@
                     <h3>Request your tour</h3>
                     <p class="form-sub">Quick form. We'll reach out within 30 minutes.</p>
 
-                    <form action="https://formspree.io/f/xqpkdwrp" method="POST" id="contactForm">
+                    <form id="contactForm">
                         <div class="form-field">
                             <label for="tour-name">Your name *</label>
                             <input type="text" id="tour-name" name="name" placeholder="First & last name" required>
@@ -3083,7 +3083,7 @@
 
         // ── Gallery Lightbox ──
         const galleryData = [
-            { src: 'img_585-n-wendy-dr-newbury-park-ca.jpg', caption: 'Exterior — Boney Mountain Views' },
+            { src: 'img_585-n-wendy-dr-newbury-park-ca.jpg', caption: 'Chef\'s Kitchen' },
             { src: 'img_kitchenfacinglivingroom.jpg', caption: 'Chef\'s Kitchen — Quartz Countertops & Pot Filler' },
             { src: 'img_livingroomfacingfireplace.jpg', caption: 'Living Room — Italian Veneer Fireplace' },
             { src: 'img_bathroom1.jpg', caption: 'Primary Bath — Fully Tiled Shower' },
@@ -3215,7 +3215,9 @@
         counterObserver.observe(counterEl);
 
         // ── Form submission feedback ──
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
             const name = document.getElementById('tour-name').value.trim();
             const email = document.getElementById('tour-email').value.trim();
             const phone = document.getElementById('tour-phone').value.trim();
@@ -3227,37 +3229,80 @@
 
             if (!name) {
                 alert('Please enter your name');
-                e.preventDefault();
                 return;
             }
 
             if (!email && !phone) {
                 alert('Please provide at least an email or phone number');
-                e.preventDefault();
                 return;
             }
 
             if (email && !isValidEmail) {
                 alert('Please enter a valid email address');
-                e.preventDefault();
                 return;
             }
 
             if (phone && !isValidPhone) {
                 alert('Please enter a valid phone number');
-                e.preventDefault();
                 return;
             }
 
             const btn = this.querySelector('.form-submit');
             btn.textContent = 'Sending…';
-            btn.style.opacity = '0.7';
-            setTimeout(() => {
-                btn.textContent = '✓ Request Sent!';
-                btn.style.background = 'linear-gradient(135deg, #2E554A, #1F3A32)';
-                btn.style.color = '#fff';
-                btn.style.opacity = '1';
-            }, 1500);
+            btn.disabled = true;
+
+            try {
+                const now = new Date();
+                const dateTime = now.toLocaleString('en-US', {
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+                });
+
+                const formData = {
+                    name, email, phone, contact_preference: contactPref,
+                    preferred_time: document.getElementById('tour-time').value || '',
+                    property: '585 N Wendy Dr, Newbury Park, CA 91320',
+                    location: '585 N Wendy Dr, Newbury Park, CA 91320',
+                    source: 'Tour Request Form',
+                    date_time: dateTime,
+                    submission_date: new Date().toISOString()
+                };
+
+                // Try CRM first, fallback to Formspree
+                async function submitTourRequest(data) {
+                  try {
+                    const res = await fetch('https://www.harbisonstandard.com/hq/api/openhouse', {
+                      method:'POST', headers:{'Content-Type':'application/json'},
+                      body:JSON.stringify(data), signal:AbortSignal.timeout(20000)
+                    });
+                    const result = await res.json();
+                    if (res.ok && result.success === true) return result;
+                  } catch { }
+                  const backup = await fetch('https://formspree.io/f/xqpkdwrp', {
+                    method:'POST', headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({...data, _subject:'Tour Request', _replyto:data.email}),
+                    signal:AbortSignal.timeout(15000)
+                  });
+                  if (!backup.ok) throw new Error('Request not received. Please try again.');
+                  return {success:true, delivery:'formspree'};
+                }
+
+                await submitTourRequest(formData);
+
+                // Increment counter
+                const currentCount = parseInt(localStorage.getItem('openHouseCount') || '0');
+                localStorage.setItem('openHouseCount', currentCount + 1);
+
+                setTimeout(() => {
+                    btn.textContent = '✓ Request Sent!';
+                    btn.style.background = 'linear-gradient(135deg, #2E554A, #1F3A32)';
+                    btn.style.color = '#fff';
+                }, 800);
+            } catch (error) {
+                btn.textContent = 'Error — Try Again';
+                btn.disabled = false;
+                console.error('Form error:', error);
+            }
         });
 
         // ── Smooth scroll for all anchor links ──

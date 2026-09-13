@@ -220,6 +220,92 @@
             color: var(--gold);
         }
 
+        /* Password Protection Modal */
+        .password-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .password-modal.hidden {
+            display: none;
+        }
+
+        .password-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .password-box h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+
+        .password-box p {
+            color: var(--gray-muted);
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .password-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(193, 154, 63, 0.1);
+        }
+
+        .password-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--gold);
+            color: var(--ink);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .password-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(193, 154, 63, 0.3);
+        }
+
+        .password-error {
+            color: #c41e3a;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .password-error.show {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .header {
                 padding: 20px;
@@ -249,6 +335,17 @@
     </style>
 </head>
 <body>
+    <!-- Password Protection Modal -->
+    <div id="passwordModal" class="password-modal">
+        <div class="password-box">
+            <h2>🔐 Access Required</h2>
+            <p>Enter the password to view the sign-in log</p>
+            <div class="password-error" id="passwordError">Incorrect password. Try again.</div>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" autocomplete="off">
+            <button class="password-btn" onclick="checkPassword()">Unlock</button>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -392,6 +489,36 @@
 
         // Auto-refresh every 10 seconds
         setInterval(loadSignInLog, 10000);
+
+        // ── Password Protection ──
+        const CORRECT_PASSWORD = 'Nbj661$';
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const modal = document.getElementById('passwordModal');
+            const errorEl = document.getElementById('passwordError');
+
+            if (input === CORRECT_PASSWORD) {
+                modal.classList.add('hidden');
+                sessionStorage.setItem('signInLogUnlocked', 'true');
+            } else {
+                errorEl.classList.add('show');
+                document.getElementById('passwordInput').value = '';
+                setTimeout(() => errorEl.classList.remove('show'), 3000);
+            }
+        }
+
+        // Check on load
+        window.addEventListener('load', () => {
+            if (sessionStorage.getItem('signInLogUnlocked') !== 'true') {
+                document.getElementById('passwordModal').classList.remove('hidden');
+            }
+        });
+
+        // Allow Enter key
+        document.getElementById('passwordInput')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkPassword();
+        });
     </script>
 </body>
 </html>
