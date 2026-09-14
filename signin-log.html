@@ -379,7 +379,7 @@
 
         <!-- Info Box -->
         <div class="info-box">
-            💡 <strong>Live Updates:</strong> This log pulls data from Formspree. It will automatically refresh every 10 seconds. You can also manually refresh or export to CSV.
+            💡 <strong>Live Updates:</strong> This log pulls data from the Harbison Standard CRM. It will automatically refresh every 10 seconds. You can also manually refresh or export to CSV.
         </div>
 
         <!-- Controls -->
@@ -397,53 +397,82 @@
     <script>
         let allRegistrations = [];
 
-        // Load sign-in log from Formspree
+        // Load sign-in log from CRM
         async function loadSignInLog() {
+            const logContainer = document.getElementById('logContainer');
+            logContainer.innerHTML = '<div class="loading">Loading sign-in log...</div>';
+
             try {
-                // Note: This is a simple approach. For production, you'd want:
-                // 1. A backend API that securely retrieves Formspree data
-                // 2. Or connect directly to your CRM
-                // For now, we'll show a placeholder and instructions
+                const response = await fetch('https://www.harbisonstandard.com/hq/api/openhouse-log', {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' },
+                    signal: AbortSignal.timeout(10000),
+                });
+                const result = await response.json();
 
-                const logContainer = document.getElementById('logContainer');
-
-                // Since we can't directly access Formspree API without a backend,
-                // we'll show instructions and a manual entry option
-                logContainer.innerHTML = `
-                    <div style="background:#fff;border-radius:12px;padding:30px;text-align:center;">
-                        <div style="font-size:24px;margin-bottom:16px;">⚙️</div>
-                        <h2 style="font-size:18px;margin-bottom:8px;">Live Data Connection Needed</h2>
-                        <p style="color:var(--gray-muted);margin-bottom:20px;">
-                            To see registrations in real-time, you have two options:
-                        </p>
-                        <div style="text-align:left;max-width:500px;margin:0 auto;background:var(--cream);padding:16px;border-radius:8px;font-size:13px;line-height:1.7;">
-                            <p><strong>Option 1: Formspree Dashboard</strong></p>
-                            <p style="color:var(--gray-muted);margin-bottom:12px;">
-                                Visit <a href="https://formspree.io/f/xqpkdwrp" target="_blank" style="color:var(--gold);text-decoration:none;font-weight:600;">formspree.io</a> and log into your form to see all submissions in real-time. You can download CSV there.
-                            </p>
-                            <p style="margin-top:16px;"><strong>Option 2: CRM Integration</strong></p>
-                            <p style="color:var(--gray-muted);">
-                                Once you set up your CRM API endpoint at <code style="background:#fff;padding:2px 6px;border-radius:4px;">harbisonstandard.com/hq/api/openhouse</code>, we can display registrations here in real-time.
-                            </p>
+                if (result.success && result.registrations && result.registrations.length > 0) {
+                    allRegistrations = result.registrations;
+                    renderRegistrations();
+                } else if (result.success && result.registrations && result.registrations.length === 0) {
+                    logContainer.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">📋</div>
+                            <h2>No Registrations Yet</h2>
+                            <p>Submissions will appear here in real-time as visitors register.</p>
                         </div>
-                        <button onclick="window.open('https://formspree.io/f/xqpkdwrp', '_blank')" style="margin-top:20px;">
-                            📊 View on Formspree →
-                        </button>
-                    </div>
-                `;
-
-                updateStats();
-
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('logContainer').innerHTML = `
+                    `;
+                } else {
+                    throw new Error(result.error || 'Failed to load');
+                }
+            } catch (err) {
+                console.error('Error loading sign-in log:', err);
+                logContainer.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-icon">⚠️</div>
-                        <h2>Error Loading Data</h2>
-                        <p>Please check your connection and try again.</p>
+                        <h2>Connection Error</h2>
+                        <p>${err.message || 'Unable to load registrations. Check your connection and try again.'}</p>
+                        <button onclick="loadSignInLog()" style="margin-top:16px;">Try Again</button>
                     </div>
                 `;
             }
+            updateStats();
+        }
+
+        function renderRegistrations() {
+            const logContainer = document.getElementById('logContainer');
+            if (allRegistrations.length === 0) {
+                logContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📋</div>
+                        <h2>No Registrations Yet</h2>
+                        <p>Submissions will appear here in real-time as visitors register.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '<table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Source</th><th>Date/Time</th></tr></thead><tbody>';
+            allRegistrations.forEach(reg => {
+                const date = reg.created_at ? new Date(reg.created_at).toLocaleString('en-US', {
+                    month: '2-digit', day: '2-digit', year: 'numeric',
+                    hour: '2-digit', minute: '2-digit', hour12: true
+                }) : '—';
+                html += `<tr>
+                    <td>${escapeHtml(reg.name || '')}</td>
+                    <td class="contact-cell"><a href="mailto:${escapeHtml(reg.email || '')}" class="email">${escapeHtml(reg.email || '')}</a></td>
+                    <td class="contact-cell"><a href="tel:${(reg.phone || '').replace(/\D/g,'')}" class="phone">${escapeHtml(reg.phone || '')}</a></td>
+                    <td>${escapeHtml(reg.source || '')}</td>
+                    <td class="time-cell">${date}</td>
+                </tr>`;
+            });
+            html += '</tbody></table>';
+            logContainer.innerHTML = html;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
         function updateStats() {
