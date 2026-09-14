@@ -397,18 +397,27 @@
     <script>
         let allRegistrations = [];
 
-        // Load sign-in log from CRM
+        // Load sign-in log from CRM or show Formspree dashboard
         async function loadSignInLog() {
             const logContainer = document.getElementById('logContainer');
             logContainer.innerHTML = '<div class="loading">Loading sign-in log...</div>';
 
             try {
+                // Try CRM first
+                console.log('Attempting to fetch from CRM endpoint...');
                 const response = await fetch('https://www.harbisonstandard.com/hq/api/openhouse-log', {
                     method: 'GET',
                     headers: { 'Accept': 'application/json' },
                     signal: AbortSignal.timeout(10000),
                 });
+
+                if (!response.ok) {
+                    console.warn('CRM endpoint returned:', response.status);
+                    throw new Error('CRM endpoint not responding');
+                }
+
                 const result = await response.json();
+                console.log('CRM Response:', result);
 
                 if (result.success && result.registrations && result.registrations.length > 0) {
                     allRegistrations = result.registrations;
@@ -428,10 +437,17 @@
                 console.error('Error loading sign-in log:', err);
                 logContainer.innerHTML = `
                     <div class="empty-state">
-                        <div class="empty-icon">⚠️</div>
-                        <h2>Connection Error</h2>
-                        <p>${err.message || 'Unable to load registrations. Check your connection and try again.'}</p>
-                        <button onclick="loadSignInLog()" style="margin-top:16px;">Try Again</button>
+                        <div class="empty-icon">📊</div>
+                        <h2>View Registrations on Formspree</h2>
+                        <p style="margin-bottom: 20px;">The registration data is being stored on Formspree. Visit the dashboard below to see all submissions:</p>
+                        <a href="https://formspree.io/f/xqpkdwrp" target="_blank" style="display:inline-block;background:#C19A3F;color:#161B21;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-bottom:16px;">📧 Open Formspree Dashboard</a>
+                        <p style="margin-top:16px;font-size:13px;color:var(--gray-muted);">You can also:</p>
+                        <ul style="text-align:left;max-width:400px;margin:12px auto;font-size:13px;color:var(--gray-muted);">
+                            <li>Download CSV export from Formspree</li>
+                            <li>Set up email notifications for new registrations</li>
+                            <li>View response analytics</li>
+                        </ul>
+                        <button onclick="loadSignInLog()" style="margin-top:20px;background:var(--green-deep);color:#fff;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;font-weight:600;">🔄 Retry CRM Connection</button>
                     </div>
                 `;
             }
@@ -532,13 +548,18 @@
 
         function checkPassword() {
             const input = passwordInput.value;
+            console.log('Password entered:', input);
+            console.log('Expected password:', CORRECT_PASSWORD);
+            console.log('Match:', input === CORRECT_PASSWORD);
 
             if (input === CORRECT_PASSWORD) {
+                console.log('Password correct! Unlocking...');
                 passwordModal.classList.add('hidden');
                 document.body.classList.remove('locked');
                 sessionStorage.setItem('signInLogUnlocked', 'true');
                 passwordInput.value = '';
             } else {
+                console.log('Password incorrect');
                 passwordError.classList.add('show');
                 passwordInput.value = '';
                 passwordInput.focus();
