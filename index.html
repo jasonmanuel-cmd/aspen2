@@ -650,10 +650,10 @@
         /* ═══════════════════════════════════════
            SECTIONS COMMON
         ═══════════════════════════════════════ */
-        .section { padding: 80px 24px; }
+        .section { padding: 96px 24px; }
 
         .section-inner {
-            max-width: 1120px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -666,32 +666,32 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .section-eyebrow::before {
             content: '';
-            width: 24px;
+            width: 28px;
             height: 2px;
             background: var(--gold);
             border-radius: 1px;
         }
 
         .section-title {
-            font-size: clamp(28px, 4vw, 42px);
+            font-size: clamp(28px, 4vw, 48px);
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.15;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             color: var(--ink);
         }
 
         .section-subtitle {
-            font-size: 17px;
+            font-size: 18px;
             color: var(--gray-muted);
-            max-width: 640px;
-            line-height: 1.65;
-            margin-bottom: 40px;
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 48px;
         }
 
         /* ═══════════════════════════════════════
@@ -702,8 +702,8 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            border-radius: 20px;
+            gap: 16px;
+            border-radius: 24px;
             overflow: hidden;
         }
 
@@ -939,7 +939,7 @@
         .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: start;
         }
 
@@ -1031,19 +1031,19 @@
         .reno-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 32px;
+            gap: 16px;
+            margin-top: 40px;
         }
 
         .reno-item {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            padding: 14px 18px;
+            gap: 12px;
+            padding: 18px 22px;
             background: var(--paper);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 14px;
+            border-radius: 14px;
+            font-size: 15px;
             font-weight: 500;
             transition: all 0.2s;
         }
@@ -1136,8 +1136,8 @@
         .floorplan-container {
             background: var(--paper);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 48px;
             text-align: center;
         }
 
@@ -1162,25 +1162,25 @@
         .neighborhood-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 56px;
             align-items: start;
         }
 
         .lifestyle-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 24px;
+            gap: 16px;
+            margin-top: 28px;
         }
 
         .lifestyle-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 16px;
+            gap: 12px;
+            padding: 16px 18px;
             background: var(--cream);
-            border-radius: 12px;
-            font-size: 13px;
+            border-radius: 14px;
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.2s;
         }
@@ -1210,14 +1210,14 @@
         .schools-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 28px;
         }
 
         .school-card {
             background: var(--paper);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px 24px;
+            border-radius: 18px;
+            padding: 32px 28px;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -1299,31 +1299,31 @@
 
         .commute-table {
             width: 100%;
-            max-width: 700px;
+            max-width: 800px;
             border-collapse: separate;
-            border-spacing: 0 6px;
+            border-spacing: 0 8px;
         }
 
         .commute-table tr {
             background: var(--cream);
-            border-radius: 12px;
+            border-radius: 14px;
             transition: all 0.2s;
         }
 
-        .commute-table tr:hover { background: rgba(193, 154, 63, 0.06); }
+        .commute-table tr:hover { background: rgba(193, 154, 63, 0.1); }
 
         .commute-table td {
-            padding: 16px 20px;
+            padding: 18px 24px;
             font-size: 15px;
         }
 
         .commute-table td:first-child {
-            border-radius: 12px 0 0 12px;
+            border-radius: 14px 0 0 14px;
             font-weight: 600;
         }
 
         .commute-table td:last-child {
-            border-radius: 0 12px 12px 0;
+            border-radius: 0 14px 14px 0;
             text-align: right;
             color: var(--gray-muted);
             font-weight: 500;
@@ -1350,15 +1350,15 @@
         .financing-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 56px;
             align-items: start;
         }
 
         .calc-container {
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 32px;
+            border-radius: 24px;
+            padding: 40px;
         }
 
         .calc-header {
@@ -1373,14 +1373,14 @@
             margin-bottom: 24px;
         }
 
-        .calc-field { margin-bottom: 22px; }
+        .calc-field { margin-bottom: 28px; }
 
         .calc-field label {
             display: flex;
             justify-content: space-between;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .calc-field label span { color: var(--gold-light); }
@@ -1441,19 +1441,19 @@
             line-height: 1.5;
         }
 
-        .value-stack { margin-top: 16px; }
+        .value-stack { margin-top: 32px; }
 
         .value-stack-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
         }
 
         .value-item {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
-            padding: 16px 0;
+            gap: 16px;
+            padding: 20px 0;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
@@ -1491,15 +1491,15 @@
         .proof-strip {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            gap: 24px;
         }
 
         .proof-item {
             text-align: center;
-            padding: 28px 20px;
+            padding: 32px 24px;
             background: var(--paper);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 18px;
             transition: all 0.3s;
         }
 
@@ -1542,7 +1542,7 @@
         #faq { background: var(--paper); }
 
         .faq-list {
-            max-width: 760px;
+            max-width: 880px;
             margin: 0 auto;
         }
 
@@ -1553,8 +1553,8 @@
             text-align: left;
             background: none;
             border: none;
-            padding: 22px 0;
-            font-size: 16px;
+            padding: 28px 0;
+            font-size: 17px;
             font-weight: 600;
             cursor: pointer;
             font-family: inherit;
@@ -1594,10 +1594,10 @@
         }
 
         .faq-answer-inner {
-            padding: 0 0 22px;
-            font-size: 15px;
+            padding: 0 0 28px;
+            font-size: 16px;
             color: var(--gray-muted);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         /* ═══════════════════════════════════════
@@ -1608,13 +1608,13 @@
         .agent-card {
             display: flex;
             align-items: center;
-            gap: 32px;
-            max-width: 700px;
+            gap: 40px;
+            max-width: 800px;
             margin: 0 auto;
             background: var(--paper);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 32px;
+            border-radius: 24px;
+            padding: 40px;
         }
 
         .agent-photo {
@@ -1709,7 +1709,7 @@
         .tour-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: start;
             position: relative;
             z-index: 1;
@@ -1779,23 +1779,23 @@
         .tour-form {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 36px;
+            border-radius: 24px;
+            padding: 40px;
         }
 
         .tour-form h3 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         .tour-form .form-sub {
-            font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 24px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 32px;
         }
 
-        .form-field { margin-bottom: 16px; }
+        .form-field { margin-bottom: 20px; }
 
         .form-field label {
             display: block;
@@ -1885,9 +1885,9 @@
         .footer {
             background: #0e1117;
             color: rgba(255,255,255,0.6);
-            padding: 48px 24px;
-            font-size: 12px;
-            line-height: 1.7;
+            padding: 64px 24px;
+            font-size: 13px;
+            line-height: 1.8;
         }
 
         .footer-inner {
@@ -1998,22 +1998,22 @@
         ═══════════════════════════════════════ */
         .cta-banner {
             background: linear-gradient(135deg, var(--gold), #d4a843, var(--gold-light));
-            padding: 48px 24px;
+            padding: 56px 24px;
             text-align: center;
         }
 
         .cta-banner h2 {
-            font-size: clamp(22px, 3vw, 32px);
+            font-size: clamp(22px, 3vw, 36px);
             font-weight: 800;
             color: var(--ink);
             letter-spacing: -0.02em;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
 
         .cta-banner p {
-            font-size: 16px;
-            color: rgba(22, 27, 33, 0.65);
-            margin-bottom: 20px;
+            font-size: 17px;
+            color: rgba(22, 27, 33, 0.7);
+            margin-bottom: 24px;
         }
 
         .cta-banner .btn-dark {
@@ -2104,15 +2104,15 @@
             .agent-links { justify-content: center; }
             
             .mobile-cta-bar { display: flex; }
-            
+
             body { padding-bottom: 72px; }
-            
-            .section { padding: 60px 20px; }
-            
+
+            .section { padding: 72px 20px; }
+
             .gallery-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 4px;
-                border-radius: 12px;
+                gap: 8px;
+                border-radius: 16px;
             }
 
             .ba-slider { margin-top: 32px; }
