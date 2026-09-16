@@ -2065,7 +2065,7 @@
 
             .nav-links { display: none; }
             .nav-mobile-toggle { display: block; }
-            
+
             .stats-bar-inner {
                 justify-content: flex-start;
                 padding: 0 8px;
@@ -2075,25 +2075,28 @@
             }
             .stat-value { font-size: 15px; }
             .stat-label { font-size: 10px; }
-            
+
             .schools-grid,
             .proof-strip {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-            
+
             .lifestyle-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 12px;
             }
-            
+
             .reno-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
             }
-            
+
             .agent-card {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .agent-quote {
                 border-left: none;
                 padding-left: 0;
@@ -2102,7 +2105,7 @@
             }
 
             .agent-links { justify-content: center; }
-            
+
             .mobile-cta-bar { display: flex; }
 
             body { padding-bottom: 72px; }
@@ -2111,9 +2114,23 @@
 
             .gallery-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 8px;
-                border-radius: 16px;
+                gap: 12px;
+                border-radius: 20px;
             }
+
+            .commute-table {
+                max-width: 100%;
+                border-spacing: 0 6px;
+            }
+
+            .commute-table tr { border-radius: 12px; }
+
+            .commute-table td {
+                padding: 14px 18px;
+            }
+
+            .commute-table td:first-child { border-radius: 12px 0 0 12px; }
+            .commute-table td:last-child { border-radius: 0 12px 12px 0; }
 
             .ba-slider { margin-top: 32px; }
         }
