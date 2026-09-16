@@ -10,6 +10,10 @@
     <meta property="og:description" content="3 bed/2 bath, 1,633 sq ft. Chef's kitchen, 400+ sq ft bonus room, Boney Mountain views, top-rated schools. No HOA.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://585wendydr.com">
+    <meta name="geo.position" content="34.1850;-118.9250">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="Newbury Park, California">
+    <link rel="canonical" href="https://585wendydr.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -56,6 +60,51 @@
             {"@type":"Question","name":"Is the price negotiable?","acceptedAnswer":{"@type":"Answer","text":"Yes. The home was recently reduced from $899,000 to $880,000. The seller is motivated and open to reasonable offers, especially with strong financing."}},
             {"@type":"Question","name":"What was renovated?","acceptedAnswer":{"@type":"Answer","text":"The home was fully renovated including luxury vinyl plank flooring throughout, gold-and-black marbled quartz countertops, KitchenAid gas range, chef's pot filler, imported Italian veneer fireplace, fully tiled bathrooms, covered patio with custom hexagon Italian tile, and a 400+ sq ft finished bonus room."}},
             {"@type":"Question","name":"What about the 1960s systems?","acceptedAnswer":{"@type":"Answer","text":"The home has been updated with central heating and cooling, double-pane windows, and modern electrical. A full pre-listing inspection report is available for your review."}}
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Nathanael Harbison - Real Estate Agent",
+        "description": "Luxury real estate agent specializing in Newbury Park, CA properties and listings",
+        "url": "https://585wendydr.com",
+        "telephone": "(661) 472-7499",
+        "email": "nathanael@harbisonstandard.com",
+        "image": "https://585wendydr.com/nathanael-harbison.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "585 N Wendy Dr",
+            "addressLocality": "Newbury Park",
+            "addressRegion": "CA",
+            "postalCode": "91320",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "34.1850",
+            "longitude": "-118.9250"
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Newbury Park"
+            },
+            {
+                "@type": "City",
+                "name": "Conejo Valley"
+            },
+            {
+                "@type": "State",
+                "name": "California"
+            }
+        ],
+        "priceRange": "$$$",
+        "sameAs": [
+            "https://hshomeshub.site",
+            "https://hshomeshub.site/booking"
         ]
     }
     </script>
@@ -147,8 +196,9 @@
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 24px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -162,6 +212,15 @@
         }
 
         .nav-links a:hover { color: #fff; }
+
+        .nav-links a.booking-link {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .nav-links a.booking-link:hover {
+            color: var(--gold-light);
+        }
 
         .nav-links a::after {
             content: '';
@@ -2076,7 +2135,7 @@
                 <li><a href="#neighborhood">Neighborhood</a></li>
                 <li><a href="#schools">Schools</a></li>
                 <li><a href="#financing">Financing</a></li>
-                <li><a href="#open-house">Open House</a></li>
+                <li><a href="booking.html" class="booking-link">📅 Book with Nathanael</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ul>
             <a href="#tour" class="nav-cta">Schedule a Tour</a>
@@ -2093,7 +2152,7 @@
         <a href="#financing" onclick="closeMobileNav()">Financing</a>
         <a href="#open-house" onclick="closeMobileNav()">Open House</a>
         <a href="#faq" onclick="closeMobileNav()">FAQ</a>
-        <a href="#tour" class="nav-cta" onclick="closeMobileNav()">Schedule a Private Tour →</a>
+        <a href="booking.html" class="nav-cta" onclick="closeMobileNav()">📅 Book a Tour with Nathanael</a>
     </div>
 
     <!-- ═══════════════════════════════════════
