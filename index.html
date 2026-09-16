@@ -18,8 +18,8 @@
     <link rel="preload" as="image" href="img_585-n-wendy-dr-newbury-park-ca.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
     <!-- Vercel Web Analytics -->
     <script>
@@ -3198,15 +3198,20 @@
         }
         calc();
 
-        // ── Nav Scroll ──
+        // ── Nav Scroll (throttled) ──
+        let navScrollTimeout = null;
         window.addEventListener('scroll', () => {
-            const nav = document.getElementById('mainNav');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+            if (navScrollTimeout) return;
+            navScrollTimeout = requestAnimationFrame(() => {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                navScrollTimeout = null;
+            });
+        }, { passive: true });
 
         // ── Mobile Nav ──
         function closeMobileNav() {
@@ -3214,11 +3219,11 @@
             document.getElementById('mobileToggle').textContent = '☰';
         }
 
-        document.getElementById('mobileToggle').addEventListener('click', () => {
+        document.getElementById('mobileToggle').addEventListener('click', function() {
             const nav = document.getElementById('mobileNav');
             const isOpen = nav.classList.toggle('active');
-            document.getElementById('mobileToggle').textContent = isOpen ? '✕' : '☰';
-        });
+            this.textContent = isOpen ? '✕' : '☰';
+        }, { passive: true });
 
         // ── Scroll Reveal ──
         const revealElements = document.querySelectorAll('.reveal');
@@ -3308,39 +3313,59 @@
             }
         }
 
-        // ── Before/After Slider ──
-        const baSlider = document.getElementById('baSlider');
-        const baAfter = document.getElementById('baAfter');
-        const baHandle = document.getElementById('baHandle');
-        let isDragging = false;
+        // ── Before/After Slider (deferred) ──
+        function initBeforeAfterSlider() {
+            const baSlider = document.getElementById('baSlider');
+            if (!baSlider) return;
 
-        function updateSlider(x) {
-            const rect = baSlider.getBoundingClientRect();
-            let pos = (x - rect.left) / rect.width;
-            pos = Math.max(0.05, Math.min(0.95, pos));
-            baAfter.style.clipPath = `inset(0 0 0 ${pos * 100}%)`;
-            baHandle.style.left = `${pos * 100}%`;
+            const baAfter = document.getElementById('baAfter');
+            const baHandle = document.getElementById('baHandle');
+            let isDragging = false;
+
+            function updateSlider(x) {
+                const rect = baSlider.getBoundingClientRect();
+                let pos = (x - rect.left) / rect.width;
+                pos = Math.max(0.05, Math.min(0.95, pos));
+                baAfter.style.clipPath = `inset(0 0 0 ${pos * 100}%)`;
+                baHandle.style.left = `${pos * 100}%`;
+            }
+
+            baSlider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+            window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); }, { passive: true });
+            window.addEventListener('mouseup', () => { isDragging = false; }, { passive: true });
+
+            baSlider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
+            window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
+            window.addEventListener('touchend', () => { isDragging = false; }, { passive: true });
         }
 
-        baSlider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
-        window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
-        window.addEventListener('mouseup', () => { isDragging = false; });
-
-        baSlider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
-        window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
-        window.addEventListener('touchend', () => { isDragging = false; });
-
-        // ── Hero Particles ──
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 20; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            p.style.left = Math.random() * 100 + '%';
-            p.style.width = p.style.height = (Math.random() * 3 + 1) + 'px';
-            p.style.animationDuration = (Math.random() * 15 + 10) + 's';
-            p.style.animationDelay = (Math.random() * 10) + 's';
-            particlesContainer.appendChild(p);
+        // Initialize slider when it becomes visible
+        const baSliderEl = document.getElementById('baSlider');
+        if (baSliderEl) {
+            const baObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    initBeforeAfterSlider();
+                    baObserver.disconnect();
+                }
+            });
+            baObserver.observe(baSliderEl);
         }
+
+        // ── Hero Particles (deferred) ──
+        window.addEventListener('load', () => {
+            requestIdleCallback(() => {
+                const particlesContainer = document.getElementById('particles');
+                for (let i = 0; i < 20; i++) {
+                    const p = document.createElement('div');
+                    p.className = 'particle';
+                    p.style.left = Math.random() * 100 + '%';
+                    p.style.width = p.style.height = (Math.random() * 3 + 1) + 'px';
+                    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                    p.style.animationDelay = (Math.random() * 10) + 's';
+                    particlesContainer.appendChild(p);
+                }
+            }, { timeout: 2000 });
+        }, { once: true });
 
         // ── Animated counter ──
         function animateCounter(el, target) {
@@ -3648,6 +3673,15 @@
                 submitBtn.style.opacity = '1';
             }
         });
+
+        // ── Service Worker Registration ──
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {
+                    // Service worker registration failed, continue without it
+                });
+            });
+        }
     </script>
 </body>
 </html>
