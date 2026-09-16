@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspen II Homes — Rebuild Blueprint: SEO · AEO · GEO · 2026 Design System</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:#F6F2EB;color:#16211C;line-height:1.62;padding:0 16px 60px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto}
+  header{background:linear-gradient(135deg,#16211C 0%,#22332B 55%,#2E4436 100%);color:#F6F2EB;
+    border-radius:0 0 20px 20px;padding:52px 44px 44px;margin:0 -16px 30px}
+  header .kick{font-size:11.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#D99574}
+  header h1{font-size:clamp(1.9rem,4.2vw,2.9rem);line-height:1.08;letter-spacing:-.035em;margin:14px 0 14px;font-weight:800}
+  header p.lede{font-size:1.02rem;color:rgba(246,242,235,.76);max-width:66ch}
+  header .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+  .chip{background:rgba(246,242,235,.11);border:1px solid rgba(246,242,235,.2);
+    padding:6px 14px;border-radius:100px;font-size:12.5px;font-weight:600}
+  h2{font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:-.032em;margin:46px 0 6px;font-weight:800;line-height:1.15}
+  h2 .n{color:#B45F3A;font-weight:800}
+  .h2sub{color:#6E6659;font-size:14.5px;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid #E9E1D3}
+  h3{font-size:1.14rem;letter-spacing:-.022em;margin:26px 0 9px;font-weight:700;color:#16211C}
+  h4{font-size:15px;margin:18px 0 7px;font-weight:700;color:#22332B}
+  p{font-size:15px;margin-bottom:11px;color:#3A4A40}
+  ul,ol{padding-left:20px;margin:8px 0 14px}
+  li{font-size:14.6px;margin-bottom:7px;color:#3A4A40}
+  li b{color:#16211C}
+  .card{background:#fff;border:1px solid rgba(22,33,28,.11);border-radius:14px;padding:26px 28px;margin-bottom:16px}
+  .card-tight{padding:20px 22px}
+  table{width:100%;border-collapse:collapse;font-size:13.6px;margin:12px 0 6px}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid #EDE7DC;vertical-align:top}
+  th{background:#F6F2EB;font-size:10.8px;text-transform:uppercase;letter-spacing:.09em;color:#6E6659;font-weight:800}
+  tr:last-child td{border-bottom:none}
+  code{background:#EDE7DC;padding:1.5px 6px;border-radius:4px;font-size:12.6px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#8E4726}
+  pre{background:#16211C;color:#D8E0D4;padding:17px 19px;border-radius:11px;overflow-x:auto;
+    font-size:12.3px;line-height:1.62;margin:12px 0 6px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  pre .c{color:#7E8F70}
+  pre .k{color:#E0A182}
+  pre .s{color:#B9CBA8}
+  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10.5px;font-weight:800;white-space:nowrap}
+  .p-crit{background:#FBE3DA;color:#8E4726}
+  .p-high{background:#FBEEDC;color:#8A6211}
+  .p-mid{background:#DFE9F2;color:#2B5E86}
+  .p-ok{background:#E2EDDA;color:#3F6B33}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:800px){.grid2,.grid3{grid-template-columns:1fr}}
+  .box{border-radius:12px;padding:17px 20px;font-size:14px;margin:14px 0}
+  .box-warn{background:#FDF6EE;border-left:4px solid #B45F3A}
+  .box-note{background:#EFF4F8;border-left:4px solid #2B5E86}
+  .box-good{background:#F0F6EC;border-left:4px solid #7E8F70}
+  .box b{color:#16211C}
+  .box .t{font-weight:800;display:block;margin-bottom:5px;font-size:13px;letter-spacing:-.01em}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:12px;overflow:hidden;
+    border:1px solid rgba(22,33,28,.11);margin:14px 0;font-size:13.6px}
+  .ba>div{padding:17px 20px}
+  .ba .before{background:#FBF3EF;border-right:1px solid rgba(22,33,28,.11)}
+  .ba .after{background:#F0F6EC}
+  .ba .lbl{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;display:block}
+  .ba .before .lbl{color:#B45F3A}
+  .ba .after .lbl{color:#3F6B33}
+  @media(max-width:700px){.ba{grid-template-columns:1fr}.ba .before{border-right:0;border-bottom:1px solid rgba(22,33,28,.11)}}
+  .swatch{display:flex;flex-direction:column;border-radius:11px;overflow:hidden;border:1px solid rgba(22,33,28,.11);font-size:12px}
+  .swatch .sw{height:66px}
+  .swatch .meta{padding:10px 12px;background:#fff}
+  .swatch .meta b{display:block;font-size:12.6px}
+  .swatch .meta span{color:#6E6659;font-size:11px;font-family:ui-monospace,Menlo,monospace}
+  .step-row{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #EDE7DC}
+  .step-row:last-child{border-bottom:none}
+  .step-row .wk{font-weight:800;color:#B45F3A;font-size:13px;letter-spacing:-.01em;padding-top:2px}
+  .step-row .tt{font-weight:700;font-size:14.6px;margin-bottom:3px;letter-spacing:-.018em}
+  .step-row .dd{font-size:13.6px;color:#6E6659}
+  .kpi{background:#fff;border:1px solid rgba(22,33,28,.11);border-radius:11px;padding:15px 17px}
+  .kpi .m{font-size:10.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#6E6659}
+  .kpi .v{font-size:1.5rem;font-weight:800;letter-spacing:-.035em;margin:5px 0 2px;color:#16211C}
+  .kpi .c{font-size:12px;color:#B45F3A;font-weight:700}
+  .tok{display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:13.4px;margin-top:8px}
+  .tok div{background:#F6F2EB;padding:8px 12px;border-radius:7px;display:flex;justify-content:space-between;gap:10px}
+  .tok code{background:none;color:#8E4726;padding:0}
+  footer{text-align:center;font-size:12px;color:#8A8275;padding:34px 0 0;margin-top:44px;
+    border-top:1px solid #E9E1D3}
+  .toc{background:#fff;border:1px solid rgba(22,33,28,.11);border-radius:14px;padding:22px 26px;margin-bottom:8px}
+  .toc ol{columns:2;column-gap:34px;padding-left:20px;margin:0}
+  .toc li{font-size:14px;margin-bottom:7px;break-inside:avoid}
+  @media(max-width:700px){.toc ol{columns:1}}
+  .toc a{color:#22332B;font-weight:600;border-bottom:1px solid #E9E1D3}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="kick">Rebuild Blueprint · Aspen II Homes · aspen2homes.com</p>
+    <h1>How to go from invisible to<br>the default answer in Kern County.</h1>
+    <p class="lede">A complete, buildable plan covering search engine optimization, answer engine optimization, generative engine optimization, and the design system that makes the whole thing look like it was shipped in 2026 — with a working homepage prototype to point at.</p>
+    <div class="chips">
+      <span class="chip">38-page architecture</span>
+      <span class="chip">Full schema spec</span>
+      <span class="chip">llms.txt + AI crawler policy</span>
+      <span class="chip">Core Web Vitals budget</span>
+      <span class="chip">12-week roadmap</span>
+      <span class="chip">Prompt-testing protocol</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <ol>
+    <li><a href="#s1">What "top of search" actually means here</a></li>
+    <li><a href="#s2">The three engines: SEO · AEO · GEO</a></li>
+    <li><a href="#s3">Site architecture — 38 pages</a></li>
+    <li><a href="#s4">Technical build spec</a></li>
+    <li><a href="#s5">Schema — the single highest-leverage asset</a></li>
+    <li><a href="#s6">Files AI crawlers read (llms.txt, robots)</a></li>
+    <li><a href="#s7">SEO execution plan</a></li>
+    <li><a href="#s8">AEO execution plan</a></li>
+    <li><a href="#s9">GEO execution plan</a></li>
+    <li><a href="#s10">Design: 2002 → 2026 teardown</a></li>
+    <li><a href="#s11">Design system &amp; components</a></li>
+    <li><a href="#s12">Content rewrite — kill the fluff</a></li>
+    <li><a href="#s13">12-week roadmap</a></li>
+    <li><a href="#s14">KPIs &amp; measurement</a></li>
+    <li><a href="#s15">Effort &amp; budget</a></li>
+  </ol>
+</div>
+
+<!-- ============ 1 ============ -->
+<h2 id="s1"><span class="n">01 ·</span> What "top of search" actually means here</h2>
+<p class="h2sub">Setting targets you can actually win, instead of chasing queries a small builder cannot.</p>
+
+<div class="card">
+<p>You will never outrank Zillow, Redfin, or NewHomeSource for <code>new homes in California</code>. That's not the goal, and chasing it would waste the budget. For a builder doing 5–20 homes a year in Kern County, "top of search" means winning four specific, winnable contests:</p>
+
+<table>
+  <tr><th style="width:22%">Contest</th><th style="width:30%">What winning looks like</th><th>Why it's winnable</th></tr>
+  <tr><td><b>Branded</b></td><td>#1 for "Aspen II Homes", "Aspen 2 Homes", "Aspen II Homes Tehachapi" — and own the entire first page</td><td>Already true for the homepage. Extend it to reviews, inventory, plans, and the knowledge panel.</td></tr>
+  <tr><td><b>Local service</b></td><td>Top 3 in the Google Map Pack for "custom home builder Tehachapi", "home builder near me", "new construction Kern County"</td><td>Your competitors are tiny operators with no schema and 3–8 reviews. Beating them is a weekend of disciplined work.</td></tr>
+  <tr><td><b>Inventory &amp; plan</b></td><td>Rank for "move-in ready homes Tehachapi", "new homes Bear Valley Springs", "3 bed 2 bath new construction Tehachapi 93561"</td><td>Nobody in Kern County is publishing structured inventory data. First mover wins this outright.</td></tr>
+  <tr><td><b>AI recommendation</b></td><td>Named when someone asks ChatGPT, Gemini, Perplexity or Google AI Overviews "who should build my house in Tehachapi?"</td><td>This contest is currently uncontested. That's the whole opportunity.</td></tr>
+</table>
+
+<div class="box box-warn"><span class="t">Reality check on volume</span>
+Search volume for "custom home builder Tehachapi" is in the tens per month, not thousands. That's fine — a single signed contract is worth $30K–$80K in margin. This plan optimizes for <b>5–15 qualified leads a month</b>, not traffic. Judge everything on leads and signed contracts, never sessions.</div>
+</div>
+
+<!-- ============ 2 ============ -->
+<h2 id="s2"><span class="n">02 ·</span> The three engines: SEO · AEO · GEO</h2>
+<p class="h2sub">Three different retrieval systems, one shared foundation. Get the foundation right and all three improve together.</p>
+
+<div class="grid3">
+  <div class="card card-tight">
+    <span class="pill p-mid">SEO</span>
+    <h4>Search Engine Optimization</h4>
+    <p style="font-size:13.6px">Ranking in Google's blue links and the local map pack. Rewards: crawlability, keyword relevance, page speed, backlinks, user engagement, Google Business Profile signals.</p>
+    <p style="font-size:13.6px"><b>Output:</b> position in a list of 10 results.</p>
+  </div>
+  <div class="card card-tight">
+    <span class="pill p-high">AEO</span>
+    <h4>Answer Engine Optimization</h4>
+    <p style="font-size:13.6px">Being <i>the answer</i> rather than a link — featured snippets, People Also Ask boxes, knowledge panels, voice assistant replies, "zero-click" answers.</p>
+    <p style="font-size:13.6px"><b>Output:</b> a single quoted passage with your name attached.</p>
+  </div>
+  <div class="card card-tight">
+    <span class="pill p-crit">GEO</span>
+    <h4>Generative Engine Optimization</h4>
+    <p style="font-size:13.6px">Being <i>cited and recommended</i> by LLMs — ChatGPT, Gemini, Perplexity, Copilot, Google AI Overviews, Meta AI. Rewards: entity clarity, third-party corroboration, extractable facts, review sentiment.</p>
+    <p style="font-size:13.6px"><b>Output:</b> inclusion in a synthesized recommendation.</p>
+  </div>
+</div>
+
+<div class="card">
+<h3>The shared foundation — do these five and all three engines move</h3>
+<ol>
+  <li><b>Entity clarity.</b> One unambiguous, machine-readable definition of who Aspen II Homes is: name, license, address, phone, service area, founding date. Published identically everywhere.</li>
+  <li><b>Extractable facts.</b> Real numbers in real sentences — square footage, prices, timelines, warranty terms, license numbers. LLMs cannot quote "unparalleled quality."</li>
+  <li><b>Third-party corroboration.</b> Independent sources repeating your facts. Google trusts links; LLMs trust agreement between sources. This is why BBB and directory cleanup matters as much as your own site.</li>
+  <li><b>Answer-first structure.</b> Every page answers a question in the first 40–60 words, then elaborates. This is what wins snippets and gets lifted into AI answers verbatim.</li>
+  <li><b>Proof of legitimacy.</b> Reviews, permits, licenses, years in business. All three engines use reputation as a trust gate, and it's currently your biggest gap.</li>
+</ol>
+<div class="box box-note"><span class="t">Why this framing saves you money</span>
+You do not build three separate strategies. You build one well-structured, fact-dense, fast, schema-marked site and one clean citation footprint — then you measure three different scoreboards. Every hour spent on schema serves all three engines simultaneously.</div>
+</div>
+
+<!-- ============ 3 ============ -->
+<h2 id="s3"><span class="n">03 ·</span> Site architecture — 38 pages</h2>
+<p class="h2sub">From 14 thin pages to a structure that covers every stage of buyer intent.</p>
+
+<div class="card">
+<p>The current site has 14 pages, 11 of them untouched since 2023, with five near-identical location pages. The rebuild organizes around <b>how people actually shop for a $500K home</b> — they browse available inventory first, then plans, then interrogate the builder's credibility.</p>
+
+<table>
+  <tr><th style="width:16%">Cluster</th><th style="width:26%">Pages</th><th>Intent &amp; job</th></tr>
+  <tr>
+    <td><b>Core</b><br><span class="pill p-crit">P0</span></td>
+    <td>Home · Contact · About</td>
+    <td>Conversion hub and credibility. Home carries inventory, plans, warranty, proof, and FAQ.</td>
+  </tr>
+  <tr>
+    <td><b>Inventory</b><br><span class="pill p-crit">P0</span></td>
+    <td>Available Homes (index) + <b>one page per home</b> (6–12, dynamic)</td>
+    <td><b>The money pages.</b> Each home gets its own URL: address, plan, beds/baths/sqft, price, status, photo gallery, lot map, estimated payment. These rank for address-level and "$500K homes in Tehachapi" queries and are what AI can quote.</td>
+  </tr>
+  <tr>
+    <td><b>Floor plans</b><br><span class="pill p-crit">P0</span></td>
+    <td>Floor Plans (index) + <b>6 plan pages</b></td>
+    <td>One page per plan with specs, interactive plan image, gallery, options and price range. Currently the six plan pages exist but are thin and unmarked.</td>
+  </tr>
+  <tr>
+    <td><b>Process</b><br><span class="pill p-high">P1</span></td>
+    <td>Our Process · Build on Your Lot · Warranty &amp; Quality · Financing</td>
+    <td>Removes objections. The Warranty page is also your direct reputational counterweight — see §12.</td>
+  </tr>
+  <tr>
+    <td><b>Communities</b><br><span class="pill p-high">P1</span></td>
+    <td>6 pages: Tehachapi · Golden Hills · Bear Valley Springs · Stallion Springs · California City · Ridgecrest</td>
+    <td><b>Must be genuinely rewritten, not find-and-replaced.</b> Each needs real local detail: permit authority, schools, utilities, HOA rules, lot availability, typical build times. Duplicated templates actively hurt you here.</td>
+  </tr>
+  <tr>
+    <td><b>Proof</b><br><span class="pill p-high">P1</span></td>
+    <td>Portfolio / Completed Homes · Homeowner Stories · Heroes of the Nation</td>
+    <td>The trust layer. Named homeowners, addresses, dates, before/after. Directly offsets the one negative review.</td>
+  </tr>
+  <tr>
+    <td><b>Answer</b><br><span class="pill p-mid">P2</span></td>
+    <td>FAQ hub + 8–12 standalone topic pages</td>
+    <td>One page per question: cost to build in Tehachapi, build timeline, permits in Kern County, VA construction loans, septic vs sewer, defensible-space requirements. These are your AEO and GEO citation magnets.</td>
+  </tr>
+  <tr>
+    <td><b>Utility</b><br><span class="pill p-mid">P2</span></td>
+    <td>Privacy · Terms · Accessibility · Company Facts (machine-readable)</td>
+    <td><code>/company-facts</code> is a plain, unstyled, canonical fact sheet — explicitly an AI-citation target. See §6.</td>
+  </tr>
+</table>
+
+<div class="box box-warn"><span class="t">The inventory feed is the whole ballgame</span>
+Available-homes pages are the highest-intent real estate on the site, and they change constantly. Build them as a <b>structured content type</b> (custom post type in WordPress, or a collection in Astro) so the office can add a home in five minutes without touching code. Each one auto-generates its schema, its sitemap entry, and its internal links. If inventory lives in a PDF or a Facebook post, none of this works.</div>
+</div>
+
+<!-- ============ 4 ============ -->
+<h2 id="s4"><span class="n">04 ·</span> Technical build spec</h2>
+<p class="h2sub">Platform, performance budget, and the infrastructure decisions.</p>
+
+<div class="card">
+<h3>Platform recommendation</h3>
+<div class="grid2">
+  <div class="card card-tight" style="border:2px solid #7E8F70">
+    <span class="pill p-ok">RECOMMENDED · TRACK A</span>
+    <h4>WordPress, rebuilt lean</h4>
+    <ul style="font-size:13.4px">
+      <li>Keep WordPress — your team and Site Kit already live there</li>
+      <li><b>Remove Elementor.</b> It is generating 31 stylesheets and 43 scripts on one page. Replace with native blocks + Kadence or GenerateBlocks</li>
+      <li>Theme: Kadence or GeneratePress (lightweight, block-native)</li>
+      <li>Schema: custom JSON-LD in the theme header — do not rely on a plugin for the core entity</li>
+      <li>Hosting: Cloudflare (already in front) + Kinsta or WPX for origin</li>
+      <li>Cost: low. Timeline: 4–6 weeks. Maintainable by a local dev shop.</li>
+    </ul>
+  </div>
+  <div class="card card-tight">
+    <span class="pill p-mid">MAX PERFORMANCE · TRACK B</span>
+    <h4>Astro + headless CMS</h4>
+    <ul style="font-size:13.4px">
+      <li>Ships near-zero JavaScript — near-perfect Core Web Vitals</li>
+      <li>Content in Sanity or TinaCMS so staff can edit inventory</li>
+      <li>Deploy on Cloudflare Pages or Netlify, free to ~$20/mo</li>
+      <li>Cost: higher build cost. Timeline: 8–10 weeks</li>
+      <li><b>Trade-off:</b> needs a developer on call for changes</li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top:14px"><b>Bottom line:</b> Track A unless you have a developer on retainer. The difference between a well-built WordPress site and an Astro site is 200ms; the difference between your current site and either is three seconds. Don't let platform politics delay the schema, inventory, and review work — that's where 80% of the gain lives.</p>
+</div>
+
+<div class="card">
+<h3>Performance budget — enforce these, don't aspire to them</h3>
+<table>
+  <tr><th style="width:26%">Metric</th><th style="width:20%">Target</th><th>How</th></tr>
+  <tr><td>Largest Contentful Paint</td><td><b>&lt; 2.0s</b> mobile 4G</td><td>Inline critical CSS, preload hero image, no autoplay video, no render-blocking scripts</td></tr>
+  <tr><td>Interaction to Next Paint</td><td><b>&lt; 200ms</b></td><td>Get Elementor out; defer all non-critical JS; keep total JS under 150KB gzipped</td></tr>
+  <tr><td>Cumulative Layout Shift</td><td><b>&lt; 0.05</b></td><td>Explicit width/height on every image; font-display: swap; reserve space for embeds</td></tr>
+  <tr><td>Total page weight (home)</td><td><b>&lt; 1.2MB</b></td><td>Current: ~168KB HTML alone plus 31 CSS files and unoptimized JPEGs</td></tr>
+  <tr><td>Image format</td><td><b>AVIF → WebP → JPEG</b></td><td>Serve responsive <code>srcset</code>; lazy-load everything below the fold; keep hero eager</td></tr>
+  <tr><td>Requests</td><td><b>&lt; 45</b></td><td>Combine CSS, drop unused plugins, self-host fonts (no Google Fonts CDN call)</td></tr>
+</table>
+<div class="box box-warn"><span class="t">Kill the autoplaying hero video</span>
+A muted autoplay YouTube embed in the hero is the single worst performance decision on the current site. It pulls in YouTube's player, delays LCP, and — because the source channel has zero subscribers — signals "tiny operation" rather than "established builder." Replace it with one strong still, click-to-play, lazy-loaded on interaction.</div>
+</div>
+
+<div class="card">
+<h3>Tracking &amp; measurement infrastructure</h3>
+<ul>
+  <li><b>GA4</b> with conversion events: form submit, phone tap, directions click, inventory page view, PDF/plan download, 60-second engaged session. Assign real values — a booked consultation is worth ~$2,000 in expected value.</li>
+  <li><b>Google Search Console</b> — submit the XML sitemap, monitor Coverage, Core Web Vitals, and query data.</li>
+  <li><b>Bing Webmaster Tools</b> — free, and Bing feeds Copilot and a growing share of AI answers.</li>
+  <li><b>Google Business Profile Insights</b> — track calls, direction requests, and website clicks separately from organic.</li>
+  <li><b>Call tracking</b> with a <b>single</b> primary number published everywhere. If you use tracking numbers for attribution, keep one canonical number in all schema and citations and use dynamic number insertion only in the DOM.</li>
+  <li><b>A monthly AI citation log</b> — a shared spreadsheet. See §9.</li>
+</ul>
+</div>
+
+<!-- ============ 5 ============ -->
+<h2 id="s5"><span class="n">05 ·</span> Schema — the single highest-leverage asset</h2>
+<p class="h2sub">The current site has zero structured data. This is the fastest large win available.</p>
+
+<div class="card">
+<p>Schema markup is how you hand Google and every AI model a clean, unambiguous fact sheet about your business. Right now <code>aspen2homes.com</code> emits <b>zero JSON-LD blocks</b> — so crawlers are guessing from prose. Meanwhile BuildZoom is publishing schema about you that says you're based in <b>Hawaii</b>. Fixing this is roughly two hours of developer time.</p>
+
+<h4>Deploy these schema types</h4>
+<table>
+  <tr><th style="width:22%">Type</th><th style="width:18%">Where</th><th>What it does</th></tr>
+  <tr><td><code>LocalBusiness</code> + <code>GeneralContractor</code> + <code>HomeAndConstructionBusiness</code></td><td>Sitewide (via @graph)</td><td>Defines the entity. Feeds knowledge panels, map pack, and AI entity resolution.</td></tr>
+  <tr><td><code>Organization</code> with <code>sameAs</code></td><td>Sitewide</td><td>Links your site to Facebook, BBB, YouTube, CSLB. This is how AI confirms you're the same business across sources.</td></tr>
+  <tr><td><code>hasCredential</code> (CSLB #1004058)</td><td>Sitewide</td><td>Machine-readable proof of licensure. Very high trust signal for a contractor.</td></tr>
+  <tr><td><code>Offer</code> + <code>Product</code></td><td>Each floor plan page</td><td>Makes plans appear as products with sizes — quotable by AI shopping and comparison queries.</td></tr>
+  <tr><td><code>Residence</code> / <code>SingleFamilyResidence</code> + <code>Offer</code></td><td>Each available home</td><td>Structured listing data (price, beds, baths, sqft, address). Enables rich results and AI quoting.</td></tr>
+  <tr><td><code>FAQPage</code></td><td>FAQ hub + topic pages</td><td>Direct line into People Also Ask and AI answers. Answers must be visible on the page.</td></tr>
+  <tr><td><code>Service</code></td><td>Build on Your Lot, Heroes program</td><td>Defines what you do beyond "home builder."</td></tr>
+  <tr><td><code>Review</code> / <code>AggregateRating</code></td><td>Homeowner stories, home page</td><td><b>Only mark up reviews that are genuinely displayed on your site and collected by you.</b> Never fake this — Google penalizes it and it's a legal risk.</td></tr>
+  <tr><td><code>WebSite</code> + <code>SearchAction</code></td><td>Sitewide</td><td>Enables sitelinks search box.</td></tr>
+  <tr><td><code>BreadcrumbList</code></td><td>All inner pages</td><td>Cleaner SERP display, better crawl understanding.</td></tr>
+</table>
+
+<h4>Reference implementation (already built into your prototype)</h4>
+<pre><span class="c">// Emit once sitewide as a @graph — this is the entity anchor.</span>
+<span class="c">// Every other schema node on the site references @id below.</span>
+{
+  <span class="k">"@context"</span>: <span class="s">"https://schema.org"</span>,
+  <span class="k">"@graph"</span>: [{
+    <span class="k">"@type"</span>: [<span class="s">"Organization"</span>,<span class="s">"LocalBusiness"</span>,<span class="s">"GeneralContractor"</span>,
+              <span class="s">"HomeAndConstructionBusiness"</span>],
+    <span class="k">"@id"</span>: <span class="s">"https://aspen2homes.com/#organization"</span>,
+    <span class="k">"name"</span>: <span class="s">"Aspen II Homes"</span>,
+    <span class="k">"legalName"</span>: <span class="s">"Aspen II Homes, Inc."</span>,
+    <span class="k">"alternateName"</span>: [<span class="s">"Aspen 2 Homes"</span>, <span class="s">"Aspen II Homes Inc"</span>],
+    <span class="k">"foundingDate"</span>: <span class="s">"1994-01-01"</span>,
+    <span class="k">"telephone"</span>: <span class="s">"+1-661-238-3136"</span>,   <span class="c">// ONE canonical number, everywhere</span>
+    <span class="k">"email"</span>: <span class="s">"hello@aspen2homes.com"</span>,  <span class="c">// kill the Gmail address</span>
+    <span class="k">"priceRange"</span>: <span class="s">"$449,000-$590,000"</span>,
+    <span class="k">"address"</span>: { <span class="k">"@type"</span>:<span class="s">"PostalAddress"</span>, <span class="k">"streetAddress"</span>:<span class="s">"30330 Horsethief Dr"</span>,
+                 <span class="k">"addressLocality"</span>:<span class="s">"Tehachapi"</span>, <span class="k">"addressRegion"</span>:<span class="s">"CA"</span>,
+                 <span class="k">"postalCode"</span>:<span class="s">"93561"</span>, <span class="k">"addressCountry"</span>:<span class="s">"US"</span> },
+    <span class="k">"geo"</span>: { <span class="k">"@type"</span>:<span class="s">"GeoCoordinates"</span>, <span class="k">"latitude"</span>:35.090843, <span class="k">"longitude"</span>:-118.669640 },
+    <span class="k">"areaServed"</span>: [ Tehachapi, California City, Ridgecrest,
+                   Golden Hills, Bear Valley Springs, Stallion Springs ],
+    <span class="k">"hasCredential"</span>: [{ <span class="k">"@type"</span>:<span class="s">"EducationalOccupationalCredential"</span>,
+      <span class="k">"credentialCategory"</span>:<span class="s">"license"</span>,
+      <span class="k">"identifier"</span>:<span class="s">"1004058"</span>,
+      <span class="k">"recognizedBy"</span>:{ <span class="k">"@type"</span>:<span class="s">"GovernmentOrganization"</span>,
+        <span class="k">"name"</span>:<span class="s">"California Contractors State License Board"</span> },
+      <span class="k">"validUntil"</span>:<span class="s">"2027-05-31"</span> }],
+    <span class="k">"sameAs"</span>: [ facebook, youtube, bbb, cslb ]  <span class="c">// entity reconciliation</span>
+  }]
+}
+</pre>
+<div class="box box-good"><span class="t">Validate before you ship</span>
+Run every template through Google's Rich Results Test <i>and</i> Schema.org's validator. Broken schema is worse than no schema: it teaches crawlers the wrong facts with extra authority. Re-validate after every theme update.</div>
+</div>
+
+<!-- ============ 6 ============ -->
+<h2 id="s6"><span class="n">06 ·</span> Files AI crawlers read</h2>
+<p class="h2sub">llms.txt, the canonical facts page, and an explicit AI crawler policy.</p>
+
+<div class="card">
+<h3>robots.txt — explicitly invite the AI crawlers</h3>
+<p>Your current robots.txt is <code>User-agent: * / Disallow:</code> (empty), which technically allows everything but signals nothing. Be explicit, and add the sitemap line you're currently missing entirely.</p>
+<pre>User-agent: *
+Allow: /
+
+<span class="c"># AI crawlers — explicitly permitted (these feed ChatGPT, Gemini,</span>
+<span class="c"># Perplexity, Claude and Google AI Overviews). Do NOT block them.</span>
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+
+<span class="c"># Block training-only scrapers you don't want feeding public models</span>
+User-agent: CCBot
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://aspen2homes.com/sitemap.xml</pre>
+
+<h3>llms.txt — a plain-text fact sheet at the domain root</h3>
+<p>An emerging convention (<code>/llms.txt</code>) that gives AI crawlers a clean, unambiguous summary instead of forcing them to parse your CSS. Current status on your site: <b>404</b>. Here's yours:</p>
+<pre><span class="c"># Aspen II Homes</span>
+
+> Licensed custom and semi-custom home builder serving Kern County, California
+> since 1994. Builds six semi-custom floor plans from 1,507 to 2,444 sq ft on
+> customer-owned or builder-owned lots.
+
+## Core facts
+- Legal name: Aspen II Homes, Inc.
+- Founded: 1994 (31 years in business)
+- California contractor license: CSLB #1004058 (Class B, General Building), active through 2027-05-31
+- Bond: Hudson Insurance Company. Workers' compensation: State Compensation Insurance Fund.
+- BBB rating: A+
+- Phone: (661) 238-3136
+- Email: hello@aspen2homes.com
+- Address: 30330 Horsethief Dr, Tehachapi, CA 93561
+- Service area: Tehachapi, California City, Ridgecrest, Golden Hills,
+  Bear Valley Springs, Stallion Springs (all Kern County, CA)
+- Price range: approximately $449,000 - $590,000
+- Typical build time: 7-10 months from contract to move-in
+
+## Floor plans
+- Tranquil Oasis: 1,507 sq ft, 3 bed, 2 bath
+- Sunset Retreat: 1,644 sq ft, 3 bed, 2 bath
+- The Tranquil Abode: 1,764 sq ft, 3 bed, 2 bath
+- Sunrise View Residence: 2,010 sq ft, 4 bed, 2.5 bath
+- Enchanted Haven: 2,180 sq ft, 4 bed, 3 bath
+- The Grand Haven: 2,444 sq ft, 4 bed, 3 bath
+
+## Warranty
+1 year workmanship and materials · 2 years systems · 10 years structural ·
+scheduled 11-month walkthrough included with every home.
+
+## Programs
+- Heroes of the Nation: housing options and pricing for active-duty military and veterans.
+
+## Key pages
+- Available homes: https://aspen2homes.com/available-homes/
+- Floor plans: https://aspen2homes.com/floor-plans/
+- Build on your lot: https://aspen2homes.com/build-on-your-lot/
+- Warranty: https://aspen2homes.com/warranty/
+- Company facts: https://aspen2homes.com/company-facts/
+
+Last updated: 2026-09-16</pre>
+
+<h3>/company-facts — the human-readable twin</h3>
+<p>A deliberately plain, unstyled page containing everything in the llms.txt as visible HTML, with dates and sources. Two jobs: it's the page AI systems can quote verbatim without misreading a design, and it's the page you point journalists, directory editors, and ChatGPT at when they need to verify something. Update it quarterly. Put a "Last verified" date on it — freshness signals matter to AI retrieval.</p>
+
+<div class="box box-note"><span class="t">Honest expectation setting</span>
+<code>llms.txt</code> is not yet honored by every major crawler — adoption is partial and evolving. It costs 30 minutes to write and is trivially cheap insurance if it becomes standard. Treat it as a low-cost bet, not a strategy. The <b>schema and the facts page do the heavy lifting</b>; llms.txt is a bonus.</div>
+</div>
+
+<!-- ============ 7 ============ -->
+<h2 id="s7"><span class="n">07 ·</span> SEO execution plan</h2>
+<p class="h2sub">Keywords, local SEO, content production, and links.</p>
+
+<div class="card">
+<h3>Keyword map — one primary target per page, no cannibalization</h3>
+<table>
+  <tr><th style="width:26%">Page</th><th style="width:32%">Primary target</th><th>Secondary / long-tail</th></tr>
+  <tr><td>Home</td><td>custom home builder Tehachapi</td><td>Aspen II Homes · new home construction Kern County · semi-custom homes Tehachapi</td></tr>
+  <tr><td>Available Homes</td><td>move-in ready homes Tehachapi</td><td>new homes for sale Tehachapi · spec homes Kern County · new construction under $600K Tehachapi</td></tr>
+  <tr><td>Each home listing</td><td>[address] Tehachapi</td><td>4 bed new home Tehachapi · [community] new construction</td></tr>
+  <tr><td>Floor Plans</td><td>home floor plans Tehachapi</td><td>3 bedroom house plans Kern County · semi-custom floor plans</td></tr>
+  <tr><td>Each plan page</td><td>Tranquil Oasis floor plan</td><td>1,507 sq ft home plan · 3 bed 2 bath plan</td></tr>
+  <tr><td>Build on Your Lot</td><td>build on your lot Kern County</td><td>custom builder for my lot Tehachapi · lot feasibility Kern County</td></tr>
+  <tr><td>Each community page</td><td>home builder [community name]</td><td>new homes in [community] · building in [community] CA</td></tr>
+  <tr><td>Warranty</td><td>new home warranty California builder</td><td>1-2-10 warranty Kern County · builder warranty Tehachapi</td></tr>
+  <tr><td>Topic pages</td><td>cost to build a house in Tehachapi</td><td>how long does it take to build · Kern County building permit process · VA construction loan California</td></tr>
+</table>
+<p style="margin-top:12px"><b>Rule:</b> every page targets exactly one primary phrase. If two pages want the same phrase, merge them. This is how small sites punch above their weight.</p>
+</div>
+
+<div class="card">
+<h3>Local SEO — the highest-ROI block in this entire document</h3>
+<ol>
+  <li><b>Claim and fully build the Google Business Profile.</b> Primary category: <i>Home Builder</i>. Secondary: <i>General Contractor</i>, <i>Custom Home Builder</i>. Add 25+ real photos (exteriors, interiors, framing progress, the team), service areas for all six communities, hours, a real description with the license number, and the appointment URL. Post to it weekly — GBP posts do influence local pack ranking.</li>
+  <li><b>Fix NAP everywhere before you build a single citation.</b> One canonical phone <code>(661) 238-3136</code> and one canonical address <code>30330 Horsethief Dr, Tehachapi, CA 93561</code>. Then correct, in this order: BBB, BuildZoom (including the Hawaii/PO Box error), Facebook, Yellow Pages, Manta, Angi, Houzz, Yelp, Chamber of Commerce, and any contractor directories you can find. Inconsistent NAP actively suppresses local ranking — it's not a nitpick.</li>
+  <li><b>Build 30–40 citations</b> over 90 days: Google, Bing Places, Apple Business Connect, Facebook, Yelp, Houzz, Angi, BBB, Yellow Pages, Manta, Foursquare, Alignable, plus Kern County and Tehachapi-specific directories and the Greater Tehachapi Chamber of Commerce.</li>
+  <li><b>Get the CSLB license number onto every page</b> (footer sitewide). It's a statutory trust signal in California and a strong relevance signal for contractor queries.</li>
+  <li><b>Embed a Google Map</b> on the contact page and add <code>hasMap</code> to schema.</li>
+</ol>
+</div>
+
+<div class="card">
+<h3>Content engine — 2 posts a month, forever</h3>
+<p>Two posts a month, each answering one real question a Kern County buyer asks, each optimized for extraction. Topics that will actually earn traffic and AI citations:</p>
+<div class="grid2">
+  <div>
+    <ul style="font-size:13.8px">
+      <li>What it costs to build a home in Tehachapi in 2026 (itemized)</li>
+      <li>Kern County building permit timeline, step by step</li>
+      <li>Building on a sloped lot in Stallion Springs: what changes</li>
+      <li>Septic vs. sewer in Golden Hills: cost and process</li>
+      <li>Title 24 energy requirements, explained plainly</li>
+      <li>Wildfire defensible space requirements for new builds</li>
+    </ul>
+  </div>
+  <div>
+    <ul style="font-size:13.8px">
+      <li>VA construction loans for Edwards AFB and China Lake families</li>
+      <li>Bear Valley Springs HOA architectural review: how to get approved</li>
+      <li>What a builder's 1-2-10 warranty actually covers</li>
+      <li>How long does it really take to build in Kern County?</li>
+      <li>Choosing between semi-custom and fully custom</li>
+      <li>Behind the build: photo essay of a home from pour to keys</li>
+    </ul>
+  </div>
+</div>
+<div class="box box-note"><span class="t">Every post follows the same extraction template</span>
+<b>H2 in question form → 40–60 word direct answer immediately beneath → supporting detail → 3–5 FAQ pairs → sources and last-updated date.</b> That shape is what gets lifted into featured snippets and AI answers. Write the answer paragraph first, then the rest of the article around it.</div>
+</div>
+
+<div class="card">
+<h3>Links — quality over volume, and it's mostly local</h3>
+<ul>
+  <li><b>Greater Tehachapi Chamber of Commerce</b> — membership, directory listing, event sponsorship</li>
+  <li><b>Tehachapi News</b> — pitch a real story: 31 years building locally, the military program, a milestone home. Local newspaper links carry enormous geographic relevance</li>
+  <li><b>Suppliers and trades</b> — lumber yard, concrete, cabinet and window vendors. Most have "projects" or "featured builders" pages</li>
+  <li><b>Real estate agents</b> — agents selling land need a builder to recommend. Reciprocal links and referrals</li>
+  <li><b>Military and veteran organizations</b> — for the Heroes program</li>
+  <li><b>Local schools and youth sports sponsorships</b> — legitimate, cheap, and they link</li>
+  <li><b>Avoid entirely:</b> paid link packages, guest-post farms, and directory spam. A manual action from Google would be devastating and takes months to undo</li>
+</ul>
+</div>
+
+<!-- ============ 8 ============ -->
+<h2 id="s8"><span class="n">08 ·</span> AEO execution plan</h2>
+<p class="h2sub">Winning featured snippets, People Also Ask, and the knowledge panel.</p>
+
+<div class="card">
+<h3>The answer-first formatting rule</h3>
+<p>AEO is a formatting discipline more than a content discipline. Every answer-bearing page follows this shape:</p>
+<ol>
+  <li><b>The heading is the question</b>, in the user's words: "How much does it cost to build a house in Tehachapi?" not "Pricing Considerations."</li>
+  <li><b>The first paragraph is the answer:</b> 40–60 words, complete on its own, containing the specific number or fact. No warm-up sentence. No "at Aspen II Homes we understand that…"</li>
+  <li><b>Then elaborate</b> with detail, nuance, and examples for people who want more.</li>
+  <li><b>Then structure:</b> comparison tables, numbered lists, and bulleted specs — all highly extractable.</li>
+  <li><b>Then 3–5 FAQ pairs</b> with <code>FAQPage</code> schema, matching visible text exactly.</li>
+</ol>
+
+<div class="ba">
+  <div class="before">
+    <span class="lbl">✗ Current — unextractable</span>
+    <p style="font-size:13.6px;color:#6E6659">"At Aspen II Homes, we understand that your home is more than just a house; it's a reflection of your unique style and a sanctuary where cherished memories are made. With our expertise and dedication to quality, we are here to turn your dream home into a reality."</p>
+    <p style="font-size:12.6px;color:#8A8275;margin-top:9px"><i>Zero extractable facts. No price, no timeline, no spec. No AI will ever quote this, and neither will a buyer.</i></p>
+  </div>
+  <div class="after">
+    <span class="lbl">✓ Rewritten — extractable</span>
+    <p style="font-size:13.6px;color:#3A4A40"><b>Aspen II Homes builds semi-custom homes from 1,507 to 2,444 sq ft in Kern County, typically priced between $449,000 and $590,000 depending on plan, lot and finish selections. Most builds take 7 to 10 months from signed contract to move-in.</b></p>
+    <p style="font-size:12.6px;color:#6E6659;margin-top:9px"><i>Sixty words. Four hard facts. Quotable verbatim by a snippet, a voice assistant, or an LLM.</i></p>
+  </div>
+</div>
+</div>
+
+<div class="card">
+<h3>Specific AEO plays</h3>
+<table>
+  <tr><th style="width:24%">Play</th><th>Execution</th></tr>
+  <tr><td><b>Featured snippets</b></td><td>Own the paragraph snippet for ~15 target questions with the answer-first format above. Own the <i>table</i> snippet for plan comparisons — a clean 6-row table with sq ft, beds, baths, garage and price is exactly what Google lifts.</td></tr>
+  <tr><td><b>People Also Ask</b></td><td>Mine the PAA boxes for your target queries and answer every question that appears. Each answered question can expand your footprint. Add the exact question phrasing as an H2 or H3.</td></tr>
+  <tr><td><b>Knowledge panel</b></td><td>Comes from entity consensus, not a form. Requires: consistent NAP everywhere, a claimed GBP, <code>sameAs</code> links in schema, a Wikidata entry if you qualify, and corroboration from BBB/CSLB. Expect 3–6 months.</td></tr>
+  <tr><td><b>Voice search</b></td><td>Conversational, long-tail phrasing: "who builds houses near me in Tehachapi" · "how much is a new home in Tehachapi". Answer-first paragraphs win these.</td></tr>
+  <tr><td><b>Local pack answers</b></td><td>GBP Q&amp;A seeded with 10 real questions you answer yourself. These surface in Maps and in AI local results.</td></tr>
+</table>
+</div>
+
+<!-- ============ 9 ============ -->
+<h2 id="s9"><span class="n">09 ·</span> GEO execution plan</h2>
+<p class="h2sub">Getting named by ChatGPT, Gemini, Perplexity, Copilot and AI Overviews.</p>
+
+<div class="card">
+<h3>How AI assistants actually decide who to recommend</h3>
+<p>When someone asks an AI "who should build my house in Tehachapi?", the model does not run a keyword query. It synthesizes from a mix of: <b>(1)</b> its training data and any live retrieval it performs, <b>(2)</b> third-party sources it trusts — directories, review platforms, news, listicles, forums, <b>(3)</b> structured data it can parse cleanly, and <b>(4)</b> corroboration — do multiple independent sources agree? Your job is to be present and consistent across all four.</p>
+
+<h4>The six GEO plays, in priority order</h4>
+<table>
+  <tr><th style="width:22%">Play</th><th style="width:16%">Priority</th><th>What to do</th></tr>
+  <tr>
+    <td><b>1. Own the citation surface</b></td>
+    <td><span class="pill p-crit">HIGHEST</span></td>
+    <td>Get included in "best builders in Tehachapi / Kern County" content — that is the single most-cited source type for local recommendation queries. Pitch the Tehachapi News, local real estate blogs, Houzz and Angi editorial, and regional "best of" roundups. Offer yourself as a quoted expert. This one play moves GEO more than everything else combined.</td>
+  </tr>
+  <tr>
+    <td><b>2. Build review volume</b></td>
+    <td><span class="pill p-crit">HIGHEST</span></td>
+    <td>AI weighs review corpus heavily as both a trust and a popularity signal. Two reviews is invisible. Target 25+ Google reviews, plus Yelp and Houzz. Recency matters — a steady trickle beats a one-time burst.</td>
+  </tr>
+  <tr>
+    <td><b>3. Publish extractable specifics</b></td>
+    <td><span class="pill p-high">HIGH</span></td>
+    <td>Prices, sq ft, timelines, warranty terms, license numbers, community names. Every specific number is a thing an AI can say out loud. Vague marketing prose contributes nothing to GEO.</td>
+  </tr>
+  <tr>
+    <td><b>4. Entity disambiguation</b></td>
+    <td><span class="pill p-high">HIGH</span></td>
+    <td>"Aspen" collides with McBride's Aspen II plan, Schumacher's Aspen II, Stonefield's Aspen, Aspen Builders, and Aspen Home Improvements. Always write "Aspen II Homes, a Kern County CA home builder" on first mention. Use <code>alternateName</code> in schema. Add a one-line disambiguator near the top of key pages.</td>
+  </tr>
+  <tr>
+    <td><b>5. Corroboration &amp; cleanup</b></td>
+    <td><span class="pill p-high">HIGH</span></td>
+    <td>Fix the BuildZoom Hawaii error and the wrong address. Claim every directory. Get the Chamber listing. Make BBB, CSLB, Facebook, and your site all say the same thing. AI trusts agreement between sources — contradictions make models cautious and they'll drop you.</td>
+  </tr>
+  <tr>
+    <td><b>6. Community presence</b></td>
+    <td><span class="pill p-mid">MEDIUM</span></td>
+    <td>Reddit (r/Tehachapi, r/Building Homes, r/Homebuilding), local Facebook groups, Houzz discussions, Quora. Genuinely helpful answers only — shilling gets you banned and can backfire into the training data. These threads are frequently scraped into AI answers.</td>
+  </tr>
+</table>
+</div>
+
+<div class="card">
+<h3>The prompt-testing protocol — measure GEO like you measure rankings</h3>
+<p>You cannot manage what you don't measure, and AI visibility is notoriously unmeasurable with old tools. So build the instrument: a shared spreadsheet, 20 fixed prompts, tested monthly on the first Monday.</p>
+
+<h4>Your 20 test prompts (5 per category)</h4>
+<div class="grid2">
+  <div>
+    <p style="font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6E6659;margin-bottom:6px">Direct recommendation</p>
+    <ol style="font-size:13.5px">
+      <li>Who are the best custom home builders in Tehachapi, CA?</li>
+      <li>Recommend a home builder in Kern County, California</li>
+      <li>I want to build a house near Tehachapi — who should I hire?</li>
+      <li>Best builders for new construction in Ridgecrest or California City</li>
+      <li>Which home builders serve Bear Valley Springs?</li>
+    </ol>
+  </div>
+  <div>
+    <p style="font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6E6659;margin-bottom:6px">Problem / cost</p>
+    <ol style="font-size:13.5px">
+      <li>How much does it cost to build a house in Tehachapi?</li>
+      <li>How long does it take to build a custom home in Kern County?</li>
+      <li>Can I build a house on a lot I own in Tehachapi?</li>
+      <li>What should I look for in a new home builder warranty?</li>
+      <li>Are there builders in Kern County with military discounts?</li>
+    </ol>
+  </div>
+  <div>
+    <p style="font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6E6659;margin-bottom:6px">Comparison</p>
+    <ol style="font-size:13.5px">
+      <li>Compare custom home builders in Tehachapi</li>
+      <li>Aspen II Homes reviews — are they good?</li>
+      <li>Who builds semi-custom homes in Tehachapi?</li>
+      <li>Best move-in ready new homes in Tehachapi under $600K</li>
+      <li>Tehachapi home builders with floor plans under 2,000 sq ft</li>
+    </ol>
+  </div>
+  <div>
+    <p style="font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6E6659;margin-bottom:6px">Hyperlocal</p>
+    <ol style="font-size:13.5px">
+      <li>New home construction in Golden Hills CA</li>
+      <li>Home builders near Stallion Springs</li>
+      <li>Building a house in Kern County — permit process</li>
+      <li>New homes for sale Tehachapi 93561</li>
+      <li>Licensed general contractor Tehachapi CA</li>
+    </ol>
+  </div>
+</div>
+
+<h4>Scoring, monthly</h4>
+<table>
+  <tr><th style="width:24%">Platform</th><th style="width:16%">Baseline</th><th>Track</th></tr>
+  <tr><td>ChatGPT (with browsing)</td><td>0 / 20</td><td>Mentioned? Cited with a link? Recommended over competitors? Position in list?</td></tr>
+  <tr><td>Google AI Overviews</td><td>0 / 20</td><td>Appears in the synthesized block? Linked as a source?</td></tr>
+  <tr><td>Gemini</td><td>0 / 20</td><td>Same</td></tr>
+  <tr><td>Perplexity</td><td>0 / 20</td><td>Same — Perplexity always cites, so it's the easiest to track precisely</td></tr>
+  <tr><td>Copilot</td><td>0 / 20</td><td>Same</td></tr>
+</table>
+<p style="margin-top:12px"><b>Your single GEO KPI: Citation Share</b> = (prompt-platform combinations where Aspen II Homes is mentioned ÷ 100 total) × 100. Baseline today is effectively <b>0%</b>. Target: <b>25% at 90 days, 50% at 12 months.</b> Log the actual model output text each month — the qualitative shift ("never heard of them" → "a licensed Kern County builder since 1994") tells you more than the score.</p>
+<div class="box box-note"><span class="t">Run this in incognito, monthly, same day, same wording</span>
+Personalization and conversation history skew results badly. Use a clean, logged-out session every time, and copy the raw output into the sheet verbatim so you can compare month over month.</div>
+</div>
+
+<!-- ============ 10 ============ -->
+<h2 id="s10"><span class="n">10 ·</span> Design: the 2002 → 2026 teardown</h2>
+<p class="h2sub">Specifically what makes the current site read as dated, and what replaces each tell.</p>
+
+<div class="card">
+<div class="ba" style="grid-template-columns:1fr 1fr">
+  <div class="before">
+    <span class="lbl">What's dating the current site</span>
+    <ul style="font-size:13.5px;margin:0;padding-left:17px">
+      <li><b>Autoplaying video hero</b> on a zero-subscriber channel</li>
+      <li><b>Walls of centered text</b> with no hierarchy or scannability</li>
+      <li><b>Stock-phrase copy</b> — "unparalleled quality," "meticulous attention to detail," repeated 14 times</li>
+      <li><b>Stretched JPEGs</b> from phones, inconsistent crops, no art direction</li>
+      <li><b>No H1, no headings</b> — visually flat, structurally empty</li>
+      <li><b>Default-blue WordPress palette</b> (<code>#046bd2</code>) still in the CSS</li>
+      <li><b>Everything centered</b>, symmetric, timid</li>
+      <li><b>Elementor bloat</b> — 31 stylesheets, 43 scripts, visible lag</li>
+      <li><b>© 2023</b> in the footer and content untouched since July 2023</li>
+      <li><b>Cramped line lengths</b> and thin type with no scale</li>
+    </ul>
+  </div>
+  <div class="after">
+    <span class="lbl">What makes it read 2026</span>
+    <ul style="font-size:13.5px;margin:0;padding-left:17px">
+      <li><b>One strong still hero</b>, click-to-play video only if requested</li>
+      <li><b>Editorial hierarchy</b> — big type, real subheads, scannable chunks</li>
+      <li><b>Specific, factual copy</b> — sq ft, prices, timelines, license numbers</li>
+      <li><b>Art-directed photography</b> — drone exteriors, real interiors, consistent grade</li>
+      <li><b>Proper heading structure</b> (one H1, logical H2/H3)</li>
+      <li><b>Earth-toned, region-appropriate palette</b> — sage, clay, bone, evergreen</li>
+      <li><b>Asymmetric, confident layouts</b> with generous whitespace</li>
+      <li><b>Under 150KB of JS</b>, sub-2s LCP, instant interaction</li>
+      <li><b>© 2026</b>, inventory updated weekly, visible "last updated" dates</li>
+      <li><b>Fluid type scale</b>, 60–75 character measures, generous leading</li>
+    </ul>
+  </div>
+</div>
+
+<h3>The design principles, stated plainly</h3>
+<div class="grid3">
+  <div class="card card-tight"><h4>1 · Quiet confidence</h4><p style="font-size:13.4px">Big type, lots of air, restrained color. Premium brands whisper. The current site shouts with exclamation marks and stock superlatives.</p></div>
+  <div class="card card-tight"><h4>2 · Photography is the product</h4><p style="font-size:13.4px">You're selling a $500K physical object. Images carry the page. Commission a proper shoot: 3 exteriors, 6 interiors, 1 drone pass. Roughly $1,500–3,000 once.</p></div>
+  <div class="card card-tight"><h4>3 · Specificity over superlatives</h4><p style="font-size:13.4px">"2,444 sq ft, 4 bed, 3 bath, $589,900" sells. "Unparalleled quality" does not. Every claim should be a number, a date, or a named source.</p></div>
+  <div class="card card-tight"><h4>4 · Motion serves comprehension</h4><p style="font-size:13.4px">Gentle scroll reveals, hover states with intent, smooth accordions. Nothing that spins, bounces, or slides in from the side for no reason.</p></div>
+  <div class="card card-tight"><h4>5 · Mobile is the primary design</h4><p style="font-size:13.4px">70%+ of home shoppers find you on a phone. Design the mobile layout first; desktop is the expansion.</p></div>
+  <div class="card card-tight"><h4>6 · Trust is a design element</h4><p style="font-size:13.4px">License number, BBB rating, years in business, written warranty — placed prominently, not buried in a footer. This is your differentiator and it's currently invisible.</p></div>
+</div>
+</div>
+
+<!-- ============ 11 ============ -->
+<h2 id="s11"><span class="n">11 ·</span> Design system &amp; components</h2>
+<p class="h2sub">The exact tokens and the component library — implemented in the live prototype.</p>
+
+<div class="card">
+<h3>Color — high desert, not HTTP blue</h3>
+<p>The palette should feel like Kern County: dry grass, oak, sage, terracotta, deep evergreen shadow. And it must pass WCAG AA contrast on body text.</p>
+<div class="grid3">
+  <div class="swatch"><div class="sw" style="background:#16211C"></div><div class="meta"><b>Evergreen Ink</b><span>#16211C · primary text, dark sections</span></div></div>
+  <div class="swatch"><div class="sw" style="background:#F6F2EB"></div><div class="meta"><b>Bone</b><span>#F6F2EB · page background</span></div></div>
+  <div class="swatch"><div class="sw" style="background:#B45F3A"></div><div class="meta"><b>Terracotta Clay</b><span>#B45F3A · accent, CTAs</span></div></div>
+  <div class="swatch"><div class="sw" style="background:#7E8F70"></div><div class="meta"><b>Sage</b><span>#7E8F70 · success, checkmarks</span></div></div>
+  <div class="swatch"><div class="sw" style="background:#E9E1D3"></div><div class="meta"><b>Sand</b><span>#E9E1D3 · borders, plan fills</span></div></div>
+  <div class="swatch"><div class="sw" style="background:#6E6659"></div><div class="meta"><b>Stone</b><span>#6E6659 · secondary text</span></div></div>
+</div>
+
+<h3>Type</h3>
+<div class="tok">
+  <div><span>Heading scale</span><code>clamp(2.6rem, 6.4vw, 5.1rem)</code></div>
+  <div><span>Section heading</span><code>clamp(2rem, 3.9vw, 3.3rem)</code></div>
+  <div><span>Body</span><code>17px / 1.62</code></div>
+  <div><span>Measure</span><code>60–75 characters</code></div>
+  <div><span>Heading tracking</span><code>-0.032em</code></div>
+  <div><span>Display face</span><code>system-ui / Inter Tight</code></div>
+  <div><span>Accent face</span><code>Georgia italic (pull quotes)</code></div>
+  <div><span>Weight</span><code>700–800 headings, 400 body</code></div>
+</div>
+<p style="margin-top:12px">Self-host two fonts maximum — a variable sans for everything and one serif for accent moments. Large, tight, heavy sans-serif headlines with a serif italic accent word is the current architectural-brand vernacular. <b>Do not</b> load a third family or use a Google Fonts CDN call; it costs you LCP for nothing.</p>
+
+<h3>Spacing &amp; shape</h3>
+<div class="tok">
+  <div><span>Max width</span><code>1240px</code></div>
+  <div><span>Section padding</span><code>clamp(72px, 9vw, 124px)</code></div>
+  <div><span>Gutter</span><code>28px</code></div>
+  <div><span>Card radius</span><code>14px</code></div>
+  <div><span>Feature radius</span><code>22px</code></div>
+  <div><span>Buttons</span><code>100px pill</code></div>
+</div>
+<p style="margin-top:12px">Shadows are nearly invisible — <code>0 18px 44px rgba(22,33,28,.09)</code> on hover only. Borders are hairlines at 13% opacity. Restraint is the signal.</p>
+</div>
+
+<div class="card">
+<h3>Component library — 14 pieces to build once, reuse everywhere</h3>
+<table>
+  <tr><th style="width:24%">Component</th><th>Notes</th></tr>
+  <tr><td><b>Sticky translucent nav</b></td><td>Frosted blur, gains a hairline border on scroll. Logo, six links, tappable phone number, one primary CTA. Phone visible on mobile.</td></tr>
+  <tr><td><b>Full-bleed hero</b></td><td>Single hero image, gradient scrim, headline with serif italic accent, two CTAs. No carousel, no autoplay. 100svh so mobile browser chrome doesn't clip it.</td></tr>
+  <tr><td><b>Trust bar</b></td><td>Four stats over the hero base: 31 years · 286 homes · #1004058 · BBB A+. This is your credibility in one glance, above the fold.</td></tr>
+  <tr><td><b>Inventory grid</b></td><td>Dark card panel. Status pill (move-in ready / in framing / releasing), address, plan name, bed-bath-sqft-lot specs, price, estimated payment. Hover lift.</td></tr>
+  <tr><td><b>Bento grid</b></td><td>Mixed-size cards, some with imagery. Carries the secondary navigation without a boring link list.</td></tr>
+  <tr><td><b>Floor plan cards</b></td><td>Interactive SVG plan thumbnail (crisp at any size, 2KB instead of 200KB), name, specs, one differentiator line.</td></tr>
+  <tr><td><b>Process timeline</b></td><td>Eight numbered stages on a dark panel. Numbered steps are highly extractable by AI — a bonus.</td></tr>
+  <tr><td><b>Split proof panel</b></td><td>Image left, content right. Used for warranty and quality. Carries the checkmark list.</td></tr>
+  <tr><td><b>Testimonial cards</b></td><td>Star rating, quote, avatar initials, name, community, year. Real names only.</td></tr>
+  <tr><td><b>Community grid</b></td><td>Six cells with genuine local detail (permit authority, schools, utilities, HOA notes). Never a find-and-replace template.</td></tr>
+  <tr><td><b>FAQ accordion</b></td><td>Native <code>&lt;details&gt;</code>, one open at a time, animated +/− toggle. Backed by FAQPage schema with identical text.</td></tr>
+  <tr><td><b>CTA band</b></td><td>Terracotta with a soft radial highlight. Headline, one line of copy, two buttons, reassurance line.</td></tr>
+  <tr><td><b>Footer</b></td><td>Four columns, inverted logo, license chip, NAP, socials, legal links.</td></tr>
+  <tr><td><b>Scroll reveal</b></td><td>IntersectionObserver, 22px rise, 70ms stagger between siblings. Disabled under <code>prefers-reduced-motion</code>.</td></tr>
+</table>
+<div class="box box-good"><span class="t">See it live</span>
+All fourteen components are built and working in <b>aspen2homes-2026-prototype.html</b> in your workspace — real photography, responsive down to 360px, with production-ready schema already embedded in the source.</div>
+</div>
+
+<!-- ============ 12 ============ -->
+<h2 id="s12"><span class="n">12 ·</span> Content rewrite — kill the fluff</h2>
+<p class="h2sub">The copy is the biggest credibility leak on the site. Here's the replacement standard.</p>
+
+<div class="card">
+<h3>The rule: every claim must be a number, a date, or a named source</h3>
+<p>Go through the existing site and delete every sentence that could appear on any builder's website in America unchanged. "We are committed to sustainable building practices and incorporate energy-efficient features into every home" — says nothing, proves nothing, sells nothing. Replace with: <i>"Every home is built to Title 24 energy standards with a HERS rating provided at close; typical utility costs run $X–$Y per month for a 2,000 sq ft plan."</i></p>
+
+<div class="ba">
+  <div class="before">
+    <span class="lbl">✗ Delete this</span>
+    <p style="font-size:13.5px;color:#6E6659">"We use only the finest materials and work with skilled craftsmen who take pride in their craft. Every aspect of your home, from the layout to the finishes, is meticulously crafted to create a truly unique and breathtaking space."</p>
+    <p style="font-size:13.5px;color:#6E6659;margin-top:9px">"Building your dream home should be a seamless process, and that's why we handle all the details for you."</p>
+  </div>
+  <div class="after">
+    <span class="lbl">✓ Write this</span>
+    <p style="font-size:13.5px;color:#3A4A40">"Standard specs on every Aspen II home: quartz countertops, soft-close shaker cabinetry, luxury vinyl plank or tile in wet areas, 9-foot ceilings, tankless water heater, and a covered rear patio. You choose finish packages in a single two-hour selections appointment, with pricing shown before anything is ordered."</p>
+    <p style="font-size:13.5px;color:#3A4A40;margin-top:9px">"We pull the permits, coordinate all subcontractors, and schedule the required inspections. You get a written construction schedule at contract signing and a progress update every Friday."</p>
+  </div>
+</div>
+
+<h3>Address the negative review head-on, on your own site</h3>
+<div class="box box-warn"><span class="t">This is the most important paragraph in this document</span>
+Your one detailed negative review claims a warranty item went unfixed for years. Whether or not that's fair, it's the first thing an AI or a careful buyer will surface. Waiting and hoping is losing. Get ahead of it with a real Warranty page that states exactly what's covered, for how long, what the response time is, and how to file a claim — with a named contact and a phone number. Then <b>publicly respond to the review</b> on BuildZoom: acknowledge it, state what your process is today, and offer to make it right. An unanswered one-star with no counter-narrative is the single most damaging thing in your entire digital footprint, and it is fixable this week.</div>
+</div>
+
+<!-- ============ 13 ============ -->
+<h2 id="s13"><span class="n">13 ·</span> 12-week roadmap</h2>
+<p class="h2sub">Sequenced so the highest-leverage work lands first.</p>
+
+<div class="card">
+<div class="step-row"><div class="wk">Week 1</div><div>
+  <div class="tt">Foundation &amp; entity lock</div>
+  <div class="dd">Pick the canonical NAP. Fix BBB, BuildZoom (including the Hawaii error), Facebook, and CSLB records. Claim and fully build the Google Business Profile. Buy <code>hello@aspen2homes.com</code> and kill the Gmail address. Set up Search Console, Bing Webmaster Tools, GA4 conversions. <span class="pill p-crit">Not technical — do this first regardless of the build.</span></div></div>
+</div>
+<div class="step-row"><div class="wk">Week 2</div><div>
+  <div class="tt">Schema + AI files + reputation response</div>
+  <div class="dd">Deploy the LocalBusiness/Organization @graph sitewide. Write llms.txt and /company-facts. Rewrite robots.txt. Publish the Warranty page. Respond publicly to the negative review. Launch the review-request process with past clients.</div></div>
+</div>
+<div class="step-row"><div class="wk">3–4</div><div>
+  <div class="tt">Design system &amp; component build</div>
+  <div class="dd">Lock tokens (color, type, spacing, radius). Build the 14 components against the prototype. Commission the photo shoot and drone pass. Design mobile-first.</div></div>
+</div>
+<div class="step-row"><div class="wk">5–7</div><div>
+  <div class="tt">Core pages</div>
+  <div class="dd">Home, Available Homes index, 6 plan pages, Contact, About. Inventory as a structured content type so the office can self-serve. Rewrite all copy to the specificity standard — no superlatives survive.</div></div>
+</div>
+<div class="step-row"><div class="wk">7–8</div><div>
+  <div class="tt">Inventory &amp; proof</div>
+  <div class="dd">Populate every available home with photos, specs, price, status, lot map, estimated payment. Portfolio, Homeowner Stories, Heroes of the Nation. Pull in real testimonials.</div></div>
+</div>
+<div class="step-row"><div class="wk">8–9</div><div>
+  <div class="tt">Communities &amp; process</div>
+  <div class="dd">Six genuinely rewritten community pages with real local detail. Our Process (8 steps). Build on Your Lot. Financing. No templated copy.</div></div>
+</div>
+<div class="step-row"><div class="wk">10</div><div>
+  <div class="tt">Answer engine layer</div>
+  <div class="dd">FAQ hub with schema. First 6 topic pages, answer-first formatted. Seed GBP Q&amp;A with 10 real questions.</div></div>
+</div>
+<div class="step-row"><div class="wk">11</div><div>
+  <div class="tt">Launch, measure, verify</div>
+  <div class="dd">XML sitemap submitted. Core Web Vitals verified on real devices. All schema validated. Redirect map from the old URLs tested. Baseline the 20-prompt AI test. Run the first full technical crawl.</div></div>
+</div>
+<div class="step-row"><div class="wk">12+</div><div>
+  <div class="tt">Cadence forever</div>
+  <div class="dd">2 posts a month. Inventory updated weekly. 5 citations a month. 25+ Google reviews in the first 90 days. Monthly prompt test. Quarterly schema and NAP audit. GBP post weekly.</div></div>
+</div>
+</div>
+
+<!-- ============ 14 ============ -->
+<h2 id="s14"><span class="n">14 ·</span> KPIs &amp; measurement</h2>
+<p class="h2sub">Five numbers that matter. Ignore everything else.</p>
+
+<div class="grid3">
+  <div class="kpi"><div class="m">Qualified leads / mo</div><div class="v">0 → 12</div><div class="c">Forms + calls + GBP clicks from non-branded sources</div></div>
+  <div class="kpi"><div class="m">Local pack top 3</div><div class="v">0 → 5</div><div class="c">Target keywords ranking in the map pack</div></div>
+  <div class="kpi"><div class="m">Google reviews</div><div class="v">0 → 25</div><div class="c">At 4.7+ average, with a reply on every one</div></div>
+  <div class="kpi"><div class="m">AI citation share</div><div class="v">0% → 25%</div><div class="c">20 prompts × 5 platforms, tested monthly</div></div>
+  <div class="kpi"><div class="m">Mobile LCP</div><div class="v">4.1s → &lt;2.0s</div><div class="c">Field data from Search Console, not lab</div></div>
+  <div class="kpi"><div class="m">Signed contracts / yr</div><div class="v">The only real KPI</div><div class="c">Attribute source at first contact, in the CRM</div></div>
+</div>
+
+<div class="card" style="margin-top:16px">
+<h3>The one habit that makes all of this work</h3>
+<p>Ask every single lead one question: <b>"How did you find us?"</b> — and log the verbatim answer in a spreadsheet. When the answer starts coming back as "ChatGPT said you were licensed and local" or "Perplexity listed you," you'll know the GEO work is paying off months before any tool can tell you. Self-reported attribution is the highest-fidelity data a small builder will ever get.</p>
+</div>
+
+<!-- ============ 15 ============ -->
+<h2 id="s15"><span class="n">15 ·</span> Effort &amp; budget</h2>
+<p class="h2sub">Rough order-of-magnitude numbers for a Kern County market.</p>
+
+<div class="card">
+<table>
+  <tr><th style="width:30%">Line item</th><th style="width:18%">DIY</th><th style="width:18%">Freelance</th><th style="width:18%">Agency</th><th>Notes</th></tr>
+  <tr><td>Photography + drone</td><td>$0</td><td>$1,500–3,000</td><td>$3,000–6,000</td><td>Non-negotiable. Do not rebuild on phone photos.</td></tr>
+  <tr><td>Design (homepage + 6 templates)</td><td>$0</td><td>$3,000–6,000</td><td>$8,000–15,000</td><td>Prototype already gives you the direction</td></tr>
+  <tr><td>Build (WP, 38 pages)</td><td>60–100 hrs</td><td>$6,000–12,000</td><td>$15,000–30,000</td><td>Track A / WordPress</td></tr>
+  <tr><td>Schema + technical SEO</td><td>10–15 hrs</td><td>$1,500–3,000</td><td>$4,000–8,000</td><td>Highest ROI per dollar in this table</td></tr>
+  <tr><td>Copy rewriting</td><td>20–30 hrs</td><td>$2,000–4,000</td><td>$5,000–10,000</td><td>Includes all six community pages</td></tr>
+  <tr><td>GBP + citations cleanup</td><td>8–10 hrs</td><td>$500–1,500</td><td>$1,500–3,000</td><td>Do this in Week 1 regardless</td></tr>
+  <tr><td>Ongoing content (2/mo)</td><td>8 hrs/mo</td><td>$600–1,200/mo</td><td>$1,500–3,500/mo</td><td>Six-month minimum before it compounds</td></tr>
+  <tr><td>Hosting + tools</td><td>$50–150/mo</td><td>$50–150/mo</td><td>$200–500/mo</td><td>Hosting, call tracking, rank tracking</td></tr>
+</table>
+<p style="margin-top:14px"><b>Realistic total:</b> roughly <b>$12K–25K</b> all-in for a proper rebuild done with freelance help plus 90 days of execution, or <b>$35K–65K</b> through a full-service agency. <b>If the budget is near zero, do these three things and nothing else:</b> schema (§5), Google Business Profile + NAP cleanup (§7), and a review engine (§9). That's under $2,000 and captures the majority of the available gain.</p>
+</div>
+
+<footer>
+  Aspen II Homes — Rebuild Blueprint · Prepared September 16, 2026<br>
+  Companion deliverable: <b>aspen2homes-2026-prototype.html</b> (working homepage)<br>
+  Placeholder content in the prototype — inventory figures, plan specs, warranty terms and two testimonials — must be verified and replaced before launch.
+</footer>
+
+</div>
+</body>
+</html>

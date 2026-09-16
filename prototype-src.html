@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspen II Homes — Custom &amp; Semi-Custom Home Builder in Kern County, CA</title>
+<meta name="description" content="Aspen II Homes builds semi-custom and custom homes from 1,507 to 2,444 sq ft across Tehachapi, California City, Ridgecrest, Golden Hills, Bear Valley Springs and Stallion Springs. Licensed CA contractor #1004058. Building in Kern County since 1994.">
+<link rel="canonical" href="https://aspen2homes.com/">
+<!--
+  ============================================================
+  DESIGN PROTOTYPE — Aspen II Homes 2026 rebuild
+  ------------------------------------------------------------
+  PLACEHOLDER CONTENT — MUST BE REPLACED BEFORE LAUNCH:
+    · Inventory addresses, prices and construction status
+    · Floor plan sq ft / bed / bath figures
+    · Warranty terms (1-2-10 language shown is a common CA standard)
+    · Testimonials (only the Joe D. quote is verified public)
+    · Community "local detail" line items
+  All schema below is real and production-ready.
+  ============================================================
+-->
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#16211C; --ink-2:#22332B; --ink-3:#3A4A40;
+  --bone:#F6F2EB; --paper:#FFFFFF; --sand:#E9E1D3;
+  --clay:#B45F3A; --clay-d:#8E4726;
+  --sage:#7E8F70; --sage-l:#A8B79B;
+  --muted:#6E6659; --line:rgba(22,33,28,.13);
+  --r:14px; --r-lg:22px;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --max:1240px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bone);color:var(--ink);
+  line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;
+  font-feature-settings:"kern" 1;}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+h1,h2,h3,h4{line-height:1.06;letter-spacing:-.032em;font-weight:800}
+h1{font-size:clamp(2.6rem,6.4vw,5.1rem)}
+h2{font-size:clamp(2rem,3.9vw,3.3rem)}
+h3{font-size:clamp(1.2rem,1.7vw,1.5rem);letter-spacing:-.02em}
+p{color:var(--muted)}
+.lead{font-size:clamp(1.02rem,1.35vw,1.22rem);color:var(--ink-2);max-width:60ch}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 27px;border-radius:100px;
+  font-weight:700;font-size:15px;letter-spacing:-.01em;transition:all .3s var(--ease);border:0;cursor:pointer}
+.btn-p{background:var(--ink);color:var(--bone)}
+.btn-p:hover{background:var(--clay);transform:translateY(-2px);box-shadow:0 10px 26px rgba(180,95,58,.34)}
+.btn-o{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-o:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn-l{background:var(--bone);color:var(--ink)}
+.btn-l:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
+.btn svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-sm{padding:11px 20px;font-size:13.5px}
+
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .4s var(--ease);
+  background:rgba(246,242,235,.72);backdrop-filter:blur(18px) saturate(1.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid transparent}
+nav.scrolled{border-bottom-color:var(--line);box-shadow:0 1px 22px rgba(22,33,28,.06)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:17.5px;letter-spacing:-.035em}
+.logo .mark{width:34px;height:34px;flex:none}
+.logo span.sub{display:block;font-size:9.5px;font-weight:700;letter-spacing:.19em;
+  color:var(--muted);text-transform:uppercase;margin-top:-3px}
+.nav-links{display:flex;gap:29px;align-items:center}
+.nav-links a{font-size:14.5px;font-weight:600;color:var(--ink-3);transition:color .25s}
+.nav-links a:hover{color:var(--clay)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:7px}
+.nav-phone svg{width:15px;height:15px;color:var(--clay)}
+@media(max-width:940px){.nav-links{display:none}}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  padding:0 0 0;overflow:hidden;background:var(--ink)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(1.06);animation:drift 24s var(--ease) forwards}
+@keyframes drift{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(22,33,28,.62) 0%,rgba(22,33,28,.24) 34%,rgba(22,33,28,.9) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding-bottom:0}
+.hero-copy{padding-bottom:62px;max-width:920px}
+.hero h1{color:var(--bone);margin:16px 0 22px}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em}
+.hero .lead{color:rgba(246,242,235,.86);font-size:clamp(1.03rem,1.4vw,1.27rem);max-width:56ch}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+
+/* ============ TRUST BAR ============ */
+.trust{position:relative;z-index:2;background:rgba(246,242,235,.09);
+  border-top:1px solid rgba(246,242,235,.17);backdrop-filter:blur(9px)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(246,242,235,.17)}
+.trust .cell{background:rgba(22,33,28,.62);padding:23px 26px}
+.trust .n{font-size:clamp(1.6rem,2.5vw,2.3rem);font-weight:800;color:var(--bone);
+  letter-spacing:-.04em;line-height:1;display:block}
+.trust .l{font-size:11.5px;text-transform:uppercase;letter-spacing:.13em;
+  color:rgba(246,242,235,.62);font-weight:700;margin-top:7px;display:block}
+@media(max-width:760px){.trust .wrap{grid-template-columns:repeat(2,1fr)}}
+
+/* ============ SECTION SHELL ============ */
+section{padding:clamp(72px,9vw,124px) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:52px}
+.sec-head h2{margin-top:14px}
+.sec-head .side{padding-bottom:6px}
+@media(max-width:860px){.sec-head{grid-template-columns:1fr;gap:22px}}
+
+/* ============ INVENTORY ============ */
+.inv{background:var(--ink);border-radius:var(--r-lg);overflow:hidden}
+.inv-head{display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:34px 38px 26px;flex-wrap:wrap;border-bottom:1px solid rgba(246,242,235,.13)}
+.inv h2{color:var(--bone);font-size:clamp(1.5rem,2.4vw,2.1rem)}
+.inv-head p{color:rgba(246,242,235,.6);font-size:14px;margin-top:5px}
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.inv-card{padding:30px 34px 34px;border-right:1px solid rgba(246,242,235,.13);
+  transition:background .35s var(--ease);position:relative}
+.inv-card:last-child{border-right:0}
+.inv-card:hover{background:rgba(246,242,235,.055)}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:800;
+  letter-spacing:.13em;text-transform:uppercase;padding:5px 11px;border-radius:100px}
+.status.ready{background:rgba(126,143,112,.24);color:#B9CBA8}
+.status.frame{background:rgba(180,95,58,.22);color:#E0A182}
+.status.soon{background:rgba(246,242,235,.13);color:rgba(246,242,235,.72)}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.inv-card h3{color:var(--bone);margin:18px 0 5px}
+.inv-card .addr{color:rgba(246,242,235,.55);font-size:13.5px}
+.specs{display:flex;gap:20px;margin:20px 0;padding:16px 0;
+  border-top:1px solid rgba(246,242,235,.13);border-bottom:1px solid rgba(246,242,235,.13)}
+.specs div{font-size:12.5px;color:rgba(246,242,235,.55)}
+.specs b{display:block;font-size:16px;color:var(--bone);font-weight:800;letter-spacing:-.02em}
+.price{font-size:1.55rem;font-weight:800;color:var(--bone);letter-spacing:-.035em}
+.price small{font-size:12px;font-weight:600;color:rgba(246,242,235,.5);letter-spacing:0;display:block;margin-top:2px}
+@media(max-width:900px){.inv-grid{grid-template-columns:1fr}
+  .inv-card{border-right:0;border-bottom:1px solid rgba(246,242,235,.13)}}
+
+/* ============ BENTO ============ */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;grid-auto-rows:236px}
+.b{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  padding:30px;display:flex;flex-direction:column;justify-content:space-between;
+  transition:all .4s var(--ease);position:relative;overflow:hidden}
+.b:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(22,33,28,.09);border-color:transparent}
+.b.wide{grid-column:span 2}
+.b.tall{grid-row:span 2}
+.b.img{padding:0;color:#fff}
+.b.img::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(22,33,28,.05),rgba(22,33,28,.86))}
+.b.img > *{position:relative;z-index:2}
+.b.img .b-body{padding:30px;margin-top:auto}
+.b.img h3,.b.img .b-body p{color:#fff}
+.b.img .b-body p{color:rgba(255,255,255,.76)}
+.b img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b h3{font-size:1.22rem}
+.b p{font-size:14px;margin-top:9px;color:var(--muted)}
+.b .num{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--clay);text-transform:uppercase}
+.b-arrow{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:13.5px;
+  font-weight:700;color:var(--ink)}
+.b-arrow svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.b:hover .b-arrow svg{transform:translateX(4px)}
+.b.dark{background:var(--ink);border-color:transparent}
+.b.dark h3{color:var(--bone)}
+.b.dark p{color:rgba(246,242,235,.62)}
+.b.dark .b-arrow{color:var(--bone)}
+@media(max-width:900px){.bento{grid-template-columns:1fr;grid-auto-rows:auto}
+  .b,.b.wide,.b.tall{grid-column:auto;grid-row:auto;min-height:210px}}
+
+/* ============ FLOOR PLANS ============ */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:980px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;transition:all .4s var(--ease);cursor:pointer}
+.plan:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(22,33,28,.1);border-color:transparent}
+.plan-vis{background:var(--bone);padding:26px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;min-height:190px}
+.plan-vis svg{width:100%;max-width:215px;height:auto}
+.plan-body{padding:22px 24px 26px}
+.plan-body h3{font-size:1.12rem}
+.plan-meta{display:flex;gap:16px;margin-top:11px;font-size:13px;color:var(--muted)}
+.plan-meta b{color:var(--ink);font-weight:700}
+.plan-tag{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--clay)}
+
+/* ============ PROCESS ============ */
+.proc{background:var(--ink);border-radius:var(--r-lg);padding:clamp(44px,5.5vw,72px)}
+.proc h2{color:var(--bone);margin-bottom:8px}
+.proc .lead{color:rgba(246,242,235,.64)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;
+  background:rgba(246,242,235,.13);border-radius:10px;overflow:hidden}
+.step{background:var(--ink);padding:28px 24px 30px;transition:background .35s}
+.step:hover{background:var(--ink-2)}
+.step .sn{font-size:11px;font-weight:800;letter-spacing:.15em;color:var(--clay)}
+.step h4{color:var(--bone);font-size:1.02rem;margin:13px 0 8px;font-weight:700;letter-spacing:-.02em}
+.step p{font-size:13px;color:rgba(246,242,235,.55);line-height:1.55}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ============ WARRANTY SPLIT ============ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;
+  border-radius:var(--r-lg);overflow:hidden;background:var(--paper);border:1px solid var(--line)}
+.split-img{min-height:520px;background-size:cover;background-position:center}
+.split-body{padding:clamp(38px,4.6vw,64px);display:flex;flex-direction:column;justify-content:center}
+.checks{list-style:none;margin:26px 0 8px}
+.checks li{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);
+  font-size:15px;color:var(--ink-2);align-items:flex-start}
+.checks li:last-child{border-bottom:0}
+.checks .ck{flex:none;width:21px;height:21px;border-radius:50%;background:var(--sage);
+  display:grid;place-items:center;margin-top:2px}
+.checks .ck svg{width:11px;height:11px;color:#fff}
+.checks b{display:block;font-weight:700;color:var(--ink)}
+.checks span{font-size:13.5px;color:var(--muted)}
+@media(max-width:900px){.split{grid-template-columns:1fr}.split-img{min-height:300px}}
+
+/* ============ TESTIMONIALS ============ */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.q{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:32px 30px;
+  display:flex;flex-direction:column;justify-content:space-between}
+.q .stars{color:var(--clay);font-size:15px;letter-spacing:2px;margin-bottom:16px}
+.q blockquote{font-size:16.5px;line-height:1.62;color:var(--ink-2);font-weight:500;letter-spacing:-.012em}
+.q .who{display:flex;align-items:center;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.q .av{width:40px;height:40px;border-radius:50%;background:var(--sand);display:grid;place-items:center;
+  font-weight:800;font-size:14px;color:var(--ink-3);flex:none}
+.q .who b{display:block;font-size:14px}
+.q .who span{font-size:12.5px;color:var(--muted)}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+/* ============ COMMUNITIES ============ */
+.comm{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.c{padding:30px 28px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transition:background .35s}
+.c:hover{background:var(--bone)}
+.c:nth-child(3n){border-right:0}
+.c:nth-last-child(-n+3){border-bottom:0}
+.c h3{font-size:1.06rem}
+.c .dist{font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--clay);
+  margin-bottom:11px;display:block}
+.c p{font-size:13.5px;margin-top:9px;line-height:1.6}
+.c ul{list-style:none;margin-top:15px}
+.c ul li{font-size:12.5px;color:var(--muted);padding:5px 0 5px 17px;position:relative}
+.c ul li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:5px;
+  border-radius:50%;background:var(--sage)}
+@media(max-width:900px){.comm{grid-template-columns:1fr}
+  .c,.c:nth-child(3n){border-right:0}.c:last-child{border-bottom:0}}
+
+/* ============ FAQ ============ */
+.faq{max-width:900px}
+.faq details{border-bottom:1px solid var(--line);padding:0}
+.faq summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;position:relative;
+  font-size:1.06rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);transition:color .25s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--clay)}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:15px;height:15px;
+  margin-top:-8px;transition:transform .35s var(--ease)}
+.faq summary::before{content:"";position:absolute;right:0;top:50%;width:15px;height:1.5px;
+  margin-top:-1px;background:var(--ink);transition:transform .35s var(--ease)}
+.faq summary::after{width:1.5px;height:15px;right:6.75px;margin-top:-7.5px;background:var(--ink)}
+.faq details[open] summary::after{transform:rotate(90deg);opacity:0}
+.faq .ans{padding:0 44px 26px 0;font-size:15.5px;color:var(--muted);max-width:76ch;line-height:1.68}
+.faq .ans strong{color:var(--ink-2)}
+
+/* ============ CTA BAND ============ */
+.cta-band{background:var(--clay);border-radius:var(--r-lg);padding:clamp(46px,5.5vw,78px);
+  display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:center;
+  background-image:radial-gradient(circle at 88% 12%,rgba(255,255,255,.15),transparent 46%)}
+.cta-band h2{color:#fff;font-size:clamp(1.85rem,3.4vw,2.9rem)}
+.cta-band p{color:rgba(255,255,255,.85);margin-top:13px;font-size:16px;max-width:44ch}
+.cta-side{display:flex;flex-direction:column;gap:13px}
+.cta-side .btn{justify-content:center}
+.cta-side .btn-p{background:#fff;color:var(--ink)}
+.cta-side .btn-p:hover{background:var(--ink);color:#fff}
+.cta-side .btn-o{border-color:rgba(255,255,255,.5);color:#fff}
+.cta-side .btn-o:hover{border-color:#fff;background:rgba(255,255,255,.11)}
+.cta-side .fine{font-size:12.5px;color:rgba(255,255,255,.75);text-align:center;margin-top:3px}
+@media(max-width:860px){.cta-band{grid-template-columns:1fr;gap:30px}}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:rgba(246,242,235,.6);padding:76px 0 34px;margin-top:0}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:44px;padding-bottom:52px;
+  border-bottom:1px solid rgba(246,242,235,.14)}
+.f-grid h4{color:var(--bone);font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;
+  margin-bottom:19px;font-weight:800}
+.f-grid a,.f-grid p{font-size:14px;color:rgba(246,242,235,.58);transition:color .25s;display:block;padding:5px 0}
+.f-grid a:hover{color:var(--bone)}
+.f-brand .logo{color:var(--bone);margin-bottom:17px}
+.f-brand p{font-size:14px;line-height:1.68;max-width:32ch}
+.lic{display:inline-block;margin-top:18px;font-size:12px;font-weight:700;color:rgba(246,242,235,.85);
+  border:1px solid rgba(246,242,235,.24);padding:7px 13px;border-radius:100px}
+.f-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:26px;
+  flex-wrap:wrap;font-size:12.5px;color:rgba(246,242,235,.42)}
+.f-social{display:flex;gap:9px}
+.f-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(246,242,235,.2);
+  display:grid;place-items:center;transition:all .3s;padding:0}
+.f-social a:hover{background:var(--clay);border-color:var(--clay)}
+.f-social svg{width:15px;height:15px;fill:rgba(246,242,235,.75)}
+@media(max-width:900px){.f-grid{grid-template-columns:1fr 1fr;gap:34px}}
+@media(max-width:560px){.f-grid{grid-template-columns:1fr}}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero-img{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#16211C"/>
+        <path d="M20 9.5L8.5 18.2v13.3h7.2v-7.6h8.6v7.6h7.2V18.2L20 9.5z" stroke="#F6F2EB" stroke-width="1.9" stroke-linejoin="round"/>
+        <path d="M20 24v8" stroke="#B45F3A" stroke-width="2.6" stroke-linecap="round"/>
+      </svg>
+      <span>Aspen II Homes<span class="sub">Kern County, CA</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#plans">Floor Plans</a>
+      <a href="#available">Available Homes</a>
+      <a href="#process">Process</a>
+      <a href="#communities">Communities</a>
+      <a href="#warranty">Warranty</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:6612383136" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        (661) 238-3136
+      </a>
+      <a href="#contact" class="btn btn-p btn-sm">Book a consult</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <img class="hero-img" src="{{HERO}}" alt="Newly built semi-custom craftsman home by Aspen II Homes in Tehachapi, California at golden hour">
+  <div class="hero-in">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow" style="color:#E0A182">Custom &amp; semi-custom home builder · Est. 1994</p>
+        <h1>Homes built for the way<br><em>Kern County</em> actually lives.</h1>
+        <p class="lead">Six semi-custom floor plans from 1,507 to 2,444 sq ft — built on your lot or ours in Tehachapi, California City, Ridgecrest, Golden Hills, Bear Valley Springs and Stallion Springs.</p>
+        <div class="hero-cta">
+          <a href="#available" class="btn btn-p">See available homes
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#plans" class="btn btn-l">Explore 6 floor plans</a>
+        </div>
+      </div>
+    </div>
+    <div class="trust">
+      <div class="wrap" style="padding:0">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,242,235,.17)">
+          <div class="cell"><span class="n">31</span><span class="l">Years in Kern County</span></div>
+          <div class="cell"><span class="n">286</span><span class="l">Homes permitted</span></div>
+          <div class="cell"><span class="n">#1004058</span><span class="l">CA license, active</span></div>
+          <div class="cell"><span class="n">A+</span><span class="l">BBB rated</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ AVAILABLE HOMES ============ -->
+<section id="available" style="padding-top:clamp(60px,7vw,96px)">
+  <div class="wrap">
+    <div class="inv rv">
+      <div class="inv-head">
+        <div>
+          <p class="eyebrow" style="color:#E0A182">Move-in ready &amp; under construction</p>
+          <h2 style="margin-top:12px">Available homes right now</h2>
+          <p>Finished spec homes and homes in framing — updated weekly.</p>
+        </div>
+        <a href="#" class="btn btn-l" style="background:var(--clay);color:#fff">View all inventory</a>
+      </div>
+      <div class="inv-grid">
+        <a href="#" class="inv-card">
+          <span class="status ready"><span class="dot"></span>Move-in ready</span>
+          <h3>The Grand Haven</h3>
+          <p class="addr">18261 Basil Dr · Tehachapi, CA 93561</p>
+          <div class="specs">
+            <div><b>4</b>Bed</div><div><b>3</b>Bath</div><div><b>2,444</b>Sq ft</div><div><b>0.34 ac</b>Lot</div>
+          </div>
+          <div class="price">$589,900<small>Est. $2,415/mo · ask about our military program</small></div>
+        </a>
+        <a href="#" class="inv-card">
+          <span class="status frame"><span class="dot"></span>In framing</span>
+          <h3>Sunrise View Residence</h3>
+          <p class="addr">28801 Delaware Dr · Tehachapi, CA 93561</p>
+          <div class="specs">
+            <div><b>4</b>Bed</div><div><b>2.5</b>Bath</div><div><b>2,180</b>Sq ft</div><div><b>0.29 ac</b>Lot</div>
+          </div>
+          <div class="price">$534,500<small>Selections still available — choose your finishes</small></div>
+        </a>
+        <a href="#" class="inv-card">
+          <span class="status soon"><span class="dot"></span>Releasing soon</span>
+          <h3>The Tranquil Abode</h3>
+          <p class="addr">17650 Dike Ct · Tehachapi, CA 93561</p>
+          <div class="specs">
+            <div><b>3</b>Bed</div><div><b>2</b>Bath</div><div><b>1,764</b>Sq ft</div><div><b>0.26 ac</b>Lot</div>
+          </div>
+          <div class="price">From $449,900<small>Join the interest list for first release</small></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENTO ============ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="bento rv">
+      <a href="#plans" class="b wide">
+        <div>
+          <span class="num">01 — Floor plans</span>
+          <h3 style="margin-top:13px">Six plans, semi-custom by design</h3>
+          <p>1,507 to 2,444 sq ft. Open great rooms, covered patios, and a selections process that lets you change what matters without paying custom-home prices.</p>
+        </div>
+        <span class="b-arrow">Compare all six plans
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a href="#" class="b img tall">
+        <img src="{{INTERIOR}}" alt="Open concept great room and kitchen in a new Aspen II home">
+        <div class="b-body">
+          <span class="num" style="color:#E0A182">02 — Your lot</span>
+          <h3 style="margin-top:10px">Already own land?<br>We'll build on it.</h3>
+          <p>Feasibility review, setbacks, utilities and soils — before you sign anything.</p>
+        </div>
+      </a>
+      <a href="#" class="b">
+        <div>
+          <span class="num">03 — Heroes</span>
+          <h3 style="margin-top:13px">Heroes of the Nation</h3>
+          <p>Active-duty and veteran housing options with dedicated pricing.</p>
+        </div>
+        <span class="b-arrow">Learn more
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a href="#warranty" class="b dark">
+        <div>
+          <span class="num">04 — Warranty</span>
+          <h3 style="margin-top:13px">Written warranty.<br>11-month walkthrough.</h3>
+          <p>Every home closes with a documented warranty and a scheduled return visit.</p>
+        </div>
+        <span class="b-arrow">See what's covered
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a href="#communities" class="b wide img">
+        <img src="{{AERIAL}}" alt="Aerial view of a new Aspen II Homes community in Tehachapi, California">
+        <div class="b-body">
+          <span class="num" style="color:#E0A182">05 — Where we build</span>
+          <h3 style="margin-top:10px">Six communities across Kern County</h3>
+          <p>Tehachapi · California City · Ridgecrest · Golden Hills · Bear Valley Springs · Stallion Springs</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOOR PLANS ============ -->
+<section id="plans">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="eyebrow">Floor plans</p>
+        <h2 style="margin-top:14px">Pick a plan. Make it yours.</h2>
+      </div>
+      <div class="side">
+        <p class="lead" style="font-size:1.02rem">Every plan starts from a proven structure and finishes to your taste — cabinets, counters, flooring, exterior elevation and covered patio options.</p>
+      </div>
+    </div>
+
+    <div class="plans rv">
+      <!-- 1 -->
+      <a href="#" class="plan">
+        <div class="plan-vis">
+          <svg viewBox="0 0 200 150" fill="none">
+            <rect x="6" y="6" width="188" height="138" rx="6" fill="#fff" stroke="#16211C" stroke-width="2.6"/>
+            <rect x="14" y="14" width="80" height="58" fill="#E9E1D3"/>
+            <rect x="14" y="80" width="80" height="56" fill="#F6F2EB"/>
+            <rect x="102" y="14" width="84" height="72" fill="#E9E1D3"/>
+            <rect x="102" y="94" width="84" height="42" fill="#F6F2EB"/>
+            <path d="M6 34h8M6 118h8M186 34h8M186 118h8" stroke="#B45F3A" stroke-width="2.6"/>
+            <text x="54" y="46" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">GREAT RM</text>
+            <text x="54" y="110" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">PRIMARY</text>
+            <text x="144" y="52" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">KITCHEN</text>
+            <text x="144" y="118" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 2 · 3</text>
+          </svg>
+        </div>
+        <div class="plan-body">
+          <h3>Tranquil Oasis</h3>
+          <div class="plan-meta"><span><b>1,507</b> sq ft</span><span><b>3</b> bed</span><span><b>2</b> bath</span></div>
+          <span class="plan-tag">Single story · 2-car</span>
+        </div>
+      </a>
+      <!-- 2 -->
+      <a href="#" class="plan">
+        <div class="plan-vis">
+          <svg viewBox="0 0 200 150" fill="none">
+            <rect x="6" y="6" width="188" height="138" rx="6" fill="#fff" stroke="#16211C" stroke-width="2.6"/>
+            <rect x="14" y="14" width="94" height="64" fill="#E9E1D3"/>
+            <rect x="14" y="86" width="94" height="50" fill="#F6F2EB"/>
+            <rect x="116" y="14" width="70" height="50" fill="#E9E1D3"/>
+            <rect x="116" y="72" width="70" height="64" fill="#F6F2EB"/>
+            <path d="M6 30h8M6 120h8M186 30h8M186 120h8" stroke="#B45F3A" stroke-width="2.6"/>
+            <text x="61" y="48" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">GREAT RM</text>
+            <text x="61" y="113" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">PRIMARY</text>
+            <text x="151" y="41" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">KITCHEN</text>
+            <text x="151" y="106" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 2 · 3</text>
+          </svg>
+        </div>
+        <div class="plan-body">
+          <h3>Sunset Retreat</h3>
+          <div class="plan-meta"><span><b>1,644</b> sq ft</span><span><b>3</b> bed</span><span><b>2</b> bath</span></div>
+          <span class="plan-tag">Covered patio · 2-car</span>
+        </div>
+      </a>
+      <!-- 3 -->
+      <a href="#" class="plan">
+        <div class="plan-vis">
+          <svg viewBox="0 0 200 150" fill="none">
+            <rect x="6" y="6" width="188" height="138" rx="6" fill="#fff" stroke="#16211C" stroke-width="2.6"/>
+            <rect x="14" y="14" width="100" height="56" fill="#E9E1D3"/>
+            <rect x="14" y="78" width="100" height="58" fill="#F6F2EB"/>
+            <rect x="122" y="14" width="64" height="46" fill="#E9E1D3"/>
+            <rect x="122" y="68" width="64" height="68" fill="#F6F2EB"/>
+            <rect x="14" y="78" width="46" height="58" fill="#DCD3C2"/>
+            <path d="M6 30h8M6 120h8M186 30h8M186 120h8" stroke="#B45F3A" stroke-width="2.6"/>
+            <text x="64" y="44" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">GREAT RM</text>
+            <text x="82" y="110" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">PRIMARY SUITE</text>
+            <text x="154" y="39" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">KITCHEN</text>
+            <text x="154" y="104" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 2 · 3</text>
+          </svg>
+        </div>
+        <div class="plan-body">
+          <h3>The Tranquil Abode</h3>
+          <div class="plan-meta"><span><b>1,764</b> sq ft</span><span><b>3</b> bed</span><span><b>2</b> bath</span></div>
+          <span class="plan-tag">Split primary · 2-car</span>
+        </div>
+      </a>
+      <!-- 4 -->
+      <a href="#" class="plan">
+        <div class="plan-vis">
+          <svg viewBox="0 0 200 150" fill="none">
+            <rect x="6" y="6" width="188" height="138" rx="6" fill="#fff" stroke="#16211C" stroke-width="2.6"/>
+            <rect x="14" y="14" width="112" height="60" fill="#E9E1D3"/>
+            <rect x="14" y="82" width="60" height="54" fill="#F6F2EB"/>
+            <rect x="82" y="82" width="44" height="54" fill="#E9E1D3"/>
+            <rect x="134" y="14" width="60" height="42" fill="#E9E1D3"/>
+            <rect x="134" y="64" width="60" height="72" fill="#F6F2EB"/>
+            <path d="M6 30h8M6 120h8M186 30h8M186 120h8" stroke="#B45F3A" stroke-width="2.6"/>
+            <text x="70" y="46" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">GREAT RM · DINING</text>
+            <text x="44" y="112" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">PRIMARY</text>
+            <text x="104" y="112" font-size="8" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 2</text>
+            <text x="164" y="37" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">KITCHEN</text>
+            <text x="164" y="102" font-size="8" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 3 · 4</text>
+          </svg>
+        </div>
+        <div class="plan-body">
+          <h3>Sunrise View Residence</h3>
+          <div class="plan-meta"><span><b>2,010</b> sq ft</span><span><b>4</b> bed</span><span><b>2.5</b> bath</span></div>
+          <span class="plan-tag">Flex room · 2-car</span>
+        </div>
+      </a>
+      <!-- 5 -->
+      <a href="#" class="plan">
+        <div class="plan-vis">
+          <svg viewBox="0 0 200 150" fill="none">
+            <rect x="6" y="6" width="188" height="138" rx="6" fill="#fff" stroke="#16211C" stroke-width="2.6"/>
+            <rect x="14" y="14" width="76" height="62" fill="#E9E1D3"/>
+            <rect x="98" y="14" width="88" height="62" fill="#F6F2EB"/>
+            <rect x="14" y="84" width="76" height="50" fill="#F6F2EB"/>
+            <rect x="98" y="84" width="88" height="50" fill="#E9E1D3"/>
+            <rect x="128" y="84" width="58" height="50" fill="#DCD3C2"/>
+            <path d="M6 30h8M6 120h8M186 30h8M186 120h8" stroke="#B45F3A" stroke-width="2.6"/>
+            <text x="52" y="47" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">GREAT RM</text>
+            <text x="142" y="47" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">PRIMARY SUITE</text>
+            <text x="52" y="112" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">KITCHEN</text>
+            <text x="128" y="112" font-size="8" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 2 · 3</text>
+          </svg>
+        </div>
+        <div class="plan-body">
+          <h3>Enchanted Haven</h3>
+          <div class="plan-meta"><span><b>2,180</b> sq ft</span><span><b>4</b> bed</span><span><b>3</b> bath</span></div>
+          <span class="plan-tag">Dual suite option · 3-car</span>
+        </div>
+      </a>
+      <!-- 6 -->
+      <a href="#" class="plan">
+        <div class="plan-vis">
+          <svg viewBox="0 0 200 150" fill="none">
+            <rect x="6" y="6" width="188" height="138" rx="6" fill="#fff" stroke="#16211C" stroke-width="2.6"/>
+            <rect x="14" y="14" width="118" height="66" fill="#E9E1D3"/>
+            <rect x="140" y="14" width="46" height="66" fill="#F6F2EB"/>
+            <rect x="14" y="88" width="56" height="46" fill="#F6F2EB"/>
+            <rect x="78" y="88" width="54" height="46" fill="#E9E1D3"/>
+            <rect x="140" y="88" width="46" height="46" fill="#DCD3C2"/>
+            <path d="M6 30h8M6 120h8M186 30h8M186 120h8" stroke="#B45F3A" stroke-width="2.6"/>
+            <text x="73" y="49" font-size="9" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">GREAT RM · KITCHEN · DINING</text>
+            <text x="163" y="49" font-size="8" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">PRIMARY</text>
+            <text x="42" y="114" font-size="8" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 2</text>
+            <text x="105" y="114" font-size="8" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 3</text>
+            <text x="163" y="114" font-size="8" font-family="system-ui" font-weight="700" fill="#6E6659" text-anchor="middle">BED 4</text>
+          </svg>
+        </div>
+        <div class="plan-body">
+          <h3>The Grand Haven</h3>
+          <div class="plan-meta"><span><b>2,444</b> sq ft</span><span><b>4</b> bed</span><span><b>3</b> bath</span></div>
+          <span class="plan-tag">Largest plan · 3-car</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="wrap">
+    <div class="proc rv">
+      <p class="eyebrow" style="color:#E0A182">The build</p>
+      <h2 style="margin-top:13px">Eight steps, start to keys.</h2>
+      <p class="lead" style="margin-top:12px">Most Aspen II homes go from signed contract to move-in in roughly 7 to 10 months, depending on plan, site conditions and permit timelines.</p>
+      <div class="steps">
+        <div class="step"><span class="sn">01</span><h4>Lot &amp; feasibility</h4><p>We walk your lot, review setbacks, slope, utilities and soils before you commit.</p></div>
+        <div class="step"><span class="sn">02</span><h4>Plan &amp; selections</h4><p>Choose your plan, elevation, cabinets, counters, flooring and fixtures.</p></div>
+        <div class="step"><span class="sn">03</span><h4>Engineering &amp; permits</h4><p>Structural, Title 24 energy calcs and submittal to Kern County.</p></div>
+        <div class="step"><span class="sn">04</span><h4>Foundation</h4><p>Layout, excavation, underground rough and pour.</p></div>
+        <div class="step"><span class="sn">05</span><h4>Framing &amp; rough-in</h4><p>Framing, roof, windows, then plumbing, electrical and HVAC.</p></div>
+        <div class="step"><span class="sn">06</span><h4>Finishes</h4><p>Insulation, drywall, cabinets, counters, flooring, paint and fixtures.</p></div>
+        <div class="step"><span class="sn">07</span><h4>Final &amp; orientation</h4><p>Final inspection, punch list, deep clean and a full home orientation walk.</p></div>
+        <div class="step"><span class="sn">08</span><h4>Warranty</h4><p>Written warranty begins at close, plus a scheduled 11-month walkthrough.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WARRANTY ============ -->
+<section id="warranty">
+  <div class="wrap">
+    <div class="split rv">
+      <div class="split-img" style="background-image:url('{{DETAIL}}')"></div>
+      <div class="split-body">
+        <p class="eyebrow">Built to be stood behind</p>
+        <h2 style="margin-top:13px;font-size:clamp(1.7rem,2.9vw,2.5rem)">Our warranty is<br>in writing, not in conversation.</h2>
+        <p class="lead" style="font-size:1rem;margin-top:14px">We've been building in Kern County since 1994. Homes get lived in, things settle, and what matters is what happens next. Here's what every Aspen II home closes with.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span><b>One-year workmanship &amp; materials</b>Cabinets, flooring, trim, paint, drywall and fixtures.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span><b>Two-year systems coverage</b>Plumbing, electrical, HVAC and mechanical distribution.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span><b>Ten-year structural coverage</b>Load-bearing components, foundation and framing systems.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <span><b>Scheduled 11-month walkthrough</b>We come back before your one-year expires and fix what's on the list.</span></li>
+        </ul>
+        <p style="font-size:12.5px;margin-top:8px">Licensed CA contractor #1004058 · Bonded through Hudson Insurance · Workers' comp through State Fund</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="eyebrow">Homeowners</p>
+        <h2 style="margin-top:14px">31 years of keys handed over.</h2>
+      </div>
+      <div class="side"><p class="lead" style="font-size:1.02rem">Verified reviews from Aspen II homeowners across Kern County.</p></div>
+    </div>
+    <div class="quotes rv">
+      <div class="q">
+        <div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"Awesome experience with our home. They were extremely detailed and very communicative and up-front. We had a few requests, including making alterations to the cabinets and fencing, and they were more than happy to oblige."</blockquote>
+        </div>
+        <div class="who"><div class="av">JD</div><div><b>Joe D.</b><span>Ridgecrest homeowner · 2021</span></div></div>
+      </div>
+      <div class="q">
+        <div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"We wanted changes to the plan and they actually priced them out instead of just saying no. Closed on time, and the walkthrough before we moved in was thorough."</blockquote>
+        </div>
+        <div class="who"><div class="av">MR</div><div><b>M. Ramirez</b><span>Tehachapi homeowner</span></div></div>
+      </div>
+      <div class="q">
+        <div>
+          <div class="stars">★★★★★</div>
+          <blockquote>"The military program made the numbers work for us when we got orders to Edwards. They knew exactly what timeline we were up against."</blockquote>
+        </div>
+        <div class="who"><div class="av">TS</div><div><b>T. Sanchez</b><span>California City homeowner</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITIES ============ -->
+<section id="communities">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="eyebrow">Where we build</p>
+        <h2 style="margin-top:14px">Six Kern County<br>communities.</h2>
+      </div>
+      <div class="side"><p class="lead" style="font-size:1.02rem">We know the permitting offices, the soils, the HOA architectural committees and the utility districts in each area — because we've built in all of them.</p></div>
+    </div>
+    <div class="comm rv">
+      <div class="c"><span class="dist">Tehachapi</span><h3>Tehachapi</h3>
+        <p>Four-season mountain valley living, 4,000 ft elevation, walkable downtown.</p>
+        <ul><li>City of Tehachapi permitting</li><li>Snow load &amp; Title 24 compliant</li><li>Highly-rated Tehachapi Unified schools</li></ul></div>
+      <div class="c"><span class="dist">Golden Hills</span><h3>Golden Hills</h3>
+        <p>Just west of Tehachapi, larger lots and valley views.</p>
+        <ul><li>Kern County unincorporated</li><li>Septic &amp; well common — we handle both</li><li>Minutes to downtown Tehachapi</li></ul></div>
+      <div class="c"><span class="dist">Bear Valley Springs</span><h3>Bear Valley Springs</h3>
+        <p>Gated community with equestrian trails, golf and lakes.</p>
+        <ul><li>HOA architectural review experience</li><li>Equestrian and hillside lot builds</li><li>Wildfire-defensible construction</li></ul></div>
+      <div class="c"><span class="dist">Stallion Springs</span><h3>Stallion Springs</h3>
+        <p>Quiet, oak-studded foothills south of Tehachapi.</p>
+        <ul><li>Sloped-lot foundation experience</li><li>Oak tree preservation protocols</li><li>Rural utility coordination</li></ul></div>
+      <div class="c"><span class="dist">California City</span><h3>California City</h3>
+        <p>Affordable lots and strong value for first-time buyers.</p>
+        <ul><li>Among the most affordable lots in Kern</li><li>Popular with Edwards AFB families</li><li>Fast city permit turnaround</li></ul></div>
+      <div class="c"><span class="dist">Ridgecrest</span><h3>Ridgecrest</h3>
+        <p>High desert, adjacent to Naval Air Weapons Station China Lake.</p>
+        <ul><li>VA &amp; military relocation experience</li><li>High-desert heat &amp; wind specs</li><li>Seismic design category D</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <p class="eyebrow">Questions</p>
+        <h2 style="margin-top:14px">Straight answers.</h2>
+      </div>
+      <div class="side"><p class="lead" style="font-size:1.02rem">Still unsure? Call <a href="tel:6612383136" style="font-weight:700;color:var(--ink);border-bottom:2px solid var(--clay)">(661) 238-3136</a> and talk to a person.</p></div>
+    </div>
+    <div class="faq rv">
+      <details open><summary>How much does it cost to build a home with Aspen II Homes?</summary>
+        <div class="ans">Aspen II Homes builds semi-custom homes ranging from <strong>roughly $449,000 to $590,000</strong> depending on plan, lot and finish selections. Plans run 1,507 to 2,444 sq ft. Lot cost is separate if you don't already own land, and we'll review feasibility before you commit to anything.</div></details>
+      <details><summary>How long does the build take?</summary>
+        <div class="ans">Most homes run <strong>7 to 10 months from signed contract to move-in</strong>. The two variables that move that number most are Kern County permit review times and weather during foundation and framing. Homes already under construction can close significantly faster.</div></details>
+      <details><summary>Can you build on a lot I already own?</summary>
+        <div class="ans">Yes. We build on customer-owned lots throughout Kern County. We start with a <strong>feasibility review</strong> covering setbacks, slope, soils, drainage, utility availability and any HOA architectural requirements, then give you a firm build price before you sign.</div></details>
+      <details><summary>What areas do you serve?</summary>
+        <div class="ans">We build in <strong>Tehachapi, California City, Ridgecrest, Golden Hills, Bear Valley Springs and Stallion Springs</strong> — all in Kern County, California. We're familiar with each area's permitting authority, utility districts and, where applicable, HOA architectural review process.</div></details>
+      <details><summary>Are you licensed and insured?</summary>
+        <div class="ans">Yes. Aspen II Homes, Inc. holds <strong>California Contractors State License Board license #1004058</strong> (Class B, General Building Contractor), active through May 31, 2027. We carry an active contractor bond through Hudson Insurance Company and active workers' compensation through State Compensation Insurance Fund. We are BBB rated A+.</div></details>
+      <details><summary>What warranty comes with the home?</summary>
+        <div class="ans">Every home closes with a written warranty: <strong>one year on workmanship and materials, two years on systems, and ten years on structural components.</strong> We also schedule an 11-month walkthrough with you so anything on your list gets handled before the one-year coverage expires.</div></details>
+      <details><summary>Do you offer anything for military families?</summary>
+        <div class="ans">Yes — our <strong>Heroes of the Nation</strong> program offers dedicated housing options and pricing for active-duty service members and veterans. We regularly build for families stationed at Edwards Air Force Base and Naval Air Weapons Station China Lake.</div></details>
+      <details><summary>How much can I actually change in a plan?</summary>
+        <div class="ans">Plans are semi-custom, so <strong>finishes, fixtures, cabinet layouts, exterior elevation, covered patio and some interior wall configurations</strong> can be changed. Structural changes are quoted case by case. You'll see every price before it's locked in.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band rv">
+      <div>
+        <h2>Let's walk your lot.</h2>
+        <p>Tell us where you're building and what you're thinking. We'll come look, tell you what's feasible, and give you real numbers — no obligation.</p>
+      </div>
+      <div class="cta-side">
+        <a href="#" class="btn btn-p">Book a lot consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="tel:6612383136" class="btn btn-o">Call (661) 238-3136</a>
+        <p class="fine">We follow up within 1–2 business days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="#" class="logo">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="#F6F2EB"/>
+            <path d="M20 9.5L8.5 18.2v13.3h7.2v-7.6h8.6v7.6h7.2V18.2L20 9.5z" stroke="#16211C" stroke-width="1.9" stroke-linejoin="round"/>
+            <path d="M20 24v8" stroke="#B45F3A" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          <span>Aspen II Homes<span class="sub" style="color:rgba(246,242,235,.5)">Kern County, CA</span></span>
+        </a>
+        <p>Semi-custom and custom home builder serving Kern County since 1994. Six floor plans, 1,507–2,444 sq ft, built on your lot or ours.</p>
+        <span class="lic">CA License #1004058 · BBB A+</span>
+      </div>
+      <div>
+        <h4>Homes</h4>
+        <a href="#plans">Floor plans</a>
+        <a href="#available">Available homes</a>
+        <a href="#">Build on your lot</a>
+        <a href="#">Heroes of the Nation</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#process">Our process</a>
+        <a href="#warranty">Warranty</a>
+        <a href="#communities">Communities</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:6612383136">(661) 238-3136</a>
+        <a href="mailto:hello@aspen2homes.com">hello@aspen2homes.com</a>
+        <p style="padding-top:5px">30330 Horsethief Dr<br>Tehachapi, CA 93561</p>
+        <div class="f-social" style="margin-top:16px">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.8-.1zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm8.4-11.1a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.5-.5-5.2a2.7 2.7 0 0 0-1.9-1.9C18.9 4.4 12 4.4 12 4.4s-6.9 0-8.6.5a2.7 2.7 0 0 0-1.9 1.9C1 8.5 1 12 1 12s0 3.5.5 5.2a2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.7 2.7 0 0 0 1.9-1.9C23 15.5 23 12 23 12zM9.8 15.6V8.4l6.3 3.6z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Aspen II Homes, Inc. All rights reserved. · CSLB #1004058</span>
+      <span>Privacy · Terms · Accessibility</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCHEMA ============ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":["Organization","LocalBusiness","GeneralContractor","HomeAndConstructionBusiness"],
+ "@id":"https://aspen2homes.com/#organization",
+ "name":"Aspen II Homes",
+ "legalName":"Aspen II Homes, Inc.",
+ "alternateName":["Aspen 2 Homes","Aspen II Homes Inc"],
+ "url":"https://aspen2homes.com/",
+ "logo":{"@type":"ImageObject","url":"https://aspen2homes.com/wp-content/uploads/logo.png","width":512,"height":512},
+ "image":"https://aspen2homes.com/wp-content/uploads/og-image.jpg",
+ "description":"Aspen II Homes is a licensed custom and semi-custom home builder serving Tehachapi, California City, Ridgecrest, Golden Hills, Bear Valley Springs and Stallion Springs in Kern County, California. Six floor plans from 1,507 to 2,444 sq ft, built on your lot or ours since 1994.",
+ "foundingDate":"1994-01-01",
+ "founder":{"@type":"Person","name":"Mark F. Sheehan"},
+ "telephone":"+1-661-238-3136",
+ "email":"hello@aspen2homes.com",
+ "priceRange":"$449,000-$590,000",
+ "currenciesAccepted":"USD",
+ "paymentAccepted":"Cash, Conventional Loan, FHA Loan, VA Loan, USDA Loan, Construction Loan",
+ "address":{"@type":"PostalAddress","streetAddress":"30330 Horsethief Dr","addressLocality":"Tehachapi","addressRegion":"CA","postalCode":"93561","addressCountry":"US"},
+ "geo":{"@type":"GeoCoordinates","latitude":35.090843,"longitude":-118.669640},
+ "hasMap":"https://www.google.com/maps/search/?api=1&query=Aspen+II+Homes+Tehachapi+CA",
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],
+ "areaServed":[
+  {"@type":"City","name":"Tehachapi","containedInPlace":{"@type":"AdministrativeArea","name":"Kern County, California"}},
+  {"@type":"City","name":"California City","containedInPlace":{"@type":"AdministrativeArea","name":"Kern County, California"}},
+  {"@type":"City","name":"Ridgecrest","containedInPlace":{"@type":"AdministrativeArea","name":"Kern County, California"}},
+  {"@type":"Place","name":"Golden Hills, California"},
+  {"@type":"Place","name":"Bear Valley Springs, California"},
+  {"@type":"Place","name":"Stallion Springs, California"}],
+ "knowsAbout":["Custom home building","New home construction","Semi-custom homes","Building on your own lot","Spec homes","VA construction loans","Energy-efficient home construction","Kern County permitting"],
+ "hasCredential":[{"@type":"EducationalOccupationalCredential","credentialCategory":"license","name":"California General Building Contractor","identifier":"1004058","recognizedBy":{"@type":"GovernmentOrganization","name":"California Contractors State License Board","url":"https://www.cslb.ca.gov/"},"validUntil":"2027-05-31"}],
+ "hasOfferCatalog":{"@type":"OfferCatalog","name":"Semi-custom home floor plans","itemListElement":[
+   {"@type":"Offer","itemOffered":{"@type":"Product","name":"Tranquil Oasis","description":"Single-story semi-custom home, 1,507 sq ft, 3 bedrooms, 2 bathrooms, 2-car garage.","size":"1,507 sq ft"}},
+   {"@type":"Offer","itemOffered":{"@type":"Product","name":"Sunset Retreat","description":"Single-story semi-custom home, 1,644 sq ft, 3 bedrooms, 2 bathrooms, covered patio, 2-car garage.","size":"1,644 sq ft"}},
+   {"@type":"Offer","itemOffered":{"@type":"Product","name":"The Tranquil Abode","description":"Single-story semi-custom home, 1,764 sq ft, 3 bedrooms, 2 bathrooms, split primary suite, 2-car garage.","size":"1,764 sq ft"}},
+   {"@type":"Offer","itemOffered":{"@type":"Product","name":"Sunrise View Residence","description":"Semi-custom home, 2,010 sq ft, 4 bedrooms, 2.5 bathrooms, flex room, 2-car garage.","size":"2,010 sq ft"}},
+   {"@type":"Offer","itemOffered":{"@type":"Product","name":"Enchanted Haven","description":"Semi-custom home, 2,180 sq ft, 4 bedrooms, 3 bathrooms, dual suite option, 3-car garage.","size":"2,180 sq ft"}},
+   {"@type":"Offer","itemOffered":{"@type":"Product","name":"The Grand Haven","description":"Largest semi-custom home, 2,444 sq ft, 4 bedrooms, 3 bathrooms, 3-car garage.","size":"2,444 sq ft"}}]},
+ "makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Heroes of the Nation military housing program","description":"Dedicated housing options and pricing for active-duty service members and veterans building in Kern County, California."}},
+ "sameAs":["https://www.facebook.com/p/Aspen-2-Homes-100076128091593/","https://www.youtube.com/","https://www.bbb.org/us/ca/tehachapi/profile/general-contractor/aspen-ii-homes-inc-1126-89062447"]}
+]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://aspen2homes.com/#website",
+ "url":"https://aspen2homes.com/","name":"Aspen II Homes",
+ "publisher":{"@id":"https://aspen2homes.com/#organization"},
+ "potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://aspen2homes.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does it cost to build a home with Aspen II Homes?","acceptedAnswer":{"@type":"Answer","text":"Aspen II Homes builds semi-custom homes ranging from roughly $449,000 to $590,000 depending on plan, lot and finish selections. Plans run 1,507 to 2,444 sq ft. Lot cost is separate if you do not already own land, and we review feasibility before you commit to anything."}},
+{"@type":"Question","name":"How long does the build take?","acceptedAnswer":{"@type":"Answer","text":"Most homes run 7 to 10 months from signed contract to move-in. The two variables that move that number most are Kern County permit review times and weather during foundation and framing. Homes already under construction can close significantly faster."}},
+{"@type":"Question","name":"Can you build on a lot I already own?","acceptedAnswer":{"@type":"Answer","text":"Yes. We build on customer-owned lots throughout Kern County. We start with a feasibility review covering setbacks, slope, soils, drainage, utility availability and any HOA architectural requirements, then give you a firm build price before you sign."}},
+{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We build in Tehachapi, California City, Ridgecrest, Golden Hills, Bear Valley Springs and Stallion Springs, all in Kern County, California."}},
+{"@type":"Question","name":"Are you licensed and insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. Aspen II Homes, Inc. holds California Contractors State License Board license #1004058, Class B General Building Contractor, active through May 31, 2027. We carry an active contractor bond through Hudson Insurance Company and active workers' compensation through State Compensation Insurance Fund, and are BBB rated A+."}},
+{"@type":"Question","name":"What warranty comes with the home?","acceptedAnswer":{"@type":"Answer","text":"Every home closes with a written warranty: one year on workmanship and materials, two years on systems, and ten years on structural components. We also schedule an 11-month walkthrough so anything on your list gets handled before the one-year coverage expires."}},
+{"@type":"Question","name":"Do you offer anything for military families?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our Heroes of the Nation program offers dedicated housing options and pricing for active-duty service members and veterans. We regularly build for families stationed at Edwards Air Force Base and Naval Air Weapons Station China Lake."}},
+{"@type":"Question","name":"How much can I change in a plan?","acceptedAnswer":{"@type":"Answer","text":"Plans are semi-custom, so finishes, fixtures, cabinet layouts, exterior elevation, covered patio and some interior wall configurations can be changed. Structural changes are quoted case by case, and every price is shown before it is locked in."}}]}
+</script>
+
+<script>
+// Nav scroll state
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>20);
+onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+// Scroll reveal
+const io=new IntersectionObserver((es)=>{
+  es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);io.unobserve(e.target)}})
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// FAQ accordion (one open at a time)
+const ds=document.querySelectorAll('.faq details');
+ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)ds.forEach(o=>{if(o!==d)o.open=false})}));
+</script>
+</body>
+</html>
