@@ -203,7 +203,7 @@
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.65);
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
             font-size: 13px;
             font-weight: 500;
@@ -1292,7 +1292,7 @@
 
         #financing .section-title { color: #fff; }
 
-        #financing .section-subtitle { color: rgba(255,255,255,0.65); }
+        #financing .section-subtitle { color: rgba(255,255,255,0.85); }
 
         .financing-grid {
             display: grid;
@@ -1817,7 +1817,7 @@
 
         .calendar-embed p {
             font-size: 13px;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.6);
         }
 
         .calendar-embed a {
@@ -1831,7 +1831,7 @@
         ═══════════════════════════════════════ */
         .footer {
             background: #0e1117;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.6);
             padding: 48px 24px;
             font-size: 12px;
             line-height: 1.7;
@@ -2591,18 +2591,18 @@
                     <div class="calc-sub">$849,000 · 3 bd · 2 ba · 1,633 sq ft</div>
 
                     <div class="calc-field">
-                        <label>Down payment <span id="dpLabel">$169,800 (20%)</span></label>
-                        <input id="dp" type="range" min="0" max="400000" step="5000" value="169800" oninput="calc()">
+                        <label for="dp">Down payment <span id="dpLabel">$169,800 (20%)</span></label>
+                        <input id="dp" type="range" min="0" max="400000" step="5000" value="169800" oninput="calc()" aria-label="Down payment slider">
                     </div>
 
                     <div class="calc-field">
-                        <label>Interest rate <span id="rateLabel">6.50%</span></label>
-                        <input id="rate" type="range" min="3" max="9" step="0.125" value="6.5" oninput="calc()">
+                        <label for="rate">Interest rate <span id="rateLabel">6.50%</span></label>
+                        <input id="rate" type="range" min="3" max="9" step="0.125" value="6.5" oninput="calc()" aria-label="Interest rate slider">
                     </div>
 
                     <div class="calc-field">
-                        <label>Loan term <span id="termLabel">30 years</span></label>
-                        <input id="term" type="range" min="15" max="30" step="15" value="30" oninput="calc()">
+                        <label for="term">Loan term <span id="termLabel">30 years</span></label>
+                        <input id="term" type="range" min="15" max="30" step="15" value="30" oninput="calc()" aria-label="Loan term slider">
                     </div>
 
                     <div class="calc-result">
@@ -2991,18 +2991,18 @@
 
                         <form id="openHouseForm" style="display:flex;flex-direction:column;gap:14px;">
                             <div>
-                                <label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,0.8);">Your Name *</label>
-                                <input type="text" name="name" placeholder="First & last name" required style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-family:inherit;font-size:14px;outline:none;" />
+                                <label for="oh-name" style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,0.8);">Your Name *</label>
+                                <input type="text" id="oh-name" name="name" placeholder="First & last name" required aria-required="true" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-family:inherit;font-size:14px;outline:none;" />
                             </div>
 
                             <div>
-                                <label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,0.8);">Email</label>
-                                <input type="email" name="email" placeholder="email@example.com" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-family:inherit;font-size:14px;outline:none;" />
+                                <label for="oh-email" style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,0.8);">Email</label>
+                                <input type="email" id="oh-email" name="email" placeholder="email@example.com" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-family:inherit;font-size:14px;outline:none;" />
                             </div>
 
                             <div>
-                                <label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,0.8);">Phone Number</label>
-                                <input type="tel" name="phone" placeholder="(555) 123-4567" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-family:inherit;font-size:14px;outline:none;" />
+                                <label for="oh-phone" style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,0.8);">Phone Number</label>
+                                <input type="tel" id="oh-phone" name="phone" placeholder="(555) 123-4567" style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-family:inherit;font-size:14px;outline:none;" />
                                 <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">* At least one is required</div>
                             </div>
 
@@ -3012,7 +3012,7 @@
                                 </button>
                             </div>
 
-                            <div style="font-size:11px;color:rgba(255,255,255,0.4);text-align:center;margin-top:8px;">
+                            <div style="font-size:11px;color:rgba(255,255,255,0.6);text-align:center;margin-top:8px;">
                                 Your info goes straight to our system
                             </div>
                         </form>
