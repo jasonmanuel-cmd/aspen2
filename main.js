@@ -287,10 +287,18 @@
     });
   }
 
-  // ── Service worker ──
+  // ── Service worker kill switch ──
+  // The old single-page site shipped a cache-first service worker that served
+  // stale HTML and broke navigation. Unregister any existing worker and purge
+  // its caches so every visitor gets the live multi-page site.
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js').catch(function () {});
-    });
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      regs.forEach(function (reg) { reg.unregister(); });
+    }).catch(function () {});
+    if (window.caches && caches.keys) {
+      caches.keys().then(function (keys) {
+        keys.forEach(function (k) { caches.delete(k); });
+      }).catch(function () {});
+    }
   }
 })();
