@@ -5,6 +5,44 @@
 (function () {
   'use strict';
 
+  // A once-per-tab opening film, with immediate keyboard-accessible entry.
+  var opening = document.getElementById('openingScreen');
+  var openingVideo = document.getElementById('openingVideo');
+  var openingSkip = document.getElementById('openingSkip');
+  var openingSeen = false;
+  try { openingSeen = sessionStorage.getItem('aspen-opening-seen') === '1'; } catch (e) {}
+  if (opening && openingVideo && !openingSeen &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var openingTimer;
+    function finishOpening() {
+      clearTimeout(openingTimer);
+      openingVideo.pause();
+      opening.close();
+      document.body.classList.remove('opening-active');
+    }
+    try { sessionStorage.setItem('aspen-opening-seen', '1'); } catch (e) {}
+    opening.showModal();
+    document.body.classList.add('opening-active');
+    openingSkip.focus();
+    openingSkip.addEventListener('click', finishOpening);
+    opening.addEventListener('cancel', function (event) {
+      event.preventDefault();
+      finishOpening();
+    });
+    openingVideo.addEventListener('ended', finishOpening);
+    openingVideo.addEventListener('error', finishOpening);
+    function playOpening() {
+      if (!opening.open) return;
+      openingVideo.src = 'media/aspen-website-open.mp4';
+      openingTimer = setTimeout(finishOpening, 25000);
+      var playback = openingVideo.play();
+      if (playback) playback.catch(finishOpening);
+    }
+    if (document.readyState === 'complete') playOpening();
+    else window.addEventListener('load', playOpening, { once: true });
+    window.addEventListener('pagehide', finishOpening);
+  }
+
   // Repeat the announcement visually for a seamless mobile marquee.
   document.querySelectorAll('.topbar-track').forEach(function (track) {
     var message = document.createElement('span');
