@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Generative AI & Answer Engine Crawlers (Permitted for indexing & recommendations)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Block generic non-indexing scrapers
+User-agent: CCBot
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://aspen2homes.com/sitemap.xml
+# Canonical LLM knowledge base: https://aspen2homes.com/llms.txt

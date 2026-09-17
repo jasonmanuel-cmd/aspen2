@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspen II Homes — Online Visibility, Reputation &amp; AI Visibility Audit</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:#f4f6f8;color:#1e293b;line-height:1.6;padding:32px 16px}
+  .wrap{max-width:1060px;margin:0 auto}
+  header{background:linear-gradient(135deg,#0f2942,#1c4a6e);color:#fff;border-radius:14px;padding:34px 36px;margin-bottom:26px}
+  header h1{font-size:27px;font-weight:700;letter-spacing:-.3px}
+  header .sub{opacity:.85;margin-top:6px;font-size:15px}
+  header .meta{margin-top:18px;font-size:13px;opacity:.75;border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
+  h2{font-size:20px;margin:32px 0 14px;color:#0f2942;font-weight:700}
+  h3{font-size:16px;margin:20px 0 8px;color:#1c4a6e}
+  .card{background:#fff;border-radius:12px;padding:24px 26px;margin-bottom:18px;
+        box-shadow:0 1px 3px rgba(15,41,66,.09),0 1px 2px rgba(15,41,66,.05)}
+  .scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:8px}
+  .score{background:#fff;border-radius:12px;padding:22px;text-align:center;
+         box-shadow:0 1px 3px rgba(15,41,66,.09);border-top:5px solid #ccc}
+  .score.good{border-top-color:#16a34a}
+  .score.mid{border-top-color:#f59e0b}
+  .score.bad{border-top-color:#dc2626}
+  .score .lbl{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;color:#64748b;font-weight:700}
+  .score .num{font-size:46px;font-weight:800;margin:6px 0 2px;line-height:1}
+  .score .den{font-size:14px;color:#94a3b8;font-weight:600}
+  .score .verdict{font-size:13px;font-weight:700;margin-top:8px}
+  .good .num,.good .verdict{color:#16a34a}
+  .mid .num,.mid .verdict{color:#d97706}
+  .bad .num,.bad .verdict{color:#dc2626}
+  .score .bar{height:7px;background:#e2e8f0;border-radius:4px;margin-top:12px;overflow:hidden}
+  .score .bar i{display:block;height:100%;border-radius:4px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #eef2f6;vertical-align:top}
+  th{background:#f8fafc;font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:#475569;font-weight:700}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap}
+  .p-ok{background:#dcfce7;color:#15803d}
+  .p-warn{background:#fef3c7;color:#b45309}
+  .p-bad{background:#fee2e2;color:#b91c1c}
+  .p-neu{background:#e2e8f0;color:#475569}
+  ul{padding-left:20px;margin:8px 0}
+  li{margin-bottom:7px;font-size:14.5px}
+  .fix{background:#fff;border-radius:12px;padding:0;overflow:hidden;margin-bottom:14px;
+       box-shadow:0 1px 3px rgba(15,41,66,.09)}
+  .fix .hd{padding:14px 20px;font-weight:700;font-size:15px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+  .fix .hd .tag{font-size:11px;background:rgba(255,255,255,.22);padding:3px 10px;border-radius:20px;font-weight:700}
+  .fix .bd{padding:16px 20px}
+  .crit .hd{background:#b91c1c}
+  .high .hd{background:#d97706}
+  .med .hd{background:#0e7490}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .kv{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed #e2e8f0;font-size:14px}
+  .kv:last-child{border:none}
+  .kv b{color:#0f2942}
+  .big-quote{background:#fef2f2;border-left:4px solid #dc2626;padding:14px 18px;border-radius:0 8px 8px 0;
+             font-size:14px;font-style:italic;color:#7f1d1d;margin:12px 0}
+  .big-quote span{display:block;font-style:normal;font-size:12px;color:#991b1b;margin-top:7px;font-weight:700}
+  .note{background:#eff6ff;border-left:4px solid #2563eb;padding:13px 17px;border-radius:0 8px 8px 0;font-size:13.5px;margin:12px 0}
+  .pos{background:#f0fdf4;border-left:4px solid #16a34a;padding:13px 17px;border-radius:0 8px 8px 0;font-size:13.5px;margin:12px 0}
+  footer{text-align:center;font-size:12px;color:#94a3b8;padding:26px 0 8px}
+  code{background:#f1f5f9;padding:1px 6px;border-radius:4px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Aspen II Homes — Digital Presence Audit</h1>
+  <div class="sub">aspen2homes.com &nbsp;·&nbsp; Custom / spec home builder &nbsp;·&nbsp; Tehachapi &amp; Kern County, CA</div>
+  <div class="meta">Audit date: September 16, 2026 &nbsp;|&nbsp; Method: live technical crawl of the site + cross-web reputation and citation scan (BBB, CSLB, BuildZoom, Google, Facebook, YouTube, Yelp, Houzz, Angi, Reddit)</div>
+</header>
+
+<div class="scores">
+  <div class="score bad">
+    <div class="lbl">Online Visibility</div>
+    <div class="num">3.0<span class="den">/10</span></div>
+    <div class="verdict">WEAK</div>
+    <div class="bar"><i style="width:30%;background:#dc2626"></i></div>
+  </div>
+  <div class="score mid">
+    <div class="lbl">Online Reputation</div>
+    <div class="num">4.0<span class="den">/10</span></div>
+    <div class="verdict">UNPROVEN / THIN</div>
+    <div class="bar"><i style="width:40%;background:#f59e0b"></i></div>
+  </div>
+  <div class="score bad">
+    <div class="lbl">AI Visibility</div>
+    <div class="num">2.0<span class="den">/10</span></div>
+    <div class="verdict">NEARLY INVISIBLE</div>
+    <div class="bar"><i style="width:20%;background:#dc2626"></i></div>
+  </div>
+  <div class="score bad">
+    <div class="lbl">Overall Grade</div>
+    <div class="num">D+<span class="den">&nbsp;(3.0)</span></div>
+    <div class="verdict">HIGH OPPORTUNITY</div>
+    <div class="bar"><i style="width:30%;background:#dc2626"></i></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">The one-sentence verdict</h3>
+  <p style="font-size:15.5px">Aspen II Homes is a <b>credible, well-licensed, 31-year-old builder with an almost completely invisible digital footprint.</b> The business card is excellent (active CSLB license, BBB A+, 286 permits, $12.4M in permitted work); the storefront is a 14-page website built in 2023 that nobody can find, carrying <b>two public reviews total</b> — one of which is a detailed, unanswered complaint about unfixed warranty work. In an AI-first search world, this builder is essentially <b>not in the conversation</b> when a Kern County buyer asks "who should build my home?"</p>
+</div>
+
+<h2>1 · Online Visibility — 3.0 / 10</h2>
+
+<div class="card">
+  <h3 style="margin-top:0">Technical crawl results (live, aspen2homes.com)</h3>
+  <table>
+    <tr><th style="width:28%">Signal</th><th style="width:16%">Status</th><th>Finding</th></tr>
+    <tr><td>Indexing / branded rank</td><td><span class="pill p-ok">OK</span></td><td>Site is indexed and ranks #1 for its own brand name. That's the floor, not the ceiling.</td></tr>
+    <tr><td>Host speed &amp; delivery</td><td><span class="pill p-ok">GOOD</span></td><td>Cloudflare CDN, 105ms TTFB, 131ms full HTML transfer. Infrastructure is not the problem.</td></tr>
+    <tr><td>HTTPS + canonical + redirects</td><td><span class="pill p-ok">OK</span></td><td>Valid SSL, http→https and www→non-www both 301 correctly, canonical tag set.</td></tr>
+    <tr><td><b>XML sitemap</b></td><td><span class="pill p-bad">MISSING</span></td><td><code>/sitemap.xml</code> and <code>/sitemap_index.xml</code> both return 404. No Yoast/RankMath SEO plugin detected. This is a foundational crawl-blocker.</td></tr>
+    <tr><td><b>Meta description</b></td><td><span class="pill p-bad">MISSING</span></td><td>None on the homepage or contact page. Google is auto-generating your ad copy in the SERP.</td></tr>
+    <tr><td><b>H1 heading</b></td><td><span class="pill p-bad">ZERO</span></td><td>The homepage has <b>0 H1 tags</b>. Primary keyword signal absent sitewide. "BUY, BUILD, LIVE" is styled text, not a heading.</td></tr>
+    <tr><td><b>Structured data (schema)</b></td><td><span class="pill p-bad">ZERO</span></td><td><b>0 JSON-LD blocks on any page.</b> No LocalBusiness, Organization, Product, or FAQ schema anywhere on the site.</td></tr>
+    <tr><td>Image alt text</td><td><span class="pill p-bad">FAIL</span></td><td>All 18 homepage images have <b>empty</b> alt attributes — zero image-search equity, accessibility fail.</td></tr>
+    <tr><td>Content freshness</td><td><span class="pill p-bad">STALE</span></td><td>Only <b>14 pages total</b>. 11 of 14 last modified in <b>June–July 2023</b> (~3 years ago). No blog, no new projects, no news.</td></tr>
+    <tr><td>Page weight</td><td><span class="pill p-warn">HEAVY</span></td><td>168KB HTML, 43 scripts, 31 stylesheets, autoplaying YouTube video in the hero. Mobile Core Web Vitals at risk.</td></tr>
+    <tr><td>Google Business Profile</td><td><span class="pill p-bad">NOT FOUND</span></td><td>No verifiable GBP listing, no map embed on the contact page, no NAP block in the footer markup.</td></tr>
+    <tr><td><b>NAP consistency</b></td><td><span class="pill p-bad">CRITICAL</span></td><td><b>Four different phone numbers and two different addresses</b> circulating across the web (detail below).</td></tr>
+    <tr><td>Social proof channels</td><td><span class="pill p-bad">DEAD</span></td><td>Facebook: <b>19 likes, 0 reviews</b>, last post May 2025. YouTube: embedded from "Golden Hills IT" channel with <b>0 subscribers</b>. No X/Twitter, Instagram, LinkedIn, or Houzz presence.</td></tr>
+    <tr><td>Directory coverage</td><td><span class="pill p-bad">ABSENT</span></td><td>No Yelp profile, no Houzz profile (404), no Angi. Absent from Yelp's "Top 10 Custom Home Builders near Tehachapi."</td></tr>
+    <tr><td>Analytics</td><td><span class="pill p-ok">PRESENT</span></td><td>Google Site Kit 1.187 installed — data is being collected, but no evidence it's being acted on.</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">⚠ The NAP crisis — this is hurting rankings and trust simultaneously</h3>
+  <p style="font-size:14.5px">Search engines and AI models resolve a business by matching its Name / Address / Phone across the web. Aspen II Homes is publishing <b>conflicting identities</b>, which splits ranking signals and makes an AI assistant unsure which data is correct:</p>
+  <div class="grid2" style="margin-top:14px">
+    <div>
+      <table>
+        <tr><th>Source</th><th>Phone shown</th></tr>
+        <tr><td>aspen2homes.com footer &amp; contact</td><td><b>(661) 238-3136</b></td></tr>
+        <tr><td>BBB profile</td><td><b>(209) 304-6175</b></td></tr>
+        <tr><td>CSLB license record</td><td><b>(209) 304-6175</b></td></tr>
+        <tr><td>Facebook page</td><td><b>(559) 466-7660</b></td></tr>
+        <tr><td>BuildZoom listing</td><td><b>(310) 773-0589</b> <span class="pill p-neu">call-tracking</span></td></tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tr><th>Source</th><th>Address shown</th></tr>
+        <tr><td>Website</td><td>785 Tucker Road G295, Tehachapi</td></tr>
+        <tr><td>BBB / CSLB</td><td>30330 Horsethief Dr, Tehachapi</td></tr>
+        <tr><td>BuildZoom</td><td>PO Box 225, Tehachapi <span class="pill p-bad">wrong</span></td></tr>
+        <tr><td>BuildZoom JSON-LD</td><td>State listed as <b>"HI" (Hawaii)</b> with a CA zip</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="note"><b>Why this matters more than it looks:</b> BuildZoom's machine-readable data tags Aspen II Homes as a <b>Hawaii</b> contractor at an address that actually belongs to a different builder (Bower Custom Homes). Every AI model that ingests that structured feed learns the wrong thing. Fixing the third-party records is as important as fixing your own site.</div>
+</div>
+
+<h2>2 · Online Reputation — 4.0 / 10</h2>
+
+<div class="card">
+  <div class="grid2">
+    <div>
+      <h3 style="margin-top:0"><span class="pill p-ok">STRONG</span> Credentials</h3>
+      <ul>
+        <li><b>BBB rating: A+</b> (file opened 2013, 31 years in business)</li>
+        <li><b>CSLB #1004058</b> — Active, clear, valid through <b>May 31, 2027</b></li>
+        <li>Bond active (Hudson Insurance); Workers' Comp active (State Fund)</li>
+        <li><b>286 building permits</b> pulled, $12.44M in permitted value</li>
+        <li>BuildZoom score <b>114 — top 2%</b> of licensed contractors</li>
+        <li>President publicly identified: Mark F. Sheehan</li>
+      </ul>
+      <div class="pos"><b>This is the good news.</b> The underlying business is legitimate and verifiable. Most small builders can't claim this. It's just not being surfaced anywhere a buyer looks.</div>
+    </div>
+    <div>
+      <h3 style="margin-top:0"><span class="pill p-bad">WEAK</span> Review corpus</h3>
+      <div class="kv"><span>Google reviews</span><b>0</b></div>
+      <div class="kv"><span>BBB reviews</span><b>0</b></div>
+      <div class="kv"><span>Facebook reviews</span><b>0</b></div>
+      <div class="kv"><span>Yelp reviews</span><b>No profile</b></div>
+      <div class="kv"><span>Houzz reviews</span><b>No profile</b></div>
+      <div class="kv"><span>BuildZoom reviews</span><b>2 — averaging 3.0 / 5</b></div>
+      <div class="kv" style="border-top:2px solid #e2e8f0;margin-top:8px;padding-top:12px"><span>TOTAL PUBLIC REVIEWS</span><b style="font-size:19px;color:#dc2626">2</b></div>
+      <div class="note" style="margin-top:14px">A 31-year-old builder with 286 permits and <b>two</b> public reviews. For a consideration purchase averaging $400K+, buyers expect 20–50+ reviews before they'll call.</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">The two reviews that define the business online</h3>
+  <div class="pos"><b>★★★★★ — Joe D., Aug 3 2021 (BuildZoom):</b> "Awesome experience with our home. They were extremely detailed and very communicative and up-front... If you want a high quality, brand new house in Ridgecrest, they are definitely the only way to go."</div>
+  <div class="big-quote">"Had I known the poor quality materials, workmanship and responsiveness they would provide afterwards, I would have thought twice about buying a home built by them. We have tried to get a back porch pillar fixed due to a poor beam strap being used since early 2020... The back porch fix has not been completed. <b>I tell colleagues and acquaintances to avoid homes built by Aspen II Homes.</b>"
+    <span>★☆☆☆☆ — Ulises R., May 22 2021 · BuildZoom · home built 2019 on S. Alvord</span></div>
+  <p style="font-size:14.5px;margin-top:12px"><b>Why this single review is doing outsized damage:</b> with only two reviews in existence, the negative one carries 50% of the brand's entire online sentiment — and it attacks exactly the three things a new-home buyer fears most: <b>materials quality, warranty responsiveness, and post-close abandonment</b>. It is <b>not responded to anywhere</b>. There is no counter-narrative, no testimonial page, no completed-project gallery with named clients, nothing to dilute it.</p>
+  <div class="note"><b>Also verify:</b> the BBB profile currently displays <b>"1 alert — Licensing."</b> Independent CSLB records show the license active and clear, so this may be a stale or mismatched BBB flag — but it is publicly visible on a high-authority domain and should be resolved with BBB directly.</div>
+  <p style="font-size:14.5px;margin-top:10px">Secondary trust drag: the business contact email is a free <b>Gmail address</b> (<code>aspen2homes@gmail.com</code>) rather than a domain address, and the website footer credits an outside IT shop. For a builder asking clients to wire six figures, these read as "small operation" signals.</p>
+</div>
+
+<h2>3 · AI Visibility — 2.0 / 10</h2>
+
+<div class="card">
+  <p style="font-size:14.5px">AI assistants (ChatGPT, Gemini, Perplexity, Google AI Overviews, Copilot) don't "rank" you — they <b>retrieve and synthesize</b> from sources they trust. When a buyer asks "who are the best custom home builders in Tehachapi / Kern County?", the answer is assembled from: business schema, directory listings, editorial listicles, review platforms, and structured databases. Here is how Aspen II Homes scores on each input:</p>
+  <table style="margin-top:14px">
+    <tr><th style="width:30%">AI input source</th><th style="width:16%">Status</th><th>Impact on AI answers</th></tr>
+    <tr><td>First-party schema (your site)</td><td><span class="pill p-bad">NONE</span></td><td>No machine-readable entity. An AI crawling aspen2homes.com finds <b>no structured facts</b> to extract — no license, no service area, no price range, no rating.</td></tr>
+    <tr><td>llms.txt / AI crawler policy</td><td><span class="pill p-bad">404</span></td><td>No file guiding AI crawlers to your canonical facts.</td></tr>
+    <tr><td>Editorial listicles &amp; roundups</td><td><span class="pill p-bad">ABSENT</span></td><td><b>The #1 citation source for "best builder in X" queries.</b> Aspen II Homes appears in none of the Tehachapi/Kern builder roundups. Competitors (Greenberg, Willis, Shawn Sprague, Danallie, Bower) do.</td></tr>
+    <tr><td>Review platforms (AI's trust signal)</td><td><span class="pill p-bad">ABSENT</span></td><td>No Google/Yelp/Houzz review volume = no sentiment data for an AI to summarize or cite.</td></tr>
+    <tr><td>Aggregator structured data</td><td><span class="pill p-warn">PRESENT, CORRUPT</span></td><td>BBB and BuildZoom <i>do</i> carry schema — but BuildZoom's tags the company as <b>Hawaii-based at the wrong address</b>. AI may inherit the error.</td></tr>
+    <tr><td>Brand-name disambiguation</td><td><span class="pill p-warn">POOR</span></td><td>"Aspen" is heavily contested by unrelated builders (Aspen II floorplans by McBride, Schumacher, Stonefield; Aspen Builders; Aspen Home Improvements). Nothing on the site disambiguates "Aspen II Homes, Kern County CA."</td></tr>
+    <tr><td>Content depth &amp; uniqueness</td><td><span class="pill p-bad">THIN</span></td><td>The 5 location pages are the same template with the city name swapped. This is precisely the near-duplicate content AI systems discount and Google devalues.</td></tr>
+    <tr><td>Answerable specifics</td><td><span class="pill p-bad">NONE</span></td><td>No published price ranges, build timelines, lot availability, warranty terms, or licensing details — the exact data points an AI would quote back to a buyer.</td></tr>
+  </table>
+  <div class="note" style="margin-top:16px"><b>Direct test:</b> asked to name custom home builders serving Tehachapi and Kern County, this assistant does not surface Aspen II Homes among recognizable options — while naming competitors that appear in Yelp roundups and Houzz profiles. That's the practical definition of an AI Visibility score of 2/10: <b>the business exists, but it isn't retrievable at the moment of buying intent.</b></div>
+</div>
+
+<h2>4 · Fix list, ranked by impact</h2>
+
+<div class="fix crit">
+  <div class="hd"><span>1 · Add LocalBusiness + Organization schema sitewide</span><span class="tag">CRITICAL · ~2 hrs</span></div>
+  <div class="bd">Single highest-leverage action — it's the only thing that fixes SEO <i>and</i> AI visibility at once. Emit JSON-LD on every page: legal name, CBSL license #1004058, both verified addresses, one canonical phone, service-area list (Tehachapi, California City, Ridgecrest, Golden Hills, Bear Valley Springs, Stallion Springs), founding date 1994, geo coordinates, opening hours, and <code>sameAs</code> links to every social and directory profile. Add <code>Product</code>/<code>Offer</code> schema to the six floor-plan pages with sq ft and price ranges. Add <code>FAQPage</code> schema to a new FAQ.</div>
+</div>
+
+<div class="fix crit">
+  <div class="hd"><span>2 · Fix the NAP record everywhere, then claim Google Business Profile</span><span class="tag">CRITICAL · ~4 hrs</span></div>
+  <div class="bd">Pick <b>one</b> canonical phone and address. Update BBB, Facebook, BuildZoom, and your site footer to match exactly. Dispute the BuildZoom "Hawaii" / PO Box 225 error directly — it's feeding bad data to AI. Then create and verify a Google Business Profile with photos, hours, service areas, and a review link, and embed the map on your contact page.</div>
+</div>
+
+<div class="fix crit">
+  <div class="hd"><span>3 · Build a review engine — target 25+ Google reviews in 90 days</span><span class="tag">CRITICAL · ongoing</span></div>
+  <div class="bd">Two reviews is the whole ballgame right now. Systematically request reviews from every past client at close of escrow and at the 11-month warranty walkthrough. Claim Yelp and Houzz. Respond publicly and professionally to the 2021 BuildZoom complaint — acknowledge it, state your warranty process, and offer to resolve. An unanswered one-star is far more damaging than the one-star itself.</div>
+</div>
+
+<div class="fix high">
+  <div class="hd"><span>4 · Repair the technical SEO floor</span><span class="tag">HIGH · ~4 hrs</span></div>
+  <div class="bd">Generate an XML sitemap and submit it in Search Console. Write a real meta description for every page. Add a proper <code>&lt;h1&gt;</code> containing "Custom Home Builder in Kern County, CA." Fill in alt text on all images. Install an SEO plugin (Yoast or RankMath) so this doesn't rot again. Replace the autoplaying hero video with a static image + click-to-play.</div>
+</div>
+
+<div class="fix high">
+  <div class="hd"><span>5 · Publish proof, not prose</span><span class="tag">HIGH · ongoing</span></div>
+  <div class="bd">Your site says "unparalleled quality" 14 times and <i>proves</i> it zero times. Add: a completed-projects portfolio with addresses, dates, sq ft and named client testimonials; your license number and BBB rating in the footer; a real "Our Building Process" page with timeline and warranty terms; and price ranges ("homes from the $400s"). This is also what gives AI something citable to say about you.</div>
+</div>
+
+<div class="fix med">
+  <div class="hd"><span>6 · Earn the citations AI actually reads</span><span class="tag">MEDIUM · ongoing</span></div>
+  <div class="bd">Get included in local "best builder" roundups — pitch the Tehachapi News, the Greater Tehachapi Chamber of Commerce, and local real-estate blogs. Join the Chamber. Post project progress weekly on Facebook and Instagram (your last post was May 2025). Add an <code>llms.txt</code> at the root with canonical facts. Rewrite the five location pages so each has genuinely unique local content — school districts, HOA info, lot availability, local permit notes.</div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">90-day expected trajectory</h3>
+  <table>
+    <tr><th>If nothing changes</th><th>If items 1–5 are completed</th></tr>
+    <tr>
+      <td><ul style="margin:0"><li>Visibility stays ~3/10</li><li>Reputation stays ~4/10 — still 2 reviews, negative one unanswered</li><li>AI visibility stays ~2/10 and likely <b>degrades</b> as AI search becomes the default</li><li>Competitors with profiles and reviews absorb the inbound leads</li></ul></td>
+      <td><ul style="margin:0"><li>Visibility → <b>6.5–7/10</b> (schema + GBP + technical floor)</li><li>Reputation → <b>7/10</b> (25+ fresh reviews outweigh one 2021 complaint)</li><li>AI visibility → <b>6/10</b> (retrievable entity + citable facts)</li><li>Overall → <b>B range</b></li></ul></td>
+    </tr>
+  </table>
+  <div class="pos" style="margin-top:16px"><b>The encouraging part:</b> almost everything wrong here is a <b>marketing-execution</b> problem, not a business-quality problem. The license is clean, the BBB rating is A+, the permit history is real, and 31 years of operation is a genuinely powerful trust story. It's currently being told to nobody. Items 1–4 total roughly one day of focused work and address the majority of the gap.</div>
+</div>
+
+<footer>
+  Audit performed September 16, 2026 · Findings based on live technical crawl of aspen2homes.com and public records from BBB, CSLB, BuildZoom, Facebook, YouTube, Yelp, Houzz and web search indices.<br>
+  AI Visibility scoring reflects observable machine-readable signals and retrievability across AI answer engines; individual model outputs will vary.
+</footer>
+
+</div>
+</body>
+</html>

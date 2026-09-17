@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Flagship Home Page -->
+  <url>
+    <loc>https://aspen2homes.com/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Aspen II Homes - Custom and Semi-Custom Homes in Tehachapi, CA</image:title>
+      <image:caption>Newly built semi-custom craftsman home by Aspen II Homes in Kern County</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://aspen2homes.com/interior.jpg</image:loc>
+      <image:title>Open Concept Great Room and Kitchen - Aspen II Homes</image:title>
+      <image:caption>Gourmet kitchen and open concept living room built on client lot</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://aspen2homes.com/aerial.jpg</image:loc>
+      <image:title>Mountain Valley Homes - Tehachapi Kern County CA</image:title>
+      <image:caption>Scenic aerial view of homes built by Aspen II Homes</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://aspen2homes.com/detail.jpg</image:loc>
+      <image:title>Custom Interior Woodwork and Finishes - Aspen II Homes</image:title>
+      <image:caption>Precision craftsman detail and 1-2-10 warranty backed construction</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Core Top-Level Pages -->
+  <url>
+    <loc>https://aspen2homes.com/plans.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Aspen II Homes Architectural Floor Plans</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/available-homes.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Move-In Ready and In-Framing Spec Homes</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/communities.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/aerial.jpg</image:loc>
+      <image:title>Aspen II Homes Service Communities in Kern County</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/process.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/detail.jpg</image:loc>
+      <image:title>Aspen 8-Step Custom Home Build Process</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/warranty.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/detail.jpg</image:loc>
+      <image:title>Aspen 1-2-10 Written Builder Warranty</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/heroes-of-the-nation.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Heroes of the Nation Military and Veteran Housing Program</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/interior.jpg</image:loc>
+      <image:title>About Mark Sheehan and Aspen II Homes</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/contact.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Contact Aspen II Homes Tehachapi Office</image:title>
+    </image:image>
+  </url>
+
+  <!-- Dedicated Floor Plans -->
+  <url>
+    <loc>https://aspen2homes.com/plans/tranquil-oasis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/interior.jpg</image:loc>
+      <image:title>The Tranquil Oasis (1,507 Sq Ft) Floor Plan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/plans/sunset-retreat.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/interior.jpg</image:loc>
+      <image:title>The Sunset Retreat (1,644 Sq Ft) Floor Plan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/plans/tranquil-abode.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/interior.jpg</image:loc>
+      <image:title>The Tranquil Abode (1,764 Sq Ft) Floor Plan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/plans/sunrise-view.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/interior.jpg</image:loc>
+      <image:title>Sunrise View Residence (2,010 Sq Ft) Floor Plan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/plans/enchanted-haven.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/interior.jpg</image:loc>
+      <image:title>The Enchanted Haven (2,180 Sq Ft) Floor Plan</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/plans/grand-haven.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>The Grand Haven (2,444 Sq Ft) Flagship Floor Plan</image:title>
+    </image:image>
+  </url>
+
+  <!-- Dedicated Community Geo Guides -->
+  <url>
+    <loc>https://aspen2homes.com/communities/tehachapi.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Custom Home Building in Tehachapi CA</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/communities/bear-valley-springs.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/aerial.jpg</image:loc>
+      <image:title>Custom Home Building in Bear Valley Springs CA</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/communities/stallion-springs.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/aerial.jpg</image:loc>
+      <image:title>Custom Home Building in Stallion Springs CA</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/communities/golden-hills.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/aerial.jpg</image:loc>
+      <image:title>Custom Home Building in Golden Hills CA</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/communities/california-city.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Custom Home Building in California City CA</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aspen2homes.com/communities/ridgecrest.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://aspen2homes.com/hero.jpg</image:loc>
+      <image:title>Custom Home Building in Ridgecrest CA</image:title>
+    </image:image>
+  </url>
+
+</urlset>
