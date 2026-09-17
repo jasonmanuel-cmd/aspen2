@@ -23,25 +23,27 @@
   --border: #E5DED0;
   --border-dark: rgba(14,23,18,0.12);
 
-  /* Typography */
-  --sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif: "Newsreader", Georgia, serif;
-  --font-serif: "Newsreader", Georgia, serif;
+  /* Typography — Sheet Set (Architectural) */
+  --display: "Gloock", serif;
+  --sans: "Source Serif 4", Georgia, serif;
+  --font-sans: "Source Serif 4", Georgia, serif;
+  --serif: "Source Serif 4", Georgia, serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --mono: "IBM Plex Mono", Courier, monospace;
 
   /* Layout */
   --max: 1260px;
   --gutter: clamp(18px, 4vw, 36px);
 
   /* Radius */
-  --r: 12px;
-  --r-lg: 22px;
+  --r: 4px;
+  --r-lg: 4px;
   --r-pill: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(14,23,18,0.04);
-  --shadow-md: 0 12px 32px -4px rgba(14,23,18,0.08);
-  --shadow-lg: 0 24px 60px -10px rgba(14,23,18,0.12);
+  --shadow-sm: 0 1px 3px rgba(14,23,18,0.08);
+  --shadow-md: 0 4px 12px rgba(14,23,18,0.1);
+  --shadow-lg: 0 12px 32px rgba(14,23,18,0.12);
 
   /* Easing */
   --ease: cubic-bezier(0.2, 0.7, 0.35, 1);
