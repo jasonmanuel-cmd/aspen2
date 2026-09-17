@@ -1,0 +1,48 @@
+/* ============ UNIFIED DESIGN TOKENS (HIGH-DESERT ARCHITECTURAL LUXURY) ============ */
+:root {
+  /* Colors — Locked Palette */
+  --ink: #0E1712;
+  --ink-2: #192720;
+  --ink-3: #2D3E34;
+  --bone: #FAF7F2;
+  --bone-surface: #FFFFFF;
+  --sand: #EAE3D5;
+  --sand-light: #F4EFE6;
+  --clay: #B35B37;
+  --clay-hover: #934626;
+  --clay-soft: rgba(179,91,55,0.12);
+  --sage: #6E8263;
+  --sage-hover: #5B6F51;
+  --sage-soft: rgba(110,130,99,0.14);
+  --gold: #C09A4E;
+  --muted: #6C665A;
+
+  /* Lines & Borders */
+  --line: rgba(14,23,18,0.1);
+  --line-light: rgba(250,247,242,0.14);
+  --border: #E5DED0;
+  --border-dark: rgba(14,23,18,0.12);
+
+  /* Typography */
+  --sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: "Newsreader", Georgia, serif;
+  --font-serif: "Newsreader", Georgia, serif;
+
+  /* Layout */
+  --max: 1260px;
+  --gutter: clamp(18px, 4vw, 36px);
+
+  /* Radius */
+  --r: 12px;
+  --r-lg: 22px;
+  --r-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(14,23,18,0.04);
+  --shadow-md: 0 12px 32px -4px rgba(14,23,18,0.08);
+  --shadow-lg: 0 24px 60px -10px rgba(14,23,18,0.12);
+
+  /* Easing */
+  --ease: cubic-bezier(0.2, 0.7, 0.35, 1);
+}

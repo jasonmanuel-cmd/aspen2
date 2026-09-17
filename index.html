@@ -6,6 +6,7 @@
 <title>Aspen II Homes — Custom &amp; Semi-Custom Home Builder | Tehachapi &amp; Kern County, CA</title>
 <meta name="description" content="Aspen II Homes is a licensed California builder (CSLB #1004058, BBB A+) building semi-custom homes from 1,507 to 2,444 sq ft in Tehachapi, Bear Valley Springs, Stallion Springs, Golden Hills, California City, and Ridgecrest. 31 years of trusted craftsmanship.">
 <link rel="canonical" href="https://aspen2homes.com/">
+<!-- TODO: Replace GSC_VERIFICATION_TOKEN_HERE with actual GSC verification token from Search Console -->
 <meta name="google-site-verification" content="GSC_VERIFICATION_TOKEN_HERE">
 
 <!-- Local SEO & Geo Meta Tags -->
@@ -42,81 +43,11 @@
 <!-- Vercel Web Analytics -->
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 
+<link rel="stylesheet" href="assets/css/site.css">
+
 <style>
-/* ============ DESIGN TOKENS (HIGH-DESERT ARCHITECTURAL LUXURY) ============ */
-:root{
-  --ink: #0E1712;
-  --ink-2: #192720;
-  --ink-3: #2D3E34;
-  --bone: #FAF7F2;
-  --bone-surface: #FFFFFF;
-  --sand: #EAE3D5;
-  --sand-light: #F4EFE6;
-  --clay: #B35B37;
-  --clay-hover: #934626;
-  --clay-soft: rgba(179,91,55,0.12);
-  --sage: #6E8263;
-  --sage-hover: #5B6F51;
-  --sage-soft: rgba(110,130,99,0.14);
-  --gold: #C09A4E;
-  --muted: #6C665A;
-  --line: rgba(14,23,18,0.1);
-  --line-light: rgba(250,247,242,0.14);
-  --r: 12px;
-  --r-lg: 22px;
-  --r-pill: 9999px;
-  --sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --serif: "Newsreader", Georgia, serif;
-  --max: 1260px;
-  --ease: cubic-bezier(0.2, 0.7, 0.35, 1);
-  --shadow-sm: 0 2px 8px rgba(14,23,18,0.04);
-  --shadow-md: 0 12px 32px -4px rgba(14,23,18,0.08);
-  --shadow-lg: 0 24px 60px -10px rgba(14,23,18,0.12);
-}
-
-*, *::before, *::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-  font-family:var(--sans);
-  background:var(--bone);
-  color:var(--ink);
-  line-height:1.62;
-  font-size:17px;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
-}
-img{max-width:100%;display:block;height:auto}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;background:none;border:none;cursor:pointer}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px, 4vw, 36px)}
-
-/* ============ TYPOGRAPHY ============ */
-.eyebrow{
-  font-size:11.5px;
-  font-weight:800;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--clay);
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-}
-.eyebrow::before{
-  content:"";
-  width:16px;
-  height:2px;
-  background:currentColor;
-  display:inline-block;
-}
-h1, h2, h3, h4{line-height:1.08;letter-spacing:-0.035em;font-weight:800}
-h1{font-size:clamp(2.5rem, 6.2vw, 5rem)}
-h2{font-size:clamp(1.95rem, 3.8vw, 3.25rem)}
-h3{font-size:clamp(1.22rem, 1.7vw, 1.5rem);letter-spacing:-0.022em}
-p{color:var(--muted)}
-.lead{font-size:clamp(1.05rem, 1.35vw, 1.25rem);color:var(--ink-2);max-width:62ch;line-height:1.55}
-
-/* ============ TOP CREDIBILITY TICKER ============ */
+/* ============ PAGE-SPECIFIC STYLES FOR INDEX ============ */
+/* Top credibility ticker */
 .top-ticker{
   background:var(--ink-2);
   color:rgba(250,247,242,0.85);
@@ -137,195 +68,7 @@ p{color:var(--muted)}
 .top-ticker span.highlight{color:var(--gold);font-weight:700}
 .top-ticker a{text-decoration:underline;text-underline-offset:2px;color:#fff}
 
-/* ============ BUTTONS & TOUCH TARGETS ============ */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:15px 28px;
-  min-height:50px;
-  min-width:48px;
-  border-radius:var(--r-pill);
-  font-weight:700;
-  font-size:15px;
-  letter-spacing:-0.01em;
-  transition:all 0.28s var(--ease);
-  cursor:pointer;
-  touch-action:manipulation;
-}
-.btn-p{background:var(--ink);color:var(--bone)}
-.btn-p:hover{background:var(--clay);transform:translateY(-2px);box-shadow:0 12px 28px rgba(179,91,55,0.35)}
-.btn-clay{background:var(--clay);color:#fff}
-.btn-clay:hover{background:var(--clay-hover);transform:translateY(-2px);box-shadow:0 12px 28px rgba(179,91,55,0.38)}
-.btn-o{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.btn-o:hover{border-color:var(--ink);background:rgba(14,23,18,0.05);transform:translateY(-2px)}
-.btn-l{background:var(--bone);color:var(--ink)}
-.btn-l:hover{background:var(--clay);color:#fff;transform:translateY(-2px);box-shadow:0 12px 28px rgba(179,91,55,0.32)}
-.btn-sm{padding:10px 20px;min-height:42px;font-size:13.5px}
-.btn svg{width:15px;height:15px;transition:transform 0.28s var(--ease);flex-shrink:0}
-.btn:hover svg{transform:translateX(3px)}
-
-/* ============ NAVIGATION ============ */
-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  transition:background 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
-  background:rgba(250,247,242,0.88);
-  backdrop-filter:blur(20px) saturate(1.4);
-  -webkit-backdrop-filter:blur(20px) saturate(1.4);
-  border-bottom:1px solid rgba(14,23,18,0.07);
-}
-nav.scrolled{
-  background:rgba(250,247,242,0.98);
-  border-bottom-color:var(--line);
-  box-shadow:0 6px 26px rgba(14,23,18,0.06);
-}
-nav .wrap{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:76px;
-}
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:800;
-  font-size:18px;
-  letter-spacing:-0.035em;
-  color:var(--ink);
-  z-index:1010;
-}
-.logo .mark{width:36px;height:36px;flex-shrink:0}
-.logo span.sub{
-  display:block;
-  font-size:9.5px;
-  font-weight:700;
-  letter-spacing:0.2em;
-  color:var(--muted);
-  text-transform:uppercase;
-  margin-top:-3px;
-}
-.nav-links{display:flex;gap:26px;align-items:center}
-.nav-links a{
-  font-size:14.5px;
-  font-weight:600;
-  color:var(--ink-3);
-  padding:8px 0;
-  position:relative;
-  transition:color 0.2s;
-}
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:0;
-  height:2px;
-  background:var(--clay);
-  transition:width 0.25s var(--ease);
-}
-.nav-links a:hover{color:var(--clay)}
-.nav-links a:hover::after{width:100%}
-.nav-right{display:flex;align-items:center;gap:14px}
-.nav-phone{
-  font-size:14px;
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  color:var(--ink);
-  padding:8px 12px;
-  border-radius:8px;
-  transition:background 0.2s;
-}
-.nav-phone:hover{background:rgba(14,23,18,0.06);color:var(--clay)}
-.nav-phone svg{width:15px;height:15px;color:var(--clay);flex-shrink:0}
-
-/* Hamburger button */
-.nav-toggle{
-  display:none;
-  width:48px;
-  height:48px;
-  padding:12px;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:5px;
-  border-radius:8px;
-  z-index:1010;
-}
-.nav-toggle span{
-  display:block;
-  width:24px;
-  height:2.2px;
-  background:var(--ink);
-  border-radius:2px;
-  transition:all 0.3s var(--ease);
-  transform-origin:center;
-}
-.nav-toggle.open span:nth-child(1){transform:translateY(7.2px) rotate(45deg)}
-.nav-toggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.nav-toggle.open span:nth-child(3){transform:translateY(-7.2px) rotate(-45deg)}
-
-/* Mobile Drawer */
-.mobile-drawer{
-  position:fixed;
-  inset:0;
-  background:rgba(14,23,18,0.55);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  z-index:999;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.35s var(--ease);
-  display:flex;
-  justify-content:flex-end;
-}
-.mobile-drawer.open{opacity:1;pointer-events:auto}
-.mobile-drawer-content{
-  width:88%;
-  max-width:390px;
-  height:100%;
-  background:var(--bone);
-  padding:96px 28px 36px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  transform:translateX(100%);
-  transition:transform 0.35s var(--ease);
-  box-shadow:-8px 0 32px rgba(0,0,0,0.18);
-  overflow-y:auto;
-}
-.mobile-drawer.open .mobile-drawer-content{transform:translateX(0)}
-.mobile-nav-links{display:flex;flex-direction:column;gap:14px}
-.mobile-nav-links a{
-  font-size:1.18rem;
-  font-weight:700;
-  color:var(--ink);
-  padding:10px 0;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.mobile-nav-links a svg{width:15px;height:15px;color:var(--clay)}
-.mobile-drawer-footer{margin-top:32px;display:flex;flex-direction:column;gap:12px}
-.mobile-contact-card{
-  background:var(--sand-light);
-  border:1px solid var(--sand);
-  padding:16px;
-  border-radius:var(--r);
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.mobile-contact-card div span{display:block;font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:700}
-.mobile-contact-card div a{font-size:16px;font-weight:800;color:var(--ink)}
-
-/* ============ HERO SECTION ============ */
+/* Hero animation */
 .hero{
   position:relative;
   min-height:92svh;
@@ -373,7 +116,7 @@ nav .wrap{
 .hero .lead{color:rgba(250,247,242,0.9);font-size:clamp(1.06rem, 1.45vw, 1.28rem);max-width:60ch}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
 
-/* ============ TRUST MATRIX TICKER ============ */
+/* Trust stats bar */
 .trust{
   position:relative;
   z-index:2;
@@ -413,7 +156,7 @@ nav .wrap{
   display:block;
 }
 
-/* ============ SECTION SHELL ============ */
+/* Section shell */
 section{padding:clamp(68px, 8.5vw, 120px) 0}
 .sec-head{
   display:grid;
@@ -425,7 +168,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .sec-head h2{margin-top:12px}
 .sec-head .side{padding-bottom:4px}
 
-/* ============ INVENTORY SHOWCASE ============ */
+/* Inventory showcase */
 .inv{
   background:var(--ink);
   border-radius:var(--r-lg);
@@ -512,7 +255,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .price{font-size:1.6rem;font-weight:800;color:var(--bone);letter-spacing:-0.035em}
 .price small{font-size:12px;font-weight:600;color:rgba(250,247,242,0.58);letter-spacing:0;display:block;margin-top:2px}
 
-/* ============ BASE BUILD PRICING ============ */
+/* Pricing cards */
 .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px}
 @media(max-width:900px){.pricing-grid{grid-template-columns:1fr}}
 .pricing-card{background:var(--bone-surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(28px, 4vw, 44px);display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:var(--shadow-sm);transition:all 0.3s var(--ease)}
@@ -527,7 +270,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .pricing-inclusions li{display:flex;align-items:flex-start;gap:12px;font-size:0.92rem;color:var(--ink-2);line-height:1.5}
 .pricing-inclusions li svg{flex-shrink:0;margin-top:3px;color:var(--sage)}
 
-/* ============ BENTO GRID ============ */
+/* Bento grid */
 .bento{display:grid;grid-template-columns:repeat(4, 1fr);gap:16px;grid-auto-rows:230px}
 .b{
   background:var(--bone-surface);
@@ -575,7 +318,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .b.dark p{color:rgba(250,247,242,0.68)}
 .b.dark .b-arrow{color:var(--bone)}
 
-/* ============ FLOOR PLANS ============ */
+/* Floor plans */
 .plans{display:grid;grid-template-columns:repeat(3, 1fr);gap:24px}
 .plan{
   background:var(--bone-surface);
@@ -625,7 +368,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 }
 .plan-cta-btn svg{width:13px;height:13px;color:var(--clay)}
 
-/* ============ PROCESS SECTION ============ */
+/* Process section */
 .proc{
   background:var(--ink);
   border-radius:var(--r-lg);
@@ -649,7 +392,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .step h4{color:var(--bone);font-size:1.02rem;margin:12px 0 8px;font-weight:700;letter-spacing:-0.02em}
 .step p{font-size:13px;color:rgba(250,247,242,0.62);line-height:1.55}
 
-/* ============ WARRANTY SPLIT SECTION ============ */
+/* Warranty split section */
 .split{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -687,7 +430,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .checks b{display:block;font-weight:700;color:var(--ink)}
 .checks span{font-size:13.5px;color:var(--muted)}
 
-/* ============ TESTIMONIALS & PROOF ============ */
+/* Testimonials */
 .quotes{display:grid;grid-template-columns:repeat(3, 1fr);gap:24px}
 .q{
   background:var(--bone-surface);
@@ -724,7 +467,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .q .who b{display:block;font-size:14px}
 .q .who span{font-size:12.5px;color:var(--muted)}
 
-/* ============ COMMUNITIES (HYPERLOCAL) ============ */
+/* Communities grid */
 .comm{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -767,7 +510,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
   background:var(--sage);
 }
 
-/* ============ FAQ (AEO & SNIPPET OPTIMIZED) ============ */
+/* FAQ section */
 .faq{max-width:940px}
 .faq details{border-bottom:1px solid var(--line);padding:0}
 .faq summary{
@@ -805,7 +548,7 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 }
 .faq .ans strong{color:var(--ink-2);font-weight:700}
 
-/* ============ CTA SECTION ============ */
+/* CTA band */
 .cta-band{
   background:var(--clay);
   border-radius:var(--r-lg);
@@ -827,191 +570,6 @@ section{padding:clamp(68px, 8.5vw, 120px) 0}
 .cta-side .btn-o:hover{border-color:#fff;background:rgba(255,255,255,0.12)}
 .cta-side .fine{font-size:12.5px;color:rgba(255,255,255,0.8);text-align:center;margin-top:3px}
 
-/* ============ FOOTER ============ */
-footer{background:var(--ink);color:rgba(250,247,242,0.6);padding:76px 0 34px}
-.f-grid{
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr 1.2fr;
-  gap:40px;
-  padding-bottom:48px;
-  border-bottom:1px solid rgba(250,247,242,0.14);
-}
-.f-grid h4{
-  color:var(--bone);
-  font-size:11.5px;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  margin-bottom:18px;
-  font-weight:800;
-}
-.f-grid a, .f-grid p{
-  font-size:14px;
-  color:rgba(250,247,242,0.65);
-  transition:color 0.2s;
-  display:block;
-  padding:4px 0;
-}
-.f-grid a:hover{color:var(--bone)}
-.f-brand .logo{color:var(--bone);margin-bottom:16px}
-.f-brand p{font-size:14px;line-height:1.65;max-width:32ch}
-.lic{
-  display:inline-block;
-  margin-top:16px;
-  font-size:12px;
-  font-weight:700;
-  color:rgba(250,247,242,0.9);
-  border:1px solid rgba(250,247,242,0.25);
-  padding:6px 14px;
-  border-radius:100px;
-}
-.f-bot{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  padding-top:24px;
-  flex-wrap:wrap;
-  font-size:12.5px;
-  color:rgba(250,247,242,0.45);
-}
-.f-social{display:flex;gap:10px}
-.f-social a{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  border:1px solid rgba(250,247,242,0.2);
-  display:grid;
-  place-items:center;
-  transition:all 0.28s;
-  padding:0;
-}
-.f-social a:hover{background:var(--clay);border-color:var(--clay)}
-.f-social svg{width:15px;height:15px;fill:rgba(250,247,242,0.85)}
-
-/* ============ STICKY MOBILE CONVERSION DOCK ============ */
-.mobile-dock{
-  display:none;
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:900;
-  background:rgba(250,247,242,0.94);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-top:1px solid var(--line);
-  padding:10px 18px calc(10px + env(safe-area-inset-bottom, 0px));
-  box-shadow:0 -4px 20px rgba(0,0,0,0.08);
-}
-.mobile-dock-inner{display:flex;gap:10px;align-items:center}
-.mobile-dock-inner .btn{flex:1;min-height:46px;padding:10px 14px;font-size:14px}
-
-/* ============ INTERACTIVE MODALS ============ */
-.modal-backdrop{
-  position:fixed;
-  inset:0;
-  background:rgba(14,23,18,0.65);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  z-index:2000;
-  display:grid;
-  place-items:center;
-  padding:20px;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.3s var(--ease);
-}
-.modal-backdrop.open{opacity:1;pointer-events:auto}
-.modal-dialog{
-  background:var(--bone);
-  width:100%;
-  max-width:580px;
-  border-radius:var(--r-lg);
-  box-shadow:0 24px 64px rgba(0,0,0,0.25);
-  overflow:hidden;
-  transform:scale(0.95) translateY(12px);
-  transition:transform 0.3s var(--ease);
-  position:relative;
-  max-height:90vh;
-  display:flex;
-  flex-direction:column;
-}
-.modal-backdrop.open .modal-dialog{transform:scale(1) translateY(0)}
-.modal-header{
-  background:var(--ink);
-  color:var(--bone);
-  padding:24px 30px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.modal-header h3{color:var(--bone);font-size:1.25rem}
-.modal-close{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:rgba(250,247,242,0.12);
-  color:var(--bone);
-  display:grid;
-  place-items:center;
-  font-size:20px;
-  line-height:1;
-  transition:background 0.2s;
-}
-.modal-close:hover{background:var(--clay)}
-.modal-body{padding:28px 30px;overflow-y:auto}
-.form-group{margin-bottom:16px}
-.form-label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ink-2)}
-.form-input, .form-select, .form-textarea{
-  width:100%;
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:8px;
-  background:var(--bone-surface);
-  font-size:15px;
-  font-family:inherit;
-  color:var(--ink);
-  transition:border-color 0.2s, box-shadow 0.2s;
-}
-.form-input:focus, .form-select:focus, .form-textarea:focus{
-  outline:none;
-  border-color:var(--clay);
-  box-shadow:0 0 0 3px var(--clay-soft);
-}
-.form-textarea{resize:vertical;min-height:90px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-/* Plan Modal Specifics */
-.plan-modal-body{padding:28px}
-.plan-modal-img{
-  background:var(--sand-light);
-  border-radius:12px;
-  padding:20px;
-  display:flex;
-  justify-content:center;
-  margin-bottom:20px;
-}
-.plan-modal-img svg{max-width:320px;width:100%;height:auto}
-.plan-spec-pills{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-.plan-spec-pill{
-  background:var(--bone-surface);
-  border:1px solid var(--line);
-  padding:6px 14px;
-  border-radius:100px;
-  font-size:13px;
-  font-weight:700;
-  color:var(--ink);
-}
-
-/* ============ SCROLL REVEALS ============ */
-.rv{opacity:0;transform:translateY(22px);transition:opacity 0.75s var(--ease), transform 0.75s var(--ease)}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none}
-  .hero-img{animation:none}
-}
-
-/* ============ RESPONSIVE MEDIA QUERIES ============ */
 @media(max-width:1024px){
   .bento{grid-template-columns:repeat(2, 1fr);grid-auto-rows:220px}
   .b.wide{grid-column:span 2}
@@ -1021,8 +579,6 @@ footer{background:var(--ink);color:rgba(250,247,242,0.6);padding:76px 0 34px}
 }
 
 @media(max-width:900px){
-  .nav-links{display:none}
-  .nav-toggle{display:flex}
   .sec-head{grid-template-columns:1fr;gap:18px;margin-bottom:38px}
   .inv-grid{grid-template-columns:1fr}
   .inv-card{border-right:0;border-bottom:1px solid rgba(250,247,242,0.12)}
@@ -1038,18 +594,10 @@ footer{background:var(--ink);color:rgba(250,247,242,0.6);padding:76px 0 34px}
   .trust-grid{grid-template-columns:repeat(2, 1fr)}
 }
 
-@media(max-width:768px){
-  body{padding-bottom:70px}
-  .mobile-dock{display:block}
-}
-
 @media(max-width:640px){
-  nav .wrap{height:68px}
-  .nav-phone{display:none}
   .plans{grid-template-columns:1fr}
   .bento{grid-template-columns:1fr;grid-auto-rows:auto}
   .b, .b.wide, .b.tall{grid-column:auto;grid-row:auto;min-height:190px}
-  .form-row{grid-template-columns:1fr;gap:0}
   .f-grid{grid-template-columns:1fr;gap:28px}
   .hero-cta{flex-direction:column;width:100%}
   .hero-cta .btn{width:100%}
@@ -1085,7 +633,7 @@ footer{background:var(--ink);color:rgba(250,247,242,0.6);padding:76px 0 34px}
 <!-- ============ NAVIGATION ============ -->
 <nav id="nav" aria-label="Main Website Navigation">
   <div class="wrap">
-    <a href="#" class="logo" aria-label="Aspen II Homes Homepage">
+    <a href="/" class="logo" aria-label="Aspen II Homes Homepage">
       <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <rect width="40" height="40" rx="10" fill="#0E1712"/>
         <path d="M20 9.5L8.5 18.2v13.3h7.2v-7.6h8.6v7.6h7.2V18.2L20 9.5z" stroke="#FAF7F2" stroke-width="1.9" stroke-linejoin="round"/>
