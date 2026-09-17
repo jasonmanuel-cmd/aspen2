@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open House Sign-In Log — 585 N Wendy Dr</title>
+    <title>Sign-In Log | Aspen II Homes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -355,8 +355,8 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>📋 Open House Sign-In Log</h1>
-            <p>585 N Wendy Dr, Newbury Park, CA 91320</p>
+            <h1>📋 Sign-In Log</h1>
+            <p>Aspen II Homes · Sunset Retreat, Tehachapi, CA</p>
 
             <div class="stats">
                 <div class="stat-card">
@@ -380,7 +380,7 @@
 
         <!-- Info Box -->
         <div class="info-box">
-            💡 <strong>Live Updates:</strong> This log pulls data from the Harbison Standard CRM. It will automatically refresh every 10 seconds. You can also manually refresh or export to CSV.
+            💡 <strong>Live Updates:</strong> This log pulls data from the Aspen II Homes CRM. It will automatically refresh every 10 seconds. You can also manually refresh or export to CSV.
         </div>
 
         <!-- Controls -->
@@ -528,7 +528,7 @@
 
             const element = document.createElement('a');
             element.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv));
-            element.setAttribute('download', '585-wendy-open-house-signin-' + new Date().toISOString().split('T')[0] + '.csv');
+            element.setAttribute('download', 'aspen2-signin-' + new Date().toISOString().split('T')[0] + '.csv');
             element.style.display = 'none';
             document.body.appendChild(element);
             element.click();

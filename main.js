@@ -1,5 +1,5 @@
 /* ============================================================
-   Harbison Standard — shared site script
+   Aspen II Homes — shared site script
    Safe to include on every page; each block guards its targets.
    ============================================================ */
 (function () {
@@ -189,8 +189,8 @@
         var payload = {
           name: name, email: email, phone: phone, contact_preference: pref,
           preferred_time: (document.getElementById('tour-time') || {}).value || '',
-          property: contactForm.getAttribute('data-property') || 'Harbison Standard Homes',
-          location: contactForm.getAttribute('data-property') || 'Harbison Standard Homes',
+          property: contactForm.getAttribute('data-property') || 'Aspen II Homes',
+          location: contactForm.getAttribute('data-property') || 'Aspen II Homes',
           interest: (document.getElementById('tour-interest') || {}).value || '',
           source: 'Contact / Tour Form', date_time: dt, submission_date: new Date().toISOString()
         };
@@ -202,7 +202,7 @@
         } catch (err) { console.warn('[v0] CRM failed:', err.message); }
         var fsOk = false;
         try {
-          var b = await fetch(FORMSPREE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.assign({}, payload, { _subject: 'New Lead — Harbison Standard', _replyto: email })), signal: AbortSignal.timeout(15000) });
+          var b = await fetch(FORMSPREE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.assign({}, payload, { _subject: 'New Lead — Aspen II Homes', _replyto: email })), signal: AbortSignal.timeout(15000) });
           if (b.ok) fsOk = true;
         } catch (err) { console.error('[v0] Formspree failed:', err.message); }
         if (!crmOk && !fsOk) throw new Error('Request not received. Please try again.');
@@ -264,8 +264,8 @@
       var dt = nowStamp();
       var payload = {
         name: name, email: email, phone: phone,
-        property: openHouseForm.getAttribute('data-property') || 'Harbison Standard Homes',
-        location: openHouseForm.getAttribute('data-property') || 'Harbison Standard Homes',
+        property: openHouseForm.getAttribute('data-property') || 'Aspen II Homes',
+        location: openHouseForm.getAttribute('data-property') || 'Aspen II Homes',
         source: 'Open House QR Code', date_time: dt, submission_date: new Date().toISOString()
       };
       try {
