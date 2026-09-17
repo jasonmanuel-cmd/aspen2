@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+reports/lighthouse/chrome-profile/
+reports/lighthouse/*.json
+!reports/lighthouse/summary.json
+reports/lighthouse/*.html
+baseline-mobile.json
+font-source.css

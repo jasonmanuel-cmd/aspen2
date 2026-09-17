@@ -5,12 +5,15 @@
   "scripts": {
     "dev": "serve -l 3000 .",
     "start": "serve -l 3000 .",
-    "build": "echo 'static site — no build step'"
+    "build": "echo 'static site — no build step'",
+    "audit:lighthouse": "node scripts/lighthouse-audit.mjs",
+    "audit:serve": "node scripts/serve-audit.mjs"
   },
   "dependencies": {
     "sharp": "^0.35.4"
   },
   "devDependencies": {
+    "lighthouse": "^13.4.1",
     "serve": "^14.2.6"
   }
 }

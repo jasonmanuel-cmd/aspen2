@@ -5,6 +5,26 @@
 (function () {
   'use strict';
 
+  // Let the hero and fonts finish before fetching gallery photographs.
+  // Smaller observer margins avoid native lazy-loading's large offscreen batch.
+  function observePhotographs() {
+    var photoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var photo = entry.target;
+        if (photo.dataset.srcset) photo.srcset = photo.dataset.srcset;
+        photo.src = photo.dataset.src;
+        delete photo.dataset.src;
+        photoObserver.unobserve(photo);
+      });
+    }, { rootMargin: '200px 0px' });
+    document.querySelectorAll('img[data-src]').forEach(function (photo) {
+      if (!photo.closest('.film-frame')) photoObserver.observe(photo);
+    });
+  }
+  if (document.readyState === 'complete') observePhotographs();
+  else window.addEventListener('load', observePhotographs, { once: true });
+
   // ── Nav scroll state ──
   var mainNav = document.getElementById('mainNav');
   if (mainNav) {
@@ -30,6 +50,7 @@
   function closeMobileNav() {
     if (!mobileNav || !navToggle) return;
     mobileNav.classList.remove('open');
+    mobileNav.inert = true;
     navToggle.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
@@ -37,6 +58,7 @@
   if (navToggle && mobileNav) {
     navToggle.addEventListener('click', function () {
       var isOpen = mobileNav.classList.toggle('open');
+      mobileNav.inert = !isOpen;
       navToggle.classList.toggle('open', isOpen);
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -264,7 +286,14 @@
 
   var openHouseForm = document.getElementById('openHouseForm');
   if (openHouseForm) {
-    updateRegistrationCount();
+    var countTarget = document.getElementById('registrationCount');
+    if (countTarget) {
+      countTarget.textContent = parseInt(localStorage.getItem('openHouseCount') || '0', 10);
+      var countObserver = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { updateRegistrationCount(); countObserver.disconnect(); }
+      });
+      countObserver.observe(countTarget);
+    }
     openHouseForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       var name = (openHouseForm.querySelector('input[name="name"]').value || '').trim();
@@ -317,8 +346,24 @@
     var bar = film.querySelector('.film-progress');
     var n = Math.max(frames.length, caps.length);
     var filmTick = false;
+    var filmInView = false;
+    function loadFrame(index) {
+      var frame = frames[index];
+      var photo = frame && frame.querySelector('img');
+      if (photo && photo.dataset.src) {
+        if (photo.dataset.srcset) photo.srcset = photo.dataset.srcset;
+        photo.src = photo.dataset.src;
+        delete photo.dataset.src;
+      }
+    }
+    var filmObserver = new IntersectionObserver(function (entries) {
+      filmInView = entries[0].isIntersecting;
+      if (filmInView) { loadFrame(0); renderFilm(); }
+    }, { rootMargin: '0px' });
+    filmObserver.observe(film);
 
     function renderFilm() {
+      if (!filmInView) return;
       var rect = film.getBoundingClientRect();
       var vh = window.innerHeight;
       var total = film.offsetHeight - vh;
@@ -327,6 +372,8 @@
 
       // Which chapter are we in?
       var idx = Math.min(n - 1, Math.floor(p * n));
+      loadFrame(idx);
+      loadFrame(Math.min(n - 1, idx + 1));
       // Local progress within the chapter (0..1) for subtle motion.
       var local = (p * n) - idx;
 
@@ -352,7 +399,7 @@
         requestAnimationFrame(function () { renderFilm(); filmTick = false; });
       }, { passive: true });
       window.addEventListener('resize', renderFilm, { passive: true });
-      renderFilm();
+      // The observer starts rendering when the film approaches the viewport.
     }
   }
 

@@ -1,0 +1,392 @@
+{
+  "house/blueprints/Enchanted%20Haven.png": {
+    "src": "assets/images/enchanted-haven-d76d0728-765.webp",
+    "srcset": "assets/images/enchanted-haven-d76d0728-480.webp 480w, assets/images/enchanted-haven-d76d0728-765.webp 765w",
+    "width": 765,
+    "height": 801
+  },
+  "house/blueprints/Sunrise%20View%20Residence.png": {
+    "src": "assets/images/sunrise-view-residence-71e3a240-828.webp",
+    "srcset": "assets/images/sunrise-view-residence-71e3a240-480.webp 480w, assets/images/sunrise-view-residence-71e3a240-828.webp 828w",
+    "width": 828,
+    "height": 738
+  },
+  "house/blueprints/Sunset%20Retreat.png": {
+    "src": "assets/images/sunset-retreat-0c716a0f-828.webp",
+    "srcset": "assets/images/sunset-retreat-0c716a0f-480.webp 480w, assets/images/sunset-retreat-0c716a0f-828.webp 828w",
+    "width": 828,
+    "height": 882
+  },
+  "house/blueprints/The%20Grand%20Haven.png": {
+    "src": "assets/images/the-grand-haven-54417d71-820.webp",
+    "srcset": "assets/images/the-grand-haven-54417d71-480.webp 480w, assets/images/the-grand-haven-54417d71-820.webp 820w",
+    "width": 820,
+    "height": 838
+  },
+  "house/blueprints/The%20Tranquil%20Abode.png": {
+    "src": "assets/images/the-tranquil-abode-2d6cf71d-828.webp",
+    "srcset": "assets/images/the-tranquil-abode-2d6cf71d-480.webp 480w, assets/images/the-tranquil-abode-2d6cf71d-828.webp 828w",
+    "width": 828,
+    "height": 722
+  },
+  "house/blueprints/tranquiloasis.png": {
+    "src": "assets/images/tranquiloasis-87a0d3cf-699.webp",
+    "srcset": "assets/images/tranquiloasis-87a0d3cf-480.webp 480w, assets/images/tranquiloasis-87a0d3cf-699.webp 699w",
+    "width": 699,
+    "height": 1147
+  },
+  "house/Enchanted%20Haven/bathroom.jpg": {
+    "src": "assets/images/bathroom-acd4eaf3-1536.webp",
+    "srcset": "assets/images/bathroom-acd4eaf3-480.webp 480w, assets/images/bathroom-acd4eaf3-960.webp 960w, assets/images/bathroom-acd4eaf3-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/bathrooma.jpg": {
+    "src": "assets/images/bathrooma-f8f06568-1536.webp",
+    "srcset": "assets/images/bathrooma-f8f06568-480.webp 480w, assets/images/bathrooma-f8f06568-960.webp 960w, assets/images/bathrooma-f8f06568-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/bedroom.jpg": {
+    "src": "assets/images/bedroom-135cf25f-1536.webp",
+    "srcset": "assets/images/bedroom-135cf25f-480.webp 480w, assets/images/bedroom-135cf25f-960.webp 960w, assets/images/bedroom-135cf25f-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/bedroom2.jpg": {
+    "src": "assets/images/bedroom2-a09e330e-1536.webp",
+    "srcset": "assets/images/bedroom2-a09e330e-480.webp 480w, assets/images/bedroom2-a09e330e-960.webp 960w, assets/images/bedroom2-a09e330e-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/front.jpg": {
+    "src": "assets/images/front-960d0473-1500.webp",
+    "srcset": "assets/images/front-960d0473-480.webp 480w, assets/images/front-960d0473-960.webp 960w, assets/images/front-960d0473-1500.webp 1500w",
+    "width": 1500,
+    "height": 1001
+  },
+  "house/Enchanted%20Haven/hallway.jpg": {
+    "src": "assets/images/hallway-085a76fc-1536.webp",
+    "srcset": "assets/images/hallway-085a76fc-480.webp 480w, assets/images/hallway-085a76fc-960.webp 960w, assets/images/hallway-085a76fc-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/kitchen.jpg": {
+    "src": "assets/images/kitchen-581e86a6-1536.webp",
+    "srcset": "assets/images/kitchen-581e86a6-480.webp 480w, assets/images/kitchen-581e86a6-960.webp 960w, assets/images/kitchen-581e86a6-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/kitchen2.jpg": {
+    "src": "assets/images/kitchen2-ec5650d9-1536.webp",
+    "srcset": "assets/images/kitchen2-ec5650d9-480.webp 480w, assets/images/kitchen2-ec5650d9-960.webp 960w, assets/images/kitchen2-ec5650d9-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/livingroom.jpg": {
+    "src": "assets/images/livingroom-bd68d7e6-1536.webp",
+    "srcset": "assets/images/livingroom-bd68d7e6-480.webp 480w, assets/images/livingroom-bd68d7e6-960.webp 960w, assets/images/livingroom-bd68d7e6-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/master.jpg": {
+    "src": "assets/images/master-6ee424ba-1536.webp",
+    "srcset": "assets/images/master-6ee424ba-480.webp 480w, assets/images/master-6ee424ba-960.webp 960w, assets/images/master-6ee424ba-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/masterbedroom.jpg": {
+    "src": "assets/images/masterbedroom-84c85c47-1536.webp",
+    "srcset": "assets/images/masterbedroom-84c85c47-480.webp 480w, assets/images/masterbedroom-84c85c47-960.webp 960w, assets/images/masterbedroom-84c85c47-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Enchanted%20Haven/Utility%20room.jpg": {
+    "src": "assets/images/utility-room-94c58110-1536.webp",
+    "srcset": "assets/images/utility-room-94c58110-480.webp 480w, assets/images/utility-room-94c58110-960.webp 960w, assets/images/utility-room-94c58110-1536.webp 1536w",
+    "width": 1536,
+    "height": 1026
+  },
+  "house/Sunrise%20View%20Residence/front.png": {
+    "src": "assets/images/front-c71e7f97-1500.webp",
+    "srcset": "assets/images/front-c71e7f97-480.webp 480w, assets/images/front-c71e7f97-960.webp 960w, assets/images/front-c71e7f97-1500.webp 1500w",
+    "width": 1500,
+    "height": 842
+  },
+  "house/Sunrise%20View%20Residence/front2.png": {
+    "src": "assets/images/front2-aca4cad2-1500.webp",
+    "srcset": "assets/images/front2-aca4cad2-480.webp 480w, assets/images/front2-aca4cad2-960.webp 960w, assets/images/front2-aca4cad2-1500.webp 1500w",
+    "width": 1500,
+    "height": 842
+  },
+  "house/Sunset%20Retreat/sunetbackyard.jpg": {
+    "src": "assets/images/sunetbackyard-ac5d58cd-1536.webp",
+    "srcset": "assets/images/sunetbackyard-ac5d58cd-480.webp 480w, assets/images/sunetbackyard-ac5d58cd-960.webp 960w, assets/images/sunetbackyard-ac5d58cd-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunetlivingroom2.jpg": {
+    "src": "assets/images/sunetlivingroom2-77516d1d-1536.webp",
+    "srcset": "assets/images/sunetlivingroom2-77516d1d-480.webp 480w, assets/images/sunetlivingroom2-77516d1d-960.webp 960w, assets/images/sunetlivingroom2-77516d1d-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunetlivingrooom.jpg": {
+    "src": "assets/images/sunetlivingrooom-43aef70b-1536.webp",
+    "srcset": "assets/images/sunetlivingrooom-43aef70b-480.webp 480w, assets/images/sunetlivingrooom-43aef70b-960.webp 960w, assets/images/sunetlivingrooom-43aef70b-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunetoutside2.jpg": {
+    "src": "assets/images/sunetoutside2-807fdcd1-1536.webp",
+    "srcset": "assets/images/sunetoutside2-807fdcd1-480.webp 480w, assets/images/sunetoutside2-807fdcd1-960.webp 960w, assets/images/sunetoutside2-807fdcd1-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunset%20kitchen%202.jpg": {
+    "src": "assets/images/sunset-kitchen-2-fca8b558-1536.webp",
+    "srcset": "assets/images/sunset-kitchen-2-fca8b558-480.webp 480w, assets/images/sunset-kitchen-2-fca8b558-960.webp 960w, assets/images/sunset-kitchen-2-fca8b558-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetback2.jpg": {
+    "src": "assets/images/sunsetback2-3f3f7b40-1536.webp",
+    "srcset": "assets/images/sunsetback2-3f3f7b40-480.webp 480w, assets/images/sunsetback2-3f3f7b40-960.webp 960w, assets/images/sunsetback2-3f3f7b40-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetbathroom1.jpg": {
+    "src": "assets/images/sunsetbathroom1-29f858dd-1536.webp",
+    "srcset": "assets/images/sunsetbathroom1-29f858dd-480.webp 480w, assets/images/sunsetbathroom1-29f858dd-960.webp 960w, assets/images/sunsetbathroom1-29f858dd-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetbathroom1a.jpg": {
+    "src": "assets/images/sunsetbathroom1a-e06b09f8-1536.webp",
+    "srcset": "assets/images/sunsetbathroom1a-e06b09f8-480.webp 480w, assets/images/sunsetbathroom1a-e06b09f8-960.webp 960w, assets/images/sunsetbathroom1a-e06b09f8-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetbathroom2.jpg": {
+    "src": "assets/images/sunsetbathroom2-7e129fa8-1536.webp",
+    "srcset": "assets/images/sunsetbathroom2-7e129fa8-480.webp 480w, assets/images/sunsetbathroom2-7e129fa8-960.webp 960w, assets/images/sunsetbathroom2-7e129fa8-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetdiningroom.jpg": {
+    "src": "assets/images/sunsetdiningroom-bc901587-1536.webp",
+    "srcset": "assets/images/sunsetdiningroom-bc901587-480.webp 480w, assets/images/sunsetdiningroom-bc901587-960.webp 960w, assets/images/sunsetdiningroom-bc901587-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetgarade.jpg": {
+    "src": "assets/images/sunsetgarade-f1881ce2-1536.webp",
+    "srcset": "assets/images/sunsetgarade-f1881ce2-480.webp 480w, assets/images/sunsetgarade-f1881ce2-960.webp 960w, assets/images/sunsetgarade-f1881ce2-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetgreatroom.jpg": {
+    "src": "assets/images/sunsetgreatroom-402006d5-1536.webp",
+    "srcset": "assets/images/sunsetgreatroom-402006d5-480.webp 480w, assets/images/sunsetgreatroom-402006d5-960.webp 960w, assets/images/sunsetgreatroom-402006d5-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetkitchen.jpg": {
+    "src": "assets/images/sunsetkitchen-26101f8b-1536.webp",
+    "srcset": "assets/images/sunsetkitchen-26101f8b-480.webp 480w, assets/images/sunsetkitchen-26101f8b-960.webp 960w, assets/images/sunsetkitchen-26101f8b-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetmaster.jpg": {
+    "src": "assets/images/sunsetmaster-7963bdc4-1536.webp",
+    "srcset": "assets/images/sunsetmaster-7963bdc4-480.webp 480w, assets/images/sunsetmaster-7963bdc4-960.webp 960w, assets/images/sunsetmaster-7963bdc4-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetoutside.jpg": {
+    "src": "assets/images/sunsetoutside-cd07b6d8-1536.webp",
+    "srcset": "assets/images/sunsetoutside-cd07b6d8-480.webp 480w, assets/images/sunsetoutside-cd07b6d8-960.webp 960w, assets/images/sunsetoutside-cd07b6d8-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetroom1.jpg": {
+    "src": "assets/images/sunsetroom1-bce538cf-1536.webp",
+    "srcset": "assets/images/sunsetroom1-bce538cf-480.webp 480w, assets/images/sunsetroom1-bce538cf-960.webp 960w, assets/images/sunsetroom1-bce538cf-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/Sunset%20Retreat/sunsetroom2.jpg": {
+    "src": "assets/images/sunsetroom2-bfb598f3-1536.webp",
+    "srcset": "assets/images/sunsetroom2-bfb598f3-480.webp 480w, assets/images/sunsetroom2-bfb598f3-960.webp 960w, assets/images/sunsetroom2-bfb598f3-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/The%20Tranquil%20Abode/backofhouse.jpg": {
+    "src": "assets/images/backofhouse-5c43e08f-1536.webp",
+    "srcset": "assets/images/backofhouse-5c43e08f-480.webp 480w, assets/images/backofhouse-5c43e08f-960.webp 960w, assets/images/backofhouse-5c43e08f-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/badroom1.jpg": {
+    "src": "assets/images/badroom1-517fd024-1536.webp",
+    "srcset": "assets/images/badroom1-517fd024-480.webp 480w, assets/images/badroom1-517fd024-960.webp 960w, assets/images/badroom1-517fd024-1536.webp 1536w",
+    "width": 1536,
+    "height": 1125
+  },
+  "house/The%20Tranquil%20Abode/bathroom1.jpg": {
+    "src": "assets/images/bathroom1-d641d54f-1536.webp",
+    "srcset": "assets/images/bathroom1-d641d54f-480.webp 480w, assets/images/bathroom1-d641d54f-960.webp 960w, assets/images/bathroom1-d641d54f-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/bathroom1a.jpg": {
+    "src": "assets/images/bathroom1a-18023c07-1536.webp",
+    "srcset": "assets/images/bathroom1a-18023c07-480.webp 480w, assets/images/bathroom1a-18023c07-960.webp 960w, assets/images/bathroom1a-18023c07-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/bathroom2.jpg": {
+    "src": "assets/images/bathroom2-be246c99-1536.webp",
+    "srcset": "assets/images/bathroom2-be246c99-480.webp 480w, assets/images/bathroom2-be246c99-960.webp 960w, assets/images/bathroom2-be246c99-1536.webp 1536w",
+    "width": 1536,
+    "height": 1141
+  },
+  "house/The%20Tranquil%20Abode/bedroom2.jpg": {
+    "src": "assets/images/bedroom2-9d1a80f0-1536.webp",
+    "srcset": "assets/images/bedroom2-9d1a80f0-480.webp 480w, assets/images/bedroom2-9d1a80f0-960.webp 960w, assets/images/bedroom2-9d1a80f0-1536.webp 1536w",
+    "width": 1536,
+    "height": 1143
+  },
+  "house/The%20Tranquil%20Abode/frontofhouse.jpg": {
+    "src": "assets/images/frontofhouse-5178bb7f-1536.webp",
+    "srcset": "assets/images/frontofhouse-5178bb7f-480.webp 480w, assets/images/frontofhouse-5178bb7f-960.webp 960w, assets/images/frontofhouse-5178bb7f-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/hLLQy.jpg": {
+    "src": "assets/images/hllqy-6d67256d-1536.webp",
+    "srcset": "assets/images/hllqy-6d67256d-480.webp 480w, assets/images/hllqy-6d67256d-960.webp 960w, assets/images/hllqy-6d67256d-1536.webp 1536w",
+    "width": 1536,
+    "height": 1155
+  },
+  "house/The%20Tranquil%20Abode/kitchen.jpg": {
+    "src": "assets/images/kitchen-4f0fbf3e-1536.webp",
+    "srcset": "assets/images/kitchen-4f0fbf3e-480.webp 480w, assets/images/kitchen-4f0fbf3e-960.webp 960w, assets/images/kitchen-4f0fbf3e-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/kitchen2.jpg": {
+    "src": "assets/images/kitchen2-8d295a6b-1536.webp",
+    "srcset": "assets/images/kitchen2-8d295a6b-480.webp 480w, assets/images/kitchen2-8d295a6b-960.webp 960w, assets/images/kitchen2-8d295a6b-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/kitchen3.jpg": {
+    "src": "assets/images/kitchen3-18681e80-1536.webp",
+    "srcset": "assets/images/kitchen3-18681e80-480.webp 480w, assets/images/kitchen3-18681e80-960.webp 960w, assets/images/kitchen3-18681e80-1536.webp 1536w",
+    "width": 1536,
+    "height": 1158
+  },
+  "house/The%20Tranquil%20Abode/masterbedroom.jpg": {
+    "src": "assets/images/masterbedroom-860eb9fb-1536.webp",
+    "srcset": "assets/images/masterbedroom-860eb9fb-480.webp 480w, assets/images/masterbedroom-860eb9fb-960.webp 960w, assets/images/masterbedroom-860eb9fb-1536.webp 1536w",
+    "width": 1536,
+    "height": 1181
+  },
+  "house/The%20Tranquil%20Abode/walkin1.jpg": {
+    "src": "assets/images/walkin1-778c091b-1536.webp",
+    "srcset": "assets/images/walkin1-778c091b-480.webp 480w, assets/images/walkin1-778c091b-960.webp 960w, assets/images/walkin1-778c091b-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/walkin2.jpg": {
+    "src": "assets/images/walkin2-d6aa5f61-1536.webp",
+    "srcset": "assets/images/walkin2-d6aa5f61-480.webp 480w, assets/images/walkin2-d6aa5f61-960.webp 960w, assets/images/walkin2-d6aa5f61-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/walkin3.jpg": {
+    "src": "assets/images/walkin3-cd0f89c7-1536.webp",
+    "srcset": "assets/images/walkin3-cd0f89c7-480.webp 480w, assets/images/walkin3-cd0f89c7-960.webp 960w, assets/images/walkin3-cd0f89c7-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/The%20Tranquil%20Abode/wlakin4.jpg": {
+    "src": "assets/images/wlakin4-0e26d632-1536.webp",
+    "srcset": "assets/images/wlakin4-0e26d632-480.webp 480w, assets/images/wlakin4-0e26d632-960.webp 960w, assets/images/wlakin4-0e26d632-1536.webp 1536w",
+    "width": 1536,
+    "height": 1152
+  },
+  "house/tranquiloasis/bathroom1.jpg": {
+    "src": "assets/images/bathroom1-2b495036-1536.webp",
+    "srcset": "assets/images/bathroom1-2b495036-480.webp 480w, assets/images/bathroom1-2b495036-960.webp 960w, assets/images/bathroom1-2b495036-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/bedroom1.jpg": {
+    "src": "assets/images/bedroom1-c54b1004-1536.webp",
+    "srcset": "assets/images/bedroom1-c54b1004-480.webp 480w, assets/images/bedroom1-c54b1004-960.webp 960w, assets/images/bedroom1-c54b1004-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/bedroom2.jpg": {
+    "src": "assets/images/bedroom2-1375f48b-1536.webp",
+    "srcset": "assets/images/bedroom2-1375f48b-480.webp 480w, assets/images/bedroom2-1375f48b-960.webp 960w, assets/images/bedroom2-1375f48b-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/kitchen2.jpg": {
+    "src": "assets/images/kitchen2-f5f36788-1536.webp",
+    "srcset": "assets/images/kitchen2-f5f36788-480.webp 480w, assets/images/kitchen2-f5f36788-960.webp 960w, assets/images/kitchen2-f5f36788-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/masterbathroom.jpg": {
+    "src": "assets/images/masterbathroom-8e2484a3-1536.webp",
+    "srcset": "assets/images/masterbathroom-8e2484a3-480.webp 480w, assets/images/masterbathroom-8e2484a3-960.webp 960w, assets/images/masterbathroom-8e2484a3-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/masterbedroom.jpg": {
+    "src": "assets/images/masterbedroom-2930557b-1536.webp",
+    "srcset": "assets/images/masterbedroom-2930557b-480.webp 480w, assets/images/masterbedroom-2930557b-960.webp 960w, assets/images/masterbedroom-2930557b-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/tranquil%20oasis.jpg": {
+    "src": "assets/images/tranquil-oasis-b3a2b5ab-1600.webp",
+    "srcset": "assets/images/tranquil-oasis-b3a2b5ab-480.webp 480w, assets/images/tranquil-oasis-b3a2b5ab-960.webp 960w, assets/images/tranquil-oasis-b3a2b5ab-1600.webp 1600w",
+    "width": 2560,
+    "height": 1707
+  },
+  "house/tranquiloasis/tranquil%20oasis1.png": {
+    "src": "assets/images/tranquil-oasis1-a1015ed0-1536.webp",
+    "srcset": "assets/images/tranquil-oasis1-a1015ed0-480.webp 480w, assets/images/tranquil-oasis1-a1015ed0-960.webp 960w, assets/images/tranquil-oasis1-a1015ed0-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/Tranquil%20Oasisback.jpg": {
+    "src": "assets/images/tranquil-oasisback-8598c089-1536.webp",
+    "srcset": "assets/images/tranquil-oasisback-8598c089-480.webp 480w, assets/images/tranquil-oasisback-8598c089-960.webp 960w, assets/images/tranquil-oasisback-8598c089-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/Tranquil%20Oasiskitchen.jpg": {
+    "src": "assets/images/tranquil-oasiskitchen-62f4c89e-1536.webp",
+    "srcset": "assets/images/tranquil-oasiskitchen-62f4c89e-480.webp 480w, assets/images/tranquil-oasiskitchen-62f4c89e-960.webp 960w, assets/images/tranquil-oasiskitchen-62f4c89e-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/Tranquil%20Oasislivingroom.jpg": {
+    "src": "assets/images/tranquil-oasislivingroom-f2b8f257-1536.webp",
+    "srcset": "assets/images/tranquil-oasislivingroom-f2b8f257-480.webp 480w, assets/images/tranquil-oasislivingroom-f2b8f257-960.webp 960w, assets/images/tranquil-oasislivingroom-f2b8f257-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  },
+  "house/tranquiloasis/Utility%20room.jpg": {
+    "src": "assets/images/utility-room-9b7a90c9-1536.webp",
+    "srcset": "assets/images/utility-room-9b7a90c9-480.webp 480w, assets/images/utility-room-9b7a90c9-960.webp 960w, assets/images/utility-room-9b7a90c9-1536.webp 1536w",
+    "width": 1536,
+    "height": 1024
+  }
+}

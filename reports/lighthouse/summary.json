@@ -1,0 +1,230 @@
+[
+  {
+    "page": "index",
+    "profile": "mobile",
+    "scores": {
+      "performance": 95,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "lcp": 2616.603,
+    "cls": 0.07684413085150917
+  },
+  {
+    "page": "floor-plans",
+    "profile": "mobile",
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "lcp": 2191.5200000000004,
+    "cls": 0.0003120086756536996
+  },
+  {
+    "page": "financing",
+    "profile": "mobile",
+    "scores": {
+      "performance": 94,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "lcp": 1890.41145,
+    "cls": 0.0004532688485541444
+  },
+  {
+    "page": "contact",
+    "profile": "mobile",
+    "scores": {
+      "performance": 95,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "lcp": 2009.53015,
+    "cls": 0
+  },
+  {
+    "page": "index",
+    "profile": "tablet",
+    "scores": {
+      "performance": 91,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 768,
+      "height": 1024,
+      "deviceScaleFactor": 2,
+      "disabled": false
+    },
+    "lcp": 3455.78,
+    "cls": 0.003141019260510802
+  },
+  {
+    "page": "floor-plans",
+    "profile": "tablet",
+    "scores": {
+      "performance": 94,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 768,
+      "height": 1024,
+      "deviceScaleFactor": 2,
+      "disabled": false
+    },
+    "lcp": 2864.1155000000003,
+    "cls": 0
+  },
+  {
+    "page": "financing",
+    "profile": "tablet",
+    "scores": {
+      "performance": 95,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 768,
+      "height": 1024,
+      "deviceScaleFactor": 2,
+      "disabled": false
+    },
+    "lcp": 1884.7407,
+    "cls": 0
+  },
+  {
+    "page": "contact",
+    "profile": "tablet",
+    "scores": {
+      "performance": 94,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 768,
+      "height": 1024,
+      "deviceScaleFactor": 2,
+      "disabled": false
+    },
+    "lcp": 2268.4125000000004,
+    "cls": 0
+  },
+  {
+    "page": "index",
+    "profile": "desktop",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": false,
+      "width": 1350,
+      "height": 940,
+      "deviceScaleFactor": 1,
+      "disabled": false
+    },
+    "lcp": 673.8464999999999,
+    "cls": 0.006189353464755239
+  },
+  {
+    "page": "floor-plans",
+    "profile": "desktop",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": false,
+      "width": 1350,
+      "height": 940,
+      "deviceScaleFactor": 1,
+      "disabled": false
+    },
+    "lcp": 576.508,
+    "cls": 0.0002603105190947367
+  },
+  {
+    "page": "financing",
+    "profile": "desktop",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": false,
+      "width": 1350,
+      "height": 940,
+      "deviceScaleFactor": 1,
+      "disabled": false
+    },
+    "lcp": 400.52199999999993,
+    "cls": 0.0003780500289054173
+  },
+  {
+    "page": "contact",
+    "profile": "desktop",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": false,
+      "width": 1350,
+      "height": 940,
+      "deviceScaleFactor": 1,
+      "disabled": false
+    },
+    "lcp": 558.425,
+    "cls": 0.0001443283154006333
+  }
+]
