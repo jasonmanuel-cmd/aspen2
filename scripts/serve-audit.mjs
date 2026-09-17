@@ -5,7 +5,7 @@ import path from 'node:path';
 import {brotliCompressSync, gzipSync, constants} from 'node:zlib';
 const root=process.cwd();
 const port=Number(process.env.PORT || 3002);
-const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.xml':'application/xml','.txt':'text/plain; charset=utf-8','.webp':'image/webp','.woff2':'font/woff2','.png':'image/png','.jpg':'image/jpeg','.pdf':'application/pdf'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.xml':'application/xml','.txt':'text/plain; charset=utf-8','.webp':'image/webp','.woff2':'font/woff2','.png':'image/png','.jpg':'image/jpeg','.pdf':'application/pdf','.mp4':'video/mp4'};
 const cache=new Map();
 async function asset(file) {
   const stat=await fs.stat(file), old=cache.get(file);

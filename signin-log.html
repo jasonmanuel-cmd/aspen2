@@ -338,21 +338,23 @@
         }
     </style>
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="fonts.css">
 </head>
 <body>
     <!-- Password Protection Modal -->
-    <div id="passwordModal" class="password-modal">
+    <div id="passwordModal" class="password-modal" role="dialog" aria-modal="true" aria-labelledby="accessHeading">
         <div class="password-box">
-            <h2>🔐 Access Required</h2>
+            <h2 id="accessHeading">🔐 Access Required</h2>
             <p>Enter the password to view the sign-in log</p>
-            <div class="password-error" id="passwordError">Incorrect password. Try again.</div>
-            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" autocomplete="off">
+            <div class="password-error" id="passwordError" role="alert">Incorrect password. Try again.</div>
+            <input type="password" id="passwordInput" aria-label="Sign-in log password" aria-describedby="passwordError" class="password-input" placeholder="Enter password" autocomplete="off">
             <button class="password-btn" onclick="checkPassword()">Unlock</button>
+            <a href="index.html" style="display:inline-block;margin-top:16px;min-height:24px;color:#76551d">Back to Home</a>
         </div>
     </div>
 
-    <div class="container">
+    <main class="container" id="logContent" inert>
         <!-- Header -->
         <div class="header">
             <h1>📋 Sign-In Log</h1>
@@ -393,13 +395,14 @@
         <div id="logContainer">
             <div class="loading">Loading sign-in log...</div>
         </div>
-    </div>
+    </main>
 
     <script>
         let allRegistrations = [];
 
         // Load sign-in log from CRM or show Formspree dashboard
         async function loadSignInLog() {
+            if (sessionStorage.getItem('signInLogUnlocked') !== 'true') return;
             const logContainer = document.getElementById('logContainer');
             logContainer.innerHTML = '<div class="loading">Loading sign-in log...</div>';
 
@@ -418,7 +421,6 @@
                 }
 
                 const result = await response.json();
-                console.log('CRM Response:', result);
 
                 if (result.success && result.registrations && result.registrations.length > 0) {
                     allRegistrations = result.registrations;
@@ -521,7 +523,7 @@
                     `"${reg.phone || ''}"`,
                     `"${reg.date_time || ''}"`,
                     `"${reg.source || ''}"`,
-                    `"${reg.property || '"}"`
+                    `"${reg.property || ''}"`
                 ];
                 csv += row.join(',') + '\n';
             });
@@ -549,14 +551,16 @@
 
         window.checkPassword = function() {
             const input = passwordInput.value;
-            console.log('Password entered: ' + input);
-            console.log('Expected: ' + CORRECT_PASSWORD);
+
 
             if (input === CORRECT_PASSWORD) {
                 console.log('Password correct!');
                 passwordModal.classList.add('hidden');
                 document.body.classList.remove('locked');
                 sessionStorage.setItem('signInLogUnlocked', 'true');
+                document.getElementById('logContent').inert = false;
+                loadSignInLog();
+                document.querySelector('.refresh-btn').focus();
                 passwordInput.value = '';
             } else {
                 console.log('Wrong password');
@@ -573,6 +577,8 @@
             if (sessionStorage.getItem('signInLogUnlocked') === 'true') {
                 passwordModal.classList.add('hidden');
                 document.body.classList.remove('locked');
+                document.getElementById('logContent').inert = false;
+                loadSignInLog();
             } else {
                 passwordModal.classList.remove('hidden');
                 document.body.classList.add('locked');
@@ -581,6 +587,17 @@
         }
 
         window.addEventListener('DOMContentLoaded', initPasswordProtection);
+
+        passwordModal.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') { window.location.href = 'index.html'; return; }
+            if (event.key !== 'Tab') return;
+            const controls = [passwordInput, passwordModal.querySelector('button'), passwordModal.querySelector('a')];
+            if (event.shiftKey && document.activeElement === controls[0]) {
+                event.preventDefault(); controls[2].focus();
+            } else if (!event.shiftKey && document.activeElement === controls[2]) {
+                event.preventDefault(); controls[0].focus();
+            }
+        });
 
         if (passwordInput) {
             passwordInput.addEventListener('keypress', function(e) {

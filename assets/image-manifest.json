@@ -355,7 +355,7 @@
   },
   "house/tranquiloasis/tranquil%20oasis.jpg": {
     "src": "assets/images/tranquil-oasis-b3a2b5ab-1600.webp",
-    "srcset": "assets/images/tranquil-oasis-b3a2b5ab-480.webp 480w, assets/images/tranquil-oasis-b3a2b5ab-960.webp 960w, assets/images/tranquil-oasis-b3a2b5ab-1600.webp 1600w",
+    "srcset": "assets/images/tranquil-oasis-1b602527-480.webp 480w, assets/images/tranquil-oasis-1b602527-960.webp 960w, assets/images/tranquil-oasis-b3a2b5ab-1600.webp 1600w",
     "width": 2560,
     "height": 1707
   },

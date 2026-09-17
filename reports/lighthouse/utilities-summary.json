@@ -1,0 +1,40 @@
+[
+  {
+    "page": "thank-you",
+    "profile": "mobile",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 54
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "lcp": 1208.7201,
+    "cls": 0.0001503845695328081
+  },
+  {
+    "page": "signin-log",
+    "profile": "mobile",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 54
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "lcp": 1204.19265,
+    "cls": 0.01079568866785379
+  }
+]

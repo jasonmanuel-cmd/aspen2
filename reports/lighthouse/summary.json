@@ -3,7 +3,7 @@
     "page": "index",
     "profile": "mobile",
     "scores": {
-      "performance": 95,
+      "performance": 93,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -15,11 +15,30 @@
       "deviceScaleFactor": 1.75,
       "disabled": false
     },
-    "lcp": 2616.603,
+    "lcp": 2943.9814,
     "cls": 0.07684413085150917
   },
   {
     "page": "floor-plans",
+    "profile": "mobile",
+    "scores": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "viewport": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "lcp": 2411.9170000000004,
+    "cls": 0.0003120086756536996
+  },
+  {
+    "page": "financing",
     "profile": "mobile",
     "scores": {
       "performance": 99,
@@ -34,33 +53,14 @@
       "deviceScaleFactor": 1.75,
       "disabled": false
     },
-    "lcp": 2191.5200000000004,
-    "cls": 0.0003120086756536996
-  },
-  {
-    "page": "financing",
-    "profile": "mobile",
-    "scores": {
-      "performance": 94,
-      "accessibility": 100,
-      "best-practices": 100,
-      "seo": 100
-    },
-    "viewport": {
-      "mobile": true,
-      "width": 412,
-      "height": 823,
-      "deviceScaleFactor": 1.75,
-      "disabled": false
-    },
-    "lcp": 1890.41145,
+    "lcp": 1953.6581999999999,
     "cls": 0.0004532688485541444
   },
   {
     "page": "contact",
     "profile": "mobile",
     "scores": {
-      "performance": 95,
+      "performance": 99,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -72,14 +72,14 @@
       "deviceScaleFactor": 1.75,
       "disabled": false
     },
-    "lcp": 2009.53015,
-    "cls": 0
+    "lcp": 1953.00225,
+    "cls": 0.0001742208799105487
   },
   {
     "page": "index",
     "profile": "tablet",
     "scores": {
-      "performance": 91,
+      "performance": 94,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -91,14 +91,14 @@
       "deviceScaleFactor": 2,
       "disabled": false
     },
-    "lcp": 3455.78,
+    "lcp": 2933.09,
     "cls": 0.003141019260510802
   },
   {
     "page": "floor-plans",
     "profile": "tablet",
     "scores": {
-      "performance": 94,
+      "performance": 98,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -110,14 +110,14 @@
       "deviceScaleFactor": 2,
       "disabled": false
     },
-    "lcp": 2864.1155000000003,
+    "lcp": 2406.035625,
     "cls": 0
   },
   {
     "page": "financing",
     "profile": "tablet",
     "scores": {
-      "performance": 95,
+      "performance": 99,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -129,14 +129,14 @@
       "deviceScaleFactor": 2,
       "disabled": false
     },
-    "lcp": 1884.7407,
+    "lcp": 1955.109,
     "cls": 0
   },
   {
     "page": "contact",
     "profile": "tablet",
     "scores": {
-      "performance": 94,
+      "performance": 99,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -148,14 +148,14 @@
       "deviceScaleFactor": 2,
       "disabled": false
     },
-    "lcp": 2268.4125000000004,
+    "lcp": 1953.7566000000002,
     "cls": 0
   },
   {
     "page": "index",
     "profile": "desktop",
     "scores": {
-      "performance": 100,
+      "performance": 98,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -167,8 +167,8 @@
       "deviceScaleFactor": 1,
       "disabled": false
     },
-    "lcp": 673.8464999999999,
-    "cls": 0.006189353464755239
+    "lcp": 1187.4574499999999,
+    "cls": 0.006058666965823191
   },
   {
     "page": "floor-plans",
@@ -186,7 +186,7 @@
       "deviceScaleFactor": 1,
       "disabled": false
     },
-    "lcp": 576.508,
+    "lcp": 603.7943,
     "cls": 0.0002603105190947367
   },
   {
@@ -205,7 +205,7 @@
       "deviceScaleFactor": 1,
       "disabled": false
     },
-    "lcp": 400.52199999999993,
+    "lcp": 422.90985,
     "cls": 0.0003780500289054173
   },
   {
@@ -224,7 +224,7 @@
       "deviceScaleFactor": 1,
       "disabled": false
     },
-    "lcp": 558.425,
+    "lcp": 423.6414,
     "cls": 0.0001443283154006333
   }
 ]

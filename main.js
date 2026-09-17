@@ -9,6 +9,16 @@
   var opening = document.getElementById('openingScreen');
   var openingVideo = document.getElementById('openingVideo');
   var openingSkip = document.getElementById('openingSkip');
+  function loadHomepageHero() {
+    document.querySelectorAll('[data-opening-srcset]').forEach(function (element) {
+      element.srcset = element.dataset.openingSrcset;
+      delete element.dataset.openingSrcset;
+    });
+    document.querySelectorAll('[data-opening-src]').forEach(function (element) {
+      element.src = element.dataset.openingSrc;
+      delete element.dataset.openingSrc;
+    });
+  }
   var openingSeen = false;
   try { openingSeen = sessionStorage.getItem('aspen-opening-seen') === '1'; } catch (e) {}
   if (opening && openingVideo && !openingSeen &&
@@ -17,8 +27,10 @@
     function finishOpening() {
       clearTimeout(openingTimer);
       openingVideo.pause();
+      loadHomepageHero();
       opening.close();
       document.body.classList.remove('opening-active');
+      document.dispatchEvent(new Event('aspen-opening-finished'));
     }
     try { sessionStorage.setItem('aspen-opening-seen', '1'); } catch (e) {}
     opening.showModal();
@@ -33,7 +45,8 @@
     openingVideo.addEventListener('error', finishOpening);
     function playOpening() {
       if (!opening.open) return;
-      openingVideo.src = 'media/aspen-website-open.mp4';
+      openingVideo.src = window.matchMedia('(max-width: 768px)').matches
+        ? 'media/aspen-website-open-mobile.mp4' : 'media/aspen-website-open.mp4';
       openingTimer = setTimeout(finishOpening, 25000);
       var playback = openingVideo.play();
       if (playback) playback.catch(finishOpening);
@@ -43,6 +56,9 @@
     window.addEventListener('pagehide', finishOpening);
   }
 
+  if (!opening || !opening.open) loadHomepageHero();
+
+  function initializeSite() {
   // Repeat the announcement visually for a seamless mobile marquee.
   document.querySelectorAll('.topbar-track').forEach(function (track) {
     var message = document.createElement('span');
@@ -54,11 +70,28 @@
     repeat.setAttribute('aria-hidden', 'true');
     track.appendChild(repeat);
     track.classList.add('topbar-marquee');
+    var pause = document.createElement('button');
+    pause.type = 'button';
+    pause.className = 'announcement-pause';
+    pause.setAttribute('aria-label', 'Pause announcement scrolling');
+    pause.setAttribute('aria-pressed', 'false');
+    pause.textContent = 'Ⅱ';
+    track.closest('.topbar').insertAdjacentElement('afterend', pause);
+    pause.addEventListener('click', function () {
+      var paused = track.classList.toggle('is-paused');
+      pause.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      pause.setAttribute('aria-label', paused ? 'Resume announcement scrolling' : 'Pause announcement scrolling');
+      pause.textContent = paused ? '▶' : 'Ⅱ';
+    });
   });
 
   // Let the hero and fonts finish before fetching gallery photographs.
   // Smaller observer margins avoid native lazy-loading's large offscreen batch.
   function observePhotographs() {
+    if (opening && opening.open) {
+      document.addEventListener('aspen-opening-finished', observePhotographs, {once: true});
+      return;
+    }
     var photoObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
@@ -100,11 +133,13 @@
   var mobileNav = document.getElementById('mobileNav');
   function closeMobileNav() {
     if (!mobileNav || !navToggle) return;
+    var restoreMenuFocus = mobileNav.contains(document.activeElement);
     mobileNav.classList.remove('open');
     mobileNav.inert = true;
     navToggle.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    if (restoreMenuFocus) navToggle.focus();
   }
   if (navToggle && mobileNav) {
     navToggle.addEventListener('click', function () {
@@ -118,9 +153,21 @@
       a.addEventListener('click', closeMobileNav);
     });
     document.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab' && mobileNav.classList.contains('open')) {
+        var menuControls = [navToggle].concat(Array.from(mobileNav.querySelectorAll('a')));
+        var focused = menuControls.indexOf(document.activeElement);
+        if (focused === -1 || (e.shiftKey && focused === 0)) {
+          e.preventDefault(); menuControls[menuControls.length - 1].focus();
+        } else if (!e.shiftKey && focused === menuControls.length - 1) {
+          e.preventDefault(); navToggle.focus();
+        }
+      }
       if (e.key === 'Escape') closeMobileNav();
     });
   }
+  window.matchMedia('(min-width: 901px)').addEventListener('change', function (event) {
+    if (event.matches) closeMobileNav();
+  });
   window.closeMobileNav = closeMobileNav;
 
   // ── Scroll reveal ──
@@ -189,6 +236,7 @@
     var imgEl = document.getElementById('lightboxImg');
     var capEl = document.getElementById('lightboxCaption');
     var galleryTrigger;
+    var galleryBackground = [];
     function render() {
       imgEl.src = data[current].src;
       imgEl.alt = data[current].caption;
@@ -198,11 +246,19 @@
       galleryTrigger = document.activeElement;
       current = i; render();
       lightbox.classList.add('active');
+      galleryBackground = Array.from(document.body.children).filter(function (element) {
+        return element !== lightbox && !['SCRIPT', 'STYLE'].includes(element.tagName);
+      }).map(function (element) {
+        var state = {element: element, inert: element.inert};
+        element.inert = true; return state;
+      });
       document.body.style.overflow = 'hidden';
       lightbox.querySelector('.lightbox-close').focus();
     };
     window.closeLightbox = function () {
       lightbox.classList.remove('active');
+      galleryBackground.forEach(function (state) { state.element.inert = state.inert; });
+      galleryBackground = [];
       document.body.style.overflow = '';
       if (galleryTrigger) galleryTrigger.focus({ preventScroll: true });
     };
@@ -409,12 +465,13 @@
     }
     var filmObserver = new IntersectionObserver(function (entries) {
       filmInView = entries[0].isIntersecting;
-      if (filmInView) { loadFrame(0); renderFilm(); }
+      if (filmInView && !(opening && opening.open)) { loadFrame(0); renderFilm(); }
     }, { rootMargin: '0px' });
     filmObserver.observe(film);
+    document.addEventListener('aspen-opening-finished', renderFilm);
 
     function renderFilm() {
-      if (!filmInView) return;
+      if (!filmInView || (opening && opening.open)) return;
       var rect = film.getBoundingClientRect();
       var vh = window.innerHeight;
       var total = film.offsetHeight - vh;
@@ -464,7 +521,9 @@
     var elM = cd.querySelector('[data-cd="m"]');
     var elS = cd.querySelector('[data-cd="s"]');
     function pad(v) { return (v < 10 ? '0' : '') + v; }
+    var countdownPaused = reduceMotion;
     function tickCountdown() {
+      if (countdownPaused) return;
       var diff = Math.max(0, deadline - Date.now());
       var d = Math.floor(diff / 86400000);
       var h = Math.floor((diff % 86400000) / 3600000);
@@ -475,7 +534,23 @@
       if (elM) elM.textContent = pad(m);
       if (elS) elS.textContent = pad(s);
     }
-    tickCountdown();
+    var countdownPause = document.createElement('button');
+    countdownPause.type = 'button';
+    countdownPause.className = 'countdown-pause';
+    function updateCountdownControl() {
+      countdownPause.textContent = countdownPaused ? 'Resume countdown' : 'Pause countdown';
+      countdownPause.setAttribute('aria-pressed', countdownPaused ? 'true' : 'false');
+      cd.closest('.urgency').classList.toggle('is-paused', countdownPaused);
+    }
+    cd.appendChild(countdownPause);
+    countdownPause.addEventListener('click', function () {
+      countdownPaused = !countdownPaused;
+      updateCountdownControl(); tickCountdown();
+    });
+    // Draw the initial time even when reduced motion starts the display paused.
+    var initialPaused = countdownPaused;
+    countdownPaused = false; tickCountdown(); countdownPaused = initialPaused;
+    updateCountdownControl();
     setInterval(tickCountdown, 1000);
   }
 
@@ -527,5 +602,11 @@
         keys.forEach(function (k) { caches.delete(k); });
       }).catch(function () {});
     }
+  }
+  }
+  if (opening && opening.open) {
+    document.addEventListener('aspen-opening-finished', initializeSite, {once: true});
+  } else {
+    initializeSite();
   }
 })();

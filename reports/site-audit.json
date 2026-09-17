@@ -1,0 +1,81 @@
+{
+  "pages": [
+    {
+      "page": "index",
+      "h1": 1,
+      "canonical": [
+        "https://aspen2homes.com/"
+      ],
+      "robots": [],
+      "schemaTypes": [
+        "GeneralContractor",
+        "WebSite",
+        "WebPage",
+        "FAQPage"
+      ]
+    },
+    {
+      "page": "floor-plans",
+      "h1": 1,
+      "canonical": [
+        "https://aspen2homes.com/floor-plans"
+      ],
+      "robots": [],
+      "schemaTypes": [
+        "GeneralContractor",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "ItemList"
+      ]
+    },
+    {
+      "page": "financing",
+      "h1": 1,
+      "canonical": [
+        "https://aspen2homes.com/financing"
+      ],
+      "robots": [],
+      "schemaTypes": [
+        "GeneralContractor",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "page": "contact",
+      "h1": 1,
+      "canonical": [
+        "https://aspen2homes.com/contact"
+      ],
+      "robots": [],
+      "schemaTypes": [
+        "GeneralContractor",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "page": "thank-you",
+      "h1": 1,
+      "canonical": [],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "schemaTypes": []
+    },
+    {
+      "page": "signin-log",
+      "h1": 1,
+      "canonical": [],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "schemaTypes": []
+    }
+  ],
+  "issues": [],
+  "scope": "Static assets, anchors, image alternatives, IDs, primary headings, canonical presence, utility noindex, and JSON-LD syntax. This is not full accessibility or schema compliance certification."
+}

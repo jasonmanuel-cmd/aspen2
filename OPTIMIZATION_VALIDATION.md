@@ -37,18 +37,15 @@ Form submissions were not sent during testing. Form integration contracts and fa
 
 ## Final results
 
-Validated September 17, 2026 against the local compressed audit server with Lighthouse 13.4.1. All twelve public-page/profile combinations exceeded 90 in every category.
+Updated after the opening-film and mobile-banner audit on September 17, 2026.
 
 | Page | Mobile performance | Tablet performance | Desktop performance |
 | --- | ---: | ---: | ---: |
-| Home | 95 | 91 | 100 |
-| Models | 99 | 94 | 100 |
-| Financing | 94 | 95 | 100 |
-| Contact | 95 | 94 | 100 |
+| Home | 93 | 94 | 98 |
+| Models | 98 | 98 | 100 |
+| Financing | 99 | 99 | 100 |
+| Contact | 99 | 99 | 100 |
 
-Accessibility, best practices, and SEO scored **100 in every run**. Maximum measured CLS was 0.077. These are local lab results; production Lighthouse and real-user metrics have not been measured.
+All twelve final public-page runs scored 100 for accessibility, best practices, and SEO. Maximum CLS was 0.077. Scores are local lab results; Home mobile/tablet LCP was about 2.94 seconds. Real-user metrics remain unmeasured.
 
-Responsive checks covered 320, 390, 768, 1024, and 1440 pixel widths. The homepage countdown overflow at 320 pixels was corrected and rechecked. Browser checks verified mobile navigation, cinematic image loading during scroll, model anchors, gallery next-photo and Escape behavior, and model selection carried into the contact form. No forms were submitted.
-
-The commit is published directly to GitHub main after validation. The compact evidence is in `reports/lighthouse/summary.json`.
-
+Complete findings and interaction evidence are in SITE_QA_AUDIT.md. The approved SEO domain is https://aspen2homes.com; its live site currently serves the older WordPress version.

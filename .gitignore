@@ -10,3 +10,9 @@ reports/lighthouse/*.json
 reports/lighthouse/*.html
 baseline-mobile.json
 font-source.css
+
+reports/lighthouse/**/chrome-profile/
+reports/lighthouse/**/*.json
+reports/lighthouse/**/*.html
+!reports/lighthouse/summary.json
+!reports/lighthouse/utilities-summary.json

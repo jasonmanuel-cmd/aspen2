@@ -639,3 +639,31 @@ img[data-src]{color:transparent}
 .opening-active{overflow:hidden}
 .opening-skip{position:absolute;right:max(24px,env(safe-area-inset-right));bottom:max(28px,env(safe-area-inset-bottom));padding:13px 22px;border:1px solid var(--gold);border-radius:100px;background:rgba(11,13,15,.85);color:var(--gold-2);font:600 13px 'Inter',sans-serif;cursor:pointer}
 .opening-skip:hover{background:var(--gold);color:var(--bg)}
+
+.announcement-pause{display:none}
+.topbar-marquee.is-paused{animation-play-state:paused}
+@media(max-width:768px){
+    .topbar:has(.topbar-marquee){right:40px}
+    .announcement-pause{position:fixed;top:0;right:0;z-index:1002;display:flex;align-items:center;justify-content:center;width:40px;height:var(--topbar-h);border:0;background:var(--gold-2);color:var(--bg);font-size:16px;cursor:pointer}
+    .announcement-pause:focus-visible{outline:2px solid var(--bg);outline-offset:-5px}
+}
+@media(prefers-reduced-motion:reduce){
+    .announcement-pause{display:none}
+    .topbar:has(.topbar-marquee){right:0}
+}
+
+/* Suspend background rendering while the opening film owns the screen. */
+.opening-active > .curtain{content-visibility:hidden}
+.curtain{content-visibility:hidden}
+.curtain.down{content-visibility:visible}
+
+.hero-media picture{display:contents}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.countdown{position:relative}
+.countdown-pause{position:absolute;right:0;top:calc(100% + 2px);min-height:24px;border:0;background:none;color:var(--gold-2);font:500 11px 'Inter',sans-serif;cursor:pointer}
+.urgency.is-paused .urgency-pulse::after{animation-play-state:paused}
+
+html:not(.js) img[data-opening-src]{display:none}
+
+.subhero-media picture{display:contents}
