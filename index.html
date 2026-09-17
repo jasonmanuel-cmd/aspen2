@@ -50,6 +50,9 @@
 </head>
 <body>
 
+    <!-- PAGE TRANSITION CURTAIN -->
+    <div class="curtain"><span class="curtain-mark serif">H</span></div>
+
     <!-- ANNOUNCEMENT BAR -->
     <a href="financing.html" class="topbar" aria-label="Ask about 0% down and early-buyer savings">
         <div class="topbar-track">
@@ -75,7 +78,7 @@
                 <li><a href="financing.html">Financing</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <a href="contact.html" class="nav-cta">Schedule a Tour</a>
+            <span class="mag"><a href="contact.html" class="nav-cta">Schedule a Tour</a></span>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
                 <span></span><span></span><span></span>
             </button>
@@ -117,8 +120,8 @@
             </div>
 
             <div class="hero-ctas">
-                <a href="floor-plans.html" class="btn btn-primary">Explore the Floor Plans</a>
-                <a href="contact.html" class="btn btn-ghost">Reserve &amp; Customize</a>
+                <span class="mag"><a href="floor-plans.html" class="btn btn-primary">Explore the Floor Plans</a></span>
+                <span class="mag"><a href="contact.html" class="btn btn-ghost">Reserve &amp; Customize</a></span>
             </div>
 
             <div class="hero-chips">
@@ -126,10 +129,79 @@
                 <span class="chip"><span class="d"></span> Up to $15,000 early-buyer savings</span>
                 <span class="chip"><span class="d"></span> Move-in-ready listing available</span>
             </div>
-
-            <p class="hero-honest"><strong>Get in early.</strong> The first release at Sunset Retreat is limited to two homes — reserve now to lock pricing and customize before they&apos;re gone.</p>
         </div>
         <div class="scroll-cue"><span></span></div>
+    </section>
+
+    <!-- CINEMATIC SCROLL FILM -->
+    <section class="film" id="film" aria-label="A cinematic tour of Sunset Retreat">
+        <div class="film-stage">
+            <div class="film-progress"></div>
+
+            <div class="film-frame"><img src="film_twilight.png" alt="A new Sunset Retreat home glowing at twilight"></div>
+            <div class="film-frame"><img src="film_living.png" alt="Sun-filled living room with mountain views"></div>
+            <div class="film-frame"><img src="film_kitchen.png" alt="Modern kitchen with warm wood and brass finishes"></div>
+            <div class="film-frame"><img src="img_sunset-retreat-community.png" alt="The Sunset Retreat community at dusk"></div>
+            <div class="film-frame"><img src="film_detail.png" alt="Warm light on a home's front door"></div>
+
+            <div class="film-captions">
+                <div class="film-cap">
+                    <span class="fc-eyebrow">Sunset Retreat · Tehachapi</span>
+                    <h2 class="serif">This is where your <em>story</em> begins</h2>
+                    <p>Two brand-new homes. One quiet ridge. A chance to get in before anyone else.</p>
+                </div>
+                <div class="film-cap">
+                    <span class="fc-eyebrow">Chapter 01 — Light</span>
+                    <h2 class="serif">Wake up to light<br>and open sky</h2>
+                    <p>Rooms designed around the way the sun moves and the mountains sit on the horizon.</p>
+                </div>
+                <div class="film-cap">
+                    <span class="fc-eyebrow">Chapter 02 — Yours</span>
+                    <h2 class="serif">Finishes you <em>choose</em>,<br>not settle for</h2>
+                    <p>Reserve early and shape the kitchen, the materials, the details — before it's built.</p>
+                </div>
+                <div class="film-cap">
+                    <span class="fc-eyebrow">Chapter 03 — Belonging</span>
+                    <h2 class="serif">A community,<br>not just a house</h2>
+                    <p>A brand-new neighborhood taking shape in one of California's most beautiful high valleys.</p>
+                </div>
+                <div class="film-cap">
+                    <span class="fc-eyebrow">Chapter 04 — The Keys</span>
+                    <h2 class="serif">Closer than<br>you think</h2>
+                    <p>0% down for first-time buyers and up to $15,000 in early-buyer savings. Let's find your path home.</p>
+                </div>
+            </div>
+
+            <div class="film-chapters" aria-hidden="true">
+                <span class="film-dot"></span><span class="film-dot"></span><span class="film-dot"></span><span class="film-dot"></span><span class="film-dot"></span>
+            </div>
+
+            <a href="#urgency" class="film-skip">Skip intro &darr;</a>
+        </div>
+    </section>
+
+    <!-- URGENCY / SCARCITY -->
+    <section class="urgency" id="urgency">
+        <div class="urgency-inner">
+            <div class="urgency-lead">
+                <span class="urgency-pulse" aria-hidden="true"></span>
+                <div>
+                    <b class="serif">First release — only 2 homes</b>
+                    <span>Reserve now to lock pricing &amp; customize before build</span>
+                    <div class="availability">
+                        <span class="avail-tag open">Home 1 · Reserving</span>
+                        <span class="avail-tag open">Home 2 · Reserving</span>
+                        <span class="avail-tag">Phase 2 · Waitlist</span>
+                    </div>
+                </div>
+            </div>
+            <div class="countdown" id="countdown" data-deadline="" aria-label="Time remaining in the early-buyer window">
+                <div class="cd-cell"><div class="cd-num" data-cd="d">00</div><div class="cd-lbl">Days</div></div>
+                <div class="cd-cell"><div class="cd-num" data-cd="h">00</div><div class="cd-lbl">Hrs</div></div>
+                <div class="cd-cell"><div class="cd-num" data-cd="m">00</div><div class="cd-lbl">Min</div></div>
+                <div class="cd-cell"><div class="cd-num" data-cd="s">00</div><div class="cd-lbl">Sec</div></div>
+            </div>
+        </div>
     </section>
 
     <!-- QUICK VALUE STRIP -->
@@ -231,6 +303,82 @@
         </div>
     </section>
 
+    <!-- LEAD MAGNETS -->
+    <section class="section" id="get-started">
+        <div class="inner">
+            <div class="head-block center reveal">
+                <span class="eyebrow center">Take the First Step</span>
+                <h2 class="title">Everything you need, one tap away</h2>
+                <p class="subtitle" style="text-align:center">No pressure and no obligation — just fast answers to help you decide.</p>
+            </div>
+            <div class="magnets reveal reveal-d1">
+                <div class="magnet">
+                    <div class="magnet-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+                    <h3 class="serif">Text me the price sheet</h3>
+                    <p>Get current pricing, floor-plan sizes, and available incentives sent straight to your phone in minutes.</p>
+                    <span class="mag"><a href="sms:6614727499?body=Please%20text%20me%20the%20Sunset%20Retreat%20price%20sheet" class="btn btn-primary">Text &ldquo;PRICES&rdquo;</a></span>
+                </div>
+                <div class="magnet">
+                    <div class="magnet-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></svg></div>
+                    <h3 class="serif">Reserve your lot</h3>
+                    <p>Only two homes in the first release. Start a no-obligation reservation to lock pricing and customize.</p>
+                    <span class="mag"><a href="contact.html?intent=reserve" class="btn btn-primary">Start a Reservation</a></span>
+                </div>
+                <div class="magnet">
+                    <div class="magnet-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></div>
+                    <h3 class="serif">Explore the floor plans</h3>
+                    <p>Compare all three model tiers, square footage, and pricing — then pick the path that fits your life.</p>
+                    <span class="mag"><a href="floor-plans.html" class="btn btn-ghost">View Floor Plans</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST: WHY BUILD WITH US -->
+    <section class="section alt" id="trust">
+        <div class="inner">
+            <div class="head-block center reveal">
+                <span class="eyebrow center">Why Harbison Standard</span>
+                <h2 class="title">A new home you can trust</h2>
+                <p class="subtitle" style="text-align:center">Brand-new construction, modern systems, and a licensed local team guiding you the whole way.</p>
+            </div>
+            <div class="warranty reveal reveal-d1">
+                <div class="warranty-item">
+                    <div class="warranty-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <b>New-Home Warranty</b>
+                    <span>Builder warranty coverage on your brand-new construction.</span>
+                </div>
+                <div class="warranty-item">
+                    <div class="warranty-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 13h5l-1 8 8-10h-5z"/></svg></div>
+                    <b>Modern &amp; Efficient</b>
+                    <span>Current codes, efficient systems, and up-to-date materials throughout.</span>
+                </div>
+                <div class="warranty-item">
+                    <div class="warranty-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></div>
+                    <b>Licensed Local Agent</b>
+                    <span>Guided start to finish by Nathanael Harbison, DRE #02059393.</span>
+                </div>
+                <div class="warranty-item">
+                    <div class="warranty-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="m9.5 14.5 1.5 1.5 3-3"/></svg></div>
+                    <b>Equal Housing</b>
+                    <span>Fair, transparent process and honest disclosures at every step.</span>
+                </div>
+            </div>
+
+            <div class="head-block center reveal" style="margin-top:60px;margin-bottom:0">
+                <span class="eyebrow center">Financing Paths</span>
+                <p class="subtitle" style="text-align:center;margin-top:0">Ask which program fits you best — we&apos;ll help you compare.</p>
+                <div class="partners reveal reveal-d1" style="margin-top:22px">
+                    <span class="partner"><b>0% Down</b> First-Time Buyer</span>
+                    <span class="partner"><b>FHA</b> Low Down</span>
+                    <span class="partner"><b>VA</b> Veterans</span>
+                    <span class="partner"><b>Conventional</b></span>
+                    <span class="partner"><b>$15K</b> Early-Buyer Credit</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FEATURED LISTING: 585 N WENDY -->
     <section class="section" id="featured">
         <div class="inner">
@@ -248,8 +396,8 @@
                         <span class="hero-price-badge">Price Reduced</span>
                     </div>
                     <div class="hero-ctas" style="margin-top:24px">
-                        <a href="the-home.html" class="btn btn-primary">Explore This Home</a>
-                        <a href="the-home.html#photos" class="btn btn-ghost">View the Gallery</a>
+                        <span class="mag"><a href="the-home.html" class="btn btn-primary">Explore This Home</a></span>
+                        <span class="mag"><a href="the-home.html#photos" class="btn btn-ghost">View the Gallery</a></span>
                     </div>
                 </div>
             </div>
@@ -269,8 +417,8 @@
                     <div class="ad-figure"><div class="n serif">$459K</div><div class="l">Plans Starting At</div></div>
                 </div>
                 <div class="ad-ctas">
-                    <a href="financing.html" class="btn btn-primary">See How It Works</a>
-                    <a href="contact.html" class="btn btn-ghost">Talk to Nathanael</a>
+                    <span class="mag"><a href="financing.html" class="btn btn-primary">See How It Works</a></span>
+                    <span class="mag"><a href="contact.html" class="btn btn-ghost">Talk to Nathanael</a></span>
                 </div>
             </div>
         </div>
@@ -280,7 +428,7 @@
     <div class="cta-banner reveal">
         <h2 class="serif">Your brand-new home starts with a conversation</h2>
         <p>Reserve a Sunset Retreat home, choose your model, or tour our move-in-ready listing. No pressure — just answers.</p>
-        <a href="contact.html" class="btn btn-primary">Schedule a Tour</a>
+        <span class="mag"><a href="contact.html" class="btn btn-primary">Schedule a Tour</a></span>
     </div>
 
     <!-- FOOTER -->

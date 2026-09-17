@@ -287,6 +287,117 @@
     });
   }
 
+  // ── Cinematic scroll film ──
+  // Drives frame crossfades + caption sync from the scroll progress of a tall
+  // section whose inner stage is position:sticky. Zero dependencies.
+  var film = document.getElementById('film');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (film) {
+    var frames = [].slice.call(film.querySelectorAll('.film-frame'));
+    var caps = [].slice.call(film.querySelectorAll('.film-cap'));
+    var dots = [].slice.call(film.querySelectorAll('.film-dot'));
+    var bar = film.querySelector('.film-progress');
+    var n = Math.max(frames.length, caps.length);
+    var filmTick = false;
+
+    function renderFilm() {
+      var rect = film.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var total = film.offsetHeight - vh;
+      var p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
+      if (bar) bar.style.width = (p * 100) + '%';
+
+      // Which chapter are we in?
+      var idx = Math.min(n - 1, Math.floor(p * n));
+      // Local progress within the chapter (0..1) for subtle motion.
+      var local = (p * n) - idx;
+
+      frames.forEach(function (f, i) {
+        var active = i === idx;
+        f.style.opacity = active ? '1' : '0';
+        // gentle parallax scale on the active frame
+        f.style.transform = active ? ('scale(' + (1.04 + local * 0.06).toFixed(4) + ')') : 'scale(1.02)';
+      });
+      caps.forEach(function (c, i) { c.classList.toggle('on', i === idx); });
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === idx); });
+    }
+
+    if (reduceMotion) {
+      // Show the first frame/caption statically.
+      if (frames[0]) { frames[0].style.opacity = '1'; frames[0].style.transform = 'none'; }
+      if (caps[0]) caps[0].classList.add('on');
+      if (dots[0]) dots[0].classList.add('on');
+    } else {
+      window.addEventListener('scroll', function () {
+        if (filmTick) return;
+        filmTick = true;
+        requestAnimationFrame(function () { renderFilm(); filmTick = false; });
+      }, { passive: true });
+      window.addEventListener('resize', renderFilm, { passive: true });
+      renderFilm();
+    }
+  }
+
+  // ── Release countdown ──
+  var cd = document.getElementById('countdown');
+  if (cd) {
+    var targetAttr = cd.getAttribute('data-deadline');
+    var deadline = targetAttr ? new Date(targetAttr).getTime() : (Date.now() + 1000 * 60 * 60 * 24 * 21);
+    var elD = cd.querySelector('[data-cd="d"]');
+    var elH = cd.querySelector('[data-cd="h"]');
+    var elM = cd.querySelector('[data-cd="m"]');
+    var elS = cd.querySelector('[data-cd="s"]');
+    function pad(v) { return (v < 10 ? '0' : '') + v; }
+    function tickCountdown() {
+      var diff = Math.max(0, deadline - Date.now());
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      if (elD) elD.textContent = pad(d);
+      if (elH) elH.textContent = pad(h);
+      if (elM) elM.textContent = pad(m);
+      if (elS) elS.textContent = pad(s);
+    }
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+  }
+
+  // ── Magnetic buttons ──
+  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+    document.querySelectorAll('.mag').forEach(function (el) {
+      var strength = 0.28;
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var x = e.clientX - (r.left + r.width / 2);
+        var y = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + (x * strength) + 'px,' + (y * strength) + 'px)';
+      });
+      el.addEventListener('mouseleave', function () { el.style.transform = 'translate(0,0)'; });
+    });
+  }
+
+  // ── Page transition curtain ──
+  // Intercept same-site navigations for a quick cinematic wipe.
+  var curtain = document.querySelector('.curtain');
+  if (!reduceMotion && curtain) {
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || a.target === '_blank' ||
+          /^(mailto:|tel:|sms:|https?:\/\/)/i.test(href)) return;
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        curtain.classList.add('down');
+        setTimeout(function () { window.location.href = href; }, 460);
+      });
+    });
+    // Restore if navigation is cancelled (e.g. back-forward cache).
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) curtain.classList.remove('down');
+    });
+  }
+
   // ── Service worker kill switch ──
   // The old single-page site shipped a cache-first service worker that served
   // stale HTML and broke navigation. Unregister any existing worker and purge
