@@ -19,6 +19,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/tokens.css">
 
 <style>
 :root{
@@ -33,7 +35,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bone);color:var(--ink);font-family:var(--font-sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+body{background:var(--bone);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:80px}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 
@@ -42,9 +44,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* Navigation */
 .nav{background:rgba(250,247,242,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px;font-family:var(--font-serif);font-size:1.45rem;font-weight:600;color:var(--ink)}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:1.45rem;font-weight:600;color:var(--ink)}
 .logo .mark{width:38px;height:38px;flex-shrink:0}
-.logo .sub{display:block;font-family:var(--font-sans);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--clay);font-weight:700}
+.logo .sub{display:block;font-family:var(--sans);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--clay);font-weight:700}
 .nav-links{display:flex;align-items:center;gap:24px}
 .nav-links a{font-size:0.88rem;font-weight:600;color:var(--ink-2);transition:color 0.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--clay)}
@@ -74,14 +76,14 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* Header */
 .page-head{padding:20px 0 40px;border-bottom:1px solid var(--border)}
 .eyebrow{font-size:0.75rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-bottom:8px}
-.page-title{font-family:var(--font-serif);font-size:clamp(2.2rem, 4.5vw, 3.6rem);line-height:1.1;color:var(--ink)}
+.page-title{font-family:var(--display);font-size:clamp(2.2rem, 4.5vw, 3.6rem);line-height:1.1;color:var(--ink)}
 .page-lead{font-size:1.1rem;color:var(--ink-3);max-width:760px;margin-top:14px;line-height:1.6}
 
 /* Warranty Tier Grid */
 .warranty-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;margin:40px 0}
-.w-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:0 10px 30px rgba(14,23,18,0.03);display:flex;flex-direction:column;justify-content:space-between;transition:all 0.3s var(--ease)}
+.w-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:32px;box-shadow:0 10px 30px rgba(14,23,18,0.03);display:flex;flex-direction:column;justify-content:space-between;transition:all 0.3s var(--ease)}
 .w-card:hover{transform:translateY(-3px);border-color:var(--clay);box-shadow:0 16px 40px rgba(14,23,18,0.07)}
-.w-tier{font-family:var(--font-serif);font-size:2.4rem;font-weight:700;color:var(--clay);line-height:1}
+.w-tier{font-family:var(--display);font-size:2.4rem;font-weight:700;color:var(--clay);line-height:1}
 .w-title{font-size:1.15rem;font-weight:700;color:var(--ink);margin:10px 0 8px}
 .w-desc{font-size:0.92rem;color:var(--ink-3);line-height:1.55;margin-bottom:18px}
 .w-items{list-style:none;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--border);padding-top:14px}
@@ -89,21 +91,21 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .w-items li::before{content:"•";color:var(--clay);font-weight:800}
 
 /* 11-Month Walkthrough Feature */
-.walk-sec{background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);border-radius:24px;padding:44px;color:var(--bone);margin:60px 0;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.walk-sec{background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);border-radius:4px;padding:44px;color:var(--bone);margin:60px 0;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
 @media(max-width:860px){.walk-sec{grid-template-columns:1fr;padding:32px}}
-.walk-sec h3{font-family:var(--font-serif);font-size:clamp(1.8rem, 3vw, 2.4rem);color:var(--bone);line-height:1.2}
+.walk-sec h3{font-family:var(--display);font-size:clamp(1.8rem, 3vw, 2.4rem);color:var(--bone);line-height:1.2}
 .walk-sec p{color:rgba(250,247,242,0.8);font-size:0.98rem;margin-top:10px;line-height:1.6}
 
 /* Claim Form Card */
-.claim-sec{background:#fff;border:1px solid var(--border);border-radius:24px;padding:44px;margin:60px 0;box-shadow:0 12px 36px rgba(14,23,18,0.04)}
-.claim-sec h2{font-family:var(--font-serif);font-size:2rem;color:var(--ink)}
+.claim-sec{background:#fff;border:1px solid var(--border);border-radius:4px;padding:44px;margin:60px 0;box-shadow:0 12px 36px rgba(14,23,18,0.04)}
+.claim-sec h2{font-family:var(--display);font-size:2rem;color:var(--ink)}
 .claim-sec p{color:var(--ink-3);font-size:0.96rem;margin:8px 0 28px}
 .claim-grid{display:grid;grid-template-columns:1.3fr 0.9fr;gap:40px}
 @media(max-width:860px){.claim-grid{grid-template-columns:1fr}}
 
 .form-group{margin-bottom:16px}
 .form-label{display:block;font-size:0.82rem;font-weight:700;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}
-.form-input,.form-select,.form-textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.92rem}
+.form-input,.form-select,.form-textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:4px;font-family:inherit;font-size:0.92rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:600px){.form-row{grid-template-columns:1fr}}
 
@@ -181,7 +183,7 @@ footer{background:var(--ink);color:var(--bone);padding:60px 0 30px;margin-top:80
   <div class="drawer-body">
     <div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--border)">
-        <span style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700">Menu</span>
+        <span style="font-family:var(--display);font-size:1.3rem;font-weight:700">Menu</span>
         <button type="button" id="drawerClose" style="font-size:1.5rem">&times;</button>
       </div>
       <div class="drawer-links">
@@ -277,8 +279,8 @@ footer{background:var(--ink);color:var(--bone);padding:60px 0 30px;margin-top:80
       <h3 style="margin-top:12px">The 11-Month Builder Walkthrough</h3>
       <p>High-elevation mountain climates cause wood framing to undergo natural seasonal expansion and contraction during its first four seasons. Rather than waiting for you to call, Aspen II Homes schedules a formal return walkthrough at month 11 of your occupancy to address natural settling, drywall touch-ups, and door re-alignments.</p>
     </div>
-    <div style="background:rgba(250,247,242,0.1);border:1px solid rgba(250,247,242,0.2);border-radius:18px;padding:28px;text-align:center">
-      <div style="font-family:var(--font-serif);font-size:2rem;font-weight:700">Month 11</div>
+    <div style="background:rgba(250,247,242,0.1);border:1px solid rgba(250,247,242,0.2);border-radius:4px;padding:28px;text-align:center">
+      <div style="font-family:var(--display);font-size:2rem;font-weight:700">Month 11</div>
       <div style="font-size:0.9rem;color:rgba(250,247,242,0.8);margin-top:6px">Proactive Return Visit by Builder</div>
       <div style="margin-top:16px;font-size:0.85rem;line-height:1.5;color:rgba(250,247,242,0.9)">We inspect door thresholds, caulk joints, drywall seams, and exterior weatherstripping before your 1-year mark ends.</div>
     </div>
@@ -344,19 +346,19 @@ footer{background:var(--ink);color:var(--bone);padding:60px 0 30px;margin-top:80
       </div>
 
       <!-- Emergency Contact Sidebar -->
-      <div style="background:var(--sand-light);border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;flex-direction:column;justify-content:space-between">
+      <div style="background:var(--sand-light);border:1px solid var(--border);border-radius:4px;padding:32px;display:flex;flex-direction:column;justify-content:space-between">
         <div>
           <span class="eyebrow">Customer Care Support</span>
-          <h3 style="font-family:var(--font-serif);font-size:1.6rem;color:var(--ink);margin-top:8px">Emergency Protocols</h3>
+          <h3 style="font-family:var(--display);font-size:1.6rem;color:var(--ink);margin-top:8px">Emergency Protocols</h3>
           <p style="font-size:0.9rem;color:var(--ink-3);margin-top:10px;line-height:1.55">For urgent issues involving active plumbing leaks, complete electrical outage, or loss of primary heating during freezing temperatures, contact us directly:</p>
 
-          <div style="margin:24px 0;padding:20px;background:#fff;border:1px solid var(--border);border-radius:14px">
+          <div style="margin:24px 0;padding:20px;background:#fff;border:1px solid var(--border);border-radius:4px">
             <div style="font-size:0.75rem;text-transform:uppercase;color:var(--clay);font-weight:800;letter-spacing:0.1em">Direct Office Line</div>
             <a href="tel:6612383136" style="font-size:1.6rem;font-weight:800;color:var(--ink);display:block;margin-top:4px">(661) 238-3136</a>
             <div style="font-size:0.8rem;color:var(--ink-3);margin-top:4px">Monday – Friday: 8:00 AM – 5:00 PM</div>
           </div>
 
-          <div style="padding:16px 20px;background:#fff;border:1px solid var(--border);border-radius:14px">
+          <div style="padding:16px 20px;background:#fff;border:1px solid var(--border);border-radius:4px">
             <div style="font-size:0.75rem;text-transform:uppercase;color:var(--sage);font-weight:800;letter-spacing:0.1em">Warranty Email Dispatch</div>
             <a href="mailto:Aspen2homes@gmail.com" style="font-weight:700;color:var(--ink);display:block;margin-top:4px">Aspen2homes@gmail.com</a>
             <div style="font-size:0.8rem;color:var(--ink-3);margin-top:2px">hello@aspen2homes.com</div>
@@ -382,7 +384,7 @@ footer{background:var(--ink);color:var(--bone);padding:60px 0 30px;margin-top:80
   <div class="wrap">
     <div class="f-grid">
       <div>
-        <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--bone);margin-bottom:10px">Aspen II Homes</h3>
+        <h3 style="font-family:var(--display);font-size:1.5rem;color:var(--bone);margin-bottom:10px">Aspen II Homes</h3>
         <p style="font-size:0.9rem;color:rgba(250,247,242,0.7);line-height:1.5;margin-bottom:16px">Custom and semi-custom builder in Tehachapi and Kern County since 1994. Quality is never a second thought.</p>
         <span style="font-size:0.8rem;color:rgba(250,247,242,0.5)">CSLB #1004058 · Class B General Building Contractor · BBB A+ Accredited</span>
       </div>

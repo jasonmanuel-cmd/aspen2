@@ -704,6 +704,88 @@ footer {
   font-size: 14px;
 }
 
+/* ============ RESPONSIVE GRID UTILITIES ============ */
+/* 3-column grid → 2-column on tablet → 1-column on mobile */
+.grid-3-2-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+}
+@media (max-width: 1024px) {
+  .grid-3-2-1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .grid-3-2-1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4-column grid → 2-column on tablet → 1-column on mobile */
+.grid-4-2-1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+}
+@media (max-width: 1024px) {
+  .grid-4-2-1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .grid-4-2-1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Image optimization for responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure images don't overflow on mobile */
+@media (max-width: 640px) {
+  img {
+    width: 100%;
+  }
+}
+
+/* ============ TOUCH-FRIENDLY IMPROVEMENTS ============ */
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile devices */
+  a:active,
+  button:active,
+  .btn:active {
+    opacity: 0.8;
+  }
+}
+
+/* Improve touch target sizes */
+@media (max-width: 768px) {
+  button,
+  .btn,
+  a[role="button"],
+  input[type="submit"],
+  input[type="button"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Ensure form inputs are touch-friendly */
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS focus */
+    min-height: 44px;
+    padding: 12px;
+  }
+}
+
 /* ============ SCROLL REVEALS ============ */
 .rv {
   opacity: 0;
@@ -745,12 +827,77 @@ footer {
   }
 }
 
-@media(max-width: 640px) {
+/* ============ TABLET OPTIMIZATION (768px - 1024px) ============ */
+@media (max-width: 1024px) {
+  .wrap {
+    padding: 0 24px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 3.6rem);
+  }
+  h2 {
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+  }
+}
+
+/* ============ MOBILE OPTIMIZATION (< 768px) ============ */
+@media(max-width: 768px) {
+  .wrap {
+    padding: 0 16px;
+  }
+  h1 {
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+  }
+  h2 {
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+  }
+  h3 {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+  }
+  .lead {
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  }
   nav .wrap {
-    height: 68px;
+    height: 64px;
+  }
+  .nav-links {
+    gap: 16px;
+    font-size: 13px;
   }
   .nav-phone {
     display: none;
+  }
+}
+
+/* ============ SMALL MOBILE (< 640px) ============ */
+@media(max-width: 640px) {
+  nav .wrap {
+    height: 56px;
+  }
+  .nav-phone {
+    display: none;
+  }
+  .wrap {
+    padding: 0 14px;
+  }
+  h1 {
+    font-size: clamp(1.4rem, 6vw, 2.4rem);
+  }
+  h2 {
+    font-size: clamp(1rem, 4vw, 1.8rem);
+  }
+  h3 {
+    font-size: clamp(0.95rem, 3vw, 1.3rem);
+  }
+  .btn {
+    padding: 12px 20px;
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .btn-sm {
+    padding: 8px 16px;
+    min-height: 40px;
+    font-size: 12px;
   }
   .form-row {
     grid-template-columns: 1fr;

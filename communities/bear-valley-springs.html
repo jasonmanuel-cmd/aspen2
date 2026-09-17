@@ -19,6 +19,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/tokens.css">
 
 <style>
 :root{
@@ -33,7 +35,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bone);color:var(--ink);font-family:var(--font-sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+body{background:var(--bone);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:80px}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 
@@ -42,7 +44,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .nav{background:rgba(250,247,242,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;flex-direction:column}
-.brand-name{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;letter-spacing:-0.02em;color:var(--ink)}
+.brand-name{font-family:var(--display);font-size:1.6rem;font-weight:600;letter-spacing:-0.02em;color:var(--ink)}
 .brand-sub{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);font-weight:700}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:0.9rem;font-weight:600;color:var(--ink-2);transition:color 0.2s}
@@ -59,25 +61,25 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .geo-hero{padding:20px 0 40px}
 .geo-header{border-bottom:1px solid var(--border);padding-bottom:30px;margin-bottom:36px}
 .geo-tag{display:inline-flex;align-items:center;gap:6px;background:var(--clay-soft);color:var(--clay);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:6px 14px;border-radius:100px;margin-bottom:14px}
-.geo-title{font-family:var(--font-serif);font-size:clamp(2.2rem, 4vw, 3.4rem);line-height:1.15;color:var(--ink)}
+.geo-title{font-family:var(--display);font-size:clamp(2.2rem, 4vw, 3.4rem);line-height:1.15;color:var(--ink)}
 .geo-subtitle{font-size:1.15rem;color:var(--ink-3);margin-top:12px;max-width:70ch}
 
 .fact-bar{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin-bottom:44px}
-.fact-box{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px}
+.fact-box{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px}
 .fact-box .f-lbl{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-3)}
 .fact-box .f-val{font-size:1.2rem;font-weight:700;color:var(--ink);margin-top:4px}
 
 .content-grid{display:grid;grid-template-columns:1.3fr 0.7fr;gap:44px;align-items:start}
 @media(max-width:960px){.content-grid{grid-template-columns:1fr}}
 
-.prose h2{font-family:var(--font-serif);font-size:1.8rem;margin:32px 0 14px;color:var(--ink)}
+.prose h2{font-family:var(--display);font-size:1.8rem;margin:32px 0 14px;color:var(--ink)}
 .prose h2:first-child{margin-top:0}
 .prose p{font-size:1rem;color:var(--ink-2);line-height:1.7;margin-bottom:16px}
 .prose ul{margin:16px 0 24px 20px;display:flex;flex-direction:column;gap:8px}
 .prose li{font-size:0.95rem;color:var(--ink-2)}
 
-.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:0 12px 36px rgba(14,23,18,0.04);margin-bottom:28px}
-.sidebar-card h3{font-family:var(--font-serif);font-size:1.4rem;margin-bottom:14px}
+.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:32px;box-shadow:0 12px 36px rgba(14,23,18,0.04);margin-bottom:28px}
+.sidebar-card h3{font-family:var(--display);font-size:1.4rem;margin-bottom:14px}
 
 .rec-plan{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
 .rec-plan:last-child{border-bottom:none}
@@ -86,11 +88,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 .modal-backdrop{position:fixed;inset:0;background:rgba(14,23,18,0.7);backdrop-filter:blur(6px);display:none;place-items:center;z-index:200;padding:20px}
 .modal-backdrop.open{display:grid}
-.modal-dialog{background:#fff;border-radius:20px;width:100%;max-width:540px;max-height:92vh;overflow-y:auto;padding:32px;box-shadow:0 24px 60px rgba(0,0,0,0.3)}
+.modal-dialog{background:#fff;border-radius:4px;width:100%;max-width:540px;max-height:92vh;overflow-y:auto;padding:32px;box-shadow:0 24px 60px rgba(0,0,0,0.3)}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
 .form-group{margin-bottom:14px}
 .form-label{display:block;font-size:0.8rem;font-weight:700;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}
-.form-input,.form-select,.form-textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:0.92rem}
+.form-input,.form-select,.form-textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:4px;font-family:inherit;font-size:0.92rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
 .mobile-dock{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(250,247,242,0.96);backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:12px 20px;z-index:90}
