@@ -1,5 +1,16 @@
 {
+  "name": "hshomeshub",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "serve -l 3000 .",
+    "start": "serve -l 3000 .",
+    "build": "node convert-to-webp.js || true"
+  },
   "dependencies": {
     "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
   }
 }
