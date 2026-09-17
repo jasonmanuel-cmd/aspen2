@@ -115,25 +115,35 @@
     var current = 0;
     var imgEl = document.getElementById('lightboxImg');
     var capEl = document.getElementById('lightboxCaption');
+    var galleryTrigger;
     function render() {
       imgEl.src = data[current].src;
       imgEl.alt = data[current].caption;
       capEl.textContent = (current + 1) + ' / ' + data.length + ' — ' + data[current].caption;
     }
     window.openLightbox = function (i) {
+      galleryTrigger = document.activeElement;
       current = i; render();
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
+      lightbox.querySelector('.lightbox-close').focus();
     };
     window.closeLightbox = function () {
       lightbox.classList.remove('active');
       document.body.style.overflow = '';
+      if (galleryTrigger) galleryTrigger.focus({ preventScroll: true });
     };
     window.navLightbox = function (dir) {
       current = (current + dir + data.length) % data.length; render();
     };
     document.addEventListener('keydown', function (e) {
       if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Tab') {
+        var controls = Array.from(lightbox.querySelectorAll('button'));
+        var first = controls[0], last = controls[controls.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
       if (e.key === 'Escape') window.closeLightbox();
       if (e.key === 'ArrowRight') window.navLightbox(1);
       if (e.key === 'ArrowLeft') window.navLightbox(-1);
@@ -169,6 +179,14 @@
   // ── Tour / contact form ──
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
+    var requestedModel = new URLSearchParams(window.location.search).get('model');
+    var interestSelect = document.getElementById('tour-interest');
+    if (requestedModel && interestSelect) {
+      var matchingOption = Array.from(interestSelect.options).find(function (option) {
+        return option.value === requestedModel || option.value === requestedModel + ' — Reserve & Customize';
+      });
+      if (matchingOption) interestSelect.value = matchingOption.value;
+    }
     contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       var name = (document.getElementById('tour-name').value || '').trim();
