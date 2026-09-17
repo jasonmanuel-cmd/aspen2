@@ -611,3 +611,22 @@ img[data-src]{color:transparent}
     .js .reveal{transition:none;opacity:1;transform:none}
     *{scroll-behavior:auto}
 }
+
+/* Mobile announcement: a continuous right-to-left moving sign. */
+.topbar-message{display:flex;align-items:center;gap:inherit;flex-shrink:0}
+.topbar-repeat{display:none}
+@keyframes announcement-scroll{to{transform:translateX(-50%)}}
+@media(max-width:768px){
+    .topbar:has(.topbar-marquee){justify-content:flex-start}
+    .topbar-marquee{width:max-content;flex-shrink:0;padding:0;gap:0;animation:announcement-scroll 28s linear infinite}
+    .topbar-marquee .topbar-message{gap:14px;padding:0 28px}
+    .topbar-marquee .topbar-repeat{display:flex}
+    .topbar:focus-visible .topbar-marquee,.topbar:hover .topbar-marquee{animation-play-state:paused}
+}
+@media(prefers-reduced-motion:reduce){
+    .topbar-marquee{animation:none}
+    .topbar-marquee .topbar-repeat{display:none}
+    .topbar:has(.topbar-marquee){justify-content:center}
+    .topbar-marquee .topbar-message{white-space:normal;flex-wrap:wrap;justify-content:center;gap:2px 10px;padding:2px 12px;font-size:10px}
+    .topbar-marquee .sep,.topbar-marquee .hide-sm{display:none}
+}

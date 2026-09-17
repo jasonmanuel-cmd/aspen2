@@ -5,6 +5,19 @@
 (function () {
   'use strict';
 
+  // Repeat the announcement visually for a seamless mobile marquee.
+  document.querySelectorAll('.topbar-track').forEach(function (track) {
+    var message = document.createElement('span');
+    message.className = 'topbar-message';
+    while (track.firstChild) message.appendChild(track.firstChild);
+    track.appendChild(message);
+    var repeat = message.cloneNode(true);
+    repeat.classList.add('topbar-repeat');
+    repeat.setAttribute('aria-hidden', 'true');
+    track.appendChild(repeat);
+    track.classList.add('topbar-marquee');
+  });
+
   // Let the hero and fonts finish before fetching gallery photographs.
   // Smaller observer margins avoid native lazy-loading's large offscreen batch.
   function observePhotographs() {
