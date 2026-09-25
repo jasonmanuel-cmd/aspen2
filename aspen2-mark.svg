@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="292 170 474 500" role="img" aria-label="Aspen II Homes mark">
+  <title>Aspen II Homes mark</title>
+  <defs><clipPath id="a2c"><rect x="0" y="178" width="1050" height="484"/></clipPath></defs>
+  <g clip-path="url(#a2c)" fill="none" stroke="#6F6353" stroke-width="24" stroke-linejoin="miter" stroke-miterlimit="10">
+    <line x1="305.2" y1="702" x2="480.7" y2="154"/>
+    <line x1="359.2" y1="702" x2="534.7" y2="154"/>
+    <line x1="413.2" y1="702" x2="588.7" y2="154"/>
+    <line x1="572.7" y1="154" x2="761.8" y2="702"/>
+    <polyline points="552,268 701.8,702"/>
+    <polyline points="523,358 641.8,702"/>
+  </g>
+</svg>
