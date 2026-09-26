@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact Aspen II Homes | Tehachapi Homebuilder</title>
     <meta name="description" content="Contact Aspen II Homes to explore models, request current pricing, or schedule a tour at Sunset Retreat in Tehachapi. Call (661) 238-3136.">
     <meta property="og:title" content="Contact &amp; Tours | Aspen II Homes">
@@ -89,10 +89,10 @@
                     <span class="eyebrow">Request a Tour or Info</span>
                     <h2 class="title">Tell us what you&apos;re looking for</h2>
                     <div class="tour-perks">
-                        <div class="tour-perk"><div class="perk-icon">&#127968;</div><span>Reserve &amp; customize a Sunset Retreat home</span></div>
-                        <div class="tour-perk"><div class="perk-icon">&#128203;</div><span>Get floor plans, pricing, and the incentive breakdown</span></div>
-                        <div class="tour-perk"><div class="perk-icon">&#128273;</div><span>Walk the Sunset Retreat community and model plans</span></div>
-                        <div class="tour-perk"><div class="perk-icon">&#129309;</div><span>Zero pressure. Zero obligation. Just information.</span></div>
+                        <div class="tour-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></div><span>Reserve &amp; customize a Sunset Retreat home</span></div>
+                        <div class="tour-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 12h6M9 16h4"/></svg></div><span>Get floor plans, pricing, and the incentive breakdown</span></div>
+                        <div class="tour-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l2 2M15 8l2 2"/></svg></div><span>Walk the Sunset Retreat community and model plans</span></div>
+                        <div class="tour-perk"><div class="perk-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><span>Zero pressure. Zero obligation. Just information.</span></div>
                     </div>
                     <div class="tour-sms">
                         <div class="tour-sms-title">Prefer to text or call?</div>
@@ -106,7 +106,7 @@
                     <form id="contactForm" data-property="Aspen II Homes — Sunset Retreat">
                         <div class="form-field">
                             <label for="tour-name">Your name *</label>
-                            <input type="text" id="tour-name" name="name" placeholder="First &amp; last name" required>
+                            <input type="text" id="tour-name" name="name" placeholder="First &amp; last name" autocomplete="name" required>
                         </div>
                         <div class="form-field">
                             <label for="tour-interest">I&apos;m interested in *</label>
@@ -126,11 +126,11 @@
                         </div>
                         <div class="form-field">
                             <label for="tour-email">Email</label>
-                            <input type="email" id="tour-email" name="email" placeholder="email@example.com">
+                            <input type="email" id="tour-email" name="email" placeholder="email@example.com" autocomplete="email" inputmode="email">
                         </div>
                         <div class="form-field">
                             <label for="tour-phone">Phone number</label>
-                            <input type="tel" id="tour-phone" name="phone" placeholder="(555) 123-4567">
+                            <input type="tel" id="tour-phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel">
                         </div>
                         <div class="form-field">
                             <label for="tour-contact-pref">How should we contact you? *</label>
@@ -159,29 +159,24 @@
             <div class="reveal">
                 <span class="eyebrow center">Model Home Preview</span>
                 <h2 class="title">Register now</h2>
-                <div class="oh-count">
-                    <div class="oh-count-num serif" id="registrationCount">0</div>
-                    <div class="oh-count-label">People registered so far</div>
-                </div>
                 <p class="subtitle" style="margin-left:auto;margin-right:auto;text-align:center">Register to get instant access to plans, pricing, and the incentive details for our Sunset Retreat homes.</p>
             </div>
             <div class="oh-form-wrap reveal reveal-d1">
                 <div class="oh-form-card">
                     <h3 class="serif">Quick register</h3>
                     <p class="p">Fill this out and we&apos;ll send you everything.</p>
-                    <a href="signin-log.html" class="oh-log-link">View Sign-In Log &rarr;</a>
                     <form id="openHouseForm" class="oh-form" data-property="Aspen II Homes — Model Home Preview">
                         <div>
                             <label for="oh-name">Your Name *</label>
-                            <input type="text" id="oh-name" name="name" placeholder="First &amp; last name" required aria-required="true">
+                            <input type="text" id="oh-name" name="name" placeholder="First &amp; last name" autocomplete="name" required>
                         </div>
                         <div>
                             <label for="oh-email">Email</label>
-                            <input type="email" id="oh-email" name="email" placeholder="email@example.com">
+                            <input type="email" id="oh-email" name="email" placeholder="email@example.com" autocomplete="email" inputmode="email">
                         </div>
                         <div>
                             <label for="oh-phone">Phone Number</label>
-                            <input type="tel" id="oh-phone" name="phone" placeholder="(555) 123-4567">
+                            <input type="tel" id="oh-phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel" inputmode="tel">
                             <div class="oh-req">* At least one of email or phone is required</div>
                         </div>
                         <button type="submit" class="oh-submit">Register Now &rarr;</button>
