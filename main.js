@@ -237,8 +237,10 @@
     var capEl = document.getElementById('lightboxCaption');
     var galleryTrigger;
     var galleryBackground = [];
+    // Phones get the 960px rendition of each photo instead of the 1536px one.
+    var smallScreen = window.matchMedia('(max-width: 768px)');
     function render() {
-      imgEl.src = data[current].src;
+      imgEl.src = smallScreen.matches ? data[current].src.replace(/-\d+\.webp$/, '-960.webp') : data[current].src;
       imgEl.alt = data[current].caption;
       capEl.textContent = (current + 1) + ' / ' + data.length + ' — ' + data[current].caption;
     }
@@ -280,7 +282,28 @@
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) window.closeLightbox();
     });
+    // Horizontal swipes page through photos on touch screens.
+    var touchX = null, touchY = null;
+    lightbox.addEventListener('touchstart', function (e) {
+      touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      var dy = e.changedTouches[0].clientY - touchY;
+      touchX = touchY = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) window.navLightbox(dx < 0 ? 1 : -1);
+    }, { passive: true });
   }
+
+  // ── Swipe hint under each model's photo row (visible on phones only) ──
+  document.querySelectorAll('.model-gallery').forEach(function (row) {
+    var hint = document.createElement('p');
+    hint.className = 'model-gallery-hint';
+    hint.setAttribute('aria-hidden', 'true');
+    hint.textContent = 'Swipe for ' + row.children.length + ' photos \u2192';
+    row.insertAdjacentElement('afterend', hint);
+  });
 
   // ── Lead form helpers ──
   var CRM_URL = 'https://www.harbisonstandard.com/hq/api/openhouse';
@@ -288,6 +311,40 @@
   var FORMSPREE_URL = 'https://formspree.io/f/xqpkdwrp';
   var isValidEmail = function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); };
   var isValidPhone = function (v) { return /^[\d\s\-\+\(\)]{10,}$/.test(v); };
+  // Show validation problems inline, next to the submit button, instead of alert().
+  function formStatus(form) {
+    var status = form.querySelector('.form-status');
+    if (!status) {
+      status = document.createElement('div');
+      status.className = 'form-status';
+      status.setAttribute('role', 'alert');
+      form.appendChild(status);
+    }
+    return status;
+  }
+  document.querySelectorAll('#contactForm, #openHouseForm').forEach(function (form) {
+    form.addEventListener('input', function () { clearFormError(form); });
+  });
+  function clearFormError(form) {
+    formStatus(form).classList.remove('show');
+    form.querySelectorAll('[aria-invalid]').forEach(function (f) { f.removeAttribute('aria-invalid'); });
+  }
+  function showFormError(form, message, field) {
+    var status = formStatus(form);
+    status.textContent = message;
+    status.classList.add('show');
+    if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
+  }
+  // Returns true when the lead fields are usable; otherwise reports the first problem.
+  function validateLead(form, nameEl, emailEl, phoneEl) {
+    clearFormError(form);
+    var name = nameEl.value.trim(), email = emailEl.value.trim(), phone = phoneEl.value.trim();
+    if (!name) { showFormError(form, 'Please enter your name.', nameEl); return false; }
+    if (!email && !phone) { showFormError(form, 'Please add an email or a phone number so we can reach you.', emailEl); return false; }
+    if (email && !isValidEmail(email)) { showFormError(form, 'Please check your email address.', emailEl); return false; }
+    if (phone && !isValidPhone(phone)) { showFormError(form, 'Please enter a 10-digit phone number.', phoneEl); return false; }
+    return true;
+  }
   function nowStamp() {
     return new Date().toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
   }
@@ -322,10 +379,8 @@
       var email = (document.getElementById('tour-email').value || '').trim();
       var phone = (document.getElementById('tour-phone').value || '').trim();
       var pref = document.getElementById('tour-contact-pref').value;
-      if (!name) { alert('Please enter your name'); return; }
-      if (!email && !phone) { alert('Please provide at least an email or phone number'); return; }
-      if (email && !isValidEmail(email)) { alert('Please enter a valid email address'); return; }
-      if (phone && !isValidPhone(phone)) { alert('Please enter a valid phone number'); return; }
+      if (!validateLead(contactForm, document.getElementById('tour-name'),
+          document.getElementById('tour-email'), document.getElementById('tour-phone'))) return;
 
       var btn = contactForm.querySelector('.form-submit');
       var label = btn.textContent;
@@ -360,8 +415,9 @@
         btn.textContent = 'Sent — Thank You';
         goThankYou(name, email, phone, dt, 800);
       } catch (err) {
-        btn.textContent = label + ' — Try Again';
+        btn.textContent = label;
         btn.disabled = false;
+        showFormError(contactForm, 'We couldn\u2019t send your request. Please try again, or call (661) 238-3136.');
         console.error('[v0] Form error:', err);
       }
     });
@@ -406,10 +462,8 @@
       var name = (openHouseForm.querySelector('input[name="name"]').value || '').trim();
       var email = (openHouseForm.querySelector('input[name="email"]').value || '').trim();
       var phone = (openHouseForm.querySelector('input[name="phone"]').value || '').trim();
-      if (!name) { alert('Please enter your name'); return; }
-      if (!email && !phone) { alert('Please provide at least an email or phone number'); return; }
-      if (email && !isValidEmail(email)) { alert('Please enter a valid email address'); return; }
-      if (phone && !isValidPhone(phone)) { alert('Please enter a valid phone number'); return; }
+      if (!validateLead(openHouseForm, openHouseForm.querySelector('input[name="name"]'),
+          openHouseForm.querySelector('input[name="email"]'), openHouseForm.querySelector('input[name="phone"]'))) return;
 
       var btn = openHouseForm.querySelector('button[type="submit"]');
       btn.textContent = 'Registering…';
@@ -434,9 +488,10 @@
         goThankYou(name, email, phone, dt, 2000);
       } catch (err) {
         console.error('[v0] Error:', err);
-        btn.textContent = 'Registration Error — Try Again';
+        btn.textContent = 'Register Now \u2192';
         btn.disabled = false;
         btn.style.opacity = '1';
+        showFormError(openHouseForm, 'We couldn\u2019t save your registration. Please try again, or call (661) 238-3136.');
       }
     });
   }
@@ -512,10 +567,12 @@
   }
 
   // ── Release countdown ──
+  // Only a real, future data-deadline is shown. A timer that silently restarts
+  // on every visit is fake urgency, so without one the countdown stays hidden.
   var cd = document.getElementById('countdown');
-  if (cd) {
-    var targetAttr = cd.getAttribute('data-deadline');
-    var deadline = targetAttr ? new Date(targetAttr).getTime() : (Date.now() + 1000 * 60 * 60 * 24 * 21);
+  var deadline = cd ? new Date(cd.getAttribute('data-deadline') || NaN).getTime() : NaN;
+  if (cd && !(deadline > Date.now())) cd.hidden = true;
+  if (cd && !cd.hidden) {
     var elD = cd.querySelector('[data-cd="d"]');
     var elH = cd.querySelector('[data-cd="h"]');
     var elM = cd.querySelector('[data-cd="m"]');
@@ -580,7 +637,7 @@
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         e.preventDefault();
         curtain.classList.add('down');
-        setTimeout(function () { window.location.href = href; }, 460);
+        setTimeout(function () { window.location.href = href; }, 240);
       });
     });
     // Restore if navigation is cancelled (e.g. back-forward cache).
