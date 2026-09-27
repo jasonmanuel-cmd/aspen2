@@ -4,7 +4,6 @@ Last Updated: 2026-09-27
 
 ## Now
 
-- [ ] Owner (ideally a lawyer) reviews `privacy.html`. In particular, confirm the data retention wording. (The response time for data requests was set to 30 days by the owner on 2026-09-27.) (The "reply STOP" line and the lender-introduction sentence were removed at the owner's request on 2026-09-27.)
 - [ ] Owner answers the design-card questions; apply them to `design-card.html` in a new branch and PR:
   - [ ] Confirm the wordmark font. Fira Sans Condensed is a best match, not confirmed.
   - [ ] Get the contractor (CSLB) license number and add it to the card's facts block.
@@ -29,6 +28,8 @@ Last Updated: 2026-09-27
 - [ ] Owner decides whether to delete `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q`. Both are safely preserved as `archive/*` tags.
 
 ## Done
+
+- [x] 2026-09-27: The owner finished reviewing the privacy policy wording. They removed the "reply STOP" line and the lender references, set request responses to 30 days, and set retention to 2 years after last contact. A lawyer's review is still advisable but optional.
 
 - [x] 2026-09-27: Added `privacy.html` and linked it site-wide, and stopped putting lead details in the thank-you URL (Decision 014).
 
