@@ -452,6 +452,9 @@
   // ── Cinematic scroll film ──
   // Drives frame crossfades + caption sync from the scroll progress of a tall
   // section whose inner stage is position:sticky. Zero dependencies.
+  // Built to stay smooth on phones: the DOM only changes when the chapter
+  // changes, phones get 960px photos, and a
+  // chapter is only shown once its photo is decoded (never a black frame).
   var film = document.getElementById('film');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (film) {
@@ -460,54 +463,77 @@
     var dots = [].slice.call(film.querySelectorAll('.film-dot'));
     var bar = film.querySelector('.film-progress');
     var n = Math.max(frames.length, caps.length);
+    var smallScreen = window.matchMedia('(max-width: 768px)').matches;
+    // The slow zoom repaints a full-screen photo every frame; keep it to
+    // desktops, where that is cheap.
+    var zoom = !reduceMotion && window.matchMedia('(min-width: 769px) and (pointer: fine)').matches;
+    var ready = [], pending = [];
+    var shown = -1;
     var filmTick = false;
-    var filmInView = false;
+    var filmNear = false;
     function loadFrame(index) {
-      var frame = frames[index];
-      var photo = frame && frame.querySelector('img');
-      if (photo && photo.dataset.src) {
-        if (photo.dataset.srcset) photo.srcset = photo.dataset.srcset;
+      var photo = frames[index] && frames[index].querySelector('img');
+      if (!photo || pending[index]) return;
+      pending[index] = true;
+      if (photo.dataset.src) {
+        var set = photo.dataset.srcset || '';
+        if (set && smallScreen) {
+          // Drop the 1500–1600px renditions on phones: 3–5x the bytes and a
+          // visible decode stall, for no visible gain behind the dark overlay.
+          set = set.split(',').filter(function (entry) {
+            return parseInt(entry.trim().split(/\s+/)[1], 10) <= 960;
+          }).join(',');
+        }
+        if (set) photo.srcset = set;
         photo.src = photo.dataset.src;
         delete photo.dataset.src;
       }
+      var decoded = photo.decode ? photo.decode() : Promise.resolve();
+      decoded.catch(function () {}).then(function () { ready[index] = true; renderFilm(); });
+    }
+    function loadAllFrames() { frames.forEach(function (f, i) { loadFrame(i); }); }
+    function show(idx) {
+      if (idx === shown) return;
+      frames.forEach(function (f, i) {
+        f.classList.toggle('on', i === idx);
+        if (zoom && i !== idx) f.style.transform = '';
+      });
+      caps.forEach(function (c, i) { c.classList.toggle('on', i === idx); });
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === idx); });
+      shown = idx;
     }
     var filmObserver = new IntersectionObserver(function (entries) {
-      filmInView = entries[0].isIntersecting;
-      if (filmInView && !(opening && opening.open)) { loadFrame(0); renderFilm(); }
-    }, { rootMargin: '0px' });
+      filmNear = entries[0].isIntersecting;
+      if (filmNear && !(opening && opening.open)) { loadAllFrames(); renderFilm(); }
+    }, { rootMargin: '100% 0px' });
     filmObserver.observe(film);
     document.addEventListener('aspen-opening-finished', renderFilm);
 
     function renderFilm() {
-      if (!filmInView || (opening && opening.open)) return;
+      if (!filmNear || (opening && opening.open)) return;
       var rect = film.getBoundingClientRect();
-      var vh = window.innerHeight;
-      var total = film.offsetHeight - vh;
+      var total = film.offsetHeight - window.innerHeight;
       var p = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
-      if (bar) bar.style.width = (p * 100) + '%';
+      if (bar) bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
 
-      // Which chapter are we in?
       var idx = Math.min(n - 1, Math.floor(p * n));
-      loadFrame(idx);
-      loadFrame(Math.min(n - 1, idx + 1));
-      // Local progress within the chapter (0..1) for subtle motion.
-      var local = (p * n) - idx;
-
-      frames.forEach(function (f, i) {
-        var active = i === idx;
-        f.style.opacity = active ? '1' : '0';
-        // gentle parallax scale on the active frame
-        f.style.transform = active ? ('scale(' + (1.04 + local * 0.06).toFixed(4) + ')') : 'scale(1.02)';
-      });
-      caps.forEach(function (c, i) { c.classList.toggle('on', i === idx); });
-      dots.forEach(function (d, i) { d.classList.toggle('on', i === idx); });
+      // Hold the current chapter until the next photo can paint.
+      if (!ready[idx] && shown >= 0) idx = shown;
+      if (!ready[idx] && shown < 0) return;
+      show(idx);
+      if (zoom) {
+        var local = (p * n) - idx;
+        frames[idx].style.transform = 'scale(' + (1.04 + local * 0.06).toFixed(4) + ')';
+      }
     }
 
     if (reduceMotion) {
       // Show the first frame/caption statically.
-      if (frames[0]) { frames[0].style.opacity = '1'; frames[0].style.transform = 'none'; }
+      loadFrame(0);
+      if (frames[0]) frames[0].classList.add('on');
       if (caps[0]) caps[0].classList.add('on');
       if (dots[0]) dots[0].classList.add('on');
+      shown = 0;
     } else {
       window.addEventListener('scroll', function () {
         if (filmTick) return;
@@ -515,7 +541,7 @@
         requestAnimationFrame(function () { renderFilm(); filmTick = false; });
       }, { passive: true });
       window.addEventListener('resize', renderFilm, { passive: true });
-      // The observer starts rendering when the film approaches the viewport.
+      // The observer starts loading and rendering as the film approaches.
     }
   }
 

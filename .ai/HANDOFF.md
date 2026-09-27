@@ -4,7 +4,7 @@ Last Updated: 2026-09-27
 Agent: Claude Code (cloud session, started from the owner's desktop app)
 Machine: Claude Code on the web, a temporary cloud container. Nothing is kept outside Git.
 Branch: `main`. This update was made on `claude/sharp-pasteur-dkxsfr` and merged.
-Commit: the merge of the PR titled `Update .ai docs for the laptop`. The last site change before it is `a616a5d`.
+Commit: the merge of the PR titled `Fix homepage scroll-film freezing on phones and trim fonts` (PR #17).
 
 ## Syncing Across Machines
 
@@ -39,13 +39,28 @@ Before ending any session, update `.ai/`, commit, push, and get it merged into `
 | #8 | Every canonical, OG, JSON-LD, sitemap, robots and llms URL moved to `aspen2bakersfield.store` |
 | #10 | New `privacy.html`, linked site-wide; lead details removed from the thank-you URL |
 | #11–#15 | Owner's privacy-policy edits: removed "reply STOP" and the lender references, 30-day responses, 2-year retention with the purchase-records exception |
+| #16 | Docs: `.ai/` refresh for the laptop |
+| #17 | Homepage scroll-film smoothness on phones, and one variable font instead of four (Decision 015) |
 
 ## Latest Change (this update)
 
-Docs only. I updated all four `.ai/` files to reflect PRs #8–#15:
-- the privacy policy is published and reviewed by the owner
-- the last known good commit is now `a616a5d`
-- a new TODO covers purging leads after 2 years, which the policy now promises
+**Homepage scroll-film freeze fix, and font cleanup (Decision 015).** The owner reported that the homepage section with sliding captions (the scroll-driven photo tour, `#film`) freezes on their phone. This session's tooling is Chromium only, so it can't run iPhone Safari. The fixes target every likely cause:
+- phones get 960px photos (tour photos down from about 680 KB and rising to 411 KB for all five)
+- all photos preload near the section
+- chapters wait until their photo is decoded
+- the zoom is desktop-only
+- DOM writes happen only on chapter change
+- `overflow-x: clip`, so sticky positioning works on iOS
+
+Fraunces is now one 60 KB variable font instead of four static files: fonts went from 172 to 106 KB on the homepage and from 139 to 106 KB elsewhere, with 0.00% visual difference.
+
+Verification (Chromium, 390×844 at 3×, CPU slowed 4×, network ~9 Mbps):
+- The tour reaches all 5 chapters, with 0 black or mismatched frames and 0 dropped frames.
+- Desktop drops 0 frames per run (the old code dropped 0–5).
+- Reduced-motion still shows the first frame.
+- A full smoke test passed: 8 pages × phone and desktop, no JS errors, no 404s, no broken images, no horizontal scroll, one h1 per page, 18 internal links OK, and the menu and lightbox work.
+
+**Still to confirm:** the owner should test the tour on their actual phone. If it still stutters on iOS, the next suspect is the sticky stage's `100svh` height as Safari's address bar resizes. Try `height: 100lvh` or a fixed pixel height set from JavaScript.
 
 ## Important Discoveries
 
