@@ -209,25 +209,6 @@
     }
   };
 
-  // ── Animated counter ──
-  var counterEl = document.getElementById('viewCounter');
-  if (counterEl) {
-    var target = parseInt(counterEl.getAttribute('data-target') || '1956', 10);
-    var counterObserver = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        var current = 0;
-        var increment = target / 60;
-        var timer = setInterval(function () {
-          current += increment;
-          if (current >= target) { current = target; clearInterval(timer); }
-          counterEl.textContent = Math.floor(current).toLocaleString() + '+';
-        }, 20);
-        counterObserver.disconnect();
-      }
-    });
-    counterObserver.observe(counterEl);
-  }
-
   // ── Gallery lightbox (uses window.galleryData if present) ──
   var lightbox = document.getElementById('lightbox');
   if (lightbox && Array.isArray(window.galleryData)) {
@@ -307,7 +288,6 @@
 
   // ── Lead form helpers ──
   var CRM_URL = 'https://www.harbisonstandard.com/hq/api/openhouse';
-  var CRM_LOG_URL = 'https://www.harbisonstandard.com/hq/api/openhouse-log';
   var FORMSPREE_URL = 'https://formspree.io/f/xqpkdwrp';
   var isValidEmail = function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); };
   var isValidPhone = function (v) { return /^[\d\s\-\+\(\)]{10,}$/.test(v); };
@@ -409,8 +389,6 @@
         } catch (err) { console.error('[v0] Formspree failed:', err.message); }
         if (!crmOk && !fsOk) throw new Error('Request not received. Please try again.');
 
-        var c = parseInt(localStorage.getItem('openHouseCount') || '0', 10);
-        localStorage.setItem('openHouseCount', c + 1);
         persistLead(name, email, phone, dt);
         btn.textContent = 'Sent — Thank You';
         goThankYou(name, email, phone, dt, 800);
@@ -435,28 +413,8 @@
     return { success: true, delivery: 'formspree' };
   }
 
-  async function updateRegistrationCount() {
-    var countEl = document.getElementById('registrationCount');
-    if (!countEl) return;
-    var localCount = parseInt(localStorage.getItem('openHouseCount') || '0', 10);
-    countEl.textContent = localCount;
-    try {
-      var res = await fetch(CRM_LOG_URL, { method: 'GET', headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(8000) });
-      var r = await res.json();
-      if (r.success && r.registrations) countEl.textContent = Math.max(localCount, r.registrations.length);
-    } catch (err) { console.warn('[v0] Could not fetch CRM count:', err.message); }
-  }
-
   var openHouseForm = document.getElementById('openHouseForm');
   if (openHouseForm) {
-    var countTarget = document.getElementById('registrationCount');
-    if (countTarget) {
-      countTarget.textContent = parseInt(localStorage.getItem('openHouseCount') || '0', 10);
-      var countObserver = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { updateRegistrationCount(); countObserver.disconnect(); }
-      });
-      countObserver.observe(countTarget);
-    }
     openHouseForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       var name = (openHouseForm.querySelector('input[name="name"]').value || '').trim();
@@ -482,9 +440,6 @@
         btn.style.background = 'linear-gradient(135deg,#2E554A,#1F3A32)';
         btn.style.color = '#fff';
         persistLead(name, email, phone, dt);
-        var c = parseInt(localStorage.getItem('openHouseCount') || '0', 10);
-        localStorage.setItem('openHouseCount', c + 1);
-        updateRegistrationCount();
         goThankYou(name, email, phone, dt, 2000);
       } catch (err) {
         console.error('[v0] Error:', err);

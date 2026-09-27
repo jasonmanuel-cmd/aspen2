@@ -1,0 +1,26 @@
+# Only the public website ships to Vercel. Everything below stays in Git
+# but is left out of deployments so it isn't publicly reachable.
+
+# Project memory, agent instructions and archived reports
+.ai
+.claude
+AGENTS.md
+CLAUDE.md
+archive
+
+# Local tooling
+node_modules
+scripts
+reports
+package.json
+package-lock.json
+.gitignore
+
+# Source originals for scripts/optimize-assets.py. Pages use the WebP copies in
+# assets/images/; only the blueprint PDFs in house/ are linked from the site.
+house/**/*.jpg
+house/**/*.JPG
+house/**/*.jpeg
+house/**/*.png
+house/**/*.txt*
+assets/image-manifest.json

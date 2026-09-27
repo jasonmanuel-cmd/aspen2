@@ -99,3 +99,28 @@ Decision: Adopt persistent project memory: `AGENTS.md`, `CLAUDE.md` and the `.ai
 Reason: So another agent on another computer can continue the work without this conversation.
 Files affected: `AGENTS.md`, `CLAUDE.md`, `.ai/*`
 Status: Active
+
+---
+
+## Decision 011
+
+Date: 2026-09-27
+Decision: Deploy only the public site. `.vercelignore` keeps these out of Vercel deployments, while leaving them in Git:
+- project memory, agent instructions and `archive/`
+- scripts, reports and package files
+- the source photos in `house/`
+
+Reference-only files (old reports, unused images, `info.txt`) move to `archive/`. `node_modules/` is no longer tracked.
+Reason: Those files were publicly reachable on the live domain, and the committed `node_modules/` bloated the repo. Production now carries only what pages use.
+Files affected: `.vercelignore`, `archive/`, `.gitignore` (unchanged; `node_modules/` untracked), PR #4
+Status: Active. When adding a new public file type or folder, check it isn't matched by `.vercelignore`.
+
+---
+
+## Decision 012
+
+Date: 2026-09-27
+Decision: `main` stays the production site. The branches `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` are kept as archive branches, not merged. The plan was to also preserve them as the tags `archive/redesign-type-and-layout` and `archive/vercel-web-analytics-2026-09-16`, but the cloud session's tag push was refused (HTTP 403), so those tags don't exist yet.
+Reason: They share no Git history with `main`. They hold a separate, earlier Aspen II site with a different design and page structure, so merging would replace production rather than improve it (see `AGENTS.md`: preserve the existing design). They also contain unverified business claims.
+Files affected: none (Git refs only)
+Status: Active. Porting individual pages or ideas from them is an owner decision.
