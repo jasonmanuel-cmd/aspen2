@@ -124,3 +124,13 @@ Decision: `main` stays the production site. The branches `redesign/type-and-layo
 Reason: They share no Git history with `main`. They hold a separate, earlier Aspen II site with a different design and page structure, so merging would replace production rather than improve it (see `AGENTS.md`: preserve the existing design). They also contain unverified business claims.
 Files affected: none (Git refs only)
 Status: Active. Porting individual pages or ideas from them is an owner decision.
+
+---
+
+## Decision 013
+
+Date: 2026-09-27
+Decision: For now, the site's public domain is `aspen2bakersfield.store`. All canonical tags, Open Graph and Twitter URLs, JSON-LD URLs, `sitemap.xml`, `robots.txt` and `llms.txt` use `https://aspen2bakersfield.store`.
+Reason: The owner confirmed the site is served there. The previous canonical domain, `aspen2homes.com`, was last seen serving an old WordPress site. Pointing search engines at it would have sent them away from the live site.
+Files affected: `index.html`, `floor-plans.html`, `financing.html`, `contact.html`, `design-card.html`, `llms.txt`, `robots.txt`, `sitemap.xml`
+Status: Active, and temporary. Reverse it when moving to `aspen2homes.com`: one find-and-replace, plus a permanent redirect from the `.store` domain.

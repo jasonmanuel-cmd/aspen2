@@ -4,7 +4,7 @@ Last Updated: 2026-09-27
 
 ## Now
 
-- [ ] **Verify the domain.** Open https://aspen2homes.com. If it shows the old WordPress site, or `/floor-plans` returns 404, connect the domain to the Vercel project `aspen2` (Settings → Domains) and update DNS. Then re-check `/`, `/floor-plans`, `/financing`, `/contact` and `/llms.txt`, and record the result in `PROJECT_STATE.md`.
+- [ ] **Verify the live site** at https://aspen2bakersfield.store: `/`, `/floor-plans`, `/financing`, `/contact` and `/llms.txt` load, and it shows the dark-and-gold Aspen II site. Record the result in `PROJECT_STATE.md`.
 - [ ] Owner answers the design-card questions; apply them to `design-card.html` in a new branch and PR:
   - [ ] Confirm the wordmark font. Fira Sans Condensed is a best match, not confirmed.
   - [ ] Get the contractor (CSLB) license number and add it to the card's facts block.
@@ -20,11 +20,15 @@ Last Updated: 2026-09-27
 
 ## Later / Cleanup
 
+- [ ] When moving to `aspen2homes.com`: switch the domain in the public files back, connect it in Vercel, and permanently redirect `aspen2bakersfield.store` to it (Decision 013).
+
 - [ ] Owner decides whether to port anything from the archived separate site (tag `archive/redesign-type-and-layout`): community pages, per-plan pages, about/process/warranty pages, `api/lead.js`. Verify its claims first ("31 years", "since 1994", 1-2-10 warranty, CSLB license number).
 - [ ] Delete the fully merged branches on GitHub (owner approved 2026-09-27): `v0-rebrand-from-hshomeshub`, `claude/aspen-2-homes-design-card-wk2tq5`, and `claude/sharp-pasteur-dkxsfr` once its last PR merges.
 - [ ] Owner decides whether to delete `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q`. Both are safely preserved as `archive/*` tags.
 
 ## Done
+
+- [x] 2026-09-27: Switched every canonical/OG/JSON-LD/sitemap/robots/llms URL from `aspen2homes.com` to `aspen2bakersfield.store` (owner request).
 
 - [x] 2026-09-25: Built the brand design card and vector mark (PR #2, draft).
 - [x] 2026-09-26: Fixed mobile and desktop layout, navigation and forms (PR #3, merged).
