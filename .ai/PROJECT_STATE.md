@@ -2,7 +2,7 @@
 
 Last Updated: 2026-09-27
 Current Branch: `main` (production).
-Last Known Good Commit: `3eb2b0e` on `main` (merge of PR #4, the last site-code change). Later merges (PR #5 and this docs update) touched only `.ai/`. Vercel serves `main` in production.
+Last Known Good Commit: `a616a5d` on `main` (merge of PR #15, the last site change: privacy-policy retention wording). Vercel serves `main` in production at https://aspen2bakersfield.store.
 
 ## Project
 
@@ -54,7 +54,12 @@ These are on `main` and confirmed in the code:
 - Home page: opening film, hero, promotional banner (scrolls right to left on mobile), scroll-driven film, buying-path cards labelled "Path 01–03", FAQ with structured data, and links for 0% down and up to $15,000 in early-buyer savings.
 - Models page: six models (Tranquil Oasis, Sunset Retreat, The Tranquil Abode, Sunrise View Residence, Enchanted Haven, The Grand Haven) with photo galleries, a lightbox and blueprint PDFs.
 - Financing page and contact page, with the lead form and the open-house form.
-- The thank-you page shows the submitter's name and email.
+- The thank-you page shows the submitter's name and email. It reads them from sessionStorage; since PR #10 they are never put in the URL.
+- **Privacy policy** (`privacy.html`, PRs #10–#15): linked from every footer and under both contact forms, and listed in `sitemap.xml`. The owner reviewed the wording and made these changes:
+  - removed the "reply STOP" line
+  - removed all lender references (the footer's financing disclaimer still says "lender approval", on purpose)
+  - set data requests to be answered within 30 days
+  - set retention to 2 years after last contact, except purchase records, which are kept as long as the law requires
 - SEO: canonical tags, OG image, `sitemap.xml`, `robots.txt`, `llms.txt`, and structured data (GeneralContractor, WebSite, WebPage and BreadcrumbList on the public pages, FAQPage on the home page, ItemList on the Models page).
 - Accessibility work from `3337bd2`: labelled forms, reduced-motion support, a countdown pause control.
 - Mobile and desktop layout, navigation and form fixes from PR #3 (`1790169`, `c4ad68c`).
@@ -62,7 +67,7 @@ These are on `main` and confirmed in the code:
 
 ## In Progress
 
-- Nothing is in progress on a branch. PR #4 (dead-code removal, repo and deploy cleanup) was merged into `main` on 2026-09-27.
+- Nothing is in progress on a branch. The latest merge is PR #15 (2026-09-27). There are no open pull requests.
 - The owner created the `archive/*` tags on 2026-09-27 from their own machine. The cloud session can't push tags or delete branches, so branch cleanup happens on GitHub (see Branches).
 - The design card's three content questions are still open (see Known Problems and `.ai/TODO.md`). The card is on `main` with those placeholders as they were.
 - The card is also published as a Claude artifact: https://claude.ai/artifact/4jpQKneGo4tAPtwJLUyhzz (private until shared).
@@ -144,7 +149,8 @@ It is a different design and structure. Porting any of it is an owner decision; 
 
 ## Current Objective
 
-PR #4 is merged and the repo is organized. Next:
-1. The owner deletes the merged branches on GitHub (approved), and decides whether to delete the two now-tagged branches.
-2. Answers to the three design-card questions.
-3. The `.ai/TODO.md` "Next" items (CRM endpoint, sign-in log protection).
+The site is live at https://aspen2bakersfield.store, with the privacy policy published and owner-reviewed. Next:
+1. Submit the sitemap in Google Search Console for the new domain.
+2. Lead privacy and destination: confirm the CRM endpoint, and replace the client-side password on `signin-log.html`.
+3. The owner deletes the three merged branches on GitHub (approved; two attempts so far haven't taken effect).
+4. Answers to the three design-card questions.
