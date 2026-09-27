@@ -19,11 +19,8 @@ Last Updated: 2026-09-27
 
 ## Later / Cleanup
 
-- [ ] Remove or archive `info.txt`, the old 585 N Wendy Dr listing data.
-- [ ] Move or label the old root audit reports from 2026-09-16 (about `hshomeshub.site`) so they aren't mistaken for the current site's state.
-- [ ] Rename `package.json` `"name"` from `hshomeshub` to match the project.
-- [ ] Remove other dead leftovers found on 2026-09-27: the `#viewCounter` animated counter in `main.js` (no page has that element) and the unused `.oh-log-link` style in `styles.css`.
-- [ ] Decide what to do with the old branches `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q`: merge, archive or delete. Deleting needs explicit owner permission.
+- [ ] Owner decides whether to port anything from the archived separate site (tag `archive/redesign-type-and-layout`): community pages, per-plan pages, about/process/warranty pages, `api/lead.js`. Verify its claims first ("31 years", "since 1994", 1-2-10 warranty, CSLB license number).
+- [ ] With owner permission, delete branches `claude/sharp-pasteur-dkxsfr`, `claude/aspen-2-homes-design-card-wk2tq5` and `v0-rebrand-from-hshomeshub` (fully merged), and `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` (preserved as `archive/*` tags).
 
 ## Done
 
@@ -31,4 +28,10 @@ Last Updated: 2026-09-27
 - [x] 2026-09-26: Fixed mobile and desktop layout, navigation and forms (PR #3, merged).
 - [x] 2026-09-27: Set up persistent AI project memory.
 - [x] 2026-09-27: Corrected two errors in `.ai/` and merged PR #2 (design card, vector mark, project memory) into `main`.
-- [x] 2026-09-27: Removed the dead open-house registration-count code from `main.js` and `styles.css` (branch `claude/sharp-pasteur-dkxsfr`, PR pending merge).
+- [x] 2026-09-27: PR #4 merged. It:
+  - removed the dead registration-count and view-counter code
+  - stopped tracking `node_modules/`
+  - added `.vercelignore`
+  - moved old reports, unused images and `info.txt` into `archive/`
+  - renamed the package to `aspen2`
+- [x] 2026-09-27: Audited every branch and archived the two unrelated-history branches as tags.

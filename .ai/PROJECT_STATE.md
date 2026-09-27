@@ -1,15 +1,15 @@
 # PROJECT STATE
 
 Last Updated: 2026-09-27
-Current Branch: `claude/sharp-pasteur-dkxsfr` (open PR removing dead registration-count code). Production branch is `main`.
-Last Known Good Commit: `0c3befc` on `main` (merge of PR #2). Vercel serves `main` in production.
+Current Branch: `main` (production). PR #4 (`claude/sharp-pasteur-dkxsfr`: dead-code removal and repo/deploy cleanup) is merged into it.
+Last Known Good Commit: the merge commit of PR #4 on `main` (first parent `0c3befc`, the merge of PR #2). Vercel serves `main` in production.
 
 ## Project
 
 Name: Aspen II Homes website
 Purpose: Marketing and lead-capture site for Aspen II Homes, a new-construction homebuilder. It presents the Sunset Retreat community in Tehachapi, California, its six home models, and financing incentives, and it collects buyer leads.
 Production URL: https://aspen2homes.com (from canonical tags, `sitemap.xml`, `robots.txt` and `llms.txt`)
-Repository: https://github.com/jasonmanuel-cmd/aspen2 (renamed from the earlier `hshomeshub` project; `package.json` still says `"name": "hshomeshub"`)
+Repository: https://github.com/jasonmanuel-cmd/aspen2 (renamed from the earlier `hshomeshub` project; `package.json` is now `"name": "aspen2"`)
 
 ## Technology
 
@@ -37,10 +37,16 @@ Other services:
   - model photo galleries, which swipe on phones, and a lightbox
   - lead-form checks and submission: a POST to the CRM, then Formspree as a backup. After that it goes to `thank-you.html`, passing the name and email in `sessionStorage`.
   - a countdown banner (hidden unless `data-deadline` is a future date)
-  - (Removed on `claude/sharp-pasteur-dkxsfr`, pending merge: the dead open-house registration count — `updateRegistrationCount()`, `CRM_LOG_URL`, the `openHouseCount` localStorage counter and the `.oh-count*` styles. Its `#registrationCount` element was already removed from `contact.html` in PR #3.)
+  - (PR #4 removed the dead open-house registration count, the unused `#viewCounter` animation and the `.oh-count*` / `.oh-log-link` styles.)
 - Images: the original photos and blueprint PDFs are in `house/<Model Name>/`. `scripts/optimize-assets.py` turns them into responsive WebP files in `assets/images/`, listed in `assets/image-manifest.json`.
 - `sw.js` is a service worker that removes itself on purpose. It exists only to clear an old cache-first worker.
-- `node_modules/` exists locally but is gitignored. Dependencies (`sharp`, `serve`, `lighthouse`) are only for local scripts and audits; the site doesn't need them to run.
+- `node_modules/` is gitignored and, since PR #4, no longer tracked (it had been committed by mistake). Dependencies (`sharp`, `serve`, `lighthouse`) are only for local scripts and audits; run `npm install` to get them. The site doesn't need them to run.
+- **What deploys:** `.vercelignore` limits each Vercel deployment to the public site. Excluded:
+  - `.ai/`, `AGENTS.md`, `CLAUDE.md`, `archive/`, `scripts/`, `reports/`, `package*.json`, `assets/image-manifest.json`
+  - the source photos and notes in `house/` (only its blueprint PDFs deploy)
+
+  About 231 files and 18 MB deploy. A simulated deploy tree resolved every page reference.
+- `archive/` holds files kept only for reference (see `archive/README.md`): the 2026-09-16 audit reports about the old `hshomeshub.site`, unused generated images and `extra_photos/`, and `info.txt` from the old listing site.
 
 ## Working Features
 
@@ -56,7 +62,8 @@ These are on `main` and confirmed in the code:
 
 ## In Progress
 
-- Nothing is in progress on a branch. PR #2 (brand design card, vector mark, and this `.ai/` memory) was merged into `main` on 2026-09-27 at the owner's request.
+- Nothing is in progress on a branch. PR #4 (dead-code removal, repo and deploy cleanup) was merged into `main` on 2026-09-27.
+- Branch deletions are waiting on the owner's permission (see Branches).
 - The design card's three content questions are still open (see Known Problems and `.ai/TODO.md`). The card is on `main` with those placeholders as they were.
 - The card is also published as a Claude artifact: https://claude.ai/artifact/4jpQKneGo4tAPtwJLUyhzz (private until shared).
 
@@ -66,10 +73,7 @@ These are on `main` and confirmed in the code:
 - **Outside CRM endpoint:** the lead forms and the sign-in log depend on `www.harbisonstandard.com/hq/api/...`, which isn't in this repo. Whether it is the right destination for Aspen II Homes leads hasn't been confirmed.
 - **Countdown banner is hidden:** it only shows when `data-deadline` holds a future date. On `main` the attribute is empty (`data-deadline=""`), so the banner never appears.
 - **Unconfirmed model specs:** The Tranquil Abode's specifications still need confirming (noted in `llms.txt` and on the Models page), and no photography was supplied for The Grand Haven.
-- **Leftovers from the old project:**
-  - `info.txt` holds the 585 N Wendy Dr, Newbury Park listing from the earlier real-estate site.
-  - The root audit reports (`SECURITY_AUDIT.md`, `LIGHTHOUSE_*.md`, `OPTIMIZATION_*.md`, `SESSION_SUMMARY.md` and others) date from 2026-09-16 and describe `hshomeshub.site`, not the current Aspen II site.
-- **Old branches** that are far behind `main` and haven't been merged: `redesign/type-and-layout` (4 ahead, 63 behind) and `vercel/install-vercel-web-analytics-twy28q` (2 ahead, 63 behind). `v0-rebrand-from-hshomeshub` and `claude/sharp-pasteur-dkxsfr` are already in `main`.
+- **Unverified facts on the unrelated-site branch:** `redesign/type-and-layout` claims "31 years", "in Kern County since 1994", a 1-2-10 warranty and a CSLB license number. None of these are on `main` or verified. "Since 1994" also conflicts with the design card's "Est. 1998". Verify with the owner (and the CSLB public lookup) before using any of them.
 - **Open questions on the design card** (merged with PR #2, still unanswered):
   - The wordmark font is a best match, Fira Sans Condensed, not confirmed.
   - There's no contractor (CSLB) license number on the site or the card.
@@ -89,6 +93,8 @@ These are on `main` and confirmed in the code:
 - `aspen2-logo.jpg`, `aspen2-mark.png`, `favicon.png`, `apple-touch-icon.png`, `og-image.jpg`: brand images.
 - `design-card.html`, `aspen2-mark.svg`: the brand card and vector mark (on `main` since PR #2).
 - `scripts/`: `optimize-assets.py`, `audit-site.py`, `lighthouse-audit.mjs`, `serve-audit.mjs`.
+- `.vercelignore`: what stays out of deployments.
+- `archive/`: reference-only files, never deployed.
 - `sitemap.xml`, `robots.txt`, `llms.txt`: SEO and crawler files.
 - `AGENTS.md`, `CLAUDE.md`, `.ai/`: project memory and agent instructions.
 
@@ -104,6 +110,30 @@ The local audit scripts read these optional variables (names only):
 
 NEVER STORE SECRET VALUES HERE.
 
+## Branches
+
+Audited 2026-09-27. `main` is production and the only branch that deploys to https://aspen2homes.com.
+
+| Branch | Relation to `main` | Status |
+|---|---|---|
+| `main` | — | Production. |
+| `claude/sharp-pasteur-dkxsfr` | Fully merged (PR #4) | Safe to delete; needs owner permission. |
+| `claude/aspen-2-homes-design-card-wk2tq5` | Fully merged (PR #2) | Safe to delete; needs owner permission. |
+| `v0-rebrand-from-hshomeshub` | Fully merged (old rebrand) | Safe to delete; needs owner permission. |
+| `redesign/type-and-layout` | **Unrelated history**: a separate, earlier Aspen II site with its own root commit (`a3c4c8f`). | Archived as tag `archive/redesign-type-and-layout`. Not merged. |
+| `vercel/install-vercel-web-analytics-twy28q` | **Unrelated history**: an earlier release of that same separate site (root `7002288`). | Archived as tag `archive/vercel-web-analytics-2026-09-16`. Not merged. |
+
+The unrelated-site branch has content `main` lacks, which could inform future work:
+- six community pages (Tehachapi, Bear Valley Springs, Golden Hills, Stallion Springs, Ridgecrest, California City)
+- a page per plan
+- about, process, warranty and available-homes pages
+- a Vercel serverless lead handler, `api/lead.js`
+
+It is a different design and structure. Porting any of it is an owner decision; don't merge the branch.
+
 ## Current Objective
 
-PR #2 is merged. Next: get the owner's answers to the three design-card questions and apply them to `design-card.html` in a new PR, then work through `.ai/TODO.md` "Next" (CRM endpoint, sign-in log protection).
+PR #4 is merged and the repo is organized. Next:
+1. Owner permission to delete the three merged branches and the two archived ones.
+2. Answers to the three design-card questions.
+3. The `.ai/TODO.md` "Next" items (CRM endpoint, sign-in log protection).

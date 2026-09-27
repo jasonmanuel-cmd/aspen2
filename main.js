@@ -209,25 +209,6 @@
     }
   };
 
-  // ── Animated counter ──
-  var counterEl = document.getElementById('viewCounter');
-  if (counterEl) {
-    var target = parseInt(counterEl.getAttribute('data-target') || '1956', 10);
-    var counterObserver = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        var current = 0;
-        var increment = target / 60;
-        var timer = setInterval(function () {
-          current += increment;
-          if (current >= target) { current = target; clearInterval(timer); }
-          counterEl.textContent = Math.floor(current).toLocaleString() + '+';
-        }, 20);
-        counterObserver.disconnect();
-      }
-    });
-    counterObserver.observe(counterEl);
-  }
-
   // ── Gallery lightbox (uses window.galleryData if present) ──
   var lightbox = document.getElementById('lightbox');
   if (lightbox && Array.isArray(window.galleryData)) {

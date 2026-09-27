@@ -423,7 +423,6 @@ img{display:block;max-width:100%}
 .oh-form-card{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:30px}
 .oh-form-card h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500}
 .oh-form-card .p{font-size:13px;color:var(--muted);margin:6px 0 18px}
-.oh-log-link{display:inline-block;font-size:11px;color:var(--gold);text-decoration:none;margin-bottom:16px;letter-spacing:0.04em;border-bottom:1px solid var(--gold);padding-bottom:2px}
 .oh-form{display:flex;flex-direction:column;gap:14px}
 .oh-form label{display:block;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600}
 .oh-form input{width:100%;min-height:48px;padding:12px 14px;background:var(--surface);border:1px solid var(--line-strong);border-radius:2px;color:var(--ink);font-family:inherit;font-size:16px;outline:none;transition:border-color 0.25s}
