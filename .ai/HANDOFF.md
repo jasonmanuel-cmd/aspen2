@@ -18,7 +18,7 @@ Before ending any session, update `.ai/`, commit, push, and get it merged into `
 
 ## Where Things Stand
 
-- **Production:** `main` deploys to https://aspen2homes.com through Vercel.
+- **Production:** `main` deploys through Vercel (project `aspen2`). **Unverified** whether https://aspen2homes.com points to that project; a Sept 17 check found WordPress there.
   - The last site-code change was PR #4 (`3eb2b0e`). PR #5 and this update changed only docs.
 - **PRs merged:**
   - PR #3: mobile and desktop fixes
@@ -62,6 +62,7 @@ This last update records that the branch deletions haven't taken effect yet, and
 
 ## EXACT NEXT STEP
 
+0. **First, verify the production domain.** A 2026-09-17 check found `aspen2homes.com` serving an old WordPress site (details in `PROJECT_STATE.md` Known Problems). If that's still true, none of this work is live at the domain. Ask the owner to open the site, or check it from a machine that can reach it.
 1. Check the branch state with `git fetch --prune && git branch -r`, or on https://github.com/jasonmanuel-cmd/aspen2/branches.
 2. If the three merged branches still exist, help the owner delete them. Read the error from `git push origin --delete <branch>`, and check Settings → Rules → Rulesets for a rule that blocks deletion.
 3. Once they're gone, update the Branches table in `PROJECT_STATE.md` and the TODO.
