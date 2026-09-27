@@ -1,8 +1,8 @@
 # PROJECT STATE
 
 Last Updated: 2026-09-27
-Current Branch: `main` (production). PR #2 (`claude/aspen-2-homes-design-card-wk2tq5`) has been merged into it.
-Last Known Good Commit: the merge commit of PR #2 on `main`, whose first parent is `352043f` (the merge of PR #3). Vercel serves `main` in production.
+Current Branch: `claude/sharp-pasteur-dkxsfr` (open PR removing dead registration-count code). Production branch is `main`.
+Last Known Good Commit: `0c3befc` on `main` (merge of PR #2). Vercel serves `main` in production.
 
 ## Project
 
@@ -37,7 +37,7 @@ Other services:
   - model photo galleries, which swipe on phones, and a lightbox
   - lead-form checks and submission: a POST to the CRM, then Formspree as a backup. After that it goes to `thank-you.html`, passing the name and email in `sessionStorage`.
   - a countdown banner (hidden unless `data-deadline` is a future date)
-  - `updateRegistrationCount()` for an open-house sign-up count. This code is inert on `main`: PR #3 removed the `#registrationCount` element from `contact.html`, so the function returns early and never calls the CRM log endpoint.
+  - (Removed on `claude/sharp-pasteur-dkxsfr`, pending merge: the dead open-house registration count — `updateRegistrationCount()`, `CRM_LOG_URL`, the `openHouseCount` localStorage counter and the `.oh-count*` styles. Its `#registrationCount` element was already removed from `contact.html` in PR #3.)
 - Images: the original photos and blueprint PDFs are in `house/<Model Name>/`. `scripts/optimize-assets.py` turns them into responsive WebP files in `assets/images/`, listed in `assets/image-manifest.json`.
 - `sw.js` is a service worker that removes itself on purpose. It exists only to clear an old cache-first worker.
 - `node_modules/` exists locally but is gitignored. Dependencies (`sharp`, `serve`, `lighthouse`) are only for local scripts and audits; the site doesn't need them to run.

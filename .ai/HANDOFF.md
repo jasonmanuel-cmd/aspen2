@@ -3,60 +3,54 @@
 Last Updated: 2026-09-27
 Agent: Claude Code (cloud session)
 Machine: Claude Code on the web, a temporary cloud container. Nothing is kept outside Git.
-Branch: `main` (after this session, PR #2 is merged). The last change was made on `claude/aspen-2-homes-design-card-wk2tq5` and merged through PR #2.
-Commit: the merge commit of PR #2 on `main`. Its first parent is `352043f` (the merge of PR #3).
+Branch: `claude/sharp-pasteur-dkxsfr`. It was restarted from `main` at `0c3befc`; its earlier PR, #3, was already merged.
+Commit: the commit titled `Remove dead open-house registration count code` on this branch.
 
 ## What I Was Asked To Do
 
-1. Read `AGENTS.md`, `CLAUDE.md` and the `.ai/` files.
-2. Fix two errors found in the `.ai/` docs.
-3. Merge PR #2 (brand design card, vector logo mark, project memory) into `main`.
+Remove the dead registration-count code. PR #3 removed the `#registrationCount` element from `contact.html`, but the code that fed it stayed behind in `main.js`.
 
 ## What I Completed
 
-- **Doc fixes**, both in `.ai/PROJECT_STATE.md`:
-  - It listed "the open-house sign-up count" as a working feature of `main.js`. PR #3 removed the `#registrationCount` element from `contact.html`, so that code returns early and never runs. The line now says so.
-  - The memory files described themselves as being on the PR #2 branch, which confused anyone reading `main`. All four files now describe `main` after the merge.
-- **State updates:**
-  - `.ai/DECISIONS.md`: Decision 009 moved from Proposed to Active.
-  - `.ai/TODO.md`: the design-card questions stay open; added a cleanup item for the inert count code.
-  - `.ai/HANDOFF.md`: rewritten for this session.
-- **Merged PR #2** into `main` on the owner's instruction. The three design-card content questions were not answered first; they are still open.
+- **`main.js`:** removed
+  - the `CRM_LOG_URL` constant (the GET `openhouse-log` endpoint)
+  - `updateRegistrationCount()`
+  - the IntersectionObserver that called it
+  - the `openHouseCount` localStorage increment in both the tour form and the open-house form
+- **`styles.css`:** removed the `.oh-count`, `.oh-count-num` and `.oh-count-label` rules.
+- **`.ai/`:** updated `PROJECT_STATE.md`, `TODO.md` and this file.
 
 ## Files Changed
 
-- `.ai/PROJECT_STATE.md`, `.ai/DECISIONS.md`, `.ai/TODO.md`, `.ai/HANDOFF.md`.
-- No application code was changed.
-- The PR #2 merge brought these new files into `main`: `design-card.html`, `aspen2-mark.svg`, `AGENTS.md`, `CLAUDE.md` and `.ai/*`.
+`main.js`, `styles.css`, `.ai/PROJECT_STATE.md`, `.ai/TODO.md`, `.ai/HANDOFF.md`.
 
 ## Important Discoveries
 
-- `main` is what production serves (Vercel, static site, no build step). Run it locally with `npm run dev`, which serves on port 3000.
-- `design-card.html` is `noindex` and not linked from the site, but it is publicly reachable at `/design-card` once deployed.
-- A "Contributor License Agreement" check (superagent / open-cla app) fails on PRs in this repo. It is not a required check and does not block merging. The owner was advised to uninstall it; that is their decision.
-- The Codex review bot on this repo has run out of usage credits and posts a notice instead of a review.
+- `signin-log.html` still has its own copy of the `openhouse-log` URL and uses it on purpose. That page was not touched.
+- Two other pieces of dead code remain and are listed in `.ai/TODO.md` under "Later":
+  - the `#viewCounter` animated counter in `main.js`
+  - the `.oh-log-link` style in `styles.css`
+
+  They were left alone to keep this change scoped to what was asked.
+- Visitors who used the old forms may still have an `openHouseCount` key in their browser's localStorage. It is harmless, and nothing reads it any more.
 
 ## Problems Encountered
 
-- None blocking.
+None.
 
 ## What Is Not Finished
 
-- The three design-card questions (wordmark font, CSLB license number, "Elevated since 2026" tagline). See `.ai/TODO.md` "Now".
-- Everything else in `.ai/TODO.md`.
+- The PR for this branch needs merging. Merge it once checks pass and the owner approves.
+- The design-card questions and the rest of `.ai/TODO.md`.
 
 ## EXACT NEXT STEP
 
-Ask the owner for:
-1. the wordmark font name
-2. the CSLB license number
-3. whether "Est. 1998" / "Elevated since 2026" is intended
-
-Then:
-1. Create a new branch from `main`.
-2. Update `design-card.html` with the answers.
-3. Update `.ai/*`.
-4. Open a PR.
+1. Merge this branch's PR into `main`.
+2. After the merge, update `.ai/PROJECT_STATE.md`:
+   - "Current Branch": `main`
+   - "Last Known Good Commit": the new merge commit
+   - Drop the "pending merge" wording.
+3. Then ask the owner the three design-card questions (see `.ai/TODO.md` "Now").
 
 ## Warnings
 
@@ -67,8 +61,9 @@ Then:
 
 ## Verification
 
-- Build: not applicable (static site).
-- Tests: there is no test suite. Only docs changed in this session.
-- Merge: before merging, PR #2 had no conflicts with `main` (checked with `git merge-tree`).
-- Deployment: Vercel deploys `main` to https://aspen2homes.com.
-- Git status: clean after the push.
+- `node --check main.js` passes.
+- A grep finds no remaining references to `registrationCount`, `openHouseCount`, `CRM_LOG_URL` or `oh-count` in any page, script or stylesheet.
+- In headless Chromium at phone size, with the network stubbed:
+  - Both contact-page forms submit and redirect to `thank-you.html` with no JS errors.
+  - The only outside requests are the lead POSTs (CRM, plus Formspree for the tour form). No GET to `openhouse-log`.
+- Build: not applicable (static site). There is no test suite.
