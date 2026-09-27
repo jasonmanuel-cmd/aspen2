@@ -73,6 +73,12 @@ These are on `main` and confirmed in the code:
 - **Outside CRM endpoint:** the lead forms and the sign-in log depend on `www.harbisonstandard.com/hq/api/...`, which isn't in this repo. Whether it is the right destination for Aspen II Homes leads hasn't been confirmed.
 - **Countdown banner is hidden:** it only shows when `data-deadline` holds a future date. On `main` the attribute is empty (`data-deadline=""`), so the banner never appears.
 - **Unconfirmed model specs:** The Tranquil Abode's specifications still need confirming (noted in `llms.txt` and on the Models page), and no photography was supplied for The Grand Haven.
+- **Archive tags not created:** the cloud session could only push to its own working branch, so pushing the `archive/*` tags was refused (HTTP 403). To create them, run this from a machine with normal repo access:
+  ```
+  git tag -a archive/redesign-type-and-layout origin/redesign/type-and-layout -m 'Archive: separate Aspen II site'
+  git tag -a archive/vercel-web-analytics-2026-09-16 origin/vercel/install-vercel-web-analytics-twy28q -m 'Archive'
+  git push origin --tags
+  ```
 - **Unverified facts on the unrelated-site branch:** `redesign/type-and-layout` claims "31 years", "in Kern County since 1994", a 1-2-10 warranty and a CSLB license number. None of these are on `main` or verified. "Since 1994" also conflicts with the design card's "Est. 1998". Verify with the owner (and the CSLB public lookup) before using any of them.
 - **Open questions on the design card** (merged with PR #2, still unanswered):
   - The wordmark font is a best match, Fira Sans Condensed, not confirmed.
@@ -120,8 +126,8 @@ Audited 2026-09-27. `main` is production and the only branch that deploys to htt
 | `claude/sharp-pasteur-dkxsfr` | Fully merged (PR #4) | Safe to delete; needs owner permission. |
 | `claude/aspen-2-homes-design-card-wk2tq5` | Fully merged (PR #2) | Safe to delete; needs owner permission. |
 | `v0-rebrand-from-hshomeshub` | Fully merged (old rebrand) | Safe to delete; needs owner permission. |
-| `redesign/type-and-layout` | **Unrelated history**: a separate, earlier Aspen II site with its own root commit (`a3c4c8f`). | Archived as tag `archive/redesign-type-and-layout`. Not merged. |
-| `vercel/install-vercel-web-analytics-twy28q` | **Unrelated history**: an earlier release of that same separate site (root `7002288`). | Archived as tag `archive/vercel-web-analytics-2026-09-16`. Not merged. |
+| `redesign/type-and-layout` | **Unrelated history**: a separate, earlier Aspen II site with its own root commit (`a3c4c8f`). | Kept as the archive of that site. Not merged. **Don't delete** unless it is first preserved as a tag. |
+| `vercel/install-vercel-web-analytics-twy28q` | **Unrelated history**: an earlier release of that same separate site (root `7002288`). | Kept as an archive. Not merged. **Don't delete** unless it is first preserved as a tag. |
 
 The unrelated-site branch has content `main` lacks, which could inform future work:
 - six community pages (Tehachapi, Bear Valley Springs, Golden Hills, Stallion Springs, Ridgecrest, California City)

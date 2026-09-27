@@ -120,7 +120,7 @@ Status: Active. When adding a new public file type or folder, check it isn't mat
 ## Decision 012
 
 Date: 2026-09-27
-Decision: `main` stays the production site. The branches `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` are kept only as the tags `archive/redesign-type-and-layout` and `archive/vercel-web-analytics-2026-09-16`, not merged.
+Decision: `main` stays the production site. The branches `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` are kept as archive branches, not merged. The plan was to also preserve them as the tags `archive/redesign-type-and-layout` and `archive/vercel-web-analytics-2026-09-16`, but the cloud session's tag push was refused (HTTP 403), so those tags don't exist yet.
 Reason: They share no Git history with `main`. They hold a separate, earlier Aspen II site with a different design and page structure, so merging would replace production rather than improve it (see `AGENTS.md`: preserve the existing design). They also contain unverified business claims.
 Files affected: none (Git refs only)
 Status: Active. Porting individual pages or ideas from them is an owner decision.

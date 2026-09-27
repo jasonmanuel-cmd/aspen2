@@ -19,8 +19,8 @@ Last Updated: 2026-09-27
 
 ## Later / Cleanup
 
-- [ ] Owner decides whether to port anything from the archived separate site (tag `archive/redesign-type-and-layout`): community pages, per-plan pages, about/process/warranty pages, `api/lead.js`. Verify its claims first ("31 years", "since 1994", 1-2-10 warranty, CSLB license number).
-- [ ] With owner permission, delete branches `claude/sharp-pasteur-dkxsfr`, `claude/aspen-2-homes-design-card-wk2tq5` and `v0-rebrand-from-hshomeshub` (fully merged), and `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` (preserved as `archive/*` tags).
+- [ ] Owner decides whether to port anything from the archived separate site (branch `redesign/type-and-layout`): community pages, per-plan pages, about/process/warranty pages, `api/lead.js`. Verify its claims first ("31 years", "since 1994", 1-2-10 warranty, CSLB license number).
+- [ ] With owner permission, delete branches `claude/sharp-pasteur-dkxsfr`, `claude/aspen-2-homes-design-card-wk2tq5` and `v0-rebrand-from-hshomeshub` (fully merged). Keep `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` until they are tagged (`archive/*`, commands in PROJECT_STATE Known Problems).
 
 ## Done
 
@@ -34,4 +34,4 @@ Last Updated: 2026-09-27
   - added `.vercelignore`
   - moved old reports, unused images and `info.txt` into `archive/`
   - renamed the package to `aspen2`
-- [x] 2026-09-27: Audited every branch and archived the two unrelated-history branches as tags.
+- [x] 2026-09-27: Audited every branch. The two unrelated-history branches are kept as archives; tagging them was blocked (HTTP 403 on tag push).

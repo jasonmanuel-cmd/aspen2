@@ -16,7 +16,7 @@ Commit: the merge commit of PR #4 on `main`. Its first parent is `0c3befc`.
 
 - **Branch audit.** See the Branches table in `.ai/PROJECT_STATE.md`.
   - Three branches are fully merged: `claude/sharp-pasteur-dkxsfr`, `claude/aspen-2-homes-design-card-wk2tq5` and `v0-rebrand-from-hshomeshub`.
-  - `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` share **no history** with `main`. They hold a separate, earlier Aspen II site. I archived both as annotated tags (`archive/redesign-type-and-layout`, `archive/vercel-web-analytics-2026-09-16`) and did not merge them (Decision 012).
+  - `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` share **no history** with `main`. They hold a separate, earlier Aspen II site. I did not merge them (Decision 012). I tried to preserve them as the tags `archive/redesign-type-and-layout` and `archive/vercel-web-analytics-2026-09-16`, but the push was refused (HTTP 403): this session may only push its own branch. They stay as branches for now.
 - **Kept `main` as production.** It is the version already audited and fixed for mobile and desktop in PR #3.
 - **Cleanup in PR #4:**
   - Removed dead code: the open-house registration count, the `#viewCounter` animation, and the `.oh-count*` and `.oh-log-link` styles.
@@ -43,27 +43,29 @@ Commit: the merge commit of PR #4 on `main`. Its first parent is `0c3befc`.
 
 - None blocking.
 - Branch deletion needs explicit owner permission (`AGENTS.md`), so no branches were deleted.
+- The archive-tag push was refused with HTTP 403. The commands to create the tags are in `.ai/PROJECT_STATE.md` Known Problems.
 
 ## What Is Not Finished
 
-- Deleting the five non-production branches (the archived ones are safe as tags). Waiting on owner permission.
+- Deleting the three fully merged branches. Waiting on owner permission.
+- Tagging the two unrelated-site branches, after which they can also be deleted.
 - The design-card questions and the other `.ai/TODO.md` items.
 
 ## EXACT NEXT STEP
 
-Ask the owner for permission to delete these branches on GitHub:
+Ask the owner for permission to delete the three fully merged branches:
 - `claude/sharp-pasteur-dkxsfr`
 - `claude/aspen-2-homes-design-card-wk2tq5`
 - `v0-rebrand-from-hshomeshub`
-- `redesign/type-and-layout`
-- `vercel/install-vercel-web-analytics-twy28q`
 
-Then ask the three design-card questions.
+The owner can delete them from GitHub's Branches page. Then:
+1. Have the two unrelated-site branches tagged (commands in PROJECT_STATE).
+2. Ask the three design-card questions.
 
 ## Warnings
 
 - Keep the design and architecture as they are unless the owner asks for changes (see `AGENTS.md`).
-- Don't merge the archived unrelated-site branches or tags into `main` (Decision 012).
+- Don't merge the unrelated-site branches into `main`, and don't delete them until they are tagged (Decision 012).
 - When adding new public files, check `.vercelignore` doesn't exclude them (Decision 011).
 - Don't copy the sign-in-log password, the Formspree form ID or any credentials into docs.
 - Never force-push, `reset --hard` or delete branches without explicit permission.
