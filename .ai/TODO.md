@@ -4,7 +4,7 @@ Last Updated: 2026-09-27
 
 ## Now
 
-- [ ] Owner (ideally a lawyer) reviews `privacy.html`. In particular, confirm: the 45-day response commitment, the lender-introduction sentence, the "reply STOP" line (only accurate if the team texts leads), and the data retention wording.
+- [ ] Owner (ideally a lawyer) reviews `privacy.html`. In particular, confirm: the 45-day response commitment, the lender-introduction sentence, and the data retention wording. (The "reply STOP" line was removed at the owner's request on 2026-09-27.)
 - [ ] Owner answers the design-card questions; apply them to `design-card.html` in a new branch and PR:
   - [ ] Confirm the wordmark font. Fira Sans Condensed is a best match, not confirmed.
   - [ ] Get the contractor (CSLB) license number and add it to the card's facts block.
