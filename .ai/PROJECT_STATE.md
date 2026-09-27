@@ -1,8 +1,8 @@
 # PROJECT STATE
 
 Last Updated: 2026-09-27
-Current Branch: `claude/aspen-2-homes-design-card-wk2tq5` (open draft PR #2). Production branch is `main`.
-Last Known Good Commit: `352043f` on `main` (merge of PR #3). This is the commit Vercel serves in production.
+Current Branch: `main` (production). PR #2 (`claude/aspen-2-homes-design-card-wk2tq5`) has been merged into it.
+Last Known Good Commit: the merge commit of PR #2 on `main`, whose first parent is `352043f` (the merge of PR #3). Vercel serves `main` in production.
 
 ## Project
 
@@ -29,14 +29,15 @@ Other services:
 - Multi-page static site served from the repo root. Clean URLs are on, so `/floor-plans` serves `floor-plans.html`.
 - Public pages: `index.html` (home), `floor-plans.html` (the six models), `financing.html`, `contact.html`, `thank-you.html`.
 - Internal page: `signin-log.html`, an open-house sign-in log that reads the CRM log and links to the Formspree dashboard.
-- Brand reference page: `design-card.html`. It exists only on the PR #2 branch, is not on `main` yet, and is marked `noindex`.
+- Brand reference page: `design-card.html`, on `main` since PR #2 and marked `noindex`. It is publicly reachable at `/design-card` but not linked from the site.
 - `main.js` runs everything on the client:
   - the opening film. It is skipped after the first view in a session (`sessionStorage` key `aspen-opening-seen`) and for users who prefer reduced motion.
   - the homepage hero, the mobile menu and scroll effects
   - the scroll-driven film on the homepage
   - model photo galleries, which swipe on phones, and a lightbox
   - lead-form checks and submission: a POST to the CRM, then Formspree as a backup. After that it goes to `thank-you.html`, passing the name and email in `sessionStorage`.
-  - the open-house sign-up count and a countdown banner
+  - a countdown banner (hidden unless `data-deadline` is a future date)
+  - `updateRegistrationCount()` for an open-house sign-up count. This code is inert on `main`: PR #3 removed the `#registrationCount` element from `contact.html`, so the function returns early and never calls the CRM log endpoint.
 - Images: the original photos and blueprint PDFs are in `house/<Model Name>/`. `scripts/optimize-assets.py` turns them into responsive WebP files in `assets/images/`, listed in `assets/image-manifest.json`.
 - `sw.js` is a service worker that removes itself on purpose. It exists only to clear an old cache-first worker.
 - `node_modules/` exists locally but is gitignored. Dependencies (`sharp`, `serve`, `lighthouse`) are only for local scripts and audits; the site doesn't need them to run.
@@ -55,9 +56,9 @@ These are on `main` and confirmed in the code:
 
 ## In Progress
 
-- PR #2 (draft, open): `design-card.html` (brand design card) and `aspen2-mark.svg` (a vector redraw of the logo mark). Checks are green and it merges into `main` cleanly. It is waiting on the owner's sign-off.
-  - The same card is also published as a Claude artifact: https://claude.ai/artifact/4jpQKneGo4tAPtwJLUyhzz (private until shared).
-- This branch is 3 commits behind `main` (`1790169`, `c4ad68c`, `352043f`). None of them touch the files this PR adds.
+- Nothing is in progress on a branch. PR #2 (brand design card, vector mark, and this `.ai/` memory) was merged into `main` on 2026-09-27 at the owner's request.
+- The design card's three content questions are still open (see Known Problems and `.ai/TODO.md`). The card is on `main` with those placeholders as they were.
+- The card is also published as a Claude artifact: https://claude.ai/artifact/4jpQKneGo4tAPtwJLUyhzz (private until shared).
 
 ## Known Problems
 
@@ -69,7 +70,7 @@ These are on `main` and confirmed in the code:
   - `info.txt` holds the 585 N Wendy Dr, Newbury Park listing from the earlier real-estate site.
   - The root audit reports (`SECURITY_AUDIT.md`, `LIGHTHOUSE_*.md`, `OPTIMIZATION_*.md`, `SESSION_SUMMARY.md` and others) date from 2026-09-16 and describe `hshomeshub.site`, not the current Aspen II site.
 - **Old branches** that are far behind `main` and haven't been merged: `redesign/type-and-layout` (4 ahead, 63 behind) and `vercel/install-vercel-web-analytics-twy28q` (2 ahead, 63 behind). `v0-rebrand-from-hshomeshub` and `claude/sharp-pasteur-dkxsfr` are already in `main`.
-- **Open questions on the design card** (PR #2):
+- **Open questions on the design card** (merged with PR #2, still unanswered):
   - The wordmark font is a best match, Fira Sans Condensed, not confirmed.
   - There's no contractor (CSLB) license number on the site or the card.
   - The tagline "Est. 1998" with "Elevated since 2026" needs the client to confirm.
@@ -86,7 +87,7 @@ These are on `main` and confirmed in the code:
 - `assets/images/`, `assets/image-manifest.json`: the generated WebP images.
 - `media/`: the opening film videos and posters.
 - `aspen2-logo.jpg`, `aspen2-mark.png`, `favicon.png`, `apple-touch-icon.png`, `og-image.jpg`: brand images.
-- `design-card.html`, `aspen2-mark.svg`: the brand card and vector mark (PR #2 branch only).
+- `design-card.html`, `aspen2-mark.svg`: the brand card and vector mark (on `main` since PR #2).
 - `scripts/`: `optimize-assets.py`, `audit-site.py`, `lighthouse-audit.mjs`, `serve-audit.mjs`.
 - `sitemap.xml`, `robots.txt`, `llms.txt`: SEO and crawler files.
 - `AGENTS.md`, `CLAUDE.md`, `.ai/`: project memory and agent instructions.
@@ -105,4 +106,4 @@ NEVER STORE SECRET VALUES HERE.
 
 ## Current Objective
 
-Get PR #2 (brand design card and vector logo mark) signed off and merged, and resolve its open content questions. This memory system was set up on 2026-09-27; no new development has started.
+PR #2 is merged. Next: get the owner's answers to the three design-card questions and apply them to `design-card.html` in a new PR, then work through `.ai/TODO.md` "Next" (CRM endpoint, sign-in log protection).

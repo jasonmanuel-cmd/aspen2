@@ -88,7 +88,7 @@ Date: 2026-09-25
 Decision: Keep brand standards in a standalone `noindex` page, `design-card.html`. Use the site's existing tokens (Obsidian, Graphite, Bone, Steel, Aspen Gold, Champagne, Bronze, Plaster; Fraunces, Inter), plus a vector mark, `aspen2-mark.svg`.
 Reason: One reference for the website, print and signage, and a vector logo in place of photo-only logo files.
 Files affected: `design-card.html`, `aspen2-mark.svg` (`3c810af`, PR #2, not merged yet)
-Status: Proposed. Waiting on the owner to sign off PR #2.
+Status: Active. Merged into `main` on 2026-09-27 (PR #2). Three content details on the card are still unconfirmed (see TODO).
 
 ---
 
