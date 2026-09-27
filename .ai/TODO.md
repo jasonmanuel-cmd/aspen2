@@ -4,6 +4,7 @@ Last Updated: 2026-09-27
 
 ## Now
 
+- [ ] **Verify the domain.** Open https://aspen2homes.com. If it shows the old WordPress site, or `/floor-plans` returns 404, connect the domain to the Vercel project `aspen2` (Settings → Domains) and update DNS. Then re-check `/`, `/floor-plans`, `/financing`, `/contact` and `/llms.txt`, and record the result in `PROJECT_STATE.md`.
 - [ ] Owner answers the design-card questions; apply them to `design-card.html` in a new branch and PR:
   - [ ] Confirm the wordmark font. Fira Sans Condensed is a best match, not confirmed.
   - [ ] Get the contractor (CSLB) license number and add it to the card's facts block.

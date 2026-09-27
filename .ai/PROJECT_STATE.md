@@ -8,7 +8,7 @@ Last Known Good Commit: `3eb2b0e` on `main` (merge of PR #4, the last site-code 
 
 Name: Aspen II Homes website
 Purpose: Marketing and lead-capture site for Aspen II Homes, a new-construction homebuilder. It presents the Sunset Retreat community in Tehachapi, California, its six home models, and financing incentives, and it collects buyer leads.
-Production URL: https://aspen2homes.com (from canonical tags, `sitemap.xml`, `robots.txt` and `llms.txt`)
+Production URL: https://aspen2homes.com (from canonical tags, `sitemap.xml`, `robots.txt` and `llms.txt`). **Unverified** whether the domain points to this Vercel project; see Known Problems.
 Repository: https://github.com/jasonmanuel-cmd/aspen2 (renamed from the earlier `hshomeshub` project; `package.json` is now `"name": "aspen2"`)
 
 ## Technology
@@ -69,6 +69,11 @@ These are on `main` and confirmed in the code:
 
 ## Known Problems
 
+- **Unconfirmed: is the production domain showing this site?**
+  - A read-only check recorded on 2026-09-17 (`archive/reports-2026-09/SITE_QA_AUDIT.md`, commit `3337bd2`) found `aspen2homes.com` still serving an older **WordPress** homepage: `/floor-plans` and `/financing` returned 404, `/contact` served the old page, and `/llms.txt` returned 404.
+  - It hasn't been re-checked since. The cloud session's network blocks both `aspen2homes.com` and `*.vercel.app`, and the Vercel connector isn't authorized for the owner's team.
+  - If the domain still serves WordPress, **none of the work on `main` is live** at the domain, even though Vercel deployments of `main` succeed. Fix: Vercel → project `aspen2` → Settings → Domains, add `aspen2homes.com` (and `www`), then point DNS at Vercel as it instructs.
+  - Until it's verified, don't describe production as "live on aspen2homes.com".
 - **Client-side password on `signin-log.html`:** the password is written in plain JavaScript, so anyone can read it in the page source. It gives no real protection. Don't copy the value into docs.
 - **Outside CRM endpoint:** the lead forms and the sign-in log depend on `www.harbisonstandard.com/hq/api/...`, which isn't in this repo. Whether it is the right destination for Aspen II Homes leads hasn't been confirmed.
 - **Countdown banner is hidden:** it only shows when `data-deadline` holds a future date. On `main` the attribute is empty (`data-deadline=""`), so the banner never appears.
