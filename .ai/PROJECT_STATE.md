@@ -2,7 +2,7 @@
 
 Last Updated: 2026-09-27
 Current Branch: `main` (production).
-Last Known Good Commit: the merge commit of PR #4 on `main` (first parent `0c3befc`, the merge of PR #2). Vercel serves `main` in production.
+Last Known Good Commit: `3eb2b0e` on `main` (merge of PR #4, the last site-code change). Later merges (PR #5 and this docs update) touched only `.ai/`. Vercel serves `main` in production.
 
 ## Project
 
@@ -121,11 +121,13 @@ Audited 2026-09-27. `main` is production and the only branch that deploys to htt
 | Branch | Relation to `main` | Status |
 |---|---|---|
 | `main` | — | Production. |
-| `claude/sharp-pasteur-dkxsfr` | Fully merged | The owner approved deleting it on 2026-09-27. Its last PR updates these docs; delete it after that merges. |
-| `claude/aspen-2-homes-design-card-wk2tq5` | Fully merged (PR #2) | The owner approved deletion on 2026-09-27. Must be deleted from GitHub; the cloud session can't delete branches. |
-| `v0-rebrand-from-hshomeshub` | Fully merged (old rebrand) | The owner approved deletion on 2026-09-27. Must be deleted from GitHub; the cloud session can't delete branches. |
+| `claude/sharp-pasteur-dkxsfr` | Fully merged | The owner approved deletion on 2026-09-27. **Still exists** as of the last check. |
+| `claude/aspen-2-homes-design-card-wk2tq5` | Fully merged (PR #2) | The owner approved deletion on 2026-09-27. **Still exists** as of the last check. |
+| `v0-rebrand-from-hshomeshub` | Fully merged (old rebrand) | The owner approved deletion on 2026-09-27. **Still exists** as of the last check. |
 | `redesign/type-and-layout` | **Unrelated history**: a separate, earlier Aspen II site with its own root commit (`a3c4c8f`). | Not merged. Preserved as tag `archive/redesign-type-and-layout` (verified to point at the branch tip, `c7e9049`). Safe to delete; needs owner permission. |
 | `vercel/install-vercel-web-analytics-twy28q` | **Unrelated history**: an earlier release of that same separate site (root `7002288`). | Not merged. Preserved as tag `archive/vercel-web-analytics-2026-09-16` (verified to point at the branch tip, `cd6214c`). Safe to delete; needs owner permission. |
+
+**Deletion status (2026-09-27):** the owner tried to delete the three merged branches twice, once from the command line and once on GitHub, but the GitHub API and `git ls-remote` still listed all six branches afterwards. The cause isn't known yet. It might be the wrong repository, a click on Restore, or a repository rule that blocks deletion (the API reports the branches as `protected: false`, but that flag doesn't reflect repository rulesets). Before recording the branches as deleted, check with `git fetch --prune && git branch -r` or the GitHub Branches page.
 
 The unrelated-site branch has content `main` lacks, which could inform future work:
 - six community pages (Tehachapi, Bear Valley Springs, Golden Hills, Stallion Springs, Ridgecrest, California City)
