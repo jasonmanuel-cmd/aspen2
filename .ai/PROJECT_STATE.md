@@ -1,0 +1,108 @@
+# PROJECT STATE
+
+Last Updated: 2026-09-27
+Current Branch: `claude/aspen-2-homes-design-card-wk2tq5` (open draft PR #2). Production branch is `main`.
+Last Known Good Commit: `352043f` on `main` (merge of PR #3). This is the commit Vercel serves in production.
+
+## Project
+
+Name: Aspen II Homes website
+Purpose: Marketing and lead-capture site for Aspen II Homes, a new-construction homebuilder. It presents the Sunset Retreat community in Tehachapi, California, its six home models, and financing incentives, and it collects buyer leads.
+Production URL: https://aspen2homes.com (from canonical tags, `sitemap.xml`, `robots.txt` and `llms.txt`)
+Repository: https://github.com/jasonmanuel-cmd/aspen2 (renamed from the earlier `hshomeshub` project; `package.json` still says `"name": "hshomeshub"`)
+
+## Technology
+
+Frontend: Static HTML pages, one shared stylesheet (`styles.css`), one vanilla JavaScript file (`main.js`). No framework and no bundler.
+Backend: None in this repo. Forms post to outside services (see Other services).
+Database: None in this repo.
+Hosting: Vercel, set up as a static site by `vercel.json` (`buildCommand: null`, `outputDirectory: "."`, `cleanUrls: true`). Security headers and cache headers are set there. Every push gets a Vercel preview deployment; the Vercel project is named `aspen2`.
+Authentication: None for site visitors. `signin-log.html` has a client-side password gate (see Known Problems).
+Other services:
+- Formspree: lead forms post here as a backup. The form ID is in `main.js` and `signin-log.html`.
+- An outside CRM API at `www.harbisonstandard.com/hq/api/openhouse` (POST) and `/openhouse-log` (GET). The URLs are hard-coded in `main.js` and `signin-log.html`. This API is not part of this repo and looks like it was carried over from the earlier project. It hasn't been checked for this brand.
+- Vercel Web Analytics, loaded with `/_vercel/insights/script.js` on every page.
+- Fonts are self-hosted in `assets/fonts/` (Fraunces, Inter) through `fonts.css`. `design-card.html` loads Google Fonts instead.
+
+## Current Architecture
+
+- Multi-page static site served from the repo root. Clean URLs are on, so `/floor-plans` serves `floor-plans.html`.
+- Public pages: `index.html` (home), `floor-plans.html` (the six models), `financing.html`, `contact.html`, `thank-you.html`.
+- Internal page: `signin-log.html`, an open-house sign-in log that reads the CRM log and links to the Formspree dashboard.
+- Brand reference page: `design-card.html`. It exists only on the PR #2 branch, is not on `main` yet, and is marked `noindex`.
+- `main.js` runs everything on the client:
+  - the opening film. It is skipped after the first view in a session (`sessionStorage` key `aspen-opening-seen`) and for users who prefer reduced motion.
+  - the homepage hero, the mobile menu and scroll effects
+  - the scroll-driven film on the homepage
+  - model photo galleries, which swipe on phones, and a lightbox
+  - lead-form checks and submission: a POST to the CRM, then Formspree as a backup. After that it goes to `thank-you.html`, passing the name and email in `sessionStorage`.
+  - the open-house sign-up count and a countdown banner
+- Images: the original photos and blueprint PDFs are in `house/<Model Name>/`. `scripts/optimize-assets.py` turns them into responsive WebP files in `assets/images/`, listed in `assets/image-manifest.json`.
+- `sw.js` is a service worker that removes itself on purpose. It exists only to clear an old cache-first worker.
+- `node_modules/` exists locally but is gitignored. Dependencies (`sharp`, `serve`, `lighthouse`) are only for local scripts and audits; the site doesn't need them to run.
+
+## Working Features
+
+These are on `main` and confirmed in the code:
+- Home page: opening film, hero, promotional banner (scrolls right to left on mobile), scroll-driven film, buying-path cards labelled "Path 01–03", FAQ with structured data, and links for 0% down and up to $15,000 in early-buyer savings.
+- Models page: six models (Tranquil Oasis, Sunset Retreat, The Tranquil Abode, Sunrise View Residence, Enchanted Haven, The Grand Haven) with photo galleries, a lightbox and blueprint PDFs.
+- Financing page and contact page, with the lead form and the open-house form.
+- The thank-you page shows the submitter's name and email.
+- SEO: canonical tags, OG image, `sitemap.xml`, `robots.txt`, `llms.txt`, and structured data (GeneralContractor, WebSite, WebPage and BreadcrumbList on the public pages, FAQPage on the home page, ItemList on the Models page).
+- Accessibility work from `3337bd2`: labelled forms, reduced-motion support, a countdown pause control.
+- Mobile and desktop layout, navigation and form fixes from PR #3 (`1790169`, `c4ad68c`).
+- A local link check on `main` (run 2026-09-27) found no broken internal links.
+
+## In Progress
+
+- PR #2 (draft, open): `design-card.html` (brand design card) and `aspen2-mark.svg` (a vector redraw of the logo mark). Checks are green and it merges into `main` cleanly. It is waiting on the owner's sign-off.
+  - The same card is also published as a Claude artifact: https://claude.ai/artifact/4jpQKneGo4tAPtwJLUyhzz (private until shared).
+- This branch is 3 commits behind `main` (`1790169`, `c4ad68c`, `352043f`). None of them touch the files this PR adds.
+
+## Known Problems
+
+- **Client-side password on `signin-log.html`:** the password is written in plain JavaScript, so anyone can read it in the page source. It gives no real protection. Don't copy the value into docs.
+- **Outside CRM endpoint:** the lead forms and the sign-in log depend on `www.harbisonstandard.com/hq/api/...`, which isn't in this repo. Whether it is the right destination for Aspen II Homes leads hasn't been confirmed.
+- **Countdown banner is hidden:** it only shows when `data-deadline` holds a future date. On `main` the attribute is empty (`data-deadline=""`), so the banner never appears.
+- **Unconfirmed model specs:** The Tranquil Abode's specifications still need confirming (noted in `llms.txt` and on the Models page), and no photography was supplied for The Grand Haven.
+- **Leftovers from the old project:**
+  - `info.txt` holds the 585 N Wendy Dr, Newbury Park listing from the earlier real-estate site.
+  - The root audit reports (`SECURITY_AUDIT.md`, `LIGHTHOUSE_*.md`, `OPTIMIZATION_*.md`, `SESSION_SUMMARY.md` and others) date from 2026-09-16 and describe `hshomeshub.site`, not the current Aspen II site.
+- **Old branches** that are far behind `main` and haven't been merged: `redesign/type-and-layout` (4 ahead, 63 behind) and `vercel/install-vercel-web-analytics-twy28q` (2 ahead, 63 behind). `v0-rebrand-from-hshomeshub` and `claude/sharp-pasteur-dkxsfr` are already in `main`.
+- **Open questions on the design card** (PR #2):
+  - The wordmark font is a best match, Fira Sans Condensed, not confirmed.
+  - There's no contractor (CSLB) license number on the site or the card.
+  - The tagline "Est. 1998" with "Elevated since 2026" needs the client to confirm.
+
+## Important Files
+
+- `index.html`, `floor-plans.html`, `financing.html`, `contact.html`, `thank-you.html`, `signin-log.html`: the pages.
+- `styles.css`: all site styles, with design tokens in `:root`. It is readable, not minified, on `main`.
+- `fonts.css`, `assets/fonts/`: self-hosted fonts.
+- `main.js`: all site behaviour, including the form endpoints.
+- `vercel.json`: hosting, clean URLs and headers.
+- `sw.js`: the self-removing service worker.
+- `house/`: source photos, info notes and blueprint PDFs for each model.
+- `assets/images/`, `assets/image-manifest.json`: the generated WebP images.
+- `media/`: the opening film videos and posters.
+- `aspen2-logo.jpg`, `aspen2-mark.png`, `favicon.png`, `apple-touch-icon.png`, `og-image.jpg`: brand images.
+- `design-card.html`, `aspen2-mark.svg`: the brand card and vector mark (PR #2 branch only).
+- `scripts/`: `optimize-assets.py`, `audit-site.py`, `lighthouse-audit.mjs`, `serve-audit.mjs`.
+- `sitemap.xml`, `robots.txt`, `llms.txt`: SEO and crawler files.
+- `AGENTS.md`, `CLAUDE.md`, `.ai/`: project memory and agent instructions.
+
+## Environment
+
+The site itself needs no environment variables. No `.env` file is present; `.env*` is gitignored.
+The local audit scripts read these optional variables (names only):
+- `AUDIT_BASE_URL`
+- `AUDIT_OUTPUT`
+- `CHROME_PATH`
+- `LIGHTHOUSE_MODULE_DIR`
+- `PORT`
+
+NEVER STORE SECRET VALUES HERE.
+
+## Current Objective
+
+Get PR #2 (brand design card and vector logo mark) signed off and merged, and resolve its open content questions. This memory system was set up on 2026-09-27; no new development has started.
