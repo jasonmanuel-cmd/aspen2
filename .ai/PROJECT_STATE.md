@@ -8,7 +8,7 @@ Last Known Good Commit: `3eb2b0e` on `main` (merge of PR #4, the last site-code 
 
 Name: Aspen II Homes website
 Purpose: Marketing and lead-capture site for Aspen II Homes, a new-construction homebuilder. It presents the Sunset Retreat community in Tehachapi, California, its six home models, and financing incentives, and it collects buyer leads.
-Production URL: https://aspen2homes.com (from canonical tags, `sitemap.xml`, `robots.txt` and `llms.txt`). **Unverified** whether the domain points to this Vercel project; see Known Problems.
+Production URL: **https://aspen2bakersfield.store** (temporary; the owner confirmed on 2026-09-27 that this is the site's domain "for now"). Canonical tags, OG/Twitter URLs, JSON-LD, `sitemap.xml`, `robots.txt` and `llms.txt` all use it. The long-term brand domain `aspen2homes.com` isn't used (see Known Problems and Decision 013).
 Repository: https://github.com/jasonmanuel-cmd/aspen2 (renamed from the earlier `hshomeshub` project; `package.json` is now `"name": "aspen2"`)
 
 ## Technology
@@ -69,14 +69,14 @@ These are on `main` and confirmed in the code:
 
 ## Known Problems
 
-- **Unconfirmed: is the production domain showing this site?**
-  - A read-only check recorded on 2026-09-17 (`archive/reports-2026-09/SITE_QA_AUDIT.md`, commit `3337bd2`) found `aspen2homes.com` still serving an older **WordPress** homepage: `/floor-plans` and `/financing` returned 404, `/contact` served the old page, and `/llms.txt` returned 404.
-  - It hasn't been re-checked since. The cloud session's network blocks both `aspen2homes.com` and `*.vercel.app`, and the Vercel connector isn't authorized for the owner's team.
-  - If the domain still serves WordPress, **none of the work on `main` is live** at the domain, even though Vercel deployments of `main` succeed. Fix: Vercel → project `aspen2` → Settings → Domains, add `aspen2homes.com` (and `www`), then point DNS at Vercel as it instructs.
-  - Until it's verified, don't describe production as "live on aspen2homes.com".
-- **Client-side password on `signin-log.html`:** the password is written in plain JavaScript, so anyone can read it in the page source. It gives no real protection. Don't copy the value into docs.
-- **Outside CRM endpoint:** the lead forms and the sign-in log depend on `www.harbisonstandard.com/hq/api/...`, which isn't in this repo. Whether it is the right destination for Aspen II Homes leads hasn't been confirmed.
-- **Countdown banner is hidden:** it only shows when `data-deadline` holds a future date. On `main` the attribute is empty (`data-deadline=""`), so the banner never appears.
+- **Domain:**
+  - The site is served at `aspen2bakersfield.store`, per the owner on 2026-09-27. Its connection to the Vercel project `aspen2` hasn't been verified here, because the cloud session's network blocks it.
+  - `aspen2homes.com` is **not** this site. A 2026-09-17 check (`archive/reports-2026-09/SITE_QA_AUDIT.md`) found it serving an older WordPress homepage.
+  - When the owner moves to `aspen2homes.com`:
+    1. Connect it in Vercel.
+    2. Replace every `https://aspen2bakersfield.store` with `https://aspen2homes.com` in the public files (`*.html`, `llms.txt`, `robots.txt`, `sitemap.xml`).
+    3. Set up a permanent redirect from `aspen2bakersfield.store` to `aspen2homes.com`, so search rankings carry over.
+  - The ".store" name and "Bakersfield" don't match the Tehachapi / Sunset Retreat content. That's accepted as temporary.
 - **Unconfirmed model specs:** The Tranquil Abode's specifications still need confirming (noted in `llms.txt` and on the Models page), and no photography was supplied for The Grand Haven.
   git tag -a archive/redesign-type-and-layout origin/redesign/type-and-layout -m 'Archive: separate Aspen II site'
   git tag -a archive/vercel-web-analytics-2026-09-16 origin/vercel/install-vercel-web-analytics-twy28q -m 'Archive'
@@ -121,7 +121,7 @@ NEVER STORE SECRET VALUES HERE.
 
 ## Branches
 
-Audited 2026-09-27. `main` is production and the only branch that deploys to https://aspen2homes.com.
+Audited 2026-09-27. `main` is production and the only branch that deploys to https://aspen2bakersfield.store.
 
 | Branch | Relation to `main` | Status |
 |---|---|---|

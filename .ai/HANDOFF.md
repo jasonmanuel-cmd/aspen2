@@ -18,7 +18,7 @@ Before ending any session, update `.ai/`, commit, push, and get it merged into `
 
 ## Where Things Stand
 
-- **Production:** `main` deploys through Vercel (project `aspen2`). **Unverified** whether https://aspen2homes.com points to that project; a Sept 17 check found WordPress there.
+- **Production:** `main` deploys through Vercel (project `aspen2`). The public domain is **https://aspen2bakersfield.store** for now (Decision 013). `aspen2homes.com` is not this site; a Sept 17 check found an old WordPress site there.
   - The last site-code change was PR #4 (`3eb2b0e`). PR #5 and this update changed only docs.
 - **PRs merged:**
   - PR #3: mobile and desktop fixes
@@ -45,7 +45,11 @@ Across the whole session:
 
 This last update records that the branch deletions haven't taken effect yet, and adds the sync instructions above.
 
-## Files Changed (this update)
+## Latest Change (2026-09-27)
+
+At the owner's request, every canonical, OG/Twitter, JSON-LD, sitemap, robots and llms URL moved from `aspen2homes.com` to `aspen2bakersfield.store`. That's 38 references in 8 public files. The email address `Aspen2homes@gmail.com` is unchanged. The JSON-LD on every page still parses. See Decision 013.
+
+## Files Changed (earlier update)
 
 `.ai/PROJECT_STATE.md` (deletion status, last-known-good commit) and `.ai/HANDOFF.md`.
 
@@ -62,7 +66,7 @@ This last update records that the branch deletions haven't taken effect yet, and
 
 ## EXACT NEXT STEP
 
-0. **First, verify the production domain.** A 2026-09-17 check found `aspen2homes.com` serving an old WordPress site (details in `PROJECT_STATE.md` Known Problems). If that's still true, none of this work is live at the domain. Ask the owner to open the site, or check it from a machine that can reach it.
+0. **First, verify the live site** at https://aspen2bakersfield.store: every public URL now points there. Ask the owner to confirm `/`, `/floor-plans`, `/financing` and `/contact` load the dark-and-gold site; this session's network can't reach it.
 1. Check the branch state with `git fetch --prune && git branch -r`, or on https://github.com/jasonmanuel-cmd/aspen2/branches.
 2. If the three merged branches still exist, help the owner delete them. Read the error from `git push origin --delete <branch>`, and check Settings → Rules → Rulesets for a rule that blocks deletion.
 3. Once they're gone, update the Branches table in `PROJECT_STATE.md` and the TODO.
