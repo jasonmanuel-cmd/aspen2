@@ -1,7 +1,7 @@
 # PROJECT STATE
 
 Last Updated: 2026-09-27
-Current Branch: `main` (production). PR #4 (`claude/sharp-pasteur-dkxsfr`: dead-code removal and repo/deploy cleanup) is merged into it.
+Current Branch: `main` (production).
 Last Known Good Commit: the merge commit of PR #4 on `main` (first parent `0c3befc`, the merge of PR #2). Vercel serves `main` in production.
 
 ## Project
@@ -63,7 +63,7 @@ These are on `main` and confirmed in the code:
 ## In Progress
 
 - Nothing is in progress on a branch. PR #4 (dead-code removal, repo and deploy cleanup) was merged into `main` on 2026-09-27.
-- Branch deletions are waiting on the owner's permission (see Branches).
+- The owner created the `archive/*` tags on 2026-09-27 from their own machine. The cloud session can't push tags or delete branches, so branch cleanup happens on GitHub (see Branches).
 - The design card's three content questions are still open (see Known Problems and `.ai/TODO.md`). The card is on `main` with those placeholders as they were.
 - The card is also published as a Claude artifact: https://claude.ai/artifact/4jpQKneGo4tAPtwJLUyhzz (private until shared).
 
@@ -73,8 +73,6 @@ These are on `main` and confirmed in the code:
 - **Outside CRM endpoint:** the lead forms and the sign-in log depend on `www.harbisonstandard.com/hq/api/...`, which isn't in this repo. Whether it is the right destination for Aspen II Homes leads hasn't been confirmed.
 - **Countdown banner is hidden:** it only shows when `data-deadline` holds a future date. On `main` the attribute is empty (`data-deadline=""`), so the banner never appears.
 - **Unconfirmed model specs:** The Tranquil Abode's specifications still need confirming (noted in `llms.txt` and on the Models page), and no photography was supplied for The Grand Haven.
-- **Archive tags not created:** the cloud session could only push to its own working branch, so pushing the `archive/*` tags was refused (HTTP 403). To create them, run this from a machine with normal repo access:
-  ```
   git tag -a archive/redesign-type-and-layout origin/redesign/type-and-layout -m 'Archive: separate Aspen II site'
   git tag -a archive/vercel-web-analytics-2026-09-16 origin/vercel/install-vercel-web-analytics-twy28q -m 'Archive'
   git push origin --tags
@@ -123,11 +121,11 @@ Audited 2026-09-27. `main` is production and the only branch that deploys to htt
 | Branch | Relation to `main` | Status |
 |---|---|---|
 | `main` | — | Production. |
-| `claude/sharp-pasteur-dkxsfr` | Fully merged (PR #4) | Safe to delete; needs owner permission. |
-| `claude/aspen-2-homes-design-card-wk2tq5` | Fully merged (PR #2) | Safe to delete; needs owner permission. |
-| `v0-rebrand-from-hshomeshub` | Fully merged (old rebrand) | Safe to delete; needs owner permission. |
-| `redesign/type-and-layout` | **Unrelated history**: a separate, earlier Aspen II site with its own root commit (`a3c4c8f`). | Kept as the archive of that site. Not merged. **Don't delete** unless it is first preserved as a tag. |
-| `vercel/install-vercel-web-analytics-twy28q` | **Unrelated history**: an earlier release of that same separate site (root `7002288`). | Kept as an archive. Not merged. **Don't delete** unless it is first preserved as a tag. |
+| `claude/sharp-pasteur-dkxsfr` | Fully merged | The owner approved deleting it on 2026-09-27. Its last PR updates these docs; delete it after that merges. |
+| `claude/aspen-2-homes-design-card-wk2tq5` | Fully merged (PR #2) | The owner approved deletion on 2026-09-27. Must be deleted from GitHub; the cloud session can't delete branches. |
+| `v0-rebrand-from-hshomeshub` | Fully merged (old rebrand) | The owner approved deletion on 2026-09-27. Must be deleted from GitHub; the cloud session can't delete branches. |
+| `redesign/type-and-layout` | **Unrelated history**: a separate, earlier Aspen II site with its own root commit (`a3c4c8f`). | Not merged. Preserved as tag `archive/redesign-type-and-layout` (verified to point at the branch tip, `c7e9049`). Safe to delete; needs owner permission. |
+| `vercel/install-vercel-web-analytics-twy28q` | **Unrelated history**: an earlier release of that same separate site (root `7002288`). | Not merged. Preserved as tag `archive/vercel-web-analytics-2026-09-16` (verified to point at the branch tip, `cd6214c`). Safe to delete; needs owner permission. |
 
 The unrelated-site branch has content `main` lacks, which could inform future work:
 - six community pages (Tehachapi, Bear Valley Springs, Golden Hills, Stallion Springs, Ridgecrest, California City)
@@ -140,6 +138,6 @@ It is a different design and structure. Porting any of it is an owner decision; 
 ## Current Objective
 
 PR #4 is merged and the repo is organized. Next:
-1. Owner permission to delete the three merged branches and the two archived ones.
+1. The owner deletes the merged branches on GitHub (approved), and decides whether to delete the two now-tagged branches.
 2. Answers to the three design-card questions.
 3. The `.ai/TODO.md` "Next" items (CRM endpoint, sign-in log protection).

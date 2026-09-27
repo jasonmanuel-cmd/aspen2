@@ -3,69 +3,57 @@
 Last Updated: 2026-09-27
 Agent: Claude Code (cloud session)
 Machine: Claude Code on the web, a temporary cloud container. Nothing is kept outside Git.
-Branch: `main`. The work was done on `claude/sharp-pasteur-dkxsfr` and merged through PR #4.
-Commit: the merge commit of PR #4 on `main`. Its first parent is `0c3befc`.
+Branch: `claude/sharp-pasteur-dkxsfr`, restarted from `main` at `3eb2b0e` (the merge of PR #4). Its only change is this docs update.
+Commit: the commit titled `Record archive tags and approved branch deletions in .ai docs`.
 
 ## What I Was Asked To Do
 
-1. Look over the whole GitHub repo and find every branch.
-2. Keep everything organized.
-3. Make production the most efficient, well-built, mobile-friendly and optimized version of the site.
+1. Delete the fully merged branches. The owner approved this on 2026-09-27.
+2. Record that the owner created the archive tags.
 
 ## What I Completed
 
-- **Branch audit.** See the Branches table in `.ai/PROJECT_STATE.md`.
-  - Three branches are fully merged: `claude/sharp-pasteur-dkxsfr`, `claude/aspen-2-homes-design-card-wk2tq5` and `v0-rebrand-from-hshomeshub`.
-  - `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q` share **no history** with `main`. They hold a separate, earlier Aspen II site. I did not merge them (Decision 012). I tried to preserve them as the tags `archive/redesign-type-and-layout` and `archive/vercel-web-analytics-2026-09-16`, but the push was refused (HTTP 403): this session may only push its own branch. They stay as branches for now.
-- **Kept `main` as production.** It is the version already audited and fixed for mobile and desktop in PR #3.
-- **Cleanup in PR #4:**
-  - Removed dead code: the open-house registration count, the `#viewCounter` animation, and the `.oh-count*` and `.oh-log-link` styles.
-  - Untracked `node_modules/` (116 files had been committed by mistake).
-  - Added `.vercelignore`, so only the public site deploys (Decision 011).
-  - Moved 21 old root reports, `lighthouse-report.json`, 9 unused images, `extra_photos/` and `info.txt` into `archive/`, with a README.
-  - Renamed the package to `aspen2`.
-- Updated all four `.ai/` files.
+- **Tags verified.** The owner created and pushed both tags from their own machine, and each matches its branch tip:
+  - `archive/redesign-type-and-layout` points to `c7e9049`, the tip of `redesign/type-and-layout`
+  - `archive/vercel-web-analytics-2026-09-16` points to `cd6214c`, the tip of `vercel/install-vercel-web-analytics-twy28q`
+- **Branch deletion failed from here.** The git proxy rejected `git push --delete` for all three merged branches, and the GitHub connector has no delete-branch action. The branches still exist; the owner has to delete them on GitHub.
+- **Docs updated.** `.ai/PROJECT_STATE.md` (Branches table), `.ai/DECISIONS.md` (Decision 012), `.ai/TODO.md` and this file now reflect the tags and the approved deletions.
 
 ## Files Changed
 
-- Code: `main.js` and `styles.css` (dead code removed), `package.json` (name).
-- New: `.vercelignore`, `archive/README.md`.
-- Moved into `archive/`: the root `*.md` reports (except `AGENTS.md` and `CLAUDE.md`), `lighthouse-report.json`, the unused root PNGs, `media/aspen-website-open-poster.jpg`, `extra_photos/` and `info.txt`.
-- Untracked: `node_modules/`.
-- Docs: `.ai/PROJECT_STATE.md`, `.ai/DECISIONS.md`, `.ai/TODO.md`, `.ai/HANDOFF.md`.
+`.ai/PROJECT_STATE.md`, `.ai/DECISIONS.md`, `.ai/TODO.md`, `.ai/HANDOFF.md`. No site code changed.
 
 ## Important Discoveries
 
-- The unrelated-site branch includes a CSLB license number, "since 1994" and "31 years". None of these are verified, and "since 1994" conflicts with the design card's "Est. 1998". Don't use them without owner confirmation.
-- That branch also has content that could help grow the site: six community pages, per-plan pages, about/process/warranty pages and a serverless lead handler. Porting any of it is an owner decision.
+- This cloud session can push only to its own working branch. It can't push tags or delete any branch, including its own. Tags and branch deletions have to be done by the owner, either on GitHub or from their own clone (`C:\Users\blunts\Desktop\Aspen II`).
 
 ## Problems Encountered
 
-- None blocking.
-- Branch deletion needs explicit owner permission (`AGENTS.md`), so no branches were deleted.
-- The archive-tag push was refused with HTTP 403. The commands to create the tags are in `.ai/PROJECT_STATE.md` Known Problems.
+`git push origin --delete <branch>` failed with "the remote end hung up unexpectedly" for every branch. This is a proxy restriction, not a repository problem.
 
 ## What Is Not Finished
 
-- Deleting the three fully merged branches. Waiting on owner permission.
-- Tagging the two unrelated-site branches, after which they can also be deleted.
-- The design-card questions and the other `.ai/TODO.md` items.
+- **Delete these branches** (owner approved; all are fully merged):
+  - `v0-rebrand-from-hshomeshub`
+  - `claude/aspen-2-homes-design-card-wk2tq5`
+  - `claude/sharp-pasteur-dkxsfr`, after the PR carrying this commit merges
+- The owner hasn't decided yet whether to delete `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q`. Both are safe to delete now that the tags exist.
+- The design-card questions and the rest of `.ai/TODO.md`.
 
 ## EXACT NEXT STEP
 
-Ask the owner for permission to delete the three fully merged branches:
-- `claude/sharp-pasteur-dkxsfr`
-- `claude/aspen-2-homes-design-card-wk2tq5`
-- `v0-rebrand-from-hshomeshub`
+Merge the PR from `claude/sharp-pasteur-dkxsfr`, then delete the merged branches, either at https://github.com/jasonmanuel-cmd/aspen2/branches or from the owner's clone:
 
-The owner can delete them from GitHub's Branches page. Then:
-1. Have the two unrelated-site branches tagged (commands in PROJECT_STATE).
-2. Ask the three design-card questions.
+```
+git push origin --delete v0-rebrand-from-hshomeshub claude/aspen-2-homes-design-card-wk2tq5 claude/sharp-pasteur-dkxsfr
+```
+
+Then update the `.ai/` Branches table.
 
 ## Warnings
 
 - Keep the design and architecture as they are unless the owner asks for changes (see `AGENTS.md`).
-- Don't merge the unrelated-site branches into `main`, and don't delete them until they are tagged (Decision 012).
+- Don't merge the unrelated-site branches or tags into `main` (Decision 012).
 - When adding new public files, check `.vercelignore` doesn't exclude them (Decision 011).
 - Don't copy the sign-in-log password, the Formspree form ID or any credentials into docs.
 - Never force-push, `reset --hard` or delete branches without explicit permission.
@@ -73,10 +61,5 @@ The owner can delete them from GitHub's Branches page. Then:
 
 ## Verification
 
-- **Deploy tree.** I rebuilt exactly what Vercel will deploy (tracked files minus `.vercelignore` matches): 231 files, 18 MB. Every one of the 369 local references in the pages, CSS and JS resolves.
-- **Serving.** The deploy tree serves the blueprint PDFs, and `archive/` returns 404.
-- **Headless Chromium on the deploy tree:**
-  - All six pages at 375, 820 and 1440 px: no horizontal scroll and no JS errors.
-  - Mobile menu, deep-link anchors, lightbox swipe with 960px images, model preselect and inline form validation all work.
-  - Both lead forms submit and redirect to `thank-you.html`, with the network stubbed.
-- **Other checks.** `node --check main.js` passes. There is no build step and no test suite.
+- `git rev-parse` confirms each `archive/*` tag resolves to the same commit as its branch tip.
+- This change touches docs only, so no site checks were needed.
