@@ -18,7 +18,7 @@ Before ending any session, update `.ai/`, commit, push, and get it merged into `
 
 ## Where Things Stand
 
-- **Production:** `main` deploys through Vercel (project `aspen2`). The public domain is **https://aspen2bakersfield.store** for now (Decision 013). `aspen2homes.com` is not this site; a Sept 17 check found an old WordPress site there.
+- **Production:** `main` deploys through Vercel (project `aspen2`). The public domain is **https://aspen2bakersfield.store** for now (Decision 013). The owner confirmed on 2026-09-27 that it's live. `aspen2homes.com` is not this site; a Sept 17 check found an old WordPress site there.
   - The last site-code change was PR #4 (`3eb2b0e`). PR #5 and this update changed only docs.
 - **PRs merged:**
   - PR #3: mobile and desktop fixes
@@ -66,7 +66,6 @@ At the owner's request, every canonical, OG/Twitter, JSON-LD, sitemap, robots an
 
 ## EXACT NEXT STEP
 
-0. **First, verify the live site** at https://aspen2bakersfield.store: every public URL now points there. Ask the owner to confirm `/`, `/floor-plans`, `/financing` and `/contact` load the dark-and-gold site; this session's network can't reach it.
 1. Check the branch state with `git fetch --prune && git branch -r`, or on https://github.com/jasonmanuel-cmd/aspen2/branches.
 2. If the three merged branches still exist, help the owner delete them. Read the error from `git push origin --delete <branch>`, and check Settings → Rules → Rulesets for a rule that blocks deletion.
 3. Once they're gone, update the Branches table in `PROJECT_STATE.md` and the TODO.

@@ -4,7 +4,6 @@ Last Updated: 2026-09-27
 
 ## Now
 
-- [ ] **Verify the live site** at https://aspen2bakersfield.store: `/`, `/floor-plans`, `/financing`, `/contact` and `/llms.txt` load, and it shows the dark-and-gold Aspen II site. Record the result in `PROJECT_STATE.md`.
 - [ ] Owner answers the design-card questions; apply them to `design-card.html` in a new branch and PR:
   - [ ] Confirm the wordmark font. Fira Sans Condensed is a best match, not confirmed.
   - [ ] Get the contractor (CSLB) license number and add it to the card's facts block.
@@ -12,6 +11,8 @@ Last Updated: 2026-09-27
   - [ ] Compare `aspen2-mark.svg` with the original logo before using it for print or signage.
 
 ## Next
+
+- [ ] Submit `https://aspen2bakersfield.store/sitemap.xml` in Google Search Console, so Google indexes the new domain.
 
 - [ ] Confirm the CRM endpoint (`www.harbisonstandard.com/hq/api/openhouse`, used in `main.js` and `signin-log.html`) is the right destination for Aspen II Homes leads.
 - [ ] Replace the client-side password gate on `signin-log.html` with real protection, or remove the page from the public deployment.
@@ -27,6 +28,8 @@ Last Updated: 2026-09-27
 - [ ] Owner decides whether to delete `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q`. Both are safely preserved as `archive/*` tags.
 
 ## Done
+
+- [x] 2026-09-27: The owner confirmed the site is live at https://aspen2bakersfield.store.
 
 - [x] 2026-09-27: Switched every canonical/OG/JSON-LD/sitemap/robots/llms URL from `aspen2homes.com` to `aspen2bakersfield.store` (owner request).
 

@@ -70,7 +70,7 @@ These are on `main` and confirmed in the code:
 ## Known Problems
 
 - **Domain:**
-  - The site is served at `aspen2bakersfield.store`, per the owner on 2026-09-27. Its connection to the Vercel project `aspen2` hasn't been verified here, because the cloud session's network blocks it.
+  - **Live and confirmed:** on 2026-09-27 the owner confirmed the site is live at https://aspen2bakersfield.store. The cloud session can't reach the domain itself; its network blocks it.
   - `aspen2homes.com` is **not** this site. A 2026-09-17 check (`archive/reports-2026-09/SITE_QA_AUDIT.md`) found it serving an older WordPress homepage.
   - When the owner moves to `aspen2homes.com`:
     1. Connect it in Vercel.
