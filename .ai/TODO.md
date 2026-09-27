@@ -4,6 +4,7 @@ Last Updated: 2026-09-27
 
 ## Now
 
+- [ ] Owner (ideally a lawyer) reviews `privacy.html`. In particular, confirm: the 45-day response commitment, the lender-introduction sentence, the "reply STOP" line (only accurate if the team texts leads), and the data retention wording.
 - [ ] Owner answers the design-card questions; apply them to `design-card.html` in a new branch and PR:
   - [ ] Confirm the wordmark font. Fira Sans Condensed is a best match, not confirmed.
   - [ ] Get the contractor (CSLB) license number and add it to the card's facts block.
@@ -28,6 +29,8 @@ Last Updated: 2026-09-27
 - [ ] Owner decides whether to delete `redesign/type-and-layout` and `vercel/install-vercel-web-analytics-twy28q`. Both are safely preserved as `archive/*` tags.
 
 ## Done
+
+- [x] 2026-09-27: Added `privacy.html` and linked it site-wide, and stopped putting lead details in the thank-you URL (Decision 014).
 
 - [x] 2026-09-27: The owner confirmed the site is live at https://aspen2bakersfield.store.
 

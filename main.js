@@ -334,12 +334,10 @@
     sessionStorage.setItem('lastSubmissionPhone', phone);
     sessionStorage.setItem('lastSubmissionTime', dt);
   }
-  function goThankYou(name, email, phone, dt, delay) {
-    setTimeout(function () {
-      window.location.href = 'thank-you.html?name=' + encodeURIComponent(name) +
-        '&email=' + encodeURIComponent(email) + '&phone=' + encodeURIComponent(phone) +
-        '&time=' + encodeURIComponent(dt);
-    }, delay);
+  // The confirmation page reads the lead from sessionStorage (persistLead), so
+  // names, emails and phone numbers never appear in URLs, logs or history.
+  function goThankYou(delay) {
+    setTimeout(function () { window.location.href = 'thank-you.html'; }, delay);
   }
 
   // ── Tour / contact form ──
@@ -391,7 +389,7 @@
 
         persistLead(name, email, phone, dt);
         btn.textContent = 'Sent — Thank You';
-        goThankYou(name, email, phone, dt, 800);
+        goThankYou(800);
       } catch (err) {
         btn.textContent = label;
         btn.disabled = false;
@@ -440,7 +438,7 @@
         btn.style.background = 'linear-gradient(135deg,#2E554A,#1F3A32)';
         btn.style.color = '#fff';
         persistLead(name, email, phone, dt);
-        goThankYou(name, email, phone, dt, 2000);
+        goThankYou(2000);
       } catch (err) {
         console.error('[v0] Error:', err);
         btn.textContent = 'Register Now \u2192';

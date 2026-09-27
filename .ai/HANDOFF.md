@@ -47,7 +47,13 @@ This last update records that the branch deletions haven't taken effect yet, and
 
 ## Latest Change (2026-09-27)
 
-At the owner's request, every canonical, OG/Twitter, JSON-LD, sitemap, robots and llms URL moved from `aspen2homes.com` to `aspen2bakersfield.store`. That's 38 references in 8 public files. The email address `Aspen2homes@gmail.com` is unchanged. The JSON-LD on every page still parses. See Decision 013.
+- **Privacy policy (Decision 014):**
+  - Added `privacy.html` in the site's style, linked from every footer and under both contact forms, and added to `sitemap.xml`.
+  - `main.js` no longer puts a lead's name, email and phone in the thank-you URL; `thank-you.html` reads them from sessionStorage.
+  - Removed the unused Google Fonts preconnects.
+  - Browser-tested: no JS errors at phone or desktop size, both forms land on the thank-you page with the visitor's name shown, and there are no query parameters in the URL.
+  - The policy wording needs owner or legal review before relying on it.
+- **Domain switch:** At the owner's request, every canonical, OG/Twitter, JSON-LD, sitemap, robots and llms URL moved from `aspen2homes.com` to `aspen2bakersfield.store`. That's 38 references in 8 public files. The email address `Aspen2homes@gmail.com` is unchanged. The JSON-LD on every page still parses. See Decision 013.
 
 ## Files Changed (earlier update)
 
