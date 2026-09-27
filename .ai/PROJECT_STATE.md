@@ -2,7 +2,7 @@
 
 Last Updated: 2026-09-27
 Current Branch: `main` (production).
-Last Known Good Commit: `a616a5d` on `main` (merge of PR #15, the last site change: privacy-policy retention wording). Vercel serves `main` in production at https://aspen2bakersfield.store.
+Last Known Good Commit: the merge of PR #17 on `main` (scroll-film phone fix and font cleanup). Vercel serves `main` in production at https://aspen2bakersfield.store.
 
 ## Project
 
@@ -22,7 +22,7 @@ Other services:
 - Formspree: lead forms post here as a backup. The form ID is in `main.js` and `signin-log.html`.
 - An outside CRM API at `www.harbisonstandard.com/hq/api/openhouse` (POST) and `/openhouse-log` (GET). The URLs are hard-coded in `main.js` and `signin-log.html`. This API is not part of this repo and looks like it was carried over from the earlier project. It hasn't been checked for this brand.
 - Vercel Web Analytics, loaded with `/_vercel/insights/script.js` on every page.
-- Fonts are self-hosted in `assets/fonts/` (Fraunces, Inter) through `fonts.css`. `design-card.html` loads Google Fonts instead.
+- Fonts are self-hosted in `assets/fonts/` through `fonts.css`: one variable Fraunces file (`fraunces.woff2`, weights 400–700) and one variable Inter file (`inter.woff2`). `design-card.html` loads Google Fonts instead.
 
 ## Current Architecture
 

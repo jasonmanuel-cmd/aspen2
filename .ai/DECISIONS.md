@@ -159,3 +159,28 @@ Status: Active. On 2026-09-27 the owner reviewed the wording and made these edit
 - set retention to 2 years after last contact, with purchase records kept as long as the law requires
 
 A lawyer's review is still advisable but optional. Because the policy promises 2-year deletion, leads must actually be purged from the CRM and the Formspree inbox on that schedule. If the site starts sending marketing texts, adds ad pixels or cookies, or changes where leads go, update the policy in the same PR.
+
+---
+
+## Decision 015
+
+Date: 2026-09-27
+Decision: Rebuild the homepage scroll-film (`#film`) for phones:
+- Load all five photos when the section is within one screen, not one chapter ahead.
+- Phones (≤768px) get at most the 960px photo.
+- A chapter only appears once its photo is decoded (`img.decode()`), so there's never a black frame.
+- The DOM changes only when the chapter changes.
+- The slow zoom runs only on desktop with a fine pointer.
+- The progress bar uses `transform: scaleX` instead of `width`.
+- Captions hide with `visibility`, not `content-visibility`.
+- The body uses `overflow-x: clip` (with a `hidden` fallback), so iOS Safari's sticky positioning isn't broken.
+
+Also serve Fraunces from the single variable file `fraunces.woff2` (weights 400–700) and delete the four duplicate static weight files.
+Reason: The owner reported the section freezing on their phone. Causes:
+- a full-screen photo repainted with a new scale on every scroll frame
+- 1536–1600px photos decoded as each chapter appeared
+- only one photo loaded ahead
+
+A 0.6s crossfade was tried and rejected: it caused 24–31 dropped frames per desktop run, against 0–5 before and 0 now. The four static font files duplicated the variable font, which renders identically (0.00% pixel difference).
+Files affected: `main.js`, `styles.css`, `index.html`, `fonts.css`, the `index.html`/`floor-plans.html`/`financing.html`/`contact.html`/`privacy.html` font preloads, `assets/fonts/`
+Status: Active. Keep per-scroll work in `renderFilm()` to one element's `transform`. Don't add opacity transitions to `.film-frame`. Don't add back per-weight Fraunces files.
