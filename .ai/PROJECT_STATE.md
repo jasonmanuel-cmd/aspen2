@@ -27,7 +27,7 @@ Other services:
 ## Current Architecture
 
 - Multi-page static site served from the repo root. Clean URLs are on, so `/floor-plans` serves `floor-plans.html`.
-- Public pages: `index.html` (home), `floor-plans.html` (the six models), `financing.html`, `contact.html`, `thank-you.html`.
+- Public pages: `index.html` (home), `floor-plans.html` (the six models), `financing.html`, `contact.html`, `thank-you.html`, `privacy.html` (privacy policy, linked from every footer and under both contact-page forms).
 - Internal page: `signin-log.html`, an open-house sign-in log that reads the CRM log and links to the Formspree dashboard.
 - Brand reference page: `design-card.html`, on `main` since PR #2 and marked `noindex`. It is publicly reachable at `/design-card` but not linked from the site.
 - `main.js` runs everything on the client:

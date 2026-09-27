@@ -134,3 +134,22 @@ Decision: For now, the site's public domain is `aspen2bakersfield.store`. All ca
 Reason: The owner confirmed the site is served there. The previous canonical domain, `aspen2homes.com`, was last seen serving an old WordPress site. Pointing search engines at it would have sent them away from the live site.
 Files affected: `index.html`, `floor-plans.html`, `financing.html`, `contact.html`, `design-card.html`, `llms.txt`, `robots.txt`, `sitemap.xml`
 Status: Active, and temporary. Reverse it when moving to `aspen2homes.com`: one find-and-replace, plus a permanent redirect from the `.store` domain.
+
+---
+
+## Decision 014
+
+Date: 2026-09-27
+Decision: Publish `privacy.html`, written from what the site actually does:
+- the form fields collected
+- who receives them: the CRM, Formspree and Vercel
+- cookieless Vercel Web Analytics
+- the sessionStorage items the site sets
+- no advertising cookies, and no selling or sharing of data
+- how to request access, correction or deletion
+- California and Do Not Track disclosures
+
+Link it from every footer and under both lead forms. At the same time, stop putting the lead's name, email and phone in the `thank-you.html` URL; the page reads them from sessionStorage instead. Remove the unused `fonts.gstatic.com` preconnects from `thank-you.html` and `signin-log.html`.
+Reason: The site collects personal information from California residents, so CalOPPA requires a conspicuously posted privacy policy. Personal details in URLs leak into logs, analytics and browser history.
+Files affected: `privacy.html`, `index.html`, `floor-plans.html`, `financing.html`, `contact.html`, `thank-you.html`, `signin-log.html`, `main.js`, `styles.css`, `sitemap.xml`
+Status: Active. The policy text is a good-faith draft and **needs owner (ideally legal) review**. If the site starts sending marketing texts, adds ad pixels or cookies, or changes where leads go, update the policy in the same PR.
