@@ -1,19 +1,25 @@
 {
-  "name": "aspen2",
-  "version": "1.0.0",
-  "private": true,
+  "name": "aspen2-homes",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "dev": "serve -l 3000 .",
-    "start": "serve -l 3000 .",
-    "build": "echo 'static site — no build step'",
-    "audit:lighthouse": "node scripts/lighthouse-audit.mjs",
-    "audit:serve": "node scripts/serve-audit.mjs"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "node tests/lead.test.mjs"
   },
   "dependencies": {
-    "sharp": "^0.35.4"
+    "astro": "^7.3.5"
+  },
+  "allowScripts": {
+    "esbuild": true
   },
   "devDependencies": {
-    "lighthouse": "^13.4.1",
-    "serve": "^14.2.6"
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
   }
 }

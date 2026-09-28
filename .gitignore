@@ -1,18 +1,27 @@
-node_modules/
-.env
-.env.*
-!.env.example
-*.log
-__pycache__/
-reports/lighthouse/chrome-profile/
-reports/lighthouse/*.json
-!reports/lighthouse/summary.json
-reports/lighthouse/*.html
-baseline-mobile.json
-font-source.css
+# build output
+dist/
 
-reports/lighthouse/**/chrome-profile/
-reports/lighthouse/**/*.json
-reports/lighthouse/**/*.html
-!reports/lighthouse/summary.json
-!reports/lighthouse/utilities-summary.json
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables (secrets); the template is safe to commit
+.env*
+!.env.example
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# vercel
+.vercel

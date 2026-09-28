@@ -1,20 +1,22 @@
-# Claude Code Instructions
+## Development
 
-The persistent project instructions are contained in `AGENTS.md`.
+When starting the dev server, use background mode:
 
-Before doing ANY work:
+```
+astro dev --background
+```
 
-1. Read `AGENTS.md`.
-2. Read `.ai/PROJECT_STATE.md`.
-3. Read `.ai/DECISIONS.md`.
-4. Read `.ai/TODO.md`.
-5. Read `.ai/HANDOFF.md`.
-6. Inspect the repository and Git history.
-7. Confirm your understanding of the current project state.
+Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
-Do not treat this conversation as the authoritative project state.
+## Documentation
 
-The repository is authoritative.
+Full documentation: https://docs.astro.build
 
-Before ending a development session, update the `.ai` documentation
-according to AGENTS.md.
+Consult these guides before working on related tasks:
+
+- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
+- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
+- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
+- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
+- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
+- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
