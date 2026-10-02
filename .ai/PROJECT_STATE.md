@@ -1,6 +1,6 @@
 # PROJECT STATE
 
-Last Updated: 2026-09-27
+Last Updated: 2026-10-02
 Current Branch: `main` (production).
 Last Known Good Commit: the merge of PR #17 on `main` (scroll-film phone fix and font cleanup). Vercel serves `main` in production at https://aspen2bakersfield.store.
 
@@ -74,6 +74,7 @@ These are on `main` and confirmed in the code:
 
 ## Known Problems
 
+- **`aspen2homes.com` now serves a separate Astro site (found 2026-10-02):** both `aspen2homes.com` and `www.aspen2homes.com` resolve to Vercel project `aspen2-astro-preview` (deployment `dpl_J1Z5ZNUdwzMWLSFS6EZ9WPzdFjpH`, uploaded with the Vercel CLI on 2026-09-28 from a Windows machine, no Git link). The owner calls this "the new site". Its source is the `astro-rebuild` branch of this repo (`8a5be1d`), plus edits made after that commit to 10 files (Layout, the five components, `index`, `contact-us`, `financing`, `heroes-of-the-nation`). Those edits exist only in the deployment and on the machine that deployed it. A baseline copy of `8a5be1d` (no history) was pushed to `jasonmanuel-cmd/apen2website`, branch `claude/aspen-2-homes-design-card-wk2tq5`. `main` there is still empty, waiting for the exact copy from the owner's laptop.
 - **Domain:**
   - **Live and confirmed:** on 2026-09-27 the owner confirmed the site is live at https://aspen2bakersfield.store. The cloud session can't reach the domain itself; its network blocks it.
   - `aspen2homes.com` is **not** this site. A 2026-09-17 check (`archive/reports-2026-09/SITE_QA_AUDIT.md`) found it serving an older WordPress homepage.
