@@ -1,10 +1,21 @@
 # AI HANDOFF
 
-Last Updated: 2026-09-27
+Last Updated: 2026-10-02
 Agent: Claude Code (cloud session, started from the owner's desktop app)
 Machine: Claude Code on the web, a temporary cloud container. Nothing is kept outside Git.
 Branch: `main`. This update was made on `claude/sharp-pasteur-dkxsfr` and merged.
 Commit: the merge of the PR titled `Fix homepage scroll-film freezing on phones and trim fonts` (PR #17).
+
+## 2026-10-02: New site moved to its own repo (read first)
+
+- The owner says `www.aspen2homes.com` is the **new** site and wants it in the empty repo `jasonmanuel-cmd/apen2website` (spelled "apen2"), without this repo's history or old files.
+- That domain serves Vercel project `aspen2-astro-preview`, an **Astro** build (not this static site). It was uploaded with the CLI on 2026-09-28 and has no Git link.
+- Source = this repo's `astro-rebuild` branch (`8a5be1d`), plus uncommitted edits to 10 files. The deployment's file hashes (plain SHA-1) were compared with that commit to confirm this.
+- Pushed to `apen2website`, branch `claude/aspen-2-homes-design-card-wk2tq5`: a single commit holding `8a5be1d` (103 files, about 10 MB). No PR yet, because `main` there has no commits.
+- **Next:** on the laptop that deployed it, push that exact project folder to `apen2website` `main` as one fresh commit (`git checkout --orphan`). After that, the baseline branch can be dropped. Then connect `apen2website` to the Vercel project `aspen2-astro-preview` so deploys come from Git.
+- **Update (2026-10-03):** `apen2website` `main` (`f5ec4ae`) now holds the Astro site, restyled to the live palette. The colors were copied from the live CSS; the homepage hero and path cards match the owner's screenshots. The owner is connecting it to Vercel project `aspen2-astro-preview`. GitHub's default branch there is still `claude/aspen-2-homes-design-card-wk2tq5`, identical to `main`. Changing that needs the owner, because this session can't write repo settings.
+- **Leads are not being emailed:** `aspen2-astro-preview` has no environment variables. Without `RESEND_API_KEY`, `api/lead.js` returns success but sends nothing, so form leads are lost on the live site today.
+- The Vercel MCP connector cuts off file contents at about 2 KB, and this container can't reach `*.vercel.app` or `aspen2homes.com`. That's why the exact files couldn't be pulled from the cloud.
 
 ## Syncing Across Machines
 
